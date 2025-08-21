@@ -6,7 +6,7 @@ export function Footer() {
     {
       title: "Products",
       links: [
-        { href: "/products", label: "Revit Pro Tools" },
+        { href: "/products", label: "Professional Sheet Creator" },
         { href: "/technical-specs", label: "Technical Specs" },
         { href: "/pricing", label: "Pricing" },
       ],
@@ -43,13 +43,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-electric-blue flex items-center justify-center">
-                <span className="text-white font-bold text-lg">BIM</span>
-              </div>
-              <span className="font-heading text-xl font-bold">Ops Studio</span>
+              <img 
+                src="/logo.png" 
+                alt="BIM Ops Studio" 
+                className="w-10 h-10"
+              />
+              <span className="font-heading text-xl font-bold">BIM Ops Studio</span>
             </div>
             <p className="text-gray-400 dark:text-gray-300 mb-6">
-              Automating Revit workflows with AI-powered tools for BIM professionals.
+              Professional Sheet Creator - Automate Revit sheet generation with the power of Revit API.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
