@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIM Ops Studio - Cinematic Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+
+        .cinema-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.5s ease;
+        }
+
+        .scene.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Movie Strip Progress Bar */
+        .movie-strip {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(45deg, #1a1a1a, #333);
+            border-top: 3px solid #0066CC;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .film-reel {
+            width: 100%;
+            height: 40px;
+            background: #222;
+            border: 2px solid #444;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .film-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #0066CC, #10B981, #0066CC);
+            width: 0%;
+            border-radius: 18px;
+            transition: width 0.1s linear;
+            position: relative;
+        }
+
+        .film-frames {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 18px,
+                rgba(255,255,255,0.1) 18px,
+                rgba(255,255,255,0.1) 20px
+            );
+            animation: filmRoll 2s linear infinite;
+        }
+
+        @keyframes filmRoll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(20px); }
+        }
+
+        .scene-counter {
+            color: #10B981;
+            font-weight: bold;
+            margin-left: 20px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Dynamic Backgrounds */
+        .bg-office {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #1E3A8A 100%);
+        }
+
+        .bg-problem {
+            background: linear-gradient(135deg, #7F1D1D 0%, #DC2626 50%, #7F1D1D 100%);
+        }
+
+        .bg-solution {
+            background: linear-gradient(135deg, #065F46 0%, #10B981 50%, #065F46 100%);
+        }
+
+        .bg-tech {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3730A3 50%, #000 100%);
+        }
+
+        .bg-demo {
+            background: radial-gradient(circle at center, #0F172A 0%, #000 100%);
+        }
+
+        /* Text Styles */
+        .title-xl {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.1;
+        }
+
+        .title-lg {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .title-md {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        .electric-blue {
+            color: #0066CC;
+        }
+
+        .warning {
+            color: #EF4444;
+            font-weight: 700;
+        }
+
+        /* AI-Generated Interface Mockups */
+        .revit-interface {
+            background: #2D2D30;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #0066CC;
+            width: 90%;
+            max-width: 1000px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .revit-toolbar {
+            background: #3C3C3C;
+            height: 40px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            gap: 10px;
+        }
+
+        .revit-button {
+            background: #555;
+            border: 1px solid #777;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .revit-viewport {
+            background: #1E1E1E;
+            border: 2px solid #555;
+            border-radius: 8px;
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .building-wireframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 150px;
+            border: 2px solid #0066CC;
+            background: linear-gradient(45deg, transparent 30%, rgba(0,102,204,0.1) 30%, rgba(0,102,204,0.1) 70%, transparent 70%);
+            animation: rotate3d 4s linear infinite;
+        }
+
+        @keyframes rotate3d {
+            0% { transform: translate(-50%, -50%) rotateY(0deg) rotateX(10deg); }
+            100% { transform: translate(-50%, -50%) rotateY(360deg) rotateX(10deg); }
+        }
+
+        .parameter-panel {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid #10B981;
+            border-radius: 8px;
+            padding: 1rem;
+            width: 250px;
+        }
+
+        .parameter-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .progress-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .progress-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 10px solid rgba(255,255,255,0.2);
+            border-top: 10px solid #10B981;
+            margin: 0 auto 1rem;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #10B981;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-simulation {
+            background: #0D1117;
+            border: 1px solid #30363D;
+            border-radius: 10px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+            margin: 2rem 0;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .code-line {
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: typeIn 0.5s ease forwards;
+        }
+
+        @keyframes typeIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid #10B981;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0066CC, #10B981);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0066CC, #10B981);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,102,204,0.3);
+        }
+
+        .cta-button {
+            background: white;
+            color: #0066CC;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #10B981;
+            border-radius: 50%;
+            animation: float 8s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Cinematic transitions */
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .slide-up {
+            animation: slideUp 1s ease forwards;
+        }
+
+        .zoom-in {
+            animation: zoomIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Controls */
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background: rgba(0,0,0,0.7);
+            border: 1px solid #10B981;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-btn:hover {
+            background: rgba(16,185,129,0.2);
+        }
+
+        /* Time display */
+        .time-display {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            border: 1px solid #0066CC;
+            color: #10B981;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title-xl { font-size: 2.5rem; }
+            .title-lg { font-size: 2rem; }
+            .subtitle { font-size: 1.2rem; }
+            .revit-interface { width: 95%; height: 300px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cinema-container">
+        <!-- Floating Particles -->
+        <div class="particles" id="particles"></div>
+
+        <!-- Time Display -->
+        <div class="time-display" id="timeDisplay">00:00 / 02:00</div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn" onclick="togglePause()">⏸️ Pause</button>
+            <button class="control-btn" onclick="restart()">🔄 Restart</button>
+            <button class="control-btn" onclick="skipToEnd()">⏭️ Skip</button>
+        </div>
+
+        <!-- Movie Scenes (50 scenes total) -->
+        
+        <!-- Scene 1: Opening Title -->
+        <div class="scene active bg-office" id="scene1">
+            <div class="fade-in">
+                <div class="title-xl">BIM OPS STUDIO</div>
+                <div class="subtitle">A Cinematic Experience</div>
+            </div>
+        </div>
+
+        <!-- Scene 2: Problem Statement -->
+        <div class="scene bg-problem" id="scene2">
+            <div class="slide-up">
+                <div class="title-lg">Every Day...</div>
+                <div class="subtitle">Thousands of BIM professionals face the same challenge</div>
+            </div>
+        </div>
+
+        <!-- Scene 3: Clock Animation -->
+        <div class="scene bg-problem" id="scene3">
+            <div class="zoom-in">
+                <div class="title-xl">⏰ 6:00 PM</div>
+                <div class="subtitle">Still at the office, working on <span class="warning">repetitive tasks</span></div>
+            </div>
+        </div>
+
+        <!-- Scene 4: Time Progression -->
+        <div class="scene bg-problem" id="scene4">
+            <div class="title-xl">⏰ 8:00 PM</div>
+            <div class="subtitle">Parameter updates... sheet creation... family placement...</div>
+        </div>
+
+        <!-- Scene 5: Late Night -->
+        <div class="scene bg-problem" id="scene5">
+            <div class="title-xl">⏰ 10:00 PM</div>
+            <div class="subtitle"><span class="warning">80% of time</span> spent on tasks that should be automated</div>
+        </div>
+
+        <!-- Scene 6: The Pain -->
+        <div class="scene bg-problem" id="scene6">
+            <div class="title-lg">Hours of Manual Work</div>
+            <div class="subtitle">Keeping you from what you do best - <span class="highlight">designing amazing buildings</span></div>
+        </div>
+
+        <!-- Scene 7: Transition -->
+        <div class="scene bg-tech" id="scene7">
+            <div class="title-md">But what if...</div>
+            <div class="subtitle">There was a better way?</div>
+        </div>
+
+        <!-- Scene 8: Solution Reveal -->
+        <div class="scene bg-solution" id="scene8">
+            <div class="zoom-in">
+                <div class="title-xl">Introducing</div>
+                <div class="title-xl"><span class="highlight">BIM OPS STUDIO</span></div>
+            </div>
+        </div>
+
+        <!-- Scene 9: AI Powered -->
+        <div class="scene bg-solution" id="scene9">
+            <div class="title-lg">🤖 AI-Powered Automation</div>
+            <div class="subtitle">That transforms complex Revit workflows into simple, one-click operations</div>
+        </div>
+
+        <!-- Scene 10: Transformation -->
+        <div class="scene bg-solution" id="scene10">
+            <div class="title-lg">Transform BIM Workflows</div>
+            <div class="title-lg">Into <span class="electric-blue">One-Click Magic</span></div>
+        </div>
+
+        <!-- Scene 11: ReviTask Introduction -->
+        <div class="scene bg-demo" id="scene11">
+            <div class="title-lg"><span class="electric-blue">ReviTask</span></div>
+            <div class="subtitle">AI-Powered Task Automation</div>
+        </div>
+
+        <!-- Scene 12: ReviTask Interface -->
+        <div class="scene bg-demo" id="scene12">
+            <div class="revit-interface">
+                <div class="revit-toolbar">
+                    <div class="revit-button">File</div>
+                    <div class="revit-button">Edit</div>
+                    <div class="revit-button">View</div>
+                    <div class="revit-button">ReviTask</div>
+                </div>
+                <div class="revit-viewport">
+                    <div class="building-wireframe"></div>
+                    <div class="parameter-panel">
+                        <div class="parameter-row">
+                            <span>Elements:</span>
+                            <span class="highlight">1,247</span>
+                        </div>
+                        <div class="parameter-row">
+                            <span>Parameter:</span>
+                            <span>Fire Rating</span>
+                        </div>
+                        <div class="parameter-row">
+                            <span>New Value:</span>
+                            <span class="highlight">2 Hour</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 13: Execute Button -->
+        <div class="scene bg-demo" id="scene13">
+            <div class="title-lg">⚡ Click Execute</div>
+            <div class="subtitle">Watch thousands of elements update in real-time</div>
+        </div>
+
+        <!-- Scene 14: Progress Animation -->
+        <div class="scene bg-demo" id="scene14">
+            <div class="progress-container">
+                <div class="progress-circle"></div>
+                <div class="title-md">Processing 1,247 elements...</div>
+                <div class="subtitle">AI algorithms analyzing parameters</div>
+            </div>
+        </div>
+
+        <!-- Scene 15: Speed Comparison -->
+        <div class="scene bg-demo" id="scene15">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15s</div>
+                    <div>With ReviTask</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number warning">3hrs</div>
+                    <div>Manual Process</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 16: Accuracy -->
+        <div class="scene bg-demo" id="scene16">
+            <div class="title-lg">✅ Perfect Accuracy</div>
+            <div class="subtitle">Zero errors, complete validation</div>
+        </div>
+
+        <!-- Scene 17: SmartSheetList Introduction -->
+        <div class="scene bg-demo" id="scene17">
+            <div class="title-lg"><span class="highlight">SmartSheetList</span></div>
+            <div class="subtitle">Intelligent Sheet Management</div>
+        </div>
+
+        <!-- Scene 18: Sheet Generation Demo -->
+        <div class="scene bg-demo" id="scene18">
+            <div class="code-simulation">
+                <div class="code-line" style="animation-delay: 0s;">Initializing SmartSheetList...</div>
+                <div class="code-line" style="animation-delay: 0.5s;">Loading project templates...</div>
+                <div class="code-line" style="animation-delay: 1s;">Analyzing view standards...</div>
+                <div class="code-line" style="animation-delay: 1.5s;">Generating sheet set...</div>
+            </div>
+        </div>
+
+        <!-- Scene 19: Sheet Counter -->
+        <div class="scene bg-demo" id="scene19">
+            <div class="title-xl" id="sheetCounter">0 Sheets</div>
+            <div class="subtitle">Creating professional drawing sets...</div>
+        </div>
+
+        <!-- Scene 20: Sheet Progress -->
+        <div class="scene bg-demo" id="scene20">
+            <div class="title-xl" id="sheetCounter2">25 Sheets</div>
+            <div class="subtitle">Perfect formatting, consistent standards</div>
+        </div>
+
+        <!-- Scene 21: Final Count -->
+        <div class="scene bg-demo" id="scene21">
+            <div class="title-xl highlight">47 Sheets Complete!</div>
+            <div class="subtitle">Generated in minutes, not hours</div>
+        </div>
+
+        <!-- Scene 22: Time Savings -->
+        <div class="scene bg-solution" id="scene22">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">90%</div>
+                    <div>Time Saved</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div>Accuracy</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 23: Folder Structure Creator -->
+        <div class="scene bg-demo" id="scene23">
+            <div class="title-lg">📁 <span class="highlight">Folder Structure Creator</span></div>
+            <div class="subtitle">Project Organization Made Easy</div>
+        </div>
+
+        <!-- Scene 24: Standards Compliance -->
+        <div class="scene bg-demo" id="scene24">
+            <div class="title-lg">🛡️ ISO 19650 Compliant</div>
+            <div class="subtitle">Industry-standard project organization</div>
+        </div>
+
+        <!-- Scene 25: User Testimonial 1 -->
+        <div class="scene bg-office" id="scene25">
+            <div class="testimonial-card">
+                <div class="quote">"ReviTask has transformed our modeling workflow completely."</div>
+                <div class="author">
+                    <div class="avatar">JW</div>
+                    <div>
+                        <div><strong>Jennifer Walsh</strong></div>
+                        <div>BIM Manager, Skidmore Owings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 26: User Testimonial 2 -->
+        <div class="scene bg-office" id="scene26">
+            <div class="testimonial-card">
+                <div class="quote">"What used to take hours now happens in minutes."</div>
+                <div class="author">
+                    <div class="avatar">CR</div>
+                    <div>
+                        <div><strong>Carlos Rodriguez</strong></div>
+                        <div>Senior Architect, Gensler</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 27: User Statistics -->
+        <div class="scene bg-solution" id="scene27">
+            <div class="title-lg">Join <span class="highlight">1,000+</span> BIM Professionals</div>
+            <div class="subtitle">Who have already transformed their workflows</div>
+        </div>
+
+        <!-- Scene 28: Work-Life Balance -->
+        <div class="scene bg-solution" id="scene28">
+            <div class="title-lg">Focus on <span class="highlight">Design Innovation</span></div>
+            <div class="subtitle">Not drudgery</div>
+        </div>
+
+        <!-- Scene 29: Family Time -->
+        <div class="scene bg-solution" id="scene29">
+            <div class="title-lg">Get Home to Your <span class="highlight">Family</span></div>
+            <div class="subtitle">Not stuck at the office</div>
+        </div>
+
+        <!-- Scene 30: Before/After Visual -->
+        <div class="scene bg-office" id="scene30">
+            <div class="stats-grid">
+                <div class="stat-card before">
+                    <div class="stat-number">😫</div>
+                    <div>Working until 10 PM</div>
+                </div>
+                <div class="stat-card after">
+                    <div class="stat-number">😊</div>
+                    <div>Home by 5 PM</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 31: Productivity Stats -->
+        <div class="scene bg-solution" id="scene31">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">80%</div>
+                    <div>Time Saved</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div>Reliability</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div>Automated Tasks</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 32: ROI Calculation -->
+        <div class="scene bg-office" id="scene32">
+            <div class="title-lg">💰 Average ROI: <span class="highlight">400%</span></div>
+            <div class="subtitle">Pays for itself in the first week</div>
+        </div>
+
+        <!-- Scene 33: Easy Setup -->
+        <div class="scene bg-tech" id="scene33">
+            <div class="title-lg">⚡ Setup in <span class="highlight">Under 2 Minutes</span></div>
+            <div class="subtitle">No complex configuration required</div>
+        </div>
+
+        <!-- Scene 34: Compatibility -->
+        <div class="scene bg-tech" id="scene34">
+            <div class="title-lg">🔧 Works with Revit 2020-2025</div>
+            <div class="subtitle">Plus Dynamo 3.0 integration</div>
+        </div>
+
+        <!-- Scene 35: Cloud Integration -->
+        <div class="scene bg-tech" id="scene35">
+            <div class="title-lg">☁️ Cloud-Powered Intelligence</div>
+            <div class="subtitle">Always learning, always improving</div>
+        </div>
+
+        <!-- Scene 36: Security -->
+        <div class="scene bg-tech" id="scene36">
+            <div class="title-lg">🛡️ Enterprise-Grade Security</div>
+            <div class="subtitle">Your data stays private and secure</div>
+        </div>
+
+        <!-- Scene 37: Support -->
+        <div class="scene bg-office" id="scene37">
+            <div class="title-lg">📞 Expert Support</div>
+            <div class="subtitle">BIM professionals helping BIM professionals</div>
+        </div>
+
+        <!-- Scene 38: Training -->
+        <div class="scene bg-office" id="scene38">
+            <div class="title-lg">🎓 Comprehensive Training</div>
+            <div class="subtitle">Get up to speed in minutes</div>
+        </div>
+
+        <!-- Scene 39: Updates -->
+        <div class="scene bg-tech" id="scene39">
+            <div class="title-lg">🔄 Regular Updates</div>
+            <div class="subtitle">New features and improvements monthly</div>
+        </div>
+
+        <!-- Scene 40: Community -->
+        <div class="scene bg-solution" id="scene40">
+            <div class="title-lg">👥 Active Community</div>
+            <div class="subtitle">Share tips, tricks, and workflows</div>
+        </div>
+
+        <!-- Scene 41: Call to Action Build -->
+        <div class="scene bg-solution" id="scene41">
+            <div class="title-lg">Ready to <span class="highlight">Transform</span>?</div>
+            <div class="subtitle">Your workflow transformation starts here</div>
+        </div>
+
+        <!-- Scene 42: Free Trial -->
+        <div class="scene bg-solution" id="scene42">
+            <div class="title-xl">🎁 <span class="highlight">14-Day Free Trial</span></div>
+            <div class="subtitle">No credit card required</div>
+        </div>
+
+        <!-- Scene 43: Risk Free -->
+        <div class="scene bg-solution" id="scene43">
+            <div class="title-lg">✅ 100% Risk-Free</div>
+            <div class="subtitle">Cancel anytime, no questions asked</div>
+        </div>
+
+        <!-- Scene 44: Instant Access -->
+        <div class="scene bg-solution" id="scene44">
+            <div class="title-lg">⚡ Instant Access</div>
+            <div class="subtitle">Start automating in minutes</div>
+        </div>
+
+        <!-- Scene 45: CTA Section -->
+        <div class="scene bg-solution" id="scene45">
+            <div class="cta-section">
+                <div class="title-lg">Start Your Free Trial Today</div>
+                <button class="cta-button" onclick="window.open('/pricing', '_blank')">
+                    🚀 Get Started Now
+                </button>
+                <button class="cta-button" onclick="window.open('/contact', '_blank')">
+                    📞 Schedule Demo
+                </button>
+            </div>
+        </div>
+
+        <!-- Scene 46: Website -->
+        <div class="scene bg-tech" id="scene46">
+            <div class="title-xl"><span class="highlight">BIMOpsStudio.com</span></div>
+            <div class="subtitle">Visit today and see the difference</div>
+        </div>
+
+        <!-- Scene 47: Urgency -->
+        <div class="scene bg-solution" id="scene47">
+            <div class="title-lg">Don't Wait Another Day</div>
+            <div class="subtitle">Your competitors are already automating</div>
+        </div>
+
+        <!-- Scene 48: Benefits Recap -->
+        <div class="scene bg-solution" id="scene48">
+            <div class="title-lg">✅ Save 80% of Your Time</div>
+            <div class="title-lg">✅ Eliminate Errors</div>
+            <div class="title-lg">✅ Work-Life Balance</div>
+        </div>
+
+        <!-- Scene 49: Final CTA -->
+        <div class="scene bg-solution" id="scene49">
+            <div class="title-xl">Transform Today</div>
+            <div class="cta-section">
+                <button class="cta-button" onclick="window.open('/pricing', '_blank')">
+                    Start Free Trial
+                </button>
+            </div>
+        </div>
+
+        <!-- Scene 50: End Credits -->
+        <div class="scene bg-office" id="scene50">
+            <div class="fade-in">
+                <div class="title-lg">BIM OPS STUDIO</div>
+                <div class="subtitle">Transform BIM Workflows Into One-Click Magic</div>
+                <div class="subtitle" style="margin-top: 2rem; opacity: 0.7;">
+                    A 100% AI-Generated Cinematic Experience
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movie Strip Progress Bar -->
+    <div class="movie-strip">
+        <div class="film-reel">
+            <div class="film-progress" id="filmProgress"></div>
+            <div class="film-frames"></div>
+        </div>
+        <div class="scene-counter" id="sceneCounter">Scene 1 / 50</div>
+    </div>
+
+    <script>
+        let currentScene = 1;
+        let isPlaying = true;
+        let startTime = Date.now();
+        let totalDuration = 120000; // 2 minutes in milliseconds
+        let sceneInterval;
+        let timeInterval;
+
+        // Scene timing (2.4 seconds per scene for 50 scenes in 120 seconds)
+        const sceneTimings = Array(50).fill(2400);
+
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        function showScene(sceneNum) {
+            // Hide all scenes
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.classList.remove('active');
+            });
+            
+            // Show current scene
+            const currentSceneEl = document.getElementById(`scene${sceneNum}`);
+            if (currentSceneEl) {
+                currentSceneEl.classList.add('active');
+            }
+
+            // Update progress
+            const progress = (sceneNum / 50) * 100;
+            document.getElementById('filmProgress').style.width = progress + '%';
+            document.getElementById('sceneCounter').textContent = `Scene ${sceneNum} / 50`;
+
+            // Special animations for specific scenes
+            setTimeout(() => {
+                switch(sceneNum) {
+                    case 19:
+                        animateSheetCounter('sheetCounter', 0, 25, 1000);
+                        break;
+                    case 20:
+                        animateSheetCounter('sheetCounter2', 25, 47, 1000);
+                        break;
+                }
+            }, 300);
+        }
+
+        function animateSheetCounter(elementId, start, end, duration) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+
+            let current = start;
+            const increment = (end - start) / (duration / 50);
+            
+            const counter = setInterval(() => {
+                current += increment;
+                if (current >= end) {
+                    current = end;
+                    clearInterval(counter);
+                }
+                element.textContent = Math.floor(current) + ' Sheets';
+            }, 50);
+        }
+
+        function nextScene() {
+            if (currentScene < 50 && isPlaying) {
+                currentScene++;
+                showScene(currentScene);
+                scheduleNextScene();
+            } else if (currentScene >= 50) {
+                // End of movie
+                setTimeout(() => {
+                    if (isPlaying) restart();
+                }, 3000);
+            }
+        }
+
+        function scheduleNextScene() {
+            if (isPlaying && currentScene < 50) {
+                sceneInterval = setTimeout(nextScene, sceneTimings[currentScene - 1]);
+            }
+        }
+
+        function updateTimer() {
+            const elapsed = Date.now() - startTime;
+            const elapsedSeconds = Math.floor(elapsed / 1000);
+            const totalSeconds = Math.floor(totalDuration / 1000);
+            
+            const elapsedMins = Math.floor(elapsedSeconds / 60);
+            const elapsedSecs = elapsedSeconds % 60;
+            const totalMins = Math.floor(totalSeconds / 60);
+            const totalSecs = totalSeconds % 60;
+            
+            const timeDisplay = `${elapsedMins.toString().padStart(2, '0')}:${elapsedSecs.toString().padStart(2, '0')} / ${totalMins.toString().padStart(2, '0')}:${totalSecs.toString().padStart(2, '0')}`;
+            
+            document.getElementById('timeDisplay').textContent = timeDisplay;
+        }
+
+        function togglePause() {
+            isPlaying = !isPlaying;
+            const btn = document.querySelector('.control-btn');
+            
+            if (isPlaying) {
+                btn.innerHTML = '⏸️ Pause';
+                startTime = Date.now() - ((currentScene - 1) * 2400);
+                scheduleNextScene();
+                timeInterval = setInterval(updateTimer, 100);
+            } else {
+                btn.innerHTML = '▶️ Play';
+                clearTimeout(sceneInterval);
+                clearInterval(timeInterval);
+            }
+        }
+
+        function restart() {
+            currentScene = 1;
+            isPlaying = true;
+            startTime = Date.now();
+            showScene(1);
+            document.querySelector('.control-btn').innerHTML = '⏸️ Pause';
+            scheduleNextScene();
+            clearInterval(timeInterval);
+            timeInterval = setInterval(updateTimer, 100);
+        }
+
+        function skipToEnd() {
+            currentScene = 50;
+            showScene(50);
+            clearTimeout(sceneInterval);
+        }
+
+        // Initialize
+        createParticles();
+        scheduleNextScene();
+        timeInterval = setInterval(updateTimer, 100);
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case ' ':
+                    togglePause();
+                    e.preventDefault();
+                    break;
+                case 'r':
+                    restart();
+                    break;
+                case 'ArrowRight':
+                    if (currentScene < 50) {
+                        clearTimeout(sceneInterval);
+                        nextScene();
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if (currentScene > 1) {
+                        currentScene--;
+                        showScene(currentScene);
+                        if (isPlaying) scheduleNextScene();
+                    }
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

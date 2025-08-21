@@ -1,0 +1,205 @@
+[
+  {
+    "id": 1,
+    "name": "Create Business Document Folders",
+    "actions": [
+      {"type": "folder_create", "path": "C:\\BusinessDocs"},
+      {"type": "folder_create", "path": "C:\\BusinessDocs\\2024_Reports"},
+      {"type": "folder_create", "path": "C:\\BusinessDocs\\Summaries"},
+      {"type": "folder_create", "path": "C:\\BusinessDocs\\Presentations"},
+      {"type": "wait", "seconds": 1}
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Open Microsoft Word",
+    "actions": [
+      {"type": "app_launch", "app": "winword.exe"},
+      {"type": "wait", "seconds": 5},
+      {"type": "keyboard_press", "key": "escape"},
+      {"type": "wait", "seconds": 1}
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Write Business Summary Title",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+e"},
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "TECHVISION SOLUTIONS LLC\n"},
+      {"type": "keyboard_type", "text": "Executive Business Summary\n"},
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "December 2024\n\n"},
+      {"type": "keyboard_hotkey", "keys": "ctrl+l"},
+      {"type": "wait", "seconds": 1}
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Write Company Overview",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "1. COMPANY OVERVIEW\n"},
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "\nTechVision Solutions is a cutting-edge technology consulting firm specializing in digital transformation and AI integration for enterprise clients. Founded in 2020, we have rapidly grown to serve over 50 Fortune 500 companies.\n\n"}
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Write Services Section",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "2. CORE SERVICES\n"},
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "\n• Cloud Migration & Infrastructure\n"},
+      {"type": "keyboard_type", "text": "• AI/ML Model Development\n"},
+      {"type": "keyboard_type", "text": "• Custom Software Solutions\n"},
+      {"type": "keyboard_type", "text": "• Digital Process Automation\n"},
+      {"type": "keyboard_type", "text": "• Cybersecurity Consulting\n\n"}
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Write Financial Highlights",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "3. FINANCIAL HIGHLIGHTS\n"},
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "\n• Annual Revenue: $12.5M (2024 Projected)\n"},
+      {"type": "keyboard_type", "text": "• Year-over-Year Growth: 145%\n"},
+      {"type": "keyboard_type", "text": "• Client Retention Rate: 94%\n"},
+      {"type": "keyboard_type", "text": "• Average Project Value: $250,000\n\n"}
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Write Key Achievements",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "4. KEY ACHIEVEMENTS\n"},
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "\n• Successfully migrated 15 enterprise clients to cloud infrastructure\n"},
+      {"type": "keyboard_type", "text": "• Developed proprietary AI automation platform\n"},
+      {"type": "keyboard_type", "text": "• Achieved ISO 27001 certification\n"},
+      {"type": "keyboard_type", "text": "• Expanded team to 85 technical professionals\n\n"}
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Save Document to Folder",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+s"},
+      {"type": "wait", "seconds": 2},
+      {"type": "keyboard_type", "text": "C:\\BusinessDocs\\Summaries\\Business_Summary_2024.docx"},
+      {"type": "wait", "seconds": 1},
+      {"type": "keyboard_press", "key": "enter"},
+      {"type": "wait", "seconds": 2}
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Create New Document for Client List",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+n"},
+      {"type": "wait", "seconds": 2},
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "KEY CLIENT LIST 2024\n\n"},
+      {"type": "keyboard_hotkey", "keys": "ctrl+b"},
+      {"type": "keyboard_type", "text": "1. Microsoft Corporation\n"},
+      {"type": "keyboard_type", "text": "2. Amazon Web Services\n"},
+      {"type": "keyboard_type", "text": "3. JPMorgan Chase\n"},
+      {"type": "keyboard_type", "text": "4. Tesla Inc.\n"},
+      {"type": "keyboard_type", "text": "5. Johnson & Johnson\n"}
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Save Client List",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+s"},
+      {"type": "wait", "seconds": 2},
+      {"type": "keyboard_type", "text": "C:\\BusinessDocs\\Client_List_2024.docx"},
+      {"type": "keyboard_press", "key": "enter"},
+      {"type": "wait", "seconds": 2}
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Open Excel for Financial Report",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "alt+tab"},
+      {"type": "wait", "seconds": 1},
+      {"type": "app_launch", "app": "excel.exe"},
+      {"type": "wait", "seconds": 5},
+      {"type": "keyboard_press", "key": "escape"}
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Create Revenue Spreadsheet",
+    "actions": [
+      {"type": "keyboard_type", "text": "Q1 2024"},
+      {"type": "keyboard_press", "key": "tab"},
+      {"type": "keyboard_type", "text": "Q2 2024"},
+      {"type": "keyboard_press", "key": "tab"},
+      {"type": "keyboard_type", "text": "Q3 2024"},
+      {"type": "keyboard_press", "key": "tab"},
+      {"type": "keyboard_type", "text": "Q4 2024"},
+      {"type": "keyboard_press", "key": "enter"},
+      {"type": "keyboard_type", "text": "$2,100,000"},
+      {"type": "keyboard_press", "key": "tab"},
+      {"type": "keyboard_type", "text": "$2,850,000"},
+      {"type": "keyboard_press", "key": "tab"},
+      {"type": "keyboard_type", "text": "$3,400,000"},
+      {"type": "keyboard_press", "key": "tab"},
+      {"type": "keyboard_type", "text": "$4,150,000"}
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Save Excel File",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+s"},
+      {"type": "wait", "seconds": 2},
+      {"type": "keyboard_type", "text": "C:\\BusinessDocs\\2024_Reports\\Revenue_Report.xlsx"},
+      {"type": "keyboard_press", "key": "enter"},
+      {"type": "wait", "seconds": 2}
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Open Notepad for Quick Notes",
+    "actions": [
+      {"type": "app_launch", "app": "notepad.exe"},
+      {"type": "wait", "seconds": 2},
+      {"type": "keyboard_type", "text": "AUTOMATED TASK COMPLETION LOG\n"},
+      {"type": "keyboard_type", "text": "================================\n\n"},
+      {"type": "keyboard_type", "text": "Tasks Completed by Claude Code:\n"},
+      {"type": "keyboard_type", "text": "✓ Business folder structure created\n"},
+      {"type": "keyboard_type", "text": "✓ Business summary document written\n"},
+      {"type": "keyboard_type", "text": "✓ Client list documented\n"},
+      {"type": "keyboard_type", "text": "✓ Revenue report created\n"},
+      {"type": "keyboard_type", "text": "✓ All files saved to appropriate folders\n\n"},
+      {"type": "keyboard_type", "text": "Timestamp: "},
+      {"type": "keyboard_hotkey", "keys": "f5"},
+      {"type": "keyboard_type", "text": "\n\nAll tasks completed successfully!"}
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Save Log and Show Results",
+    "actions": [
+      {"type": "keyboard_hotkey", "keys": "ctrl+s"},
+      {"type": "wait", "seconds": 2},
+      {"type": "keyboard_type", "text": "C:\\BusinessDocs\\Automation_Log.txt"},
+      {"type": "keyboard_press", "key": "enter"},
+      {"type": "wait", "seconds": 2},
+      {"type": "app_launch", "app": "explorer.exe"},
+      {"type": "wait", "seconds": 2},
+      {"type": "keyboard_hotkey", "keys": "ctrl+l"},
+      {"type": "keyboard_type", "text": "C:\\BusinessDocs"},
+      {"type": "keyboard_press", "key": "enter"},
+      {"type": "wait", "seconds": 1}
+    ]
+  }
+]

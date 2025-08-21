@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | BIM Ops Studio</title>
+  <meta name="description" content="Screenshots and previews of BIM Ops Studio projects and Revit add-ins in development." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Projects | BIM Ops Studio" />
+  <meta property="og:description" content="ReviTask, SmartSheetList, and RIACCA previews for Autodesk ADN reviewers and partners." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.bimopsstudio.com/projects.html" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='56' fill='%230f172a'/%3E%3Cpath fill='%23fff' d='M64 168V88a16 16 0 0 1 16-16h64a40 40 0 0 1 0 80H96v16zm32-48h48a16 16 0 0 0 0-32H96zM96 168h48a16 16 0 0 0 0-32H96z'/%3E%3C/svg%3E" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .glass{backdrop-filter:saturate(180%) blur(10px); background:rgba(15,23,42,.55)}
+    .shadow-soft{box-shadow:0 10px 30px rgba(2,6,23,.25)}
+    .container{max-width:1100px}
+    a.active{color:white; font-weight:600; text-decoration:underline; text-underline-offset:6px}
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased">
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 bg-slate-950/80 glass">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 font-semibold tracking-tight text-slate-50">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-sky-500 text-slate-950 font-bold">B</span>
+        <span>BIM Ops Studio</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="products.html" class="hover:text-white">Products</a>
+        <a href="roadmap.html" class="hover:text-white">Roadmap</a>
+        <a href="projects.html" class="hover:text-white active">Projects</a>
+        <a href="adn.html" class="hover:text-white">For ADN Reviewers</a>
+        <a href="about.html" class="hover:text-white">About</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
+        <a href="mailto:weber@bimopsstudio.com?subject=ReviTask%20Beta%20Waitlist" class="inline-flex items-center rounded-xl bg-white/95 px-4 py-2 font-medium text-slate-900 hover:bg-white transition shadow-soft">Join Beta</a>
+      </nav>
+      <button aria-label="Open Menu" class="md:hidden p-2 rounded-lg hover:bg-white/10" onclick="document.getElementById('mnav').classList.toggle('hidden')">☰</button>
+    </div>
+    <div id="mnav" class="md:hidden hidden border-t border-white/10">
+      <div class="container mx-auto px-4 py-3 space-y-2 text-slate-300">
+        <a href="index.html" class="block">Home</a>
+        <a href="products.html" class="block">Products</a>
+        <a href="roadmap.html" class="block">Roadmap</a>
+        <a href="projects.html" class="block">Projects</a>
+        <a href="adn.html" class="block">For ADN Reviewers</a>
+        <a href="about.html" class="block">About</a>
+        <a href="contact.html" class="block">Contact</a>
+        <a href="mailto:weber@bimopsstudio.com?subject=ReviTask%20Beta%20Waitlist" class="inline-flex items-center rounded-xl bg-white/95 px-4 py-2 font-medium text-slate-900">Join Beta</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page header -->
+  <section class="container mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold">Projects</h1>
+    <p class="mt-3 text-slate-300 max-w-3xl">
+      Selected work-in-progress previews for Autodesk Revit add-ins and AI-powered tooling.
+      Captions describe the intent of each feature area.
+    </p>
+  </section>
+
+  <!-- RIACCA gallery -->
+  <section class="container mx-auto px-4 pb-6">
+    <h2 class="text-xl md:text-2xl font-semibold">RIACCA — Revit Intelligent Assistant for Code & Coordination</h2>
+    <p class="mt-2 text-slate-300 max-w-3xl">Early previews of automated checks, guidance, and review workflows.</p>
+
+    <div class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/RIACCA-1.PNG" alt="RIACCA overview dashboard" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">RIACCA overview dashboard</figcaption>
+      </figure>
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/RIACCA-2.PNG" alt="Issue checking & code references" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">Issue checking & code references</figcaption>
+      </figure>
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/RIACCA-3.PNG" alt="Automated markup suggestions" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">Automated markup suggestions</figcaption>
+      </figure>
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/RIACCA-4.PNG" alt="Detail review and standards enforcement" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">Detail review & standards enforcement</figcaption>
+      </figure>
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/RIACCA-5.PNG" alt="QC checklist integration" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">QC checklist integration</figcaption>
+      </figure>
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/RIACCA-6.PNG" alt="Issue tracking and status" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">Issue tracking & status</figcaption>
+      </figure>
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/RIACCA-7.PNG" alt="Cross-reference validation" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">Cross-reference validation</figcaption>
+      </figure>
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/RIACCA-8.PNG" alt="Model-to-document comparison" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">Model-to-document comparison</figcaption>
+      </figure>
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/RIACCA-9.PNG" alt="Resolution recommendations" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">Resolution recommendations</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ReviTask / Sheet Creator -->
+  <section class="container mx-auto px-4 pb-16">
+    <h2 class="text-xl md:text-2xl font-semibold">ReviTask — Automated Sheets, Views, & Annotation</h2>
+    <p class="mt-2 text-slate-300 max-w-3xl">Batch sheet creation with title-block control, smart view placement, and export automation.</p>
+
+    <div class="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <figure class="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-soft">
+        <img src="images/SheetCreator.PNG" alt="ReviTask sheet creation workflow" class="w-full h-44 object-cover"/>
+        <figcaption class="p-4 text-sm text-slate-300">Sheet creation workflow</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/10">
+    <div class="container mx-auto px-4 py-10 text-sm text-slate-400 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+      <p>© 2025 BIM Ops Studio • Idaho, USA</p>
+      <p>Built with the Autodesk Revit API in mind • Privacy-first</p>
+    </div>
+  </footer>
+</body>
+</html>

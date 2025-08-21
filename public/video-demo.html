@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIM Ops Studio - 2 Minute Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #1E3A8A 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .video-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .scene {
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            text-align: center;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .scene.active {
+            display: flex;
+        }
+
+        .scene h1 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .scene h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .scene p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .highlight {
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        .electric-blue {
+            color: #0066CC;
+        }
+
+        .lime-accent {
+            color: #10B981;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .demo-interface {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #0066CC;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 8px;
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #10B981, #0066CC);
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+            transition: width 3s ease-in-out;
+        }
+
+        .timer {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #10B981;
+            margin: 1rem 0;
+        }
+
+        .vs-comparison {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .comparison-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .before {
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid #EF4444;
+        }
+
+        .after {
+            background: rgba(16, 185, 129, 0.2);
+            border: 2px solid #10B981;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #10B981, #0066CC);
+            color: white;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .progress-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: #10B981;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes countUp {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .count-animation {
+            animation: countUp 0.8s ease-out;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #10B981;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.6; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 1; }
+        }
+
+        .logo {
+            background: #0066CC;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .scene h1 { font-size: 2.5rem; }
+            .scene h2 { font-size: 2rem; }
+            .scene p { font-size: 1.2rem; }
+            .stats-container { grid-template-columns: 1fr 1fr; }
+            .vs-comparison { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <div class="floating-elements" id="floatingElements"></div>
+        
+        <!-- Scene 1: The Problem -->
+        <div class="scene active" id="scene1">
+            <h1>The <span class="highlight">BIM Reality Check</span></h1>
+            <p>Every day, BIM professionals spend <span class="highlight">80% of their time</span> on repetitive tasks.</p>
+            <p>Creating sheets, updating parameters, placing families, organizing files.</p>
+            <p><strong>Hours of manual work</strong> that keeps you from what you do best - <em>designing amazing buildings</em>.</p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" id="timeWaste">80%</div>
+                    <div class="stat-label">Time Wasted</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Hours Daily</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">😫</div>
+                    <div class="stat-label">Frustration Level</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 2: The Solution -->
+        <div class="scene" id="scene2">
+            <div class="logo">BIM</div>
+            <h1>Introducing <span class="lime-accent">BIM Ops Studio</span></h1>
+            <h2>Transform BIM Workflows Into <span class="electric-blue">One-Click Magic</span></h2>
+            <p>AI-powered automation that transforms complex Revit workflows into simple, one-click operations.</p>
+            <div class="demo-interface">
+                <h3>🚀 Now supporting Revit 2025 & Dynamo 3.0</h3>
+                <p style="font-size: 1.2rem; margin-top: 1rem;">The future of BIM automation is here</p>
+            </div>
+        </div>
+
+        <!-- Scene 3: ReviTask Demo -->
+        <div class="scene" id="scene3">
+            <h1><span class="electric-blue">ReviTask</span> in Action</h1>
+            <p>Watch ReviTask automate parameter updates across <strong>thousands of elements</strong> in seconds.</p>
+            <div class="demo-interface">
+                <h3>Parameter Update Demo</h3>
+                <p>🔧 <strong>1,247 Elements Selected</strong></p>
+                <p>📝 Parameter: "Fire Rating" → "2 Hour"</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="reviTaskProgress"></div>
+                </div>
+                <div class="timer" id="reviTaskTimer">15 seconds</div>
+            </div>
+            <div class="vs-comparison">
+                <div class="comparison-item after">
+                    <h3>✅ With ReviTask</h3>
+                    <div class="stat-number">15s</div>
+                    <p>Complete with perfect accuracy</p>
+                </div>
+                <div class="comparison-item before">
+                    <h3>❌ Manual Process</h3>
+                    <div class="stat-number">3hrs</div>
+                    <p>Still working, prone to errors</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 4: SmartSheetList Demo -->
+        <div class="scene" id="scene4">
+            <h1><span class="lime-accent">SmartSheetList</span> Magic</h1>
+            <p>Generate complete drawing sets with views, schedules, and layouts in minutes.</p>
+            <div class="demo-interface">
+                <h3>Sheet Generation Progress</h3>
+                <p>📊 Creating professional sheet set...</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="sheetProgress"></div>
+                </div>
+                <div class="timer" id="sheetCounter">0 sheets created</div>
+            </div>
+            <div class="vs-comparison">
+                <div class="comparison-item before">
+                    <h3>Before</h3>
+                    <div class="stat-number">0</div>
+                    <p>Empty project</p>
+                </div>
+                <div class="comparison-item after">
+                    <h3>After</h3>
+                    <div class="stat-number" id="finalSheetCount">47</div>
+                    <p>Professional sheets</p>
+                </div>
+            </div>
+            <p><strong>Perfect formatting, consistent standards, every time.</strong></p>
+        </div>
+
+        <!-- Scene 5: The Impact -->
+        <div class="scene" id="scene5">
+            <h1>Transform Your <span class="highlight">Work Life</span></h1>
+            <div class="vs-comparison">
+                <div class="comparison-item before">
+                    <h3>😫 Before</h3>
+                    <p>Working until 10 PM</p>
+                    <p>Repetitive tasks</p>
+                    <p>Frustrated team</p>
+                    <p>Burnout risk</p>
+                </div>
+                <div class="comparison-item after">
+                    <h3>😊 After</h3>
+                    <p>Home by 5 PM</p>
+                    <p>Creative design focus</p>
+                    <p>Happy family time</p>
+                    <p>Work-life balance</p>
+                </div>
+            </div>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">1,000+</div>
+                    <div class="stat-label">Happy Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">Time Saved</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Reliability</div>
+                </div>
+            </div>
+            <p><strong>Focus on design innovation, not drudgery. Get home to your family.</strong></p>
+        </div>
+
+        <!-- Scene 6: Call to Action -->
+        <div class="scene" id="scene6">
+            <h1>Ready to <span class="lime-accent">Transform</span> Your Workflow?</h1>
+            <p>Start your <strong>free 14-day trial</strong> today.</p>
+            <div class="demo-interface">
+                <h3>✅ No Credit Card Required</h3>
+                <h3>✅ Setup in Under 2 Minutes</h3>
+                <h3>✅ Works with Existing Projects</h3>
+                <h3>✅ 14-Day Money-Back Guarantee</h3>
+            </div>
+            <button class="cta-button" onclick="window.open('/pricing', '_blank')">
+                🚀 Start Free Trial Now
+            </button>
+            <button class="cta-button" onclick="window.open('/contact', '_blank')" style="background: transparent; border: 2px solid #10B981;">
+                📞 Schedule Demo
+            </button>
+            <p style="margin-top: 2rem; font-size: 1.8rem; font-weight: 700;">
+                <span class="lime-accent">BIMOpsStudio.com</span>
+            </p>
+            <p>See the difference in minutes.</p>
+        </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="dot active" data-scene="1"></div>
+        <div class="dot" data-scene="2"></div>
+        <div class="dot" data-scene="3"></div>
+        <div class="dot" data-scene="4"></div>
+        <div class="dot" data-scene="5"></div>
+        <div class="dot" data-scene="6"></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <button class="control-btn" onclick="pausePlay()">⏸️ Pause</button>
+        <button class="control-btn" onclick="previousScene()">⏮️ Previous</button>
+        <button class="control-btn" onclick="nextScene()">⏭️ Next</button>
+        <button class="control-btn" onclick="restart()">🔄 Restart</button>
+    </div>
+
+    <script>
+        let currentScene = 1;
+        let isPlaying = true;
+        let sceneTimer;
+        const sceneDurations = [5000, 4000, 6000, 5000, 5000, 8000]; // milliseconds
+        
+        // Create floating elements
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            for (let i = 0; i < 20; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'floating-dot';
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.top = Math.random() * 100 + '%';
+                dot.style.animationDelay = Math.random() * 6 + 's';
+                container.appendChild(dot);
+            }
+        }
+
+        function showScene(sceneNumber) {
+            // Hide all scenes
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.classList.remove('active');
+            });
+            
+            // Show current scene
+            document.getElementById(`scene${sceneNumber}`).classList.add('active');
+            
+            // Update progress indicator
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === sceneNumber);
+            });
+
+            // Scene-specific animations
+            setTimeout(() => {
+                switch(sceneNumber) {
+                    case 3:
+                        // ReviTask demo
+                        document.getElementById('reviTaskProgress').style.width = '100%';
+                        break;
+                    case 4:
+                        // SmartSheetList demo
+                        document.getElementById('sheetProgress').style.width = '100%';
+                        animateSheetCounter();
+                        break;
+                }
+            }, 500);
+        }
+
+        function animateSheetCounter() {
+            let count = 0;
+            const target = 47;
+            const counter = document.getElementById('sheetCounter');
+            const interval = setInterval(() => {
+                count += Math.ceil(Math.random() * 5);
+                if (count >= target) {
+                    count = target;
+                    clearInterval(interval);
+                }
+                counter.textContent = `${count} sheets created`;
+            }, 100);
+        }
+
+        function nextScene() {
+            if (currentScene < 6) {
+                currentScene++;
+                showScene(currentScene);
+                if (isPlaying) {
+                    scheduleNextScene();
+                }
+            }
+        }
+
+        function previousScene() {
+            if (currentScene > 1) {
+                currentScene--;
+                showScene(currentScene);
+                if (isPlaying) {
+                    scheduleNextScene();
+                }
+            }
+        }
+
+        function scheduleNextScene() {
+            clearTimeout(sceneTimer);
+            if (currentScene < 6 && isPlaying) {
+                sceneTimer = setTimeout(() => {
+                    nextScene();
+                }, sceneDurations[currentScene - 1]);
+            }
+        }
+
+        function pausePlay() {
+            isPlaying = !isPlaying;
+            const btn = document.querySelector('.control-btn');
+            if (isPlaying) {
+                btn.innerHTML = '⏸️ Pause';
+                scheduleNextScene();
+            } else {
+                btn.innerHTML = '▶️ Play';
+                clearTimeout(sceneTimer);
+            }
+        }
+
+        function restart() {
+            currentScene = 1;
+            isPlaying = true;
+            showScene(1);
+            document.querySelector('.control-btn').innerHTML = '⏸️ Pause';
+            scheduleNextScene();
+        }
+
+        // Initialize
+        createFloatingElements();
+        scheduleNextScene();
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                    nextScene();
+                    break;
+                case 'ArrowLeft':
+                    previousScene();
+                    break;
+                case 'r':
+                    restart();
+                    break;
+                case 'p':
+                    pausePlay();
+                    break;
+            }
+        });
+
+        // Click on dots to navigate
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentScene = index + 1;
+                showScene(currentScene);
+                if (isPlaying) {
+                    scheduleNextScene();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

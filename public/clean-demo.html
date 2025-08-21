@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIM Ops Studio - Clean Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        .demo-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Clean Scene Styling */
+        .scene {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 4rem 2rem;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scene.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Clean Backgrounds */
+        .bg-white {
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .bg-blue {
+            background: linear-gradient(135deg, #3B82F6, #1E40AF);
+            color: white;
+        }
+
+        .bg-green {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+        }
+
+        .bg-gray {
+            background: #F8FAFC;
+            color: #1E293B;
+        }
+
+        .bg-dark {
+            background: #1E293B;
+            color: white;
+        }
+
+        /* Typography */
+        .title-xl {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .title-lg {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .title-md {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            opacity: 0.9;
+        }
+
+        .highlight {
+            color: #10B981;
+            font-weight: 700;
+        }
+
+        .blue-text {
+            color: #3B82F6;
+            font-weight: 700;
+        }
+
+        /* Clean Interface Elements */
+        .interface-demo {
+            background: #ffffff;
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .demo-header {
+            background: #F8FAFC;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .demo-button {
+            background: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .demo-content {
+            background: #FAFAFA;
+            border-radius: 8px;
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Progress Elements */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #E5E7EB;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3B82F6, #10B981);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 2s ease-out;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #10B981;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #6B7280;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #3B82F6, #1E40AF);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 2rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-button {
+            background: white;
+            color: #3B82F6;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: #3B82F6;
+        }
+
+        /* Clean Progress Bar */
+        .movie-strip {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: white;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            z-index: 1000;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: #E5E7EB;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-indicator {
+            height: 100%;
+            background: linear-gradient(90deg, #3B82F6, #10B981);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.5s ease-out;
+        }
+
+        .scene-info {
+            color: #6B7280;
+            font-weight: 500;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Controls */
+        .controls {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1001;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .control-btn {
+            background: white;
+            border: 1px solid #D1D5DB;
+            color: #374151;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .control-btn:hover {
+            background: #F3F4F6;
+            border-color: #9CA3AF;
+        }
+
+        .time-display {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            background: white;
+            border: 1px solid #D1D5DB;
+            color: #374151;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 1001;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes countUp {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .count-animation {
+            animation: countUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title-xl { font-size: 3rem; }
+            .title-lg { font-size: 2.5rem; }
+            .subtitle { font-size: 1.25rem; }
+            .interface-demo { width: 95%; }
+            .stats-container { grid-template-columns: 1fr 1fr; }
+            .controls { top: 1rem; right: 1rem; gap: 0.25rem; }
+            .control-btn { padding: 0.5rem 0.75rem; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- Time Display -->
+        <div class="time-display" id="timeDisplay">00:00 / 02:00</div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn" onclick="togglePause()">⏸ Pause</button>
+            <button class="control-btn" onclick="restart()">🔄 Restart</button>
+        </div>
+
+        <!-- Scene 1: Opening -->
+        <div class="scene active bg-white" id="scene1">
+            <div class="slide-in">
+                <div class="title-xl">BIM Ops Studio</div>
+                <div class="subtitle">Transform your Revit workflows with AI automation</div>
+            </div>
+        </div>
+
+        <!-- Scene 2: Problem -->
+        <div class="scene bg-gray" id="scene2">
+            <div class="title-lg">The Problem</div>
+            <div class="subtitle">BIM professionals spend <span class="highlight">80% of their time</span> on repetitive tasks</div>
+        </div>
+
+        <!-- Scene 3: Time Waste -->
+        <div class="scene bg-gray" id="scene3">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">Time Wasted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Hours Daily</div>
+                </div>
+            </div>
+            <div class="subtitle">Creating sheets, updating parameters, organizing files</div>
+        </div>
+
+        <!-- Scene 4: Late Nights -->
+        <div class="scene bg-gray" id="scene4">
+            <div class="title-lg">Working Late</div>
+            <div class="subtitle">Missing family time because of manual tasks</div>
+        </div>
+
+        <!-- Scene 5: Solution -->
+        <div class="scene bg-blue" id="scene5">
+            <div class="title-lg">The Solution</div>
+            <div class="subtitle">AI-powered automation that works for you</div>
+        </div>
+
+        <!-- Scene 6: BIM Ops Studio -->
+        <div class="scene bg-blue" id="scene6">
+            <div class="title-xl"><span class="highlight">BIM Ops Studio</span></div>
+            <div class="subtitle">Transform workflows into one-click operations</div>
+        </div>
+
+        <!-- Scene 7: ReviTask Demo -->
+        <div class="scene bg-white" id="scene7">
+            <div class="title-lg"><span class="blue-text">ReviTask</span></div>
+            <div class="interface-demo">
+                <div class="demo-header">
+                    <div class="demo-button">ReviTask</div>
+                    <span>AI-Powered Parameter Updates</span>
+                </div>
+                <div class="demo-content">
+                    <div>
+                        <div style="font-size: 1.2rem; margin-bottom: 1rem;">
+                            <strong>1,247 elements selected</strong>
+                        </div>
+                        <div>Parameter: Fire Rating → 2 Hour</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="reviTaskProgress"></div>
+                        </div>
+                        <div style="color: #10B981; font-weight: 600;">✓ Complete in 15 seconds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 8: ReviTask Results -->
+        <div class="scene bg-white" id="scene8">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">15s</div>
+                    <div class="stat-label">With ReviTask</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #EF4444;">3hrs</div>
+                    <div class="stat-label">Manual Process</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 9: SmartSheetList -->
+        <div class="scene bg-white" id="scene9">
+            <div class="title-lg"><span class="blue-text">SmartSheetList</span></div>
+            <div class="interface-demo">
+                <div class="demo-header">
+                    <div class="demo-button">SmartSheetList</div>
+                    <span>Intelligent Sheet Generation</span>
+                </div>
+                <div class="demo-content">
+                    <div>
+                        <div style="font-size: 1.2rem; margin-bottom: 1rem;">
+                            <strong id="sheetCount">0 sheets created</strong>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="sheetProgress"></div>
+                        </div>
+                        <div style="color: #10B981; font-weight: 600;">Generating professional sheet sets...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 10: SmartSheetList Results -->
+        <div class="scene bg-white" id="scene10">
+            <div class="title-lg">47 Professional Sheets</div>
+            <div class="subtitle">Generated in minutes with perfect formatting</div>
+        </div>
+
+        <!-- Scene 11: Folder Structure -->
+        <div class="scene bg-green" id="scene11">
+            <div class="title-lg">Folder Structure Creator</div>
+            <div class="subtitle">ISO 19650 compliant project organization</div>
+        </div>
+
+        <!-- Scene 12: Benefits -->
+        <div class="scene bg-white" id="scene12">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Happy Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">Time Saved</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 13: Work-Life Balance -->
+        <div class="scene bg-green" id="scene13">
+            <div class="title-lg">Get Your Life Back</div>
+            <div class="subtitle">Focus on design, not drudgery</div>
+        </div>
+
+        <!-- Scene 14: Easy Setup -->
+        <div class="scene bg-white" id="scene14">
+            <div class="title-lg">Setup in 2 Minutes</div>
+            <div class="subtitle">Works with Revit 2020-2025</div>
+        </div>
+
+        <!-- Scene 15: Free Trial -->
+        <div class="scene bg-blue" id="scene15">
+            <div class="title-lg">14-Day Free Trial</div>
+            <div class="subtitle">No credit card required</div>
+        </div>
+
+        <!-- Scene 16: CTA -->
+        <div class="scene bg-white" id="scene16">
+            <div class="cta-section">
+                <div class="title-lg">Ready to Transform?</div>
+                <div class="subtitle">Start saving 80% of your time today</div>
+                <button class="cta-button" onclick="window.open('/pricing', '_blank')">
+                    Start Free Trial
+                </button>
+                <button class="cta-button secondary" onclick="window.open('/contact', '_blank')">
+                    Schedule Demo
+                </button>
+            </div>
+        </div>
+
+        <!-- Scene 17: Website -->
+        <div class="scene bg-blue" id="scene17">
+            <div class="title-xl">BIMOpsStudio.com</div>
+            <div class="subtitle">Transform your workflow today</div>
+        </div>
+
+        <!-- Scene 18: End -->
+        <div class="scene bg-white" id="scene18">
+            <div class="title-lg">BIM Ops Studio</div>
+            <div class="subtitle">AI-Powered BIM Automation</div>
+        </div>
+    </div>
+
+    <!-- Clean Progress Bar -->
+    <div class="movie-strip">
+        <div class="progress-track">
+            <div class="progress-indicator" id="progressIndicator"></div>
+        </div>
+        <div class="scene-info" id="sceneInfo">Scene 1 of 18</div>
+    </div>
+
+    <script>
+        let currentScene = 1;
+        let isPlaying = true;
+        let startTime = Date.now();
+        let totalDuration = 120000; // 2 minutes
+        let sceneInterval;
+        let timeInterval;
+        const totalScenes = 18;
+
+        // Smooth timing - 6.67 seconds per scene for perfect 2-minute duration
+        const sceneTimings = Array(totalScenes).fill(6670);
+
+        function showScene(sceneNum) {
+            // Hide all scenes
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.classList.remove('active');
+            });
+            
+            // Show current scene
+            const currentSceneEl = document.getElementById(`scene${sceneNum}`);
+            if (currentSceneEl) {
+                currentSceneEl.classList.add('active');
+            }
+
+            // Update progress
+            const progress = (sceneNum / totalScenes) * 100;
+            document.getElementById('progressIndicator').style.width = progress + '%';
+            document.getElementById('sceneInfo').textContent = `Scene ${sceneNum} of ${totalScenes}`;
+
+            // Scene-specific animations
+            setTimeout(() => {
+                switch(sceneNum) {
+                    case 7:
+                        // ReviTask progress animation
+                        document.getElementById('reviTaskProgress').style.width = '100%';
+                        break;
+                    case 9:
+                        // SmartSheetList animation
+                        document.getElementById('sheetProgress').style.width = '100%';
+                        animateSheetCounter();
+                        break;
+                }
+            }, 500);
+        }
+
+        function animateSheetCounter() {
+            let count = 0;
+            const counter = document.getElementById('sheetCount');
+            const interval = setInterval(() => {
+                count += Math.ceil(Math.random() * 5) + 2;
+                if (count >= 47) {
+                    count = 47;
+                    clearInterval(interval);
+                }
+                counter.textContent = `${count} sheets created`;
+            }, 150);
+        }
+
+        function nextScene() {
+            if (currentScene < totalScenes && isPlaying) {
+                currentScene++;
+                showScene(currentScene);
+                scheduleNextScene();
+            } else if (currentScene >= totalScenes) {
+                // Auto-restart after 2 seconds
+                setTimeout(() => {
+                    if (isPlaying) restart();
+                }, 2000);
+            }
+        }
+
+        function scheduleNextScene() {
+            if (isPlaying && currentScene < totalScenes) {
+                clearTimeout(sceneInterval);
+                sceneInterval = setTimeout(nextScene, sceneTimings[currentScene - 1]);
+            }
+        }
+
+        function updateTimer() {
+            const elapsed = Date.now() - startTime;
+            const elapsedSeconds = Math.floor(elapsed / 1000);
+            const totalSeconds = Math.floor(totalDuration / 1000);
+            
+            const elapsedMins = Math.floor(elapsedSeconds / 60);
+            const elapsedSecs = elapsedSeconds % 60;
+            const totalMins = Math.floor(totalSeconds / 60);
+            const totalSecs = totalSeconds % 60;
+            
+            const timeDisplay = `${elapsedMins.toString().padStart(2, '0')}:${elapsedSecs.toString().padStart(2, '0')} / ${totalMins.toString().padStart(2, '0')}:${totalSecs.toString().padStart(2, '0')}`;
+            
+            document.getElementById('timeDisplay').textContent = timeDisplay;
+        }
+
+        function togglePause() {
+            isPlaying = !isPlaying;
+            const btn = document.querySelector('.control-btn');
+            
+            if (isPlaying) {
+                btn.innerHTML = '⏸ Pause';
+                startTime = Date.now() - ((currentScene - 1) * 6670);
+                scheduleNextScene();
+                timeInterval = setInterval(updateTimer, 100);
+            } else {
+                btn.innerHTML = '▶ Play';
+                clearTimeout(sceneInterval);
+                clearInterval(timeInterval);
+            }
+        }
+
+        function restart() {
+            currentScene = 1;
+            isPlaying = true;
+            startTime = Date.now();
+            showScene(1);
+            document.querySelector('.control-btn').innerHTML = '⏸ Pause';
+            scheduleNextScene();
+            clearInterval(timeInterval);
+            timeInterval = setInterval(updateTimer, 100);
+        }
+
+        // Initialize
+        scheduleNextScene();
+        timeInterval = setInterval(updateTimer, 100);
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case ' ':
+                    togglePause();
+                    e.preventDefault();
+                    break;
+                case 'r':
+                    restart();
+                    break;
+                case 'ArrowRight':
+                    if (currentScene < totalScenes) {
+                        clearTimeout(sceneInterval);
+                        nextScene();
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if (currentScene > 1) {
+                        currentScene--;
+                        showScene(currentScene);
+                        if (isPlaying) scheduleNextScene();
+                    }
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
