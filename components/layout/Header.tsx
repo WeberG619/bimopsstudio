@@ -21,11 +21,9 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { href: "/products", label: "Products" },
-    { href: "/technical-specs", label: "Technical Specs" },
-    { href: "/services", label: "Services" },
-    { href: "/resources", label: "Resources" },
+    { href: "/technical", label: "Technical" },
     { href: "/pricing", label: "Pricing" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
