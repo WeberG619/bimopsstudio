@@ -20,7 +20,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              TEST123 - Professional Sheet Creator for Revit
+              Professional Sheet Creator for Revit
             </h1>
             <p className="text-2xl text-gray-600 dark:text-gray-300 mb-12">
               Create 50+ sheets in 2 minutes from Excel data
