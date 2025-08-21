@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -550,13 +551,13 @@ export default function TechnicalSpecs() {
                 <FileCode className="w-5 h-5 mr-2" />
                 View API Documentation
               </a>
-              <a 
+              <Link 
                 href="/contact" 
                 className="inline-flex items-center px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-deep-navy transition-colors"
               >
                 <Terminal className="w-5 h-5 mr-2" />
                 Request Technical Demo
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
