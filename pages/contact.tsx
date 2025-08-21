@@ -28,7 +28,7 @@ export default function Contact() {
                     Professional Sheet Creator Beta
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300">
-                    15 day free trial • $149/month after trial
+                    15 day free trial • Founding-user pricing available
                   </p>
                 </div>
 
@@ -37,22 +37,59 @@ export default function Contact() {
                     type="text"
                     placeholder="Your Name"
                     className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
                   />
                   <input
                     type="email"
                     placeholder="Email Address"
                     className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
                   />
                   <input
                     type="text"
                     placeholder="Company Name"
                     className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
                   />
-                  <textarea
-                    placeholder="How many sheets do you typically create per project?"
-                    rows={3}
+                  <select
                     className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
+                  >
+                    <option value="">Company Size</option>
+                    <option value="1-5">1-5 employees</option>
+                    <option value="6-20">6-20 employees</option>
+                    <option value="21-50">21-50 employees</option>
+                    <option value="51-200">51-200 employees</option>
+                    <option value="200+">200+ employees</option>
+                  </select>
+                  <select
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
+                  >
+                    <option value="">Revit Version</option>
+                    <option value="2024">Revit 2024</option>
+                    <option value="2025">Revit 2025</option>
+                    <option value="2026">Revit 2026</option>
+                    <option value="multiple">Multiple versions</option>
+                  </select>
+                  <input
+                    type="number"
+                    placeholder="Number of Seats"
+                    min="1"
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
                   />
+                  <select
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
+                  >
+                    <option value="">Implementation Timeline</option>
+                    <option value="immediate">Immediate</option>
+                    <option value="1-month">Within 1 month</option>
+                    <option value="3-months">Within 3 months</option>
+                    <option value="6-months">Within 6 months</option>
+                    <option value="evaluating">Just evaluating</option>
+                  </select>
                 </div>
 
                 <Button size="lg" className="w-full">

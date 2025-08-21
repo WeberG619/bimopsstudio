@@ -8,7 +8,7 @@ export function Footer() {
       links: [
         { href: "/", label: "Professional Sheet Creator" },
         { href: "/technical", label: "Technical Details" },
-        { href: "/pricing", label: "Pricing" },
+        { href: "/contact", label: "Early Access" },
       ],
     },
     {
