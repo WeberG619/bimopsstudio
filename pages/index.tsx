@@ -10,13 +10,12 @@ import { Newsletter } from "@/components/landing/Newsletter";
 export default function Home() {
   return (
     <Layout
-      title="Revit Pro Tools - Advanced Revit Add-in for Construction Documentation"
-      description="BIM Ops Studio presents Revit Pro Tools - Enterprise-grade Revit add-in for automating sheet generation, view placement, and quality control. Generate 50-100 sheets per minute."
+      title="Professional Sheet Creator - Revit Sheet Automation Add-in"
+      description="Create 50+ Revit sheets in 2 minutes. Automate sheet creation, view placement, and title block data from Excel. Built for production teams on deadline."
     >
       <Hero />
       <RevitProFeatures />
       <ProblemSolution />
-      <FlagshipTools />
       <Newsletter />
     </Layout>
   );

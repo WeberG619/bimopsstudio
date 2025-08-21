@@ -38,15 +38,17 @@ export function Header() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="w-10 h-10 rounded-lg bg-electric-blue flex items-center justify-center">
-            <span className="text-white font-bold text-lg">BIM</span>
-          </div>
+          <img 
+            src="/logo.png" 
+            alt="BIM Ops Studio" 
+            className="w-10 h-10"
+          />
           <span className={`font-heading text-xl font-bold transition-colors ${
             isScrolled 
               ? "text-deep-navy dark:text-white" 
               : "text-white"
           }`}>
-            Ops Studio
+            BIM Ops Studio
           </span>
         </Link>
 

@@ -6,19 +6,19 @@ import { useState } from "react";
 import Link from "next/link";
 
 const stats = [
-  { icon: FileText, value: "50-100", label: "Sheets/Minute" },
-  { icon: Clock, value: "80%", label: "Time Saved" },
-  { icon: Layers, value: "10K+", label: "Elements Handled" },
-  { icon: Shield, value: "99.9%", label: "Reliability" },
+  { icon: FileText, value: "50+", label: "Sheets in 2 Minutes" },
+  { icon: Clock, value: "95%", label: "Time Saved" },
+  { icon: Layers, value: "Excel", label: "Data Import" },
+  { icon: Shield, value: "100%", label: "API Compliant" },
 ];
 
 const features = [
-  "Automated Sheet Generation Engine",
-  "Intelligent View Placement System",
-  "Batch Operations Processor",
-  "Quality Control & Validation",
-  "Export Automation (DWG/PDF)",
-  "BIM 360 Integration"
+  "Batch creates sheets from Excel/CSV data",
+  "Auto-populates title block parameters",
+  "Places views on sheets according to templates",
+  "Enforces company naming standards",
+  "Exports to PDF/DWG with proper naming",
+  "Built with ViewSheet.Create() API"
 ];
 
 export function Hero() {
@@ -43,7 +43,7 @@ export function Hero() {
             transition={{ duration: 0.5 }}
           >
             <Badge variant="secondary" className="bg-lime-accent/10 text-lime-accent border-lime-accent/20 text-sm px-4 py-2">
-              🚀 Introducing Revit Pro Tools - Now Supporting Revit 2024, 2025 & 2026
+              🚀 Professional Sheet Creator - Now Supporting Revit 2024, 2025 & 2026
             </Badge>
           </motion.div>
 
@@ -57,14 +57,14 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <span className="text-lime-accent">Revit Pro Tools</span>
+                <span className="text-lime-accent">Professional Sheet Creator</span>
                 <br />
                 <span className="text-3xl md:text-5xl">
-                  Advanced Revit Add-in for
+                  Create 50+ Revit Sheets
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-electric-blue to-cyan-400 bg-clip-text text-transparent">
-                  Construction Documentation
+                  in 2 Minutes
                 </span>
               </motion.h1>
               
@@ -74,8 +74,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Enterprise-grade automation for Revit professionals. Generate 50-100 sheets per minute, 
-                automate view placement, and ensure quality control with our powerful .NET-based add-in.
+                Create 50+ Revit sheets in 2 minutes. Automate sheet creation, view placement, and title block data from Excel. Built for production teams on deadline.
               </motion.p>
 
               {/* Feature List */}
@@ -143,7 +142,7 @@ export function Hero() {
                     Revit API 2024+
                   </Badge>
                   <Badge variant="outline" className="bg-white/5 border-white/20">
-                    SQLite
+                    FilteredElementCollector
                   </Badge>
                 </div>
               </motion.div>
@@ -191,7 +190,7 @@ export function Hero() {
               <div className="w-1 h-1 bg-white/60 rounded-full"></div>
               <div>ISO 19650 Compliant</div>
               <div className="w-1 h-1 bg-white/60 rounded-full"></div>
-              <div>Autodesk Approved</div>
+              <div>ADN Member</div>
               <div className="w-1 h-1 bg-white/60 rounded-full"></div>
               <div>Enterprise Support</div>
             </div>
@@ -223,7 +222,7 @@ export function Hero() {
             <iframe
               src="/demo-revipro.html"
               className="w-full h-full border-0"
-              title="Revit Pro Tools Demo"
+              title="Professional Sheet Creator Demo"
               allowFullScreen
             />
           </motion.div>
