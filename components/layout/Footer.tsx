@@ -4,28 +4,18 @@ import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 export function Footer() {
   const footerLinks = [
     {
-      title: "Products",
+      title: "Product",
       links: [
-        { href: "/products", label: "Professional Sheet Creator" },
-        { href: "/technical-specs", label: "Technical Specs" },
+        { href: "/", label: "Professional Sheet Creator" },
+        { href: "/technical", label: "Technical Details" },
         { href: "/pricing", label: "Pricing" },
       ],
     },
     {
       title: "Company",
       links: [
-        { href: "/about", label: "About Us" },
-        { href: "/services", label: "Services" },
         { href: "/contact", label: "Contact" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { href: "/blog", label: "Blog" },
-        { href: "/resources", label: "Resources" },
         { href: "/privacy", label: "Privacy Policy" },
-        { href: "/compliance", label: "Compliance" },
       ],
     },
   ];
