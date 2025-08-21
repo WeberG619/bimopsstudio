@@ -48,7 +48,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="grid md:grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                 <h3 className="font-semibold mb-2">Technical</h3>
                 <p className="text-gray-600 dark:text-gray-300">
@@ -59,12 +59,6 @@ export default function Home() {
                 <h3 className="font-semibold mb-2">Status</h3>
                 <p className="text-gray-600 dark:text-gray-300">
                   Beta testing - 15 day free trial
-                </p>
-              </div>
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-                <h3 className="font-semibold mb-2">Price</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  $149/month
                 </p>
               </div>
             </div>
@@ -82,6 +76,10 @@ export default function Home() {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
+
+            <p className="mt-2 text-gray-500 text-xs">
+              Founding-user pricing available after the trial.
+            </p>
 
             <p className="mt-8 text-gray-500 text-sm">
               Currently testing with 3 architecture firms • ADN Member

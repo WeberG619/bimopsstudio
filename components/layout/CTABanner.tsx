@@ -16,9 +16,9 @@ export function CTABanner() {
           <p className="text-blue-100 dark:text-blue-200">Start your free trial today.</p>
         </div>
         <div className="flex space-x-4">
-          <Link href="/pricing">
+          <Link href="/contact">
             <Button variant="secondary" className="bg-white dark:bg-gray-100 text-electric-blue hover:bg-gray-100 dark:hover:bg-gray-200">
-              View Pricing
+              Request Early Access
             </Button>
           </Link>
           <Link href="/contact">

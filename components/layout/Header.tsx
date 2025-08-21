@@ -22,7 +22,7 @@ export function Header() {
 
   const navItems = [
     { href: "/technical", label: "Technical" },
-    { href: "/pricing", label: "Pricing" },
+    { href: "/contact", label: "Early Access" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -64,16 +64,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            className={`transition-colors font-medium hover:text-lime-accent ${
-              isScrolled 
-                ? "text-gray-700 dark:text-gray-300" 
-                : "text-white"
-            }`}
-          >
-            Contact Us
-          </Link>
           
           {/* Dark Mode Toggle */}
           <button
@@ -120,13 +110,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="text-gray-700 dark:text-gray-300 hover:text-electric-blue transition-colors font-medium py-2"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact Us
-            </Link>
             
             {/* Mobile Dark Mode Toggle */}
             <button
