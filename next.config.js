@@ -1,6 +1,12 @@
 ﻿/** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remove appDir as it's deprecated in Next.js 14
+  reactStrictMode: true,
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+  // Add trailing slash for better GitHub Pages compatibility
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
