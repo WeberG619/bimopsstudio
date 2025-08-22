@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <Layout
       title="Professional Sheet Creator - Revit Sheet Automation Add-in"
-      description="Create 50+ Revit sheets in 2 minutes from Excel data. Built with Revit API 2024-2026."
+      description="Create 50+ Revit sheets in 2 minutes using customizable templates. Built with Revit API 2024-2026."
     >
       <section className="pt-32 pb-20 min-h-screen flex items-center">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -27,7 +27,7 @@ export default function Home() {
               Professional Sheet Creator for Revit
             </h1>
             <p className="text-2xl text-gray-600 dark:text-gray-300 mb-12">
-              Create 50+ sheets in 2 minutes from Excel data
+              Create 50+ sheets in 2 minutes using customizable templates
             </p>
 
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 mb-8">
@@ -39,7 +39,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-0.5" />
-                  <span className="text-lg">Auto-populates title blocks from Excel/CSV</span>
+                  <span className="text-lg">Auto-populates title blocks from sheet configuration</span>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-0.5" />

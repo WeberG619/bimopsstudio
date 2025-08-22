@@ -35,7 +35,7 @@ export default function Pricing() {
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span>Excel/CSV data import</span>
+                    <span>Built-in template configuration</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />

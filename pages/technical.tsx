@@ -28,7 +28,7 @@ export default function Technical() {
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-500 mt-0.5" />
-                    <span>Batch creates sheets from Excel/CSV data (50-100 sheets per minute)</span>
+                    <span>Batch creates sheets from template configuration (50-100 sheets per minute)</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-500 mt-0.5" />
