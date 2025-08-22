@@ -174,7 +174,7 @@ export default function Privacy() {
               </p>
               <ul className="text-gray-600 dark:text-gray-300 mb-8">
                 <li>Email: weber@bimopsstudio.com</li>
-                <li>Phone: [Your phone number]</li>
+                <li>Phone: 786-587-9726</li>
                 <li>Mailing Address: Available upon request</li>
               </ul>
 
