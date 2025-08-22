@@ -63,25 +63,12 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mb-8 relative">
-              <div className="relative overflow-hidden rounded-lg">
-                <img 
-                  src="/professional-sheet-creator-screenshot.png" 
-                  alt="Professional Sheet Creator interface in Revit"
-                  className="w-full"
-                />
-                {/* Gradient overlays for fading edges - very subtle */}
-                <div className="absolute inset-0 pointer-events-none">
-                  {/* Top fade */}
-                  <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white dark:from-gray-900 to-transparent"></div>
-                  {/* Bottom fade */}
-                  <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"></div>
-                  {/* Left fade */}
-                  <div className="absolute top-0 left-0 bottom-0 w-4 bg-gradient-to-r from-white dark:from-gray-900 to-transparent"></div>
-                  {/* Right fade */}
-                  <div className="absolute top-0 right-0 bottom-0 w-4 bg-gradient-to-l from-white dark:from-gray-900 to-transparent"></div>
-                </div>
-              </div>
+            <div className="mb-8">
+              <img 
+                src="/professional-sheet-creator-screenshot.png" 
+                alt="Professional Sheet Creator interface in Revit"
+                className="w-full rounded-lg shadow-2xl ring-1 ring-gray-200 dark:ring-gray-800"
+              />
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
                 Professional Sheet Creator interface showing batch sheet creation
               </p>
