@@ -30,8 +30,8 @@ export function Footer() {
   return (
     <footer className="bg-deep-navy dark:bg-gray-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <img 
                 src="/logo.png" 
