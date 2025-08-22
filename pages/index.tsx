@@ -64,11 +64,13 @@ export default function Home() {
             </div>
 
             <div className="mb-8">
-              <img 
-                src="/professional-sheet-creator-screenshot.png" 
-                alt="Professional Sheet Creator interface in Revit"
-                className="w-full rounded-lg shadow-2xl ring-1 ring-gray-200 dark:ring-gray-800"
-              />
+              <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
+                <img 
+                  src="/professional-sheet-creator-screenshot.png" 
+                  alt="Professional Sheet Creator interface in Revit"
+                  className="w-full rounded"
+                />
+              </div>
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
                 Professional Sheet Creator interface showing batch sheet creation
               </p>
