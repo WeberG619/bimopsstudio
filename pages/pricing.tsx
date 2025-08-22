@@ -65,7 +65,7 @@ export default function Pricing() {
             </Card>
 
             <p className="text-gray-600 dark:text-gray-300">
-              Limited spots available • Currently testing with 3 firms
+              Limited spots available • Beta program starting soon
             </p>
           </motion.div>
         </div>
