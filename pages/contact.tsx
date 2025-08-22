@@ -18,36 +18,40 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Create mailto link with form data
-    const subject = "Early Access Request - Professional Sheet Creator";
-    const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company}
-Company Size: ${formData.companySize}
-Revit Version: ${formData.revitVersion}
-Number of Seats: ${formData.seats}
-Timeline: ${formData.timeline}
+    try {
+      // Submit to Formspree
+      const response = await fetch('https://formspree.io/f/xwpkjjvg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          companySize: formData.companySize,
+          revitVersion: formData.revitVersion,
+          seats: formData.seats,
+          timeline: formData.timeline,
+          _subject: 'Early Access Request - Professional Sheet Creator',
+          _replyto: formData.email,
+        }),
+      });
 
-This is an early access request submitted from bimopsstudio.com
-    `.trim();
-
-    // Encode for URL
-    const mailtoLink = `mailto:weber@bimopsstudio.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Try to open email client
-    window.open(mailtoLink, '_blank');
-    
-    // Also set as href in case window.open is blocked
-    setTimeout(() => {
-      window.location.href = mailtoLink;
-    }, 100);
-    
-    // Show success message
-    setIsSubmitted(true);
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert('There was an error submitting the form. Please try emailing directly to weber@bimopsstudio.com');
+      }
+    } catch (error) {
+      alert('There was an error submitting the form. Please try emailing directly to weber@bimopsstudio.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -78,24 +82,21 @@ This is an early access request submitted from bimopsstudio.com
                     Thank You!
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Your email client should now be open with your early access request.
+                    Your early access request has been sent successfully!
                   </p>
                   <p className="text-sm text-gray-500 mb-4">
-                    If your email client didn't open, please copy and send this to:
-                    <br />
-                    <strong>weber@bimopsstudio.com</strong>
+                    We'll get back to you at <strong>{formData.email}</strong> within 24 hours.
                   </p>
                   <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-left text-sm mt-4">
-                    <p className="font-semibold mb-2">Subject: Early Access Request - Professional Sheet Creator</p>
-                    <pre className="whitespace-pre-wrap text-xs text-gray-600 dark:text-gray-300">
-{`Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company}
-Company Size: ${formData.companySize}
-Revit Version: ${formData.revitVersion}
-Number of Seats: ${formData.seats}
-Timeline: ${formData.timeline}`}
-                    </pre>
+                    <p className="font-semibold mb-2">Your Request Details:</p>
+                    <div className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+                      <p><strong>Name:</strong> {formData.name}</p>
+                      <p><strong>Company:</strong> {formData.company}</p>
+                      <p><strong>Company Size:</strong> {formData.companySize}</p>
+                      <p><strong>Revit Version:</strong> {formData.revitVersion}</p>
+                      <p><strong>Seats:</strong> {formData.seats}</p>
+                      <p><strong>Timeline:</strong> {formData.timeline}</p>
+                    </div>
                   </div>
                   <Button 
                     className="mt-6"
@@ -230,9 +231,17 @@ Timeline: ${formData.timeline}`}
                     <option value="evaluating">Just evaluating</option>
                   </select>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    Request Early Access
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Request Early Access
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </>
+                    )}
                   </Button>
                 </form>
 
