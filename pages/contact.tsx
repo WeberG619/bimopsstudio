@@ -22,9 +22,41 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Since we're on GitHub Pages (static hosting), use mailto directly
-    const subject = encodeURIComponent('Early Access Request - Professional Sheet Creator');
-    const body = encodeURIComponent(
+    try {
+      // Submit to Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: 'YOUR_ACCESS_KEY_HERE', // TODO: Replace with your actual Web3Forms access key
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          company_size: formData.companySize,
+          revit_version: formData.revitVersion,
+          seats: formData.seats,
+          timeline: formData.timeline,
+          subject: 'Early Access Request - Professional Sheet Creator',
+          from_name: 'BIM Ops Studio Website',
+          replyto: formData.email,
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error(data.message || 'Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      // Fallback to mailto on any error
+      const subject = encodeURIComponent('Early Access Request - Professional Sheet Creator');
+      const body = encodeURIComponent(
 `Name: ${formData.name}
 Email: ${formData.email}
 Company: ${formData.company}
@@ -32,16 +64,18 @@ Company Size: ${formData.companySize}
 Revit Version: ${formData.revitVersion}
 Number of Seats: ${formData.seats}
 Implementation Timeline: ${formData.timeline}`
-    );
-    
-    // Open email client with pre-filled information
-    window.location.href = `mailto:weber@bimopsstudio.com?subject=${subject}&body=${body}`;
-    
-    // Show success message after a short delay
-    setTimeout(() => {
-      setIsSubmitted(true);
+      );
+      
+      // Open email client with pre-filled information
+      window.location.href = `mailto:weber@bimopsstudio.com?subject=${subject}&body=${body}`;
+      
+      // Show success message after a short delay
+      setTimeout(() => {
+        setIsSubmitted(true);
+      }, 500);
+    } finally {
       setIsSubmitting(false);
-    }, 500);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
