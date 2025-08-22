@@ -173,9 +173,9 @@ export default function Privacy() {
                 If you have questions about this privacy policy or how we handle your data, please contact us:
               </p>
               <ul className="text-gray-600 dark:text-gray-300 mb-8">
-                <li>Email: privacy@bimops.studio</li>
-                <li>Phone: +1 (555) 123-4567</li>
-                <li>Address: 123 Broadway, Suite 456, New York, NY 10001</li>
+                <li>Email: weber@bimopsstudio.com</li>
+                <li>Phone: [Your phone number]</li>
+                <li>Mailing Address: Available upon request</li>
               </ul>
 
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Updates to This Policy</h2>
