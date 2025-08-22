@@ -100,9 +100,9 @@ using (Transaction t = new Transaction(doc, "Create Sheets"))
 
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold mb-3">Development Status:</h3>
+                  <h3 className="text-lg font-semibold mb-3">Beta Program Status:</h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Beta testing with 3 architecture firms. Commercial release Q4 2024.
+                    Currently testing with 3 architecture firms. Limited early access available.
                   </p>
                 </CardContent>
               </Card>
