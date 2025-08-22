@@ -31,7 +31,7 @@ export default function Contact() {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: 'YOUR_ACCESS_KEY_HERE', // TODO: Replace with your actual Web3Forms access key
+          access_key: '6a361fd9-4582-4fc6-9b17-19222400caca', // TODO: Replace with your actual Web3Forms access key
           name: formData.name,
           email: formData.email,
           company: formData.company,
@@ -283,4 +283,5 @@ Implementation Timeline: ${formData.timeline}`
       </section>
     </Layout>
   );
+
 }
