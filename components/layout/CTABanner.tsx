@@ -21,11 +21,6 @@ export function CTABanner() {
               Request Early Access
             </Button>
           </Link>
-          <Link href="/contact">
-            <Button variant="outline" className="!border-white !text-white hover:!bg-white hover:!text-gray-900 !bg-transparent">
-              Contact Sales
-            </Button>
-          </Link>
         </div>
       </div>
     </motion.div>

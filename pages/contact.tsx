@@ -7,8 +7,8 @@ import { Mail, ArrowRight } from "lucide-react";
 export default function Contact() {
   return (
     <Layout
-      title="Contact - Professional Sheet Creator"
-      description="Request beta access to Professional Sheet Creator for Revit"
+      title="Early Access - Professional Sheet Creator"
+      description="Request early access to Professional Sheet Creator for Revit"
     >
       <section className="pt-32 pb-20 min-h-screen flex items-center">
         <div className="container mx-auto px-4 max-w-2xl">
@@ -18,7 +18,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl font-bold mb-8">Request Beta Access</h1>
+            <h1 className="text-4xl font-bold mb-8">Request Early Access</h1>
             
             <Card className="mb-8">
               <CardContent className="pt-8 pb-8">
@@ -93,7 +93,7 @@ export default function Contact() {
                 </div>
 
                 <Button size="lg" className="w-full">
-                  Request Beta Access
+                  Request Early Access
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
 

@@ -14,7 +14,6 @@ export function Footer() {
     {
       title: "Company",
       links: [
-        { href: "/contact", label: "Contact" },
         { href: "/privacy", label: "Privacy Policy" },
       ],
     },

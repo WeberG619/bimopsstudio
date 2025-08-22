@@ -23,7 +23,6 @@ export function Header() {
   const navItems = [
     { href: "/technical", label: "Technical" },
     { href: "/contact", label: "Early Access" },
-    { href: "/contact", label: "Contact" },
   ];
 
   return (
