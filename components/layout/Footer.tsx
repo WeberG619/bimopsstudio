@@ -11,12 +11,6 @@ export function Footer() {
         { href: "/contact", label: "Early Access" },
       ],
     },
-    {
-      title: "Company",
-      links: [
-        { href: "/privacy", label: "Privacy Policy" },
-      ],
-    },
   ];
 
   // Custom X (Twitter) icon component
