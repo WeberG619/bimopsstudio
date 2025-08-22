@@ -38,8 +38,13 @@ This is an early access request submitted from bimopsstudio.com
     // Encode for URL
     const mailtoLink = `mailto:weber@bimopsstudio.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
-    // Open email client
-    window.location.href = mailtoLink;
+    // Try to open email client
+    window.open(mailtoLink, '_blank');
+    
+    // Also set as href in case window.open is blocked
+    setTimeout(() => {
+      window.location.href = mailtoLink;
+    }, 100);
     
     // Show success message
     setIsSubmitted(true);
@@ -75,11 +80,23 @@ This is an early access request submitted from bimopsstudio.com
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
                     Your email client should now be open with your early access request.
                   </p>
-                  <p className="text-sm text-gray-500">
-                    If your email client didn't open, please email directly to:
+                  <p className="text-sm text-gray-500 mb-4">
+                    If your email client didn't open, please copy and send this to:
                     <br />
                     <strong>weber@bimopsstudio.com</strong>
                   </p>
+                  <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-left text-sm mt-4">
+                    <p className="font-semibold mb-2">Subject: Early Access Request - Professional Sheet Creator</p>
+                    <pre className="whitespace-pre-wrap text-xs text-gray-600 dark:text-gray-300">
+{`Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
+Company Size: ${formData.companySize}
+Revit Version: ${formData.revitVersion}
+Number of Seats: ${formData.seats}
+Timeline: ${formData.timeline}`}
+                    </pre>
+                  </div>
                   <Button 
                     className="mt-6"
                     onClick={() => {
@@ -140,7 +157,7 @@ This is an early access request submitted from bimopsstudio.com
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
                     required
                   />
                   <input
@@ -149,7 +166,7 @@ This is an early access request submitted from bimopsstudio.com
                     placeholder="Email Address"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
                     required
                   />
                   <input
@@ -158,17 +175,17 @@ This is an early access request submitted from bimopsstudio.com
                     placeholder="Company Name"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
                     required
                   />
                   <select
                     name="companySize"
                     value={formData.companySize}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
                     required
                   >
-                    <option value="">Company Size</option>
+                    <option value="" className="text-gray-900 dark:text-gray-300">Company Size</option>
                     <option value="1-5">1-5 employees</option>
                     <option value="6-20">6-20 employees</option>
                     <option value="21-50">21-50 employees</option>
@@ -179,7 +196,7 @@ This is an early access request submitted from bimopsstudio.com
                     name="revitVersion"
                     value={formData.revitVersion}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
                     required
                   >
                     <option value="">Revit Version</option>
@@ -195,14 +212,14 @@ This is an early access request submitted from bimopsstudio.com
                     min="1"
                     value={formData.seats}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
                     required
                   />
                   <select
                     name="timeline"
                     value={formData.timeline}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
                     required
                   >
                     <option value="">Implementation Timeline</option>
