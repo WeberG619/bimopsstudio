@@ -30,7 +30,7 @@ export function Footer() {
     { href: "https://github.com/WeberG619", icon: <Github size={20} />, label: "GitHub" },
     { href: "https://x.com/BIMOpsStudio", icon: <XIcon />, label: "X" },
     { href: "https://www.linkedin.com/in/weber-gouin-94a0b537b", icon: <Linkedin size={20} />, label: "LinkedIn" },
-    { href: "mailto:contact@bimops.studio", icon: <Mail size={20} />, label: "Email" },
+    { href: "mailto:weber@bimopsstudio.com", icon: <Mail size={20} />, label: "Email" },
   ];
 
   return (

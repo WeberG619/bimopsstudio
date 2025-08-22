@@ -66,6 +66,9 @@ Early access available 👉 bimopsstudio.com
 
 #Revit #BIM #AutodeskRevit #Architecture #Engineering
 
+### Contact
+Email: weber@bimopsstudio.com
+
 ### Sample Tweets
 
 **Tweet 1:**
