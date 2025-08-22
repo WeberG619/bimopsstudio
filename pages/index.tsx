@@ -70,16 +70,16 @@ export default function Home() {
                   alt="Professional Sheet Creator interface in Revit"
                   className="w-full"
                 />
-                {/* Gradient overlays for fading edges */}
+                {/* Gradient overlays for fading edges - very subtle */}
                 <div className="absolute inset-0 pointer-events-none">
                   {/* Top fade */}
-                  <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white dark:from-gray-900 to-transparent"></div>
+                  <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white dark:from-gray-900 to-transparent"></div>
                   {/* Bottom fade */}
-                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"></div>
                   {/* Left fade */}
-                  <div className="absolute top-0 left-0 bottom-0 w-16 bg-gradient-to-r from-white dark:from-gray-900 to-transparent"></div>
+                  <div className="absolute top-0 left-0 bottom-0 w-4 bg-gradient-to-r from-white dark:from-gray-900 to-transparent"></div>
                   {/* Right fade */}
-                  <div className="absolute top-0 right-0 bottom-0 w-16 bg-gradient-to-l from-white dark:from-gray-900 to-transparent"></div>
+                  <div className="absolute top-0 right-0 bottom-0 w-4 bg-gradient-to-l from-white dark:from-gray-900 to-transparent"></div>
                 </div>
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
