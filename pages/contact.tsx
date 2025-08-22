@@ -98,7 +98,7 @@ export default function Contact() {
                 </Button>
 
                 <p className="mt-4 text-sm text-gray-500">
-                  Or email directly: contact@bimops.studio
+                  Or email directly: weber@bimopsstudio.com
                 </p>
               </CardContent>
             </Card>
