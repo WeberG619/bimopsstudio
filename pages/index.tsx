@@ -2,10 +2,14 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, FileText, Clock, ArrowRight } from "lucide-react";
+import { CheckCircle, FileText, Clock, ArrowRight, Expand } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
+import { ImageModal } from "@/components/ui/ImageModal";
 
 export default function Home() {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+
   return (
     <Layout
       title="Professional Sheet Creator - Revit Sheet Automation Add-in"
@@ -64,15 +68,24 @@ export default function Home() {
             </div>
 
             <div className="mb-8">
-              <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
+              <div 
+                className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg cursor-pointer relative group"
+                onClick={() => setIsImageModalOpen(true)}
+              >
                 <img 
                   src="/professional-sheet-creator-screenshot.png" 
                   alt="Professional Sheet Creator interface in Revit"
-                  className="w-full rounded"
+                  className="w-full rounded transition-transform group-hover:scale-[1.02]"
                 />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-lg">
+                  <div className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg">
+                    <Expand className="w-6 h-6 text-gray-800 dark:text-white" />
+                  </div>
+                </div>
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
                 Professional Sheet Creator interface showing batch sheet creation
+                <span className="block text-xs mt-1">Click to enlarge</span>
               </p>
             </div>
 
@@ -93,6 +106,13 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <ImageModal
+        isOpen={isImageModalOpen}
+        onClose={() => setIsImageModalOpen(false)}
+        imageSrc="/professional-sheet-creator-screenshot.png"
+        imageAlt="Professional Sheet Creator interface in Revit - Full View"
+      />
     </Layout>
   );
 }
