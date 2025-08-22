@@ -188,9 +188,7 @@ export function Hero() {
             <div className="flex justify-center items-center space-x-8 text-white/60 text-sm">
               <div>10-500 Employee Firms</div>
               <div className="w-1 h-1 bg-white/60 rounded-full"></div>
-              <div>ISO 19650 Compliant</div>
-              <div className="w-1 h-1 bg-white/60 rounded-full"></div>
-              <div>ADN Member</div>
+              <div>Revit API 2024-2026</div>
               <div className="w-1 h-1 bg-white/60 rounded-full"></div>
               <div>Enterprise Support</div>
             </div>

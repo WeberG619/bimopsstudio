@@ -102,7 +102,7 @@ using (Transaction t = new Transaction(doc, "Create Sheets"))
                 <CardContent className="pt-6">
                   <h3 className="text-lg font-semibold mb-3">Beta Program Status:</h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Currently testing with 3 architecture firms. Limited early access available.
+                    In active development. Beta testing will begin with select architecture firms.
                   </p>
                 </CardContent>
               </Card>

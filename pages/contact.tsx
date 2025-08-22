@@ -104,7 +104,7 @@ export default function Contact() {
             </Card>
 
             <p className="text-gray-600 dark:text-gray-300">
-              Currently testing with 3 architecture firms • ADN Member
+              Beta program launching soon for select firms
             </p>
           </motion.div>
         </div>

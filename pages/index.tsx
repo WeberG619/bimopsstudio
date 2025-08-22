@@ -82,7 +82,7 @@ export default function Home() {
             </p>
 
             <p className="mt-8 text-gray-500 text-sm">
-              Currently testing with 3 architecture firms • ADN Member
+              In development • Beta testing coming soon
             </p>
           </motion.div>
         </div>
