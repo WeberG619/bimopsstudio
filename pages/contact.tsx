@@ -22,36 +22,26 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    try {
-      // Submit to Formspree
-      const response = await fetch('https://formspree.io/f/xwpkjjvg', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          companySize: formData.companySize,
-          revitVersion: formData.revitVersion,
-          seats: formData.seats,
-          timeline: formData.timeline,
-          _subject: 'Early Access Request - Professional Sheet Creator',
-          _replyto: formData.email,
-        }),
-      });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-      } else {
-        alert('There was an error submitting the form. Please try emailing directly to weber@bimopsstudio.com');
-      }
-    } catch (error) {
-      alert('There was an error submitting the form. Please try emailing directly to weber@bimopsstudio.com');
-    } finally {
+    // Since we're on GitHub Pages (static hosting), use mailto directly
+    const subject = encodeURIComponent('Early Access Request - Professional Sheet Creator');
+    const body = encodeURIComponent(
+`Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
+Company Size: ${formData.companySize}
+Revit Version: ${formData.revitVersion}
+Number of Seats: ${formData.seats}
+Implementation Timeline: ${formData.timeline}`
+    );
+    
+    // Open email client with pre-filled information
+    window.location.href = `mailto:weber@bimopsstudio.com?subject=${subject}&body=${body}`;
+    
+    // Show success message after a short delay
+    setTimeout(() => {
+      setIsSubmitted(true);
       setIsSubmitting(false);
-    }
+    }, 500);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
