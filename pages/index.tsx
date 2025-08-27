@@ -152,18 +152,18 @@ export default function Home() {
             
             <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8">
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center">
-                Toggle between views instantly. See thumbnails of all views in your project without opening each one. 
+                Toggle between views instantly with a single click. See previews of your views without opening each one. 
                 Perfect for navigating projects with 30+ views.
               </p>
               
               <div className="grid md:grid-cols-3 gap-6 mb-8">
                 <div className="text-center">
                   <Eye className="w-12 h-12 text-[#4A9EFF] mx-auto mb-3" />
-                  <h3 className="font-semibold mb-2">Instant view preview on hover</h3>
+                  <h3 className="font-semibold mb-2">One-click preview</h3>
                 </div>
                 <div className="text-center">
                   <Zap className="w-12 h-12 text-[#4A9EFF] mx-auto mb-3" />
-                  <h3 className="font-semibold mb-2">Works with all view types</h3>
+                  <h3 className="font-semibold mb-2">Works with plans, sections, elevations & 3D</h3>
                 </div>
                 <div className="text-center">
                   <Download className="w-12 h-12 text-[#4A9EFF] mx-auto mb-3" />
