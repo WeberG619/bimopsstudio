@@ -147,18 +147,18 @@ export default function FreeTools() {
                       <h2 className="text-2xl font-semibold mb-4">What is View Preview?</h2>
                       <p className="text-gray-600 dark:text-gray-300 mb-4">
                         View Preview is a free Revit add-in that lets you quickly navigate through your project views 
-                        without the delay of opening each one. Perfect for projects with 30+ views where finding the 
-                        right view becomes time-consuming.
+                        with a single click preview, without the delay of opening each one. Perfect for projects with 30+ views 
+                        where finding the right view becomes time-consuming.
                       </p>
                       
                       <div className="space-y-3">
                         <div className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                          <span>Hover over any view to see instant preview</span>
+                          <span>Click once on any view to see instant preview</span>
                         </div>
                         <div className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                          <span>Works with floor plans, sections, elevations, and 3D views</span>
+                          <span>Works with floor plans, sections, elevations, and 3D views (not schedules or family images)</span>
                         </div>
                         <div className="flex items-start">
                           <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
@@ -237,9 +237,9 @@ export default function FreeTools() {
                   viewport={{ once: true }}
                 >
                   <Eye className="w-16 h-16 text-[#4A9EFF] mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Instant Preview</h3>
+                  <h3 className="text-lg font-semibold mb-2">One-Click Preview</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    See view contents on hover without opening
+                    See view contents with a single click
                   </p>
                 </motion.div>
 
