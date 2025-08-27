@@ -23,7 +23,7 @@ export function Footer() {
   const socialLinks = [
     { href: "https://github.com/WeberG619", icon: <Github size={20} />, label: "GitHub" },
     { href: "https://x.com/BIMOpsStudio", icon: <XIcon />, label: "X" },
-    { href: "https://www.linkedin.com/in/weber-gouin-94a0b537b", icon: <Linkedin size={20} />, label: "LinkedIn" },
+    { href: "https://www.linkedin.com/in/weber-gouin/", icon: <Linkedin size={20} />, label: "LinkedIn" },
     { href: "mailto:weber@bimopsstudio.com", icon: <Mail size={20} />, label: "Email" },
   ];
 
@@ -32,16 +32,29 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <img 
-                src="/logo.png" 
-                alt="BIM Ops Studio" 
-                className="w-10 h-10"
-              />
-              <span className="font-heading text-xl font-bold">BIM Ops Studio</span>
+            <div className="mb-4">
+              <div className="flex items-center space-x-2 mb-2">
+                <img 
+                  src="/logo.png" 
+                  alt="BIM Ops Studio" 
+                  className="w-10 h-10"
+                />
+                <span className="font-heading text-xl font-bold">BIM Ops Studio</span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <img 
+                  src="/ADN/autodesk-authorized-developer-logo/autodesk-authorized-developer-logo-rgb-white.png" 
+                  alt="Autodesk Developer Network Member"
+                  className="h-12"
+                />
+                <span className="text-sm text-[#4A9EFF]">Autodesk Developer Network Member #USUS0234</span>
+              </div>
             </div>
-            <p className="text-gray-400 dark:text-gray-300 mb-6">
+            <p className="text-gray-400 dark:text-gray-300 mb-2">
               Professional Sheet Creator - Automate Revit sheet generation with the power of Revit API.
+            </p>
+            <p className="text-gray-400 dark:text-gray-300 mb-6">
+              Email: weber@bimopsstudio.com
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
@@ -78,8 +91,23 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-gray-800 dark:border-gray-700 mt-12 pt-8 text-center text-gray-500 dark:text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} BIM Ops Studio. All rights reserved.</p>
+        <div className="border-t border-gray-800 dark:border-gray-700 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-500 dark:text-gray-400 text-sm">
+              © 2025 BIM Ops Studio. All rights reserved.
+            </p>
+            <div className="flex space-x-6 text-sm text-gray-500 dark:text-gray-400">
+              <Link href="/privacy" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="hover:text-white transition-colors">
+                Terms of Service
+              </Link>
+              <Link href="/contact" className="hover:text-white transition-colors">
+                Contact
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
