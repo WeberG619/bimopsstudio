@@ -40,18 +40,28 @@ export default function FreeTools() {
       const data = await response.json();
       
       if (data.success) {
+        // Trigger the download
+        const link = document.createElement('a');
+        link.href = '/downloads/ViewPreviewTool_Setup_MultiVersion.exe';
+        link.download = 'ViewPreviewTool_Setup_MultiVersion.exe';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
         setIsSubmitted(true);
-        // In a real implementation, you would trigger a download here
-        // For now, we'll show success and instructions
       } else {
         throw new Error(data.message || 'Form submission failed');
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      // Fallback to mailto
-      const subject = encodeURIComponent('Free Tool Download - View Preview for Revit');
-      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}`);
-      window.location.href = `mailto:weber@bimopsstudio.com?subject=${subject}&body=${body}`;
+      // Fallback - just download directly
+      const link = document.createElement('a');
+      link.href = '/downloads/ViewPreviewTool_Setup_MultiVersion.exe';
+      link.download = 'ViewPreviewTool_Setup_MultiVersion.exe';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
       setTimeout(() => setIsSubmitted(true), 500);
     } finally {
       setIsSubmitting(false);
@@ -89,7 +99,7 @@ export default function FreeTools() {
                     Check your email for the download link.
                   </p>
                   <p className="text-sm text-gray-500 mb-4">
-                    We've sent the View Preview tool download link to <strong>{formData.email}</strong>
+                    Your download should start automatically. If not, <a href="/downloads/ViewPreviewTool_Setup_MultiVersion.exe" className="text-blue-600 hover:text-blue-800 underline">click here</a>.
                   </p>
                   <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-left text-sm mt-4">
                     <p className="font-semibold mb-2">Installation Instructions:</p>
@@ -221,7 +231,10 @@ export default function FreeTools() {
                       </form>
 
                       <p className="mt-4 text-sm text-gray-500 text-center">
-                        We'll email you the download link immediately
+                        Download will start immediately after submitting
+                      </p>
+                      <p className="mt-2 text-xs text-gray-400 text-center">
+                        Or <a href="/downloads/ViewPreviewTool_Setup_MultiVersion.exe" className="text-blue-600 hover:text-blue-800 underline">download directly</a> without form
                       </p>
                     </div>
                   </div>

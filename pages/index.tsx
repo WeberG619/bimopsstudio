@@ -178,12 +178,17 @@ export default function Home() {
               <div className="text-center">
                 <Link href="/free-tools">
                   <Button size="lg" className="bg-[#4A9EFF] hover:bg-[#3A8EEF]">
-                    Download Free (Email Required)
+                    Download Free Tool
                     <Download className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
                 <p className="mt-4 text-sm text-gray-500">
                   Version 1.0 - Released August 2025
+                </p>
+                <p className="mt-2 text-xs text-gray-400">
+                  <a href="/downloads/ViewPreviewTool_Setup_MultiVersion.exe" className="text-blue-600 hover:text-blue-800 underline">
+                    Direct download available
+                  </a>
                 </p>
               </div>
             </div>
