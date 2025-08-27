@@ -43,8 +43,8 @@ export default function Terms() {
 
               <h2 className="text-2xl font-semibold mt-8 mb-4">4. Pricing</h2>
               <p className="mb-4">
-                Upon completion of the beta period, Professional Sheet Creator will be available at 
-                $149/month per seat. Beta users may be eligible for founding-user pricing.
+                Upon completion of the beta period, Professional Sheet Creator will be available for purchase. 
+                Beta users may be eligible for founding-user pricing.
               </p>
 
               <h2 className="text-2xl font-semibold mt-8 mb-4">5. Disclaimer</h2>

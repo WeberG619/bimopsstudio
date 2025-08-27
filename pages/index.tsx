@@ -68,7 +68,7 @@ export default function Home() {
                   Beta testing - 15 day free trial
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  Coming Soon: $149/month per seat
+                  Coming Soon
                 </p>
               </div>
             </div>
