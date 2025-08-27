@@ -22,6 +22,7 @@ export function Header() {
 
   const navItems = [
     { href: "/technical", label: "Technical" },
+    { href: "/free-tools", label: "Free Tools" },
     { href: "/contact", label: "Early Access" },
   ];
 
@@ -40,13 +41,22 @@ export function Header() {
             alt="BIM Ops Studio" 
             className="w-10 h-10"
           />
-          <span className={`font-heading text-xl font-bold transition-colors ${
-            isScrolled 
-              ? "text-deep-navy dark:text-white" 
-              : "text-white"
-          }`}>
-            BIM Ops Studio
-          </span>
+          <div className="flex flex-col">
+            <span className={`font-heading text-xl font-bold transition-colors ${
+              isScrolled 
+                ? "text-deep-navy dark:text-white" 
+                : "text-white"
+            }`}>
+              BIM Ops Studio
+            </span>
+            <span className={`text-xs transition-colors ${
+              isScrolled 
+                ? "text-[#4A9EFF]" 
+                : "text-[#4A9EFF]"
+            }`}>
+              ADN Member
+            </span>
+          </div>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">

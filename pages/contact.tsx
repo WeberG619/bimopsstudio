@@ -13,7 +13,8 @@ export default function Contact() {
     companySize: '',
     revitVersion: '',
     seats: '',
-    timeline: ''
+    timeline: '',
+    painPoints: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -39,6 +40,7 @@ export default function Contact() {
           revit_version: formData.revitVersion,
           seats: formData.seats,
           timeline: formData.timeline,
+          pain_points: formData.painPoints,
           subject: 'Early Access Request - Professional Sheet Creator',
           from_name: 'BIM Ops Studio Website',
           replyto: formData.email,
@@ -63,7 +65,8 @@ Company: ${formData.company}
 Company Size: ${formData.companySize}
 Revit Version: ${formData.revitVersion}
 Number of Seats: ${formData.seats}
-Implementation Timeline: ${formData.timeline}`
+Implementation Timeline: ${formData.timeline}
+Pain Points: ${formData.painPoints}`
       );
       
       // Open email client with pre-filled information
@@ -78,7 +81,7 @@ Implementation Timeline: ${formData.timeline}`
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -120,6 +123,7 @@ Implementation Timeline: ${formData.timeline}`
                       <p><strong>Revit Version:</strong> {formData.revitVersion}</p>
                       <p><strong>Seats:</strong> {formData.seats}</p>
                       <p><strong>Timeline:</strong> {formData.timeline}</p>
+                      {formData.painPoints && <p><strong>Pain Points:</strong> {formData.painPoints}</p>}
                     </div>
                   </div>
                   <Button 
@@ -133,7 +137,8 @@ Implementation Timeline: ${formData.timeline}`
                         companySize: '',
                         revitVersion: '',
                         seats: '',
-                        timeline: ''
+                        timeline: '',
+                        painPoints: ''
                       });
                     }}
                   >
@@ -254,6 +259,14 @@ Implementation Timeline: ${formData.timeline}`
                     <option value="6-months">Within 6 months</option>
                     <option value="evaluating">Just evaluating</option>
                   </select>
+                  <textarea
+                    name="painPoints"
+                    placeholder="Current sheet creation pain points (optional)"
+                    value={formData.painPoints}
+                    onChange={handleChange}
+                    rows={3}
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600 resize-none"
+                  />
 
                   <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? (
