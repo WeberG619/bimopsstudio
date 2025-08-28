@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import { trackFormSubmit } from "@/components/GoogleAnalytics";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -50,6 +51,8 @@ export default function Contact() {
       const data = await response.json();
       
       if (data.success) {
+        // Track successful form submission
+        trackFormSubmit('Early Access Request Form');
         setIsSubmitted(true);
       } else {
         throw new Error(data.message || 'Form submission failed');
