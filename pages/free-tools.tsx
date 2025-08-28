@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, Eye, Zap, ArrowRight, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import { trackDownload, trackFormSubmit } from "@/components/GoogleAnalytics";
 
 export default function FreeTools() {
   const [formData, setFormData] = useState({
@@ -40,6 +41,9 @@ export default function FreeTools() {
       const data = await response.json();
       
       if (data.success) {
+        // Track form submission
+        trackFormSubmit('Free Tool Download Form');
+        
         // Trigger the download
         const link = document.createElement('a');
         link.href = '/downloads/ViewPreviewTool_Setup_MultiVersion.exe';
@@ -47,6 +51,9 @@ export default function FreeTools() {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        
+        // Track download
+        trackDownload('ViewPreviewTool_Setup_MultiVersion.exe');
         
         setIsSubmitted(true);
       } else {

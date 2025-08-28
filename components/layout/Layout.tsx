@@ -5,6 +5,7 @@ import { Footer } from "./Footer";
 import { CTABanner } from "./CTABanner";
 import { Chatbot } from "@/components/ui/Chatbot";
 import { useSabbathMode } from "@/lib/sabbath-mode";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 interface LayoutProps {
   children: ReactNode;
@@ -31,6 +32,11 @@ export function Layout({ children, title, description, ogImage }: LayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
+      {/* Google Analytics */}
+      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+      )}
       
       <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
         <Header />
