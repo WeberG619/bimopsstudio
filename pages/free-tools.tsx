@@ -310,6 +310,24 @@ export default function FreeTools() {
                 </CardContent>
               </Card>
 
+              {/* Demo Preview Image */}
+              <Card className="mb-8">
+                <CardContent className="p-0">
+                  <div className="relative">
+                    <img 
+                      src="/images/view-preview-demo.png" 
+                      alt="View Preview Tool Demo - Shows the tool in action within Revit"
+                      className="w-full rounded-lg"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-lg">
+                      <p className="text-white text-sm font-semibold">
+                        View Preview in Action - Click once to preview any view instantly
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
               <div className="grid md:grid-cols-3 gap-6">
                 <motion.div
                   className="text-center"
