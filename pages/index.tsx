@@ -186,9 +186,7 @@ export default function Home() {
                   Version 1.0 - Released August 2025
                 </p>
                 <p className="mt-2 text-xs text-gray-400">
-                  <a href="/downloads/ViewPreviewTool_Setup_MultiVersion.exe" className="text-blue-600 hover:text-blue-800 underline">
-                    Direct download available
-                  </a>
+                  Available for Revit 2024, 2025, and 2026
                 </p>
               </div>
             </div>
