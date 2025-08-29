@@ -10,7 +10,8 @@ export default function FreeTools() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: ''
+    company: '',
+    version: 'both' // '2024', '2025-2026', or 'both'
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -44,16 +45,28 @@ export default function FreeTools() {
         // Track form submission
         trackFormSubmit('Free Tool Download Form');
         
-        // Trigger the download
-        const link = document.createElement('a');
-        link.href = '/downloads/ViewPreviewTool_Setup_MultiVersion.exe';
-        link.download = 'ViewPreviewTool_Setup_MultiVersion.exe';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        // Trigger downloads based on version selection
+        if (formData.version === '2024' || formData.version === 'both') {
+          const link2024 = document.createElement('a');
+          link2024.href = '/downloads/ViewPreviewTool_v1.0_Setup_2024.exe';
+          link2024.download = 'ViewPreviewTool_v1.0_Setup_2024.exe';
+          document.body.appendChild(link2024);
+          link2024.click();
+          document.body.removeChild(link2024);
+          trackDownload('ViewPreviewTool_v1.0_Setup_2024.exe');
+        }
         
-        // Track download
-        trackDownload('ViewPreviewTool_Setup_MultiVersion.exe');
+        if (formData.version === '2025-2026' || formData.version === 'both') {
+          setTimeout(() => {
+            const link2025 = document.createElement('a');
+            link2025.href = '/downloads/ViewPreviewTool_v1.0_Setup_2025_2026.exe';
+            link2025.download = 'ViewPreviewTool_v1.0_Setup_2025_2026.exe';
+            document.body.appendChild(link2025);
+            link2025.click();
+            document.body.removeChild(link2025);
+            trackDownload('ViewPreviewTool_v1.0_Setup_2025_2026.exe');
+          }, formData.version === 'both' ? 500 : 0);
+        }
         
         setIsSubmitted(true);
       } else {
@@ -61,13 +74,26 @@ export default function FreeTools() {
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      // Fallback - just download directly
-      const link = document.createElement('a');
-      link.href = '/downloads/ViewPreviewTool_Setup_MultiVersion.exe';
-      link.download = 'ViewPreviewTool_Setup_MultiVersion.exe';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // Fallback - just download directly based on version
+      if (formData.version === '2024' || formData.version === 'both') {
+        const link2024 = document.createElement('a');
+        link2024.href = '/downloads/ViewPreviewTool_v1.0_Setup_2024.exe';
+        link2024.download = 'ViewPreviewTool_v1.0_Setup_2024.exe';
+        document.body.appendChild(link2024);
+        link2024.click();
+        document.body.removeChild(link2024);
+      }
+      
+      if (formData.version === '2025-2026' || formData.version === 'both') {
+        setTimeout(() => {
+          const link2025 = document.createElement('a');
+          link2025.href = '/downloads/ViewPreviewTool_v1.0_Setup_2025_2026.exe';
+          link2025.download = 'ViewPreviewTool_v1.0_Setup_2025_2026.exe';
+          document.body.appendChild(link2025);
+          link2025.click();
+          document.body.removeChild(link2025);
+        }, formData.version === 'both' ? 500 : 0);
+      }
       
       setTimeout(() => setIsSubmitted(true), 500);
     } finally {
@@ -75,7 +101,7 @@ export default function FreeTools() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -106,8 +132,24 @@ export default function FreeTools() {
                     Check your email for the download link.
                   </p>
                   <p className="text-sm text-gray-500 mb-4">
-                    Your download should start automatically. If not, <a href="/downloads/ViewPreviewTool_Setup_MultiVersion.exe" className="text-blue-600 hover:text-blue-800 underline">click here</a>.
+                    Your download(s) should start automatically. If not, use the direct links below:
                   </p>
+                  <div className="space-y-2">
+                    {(formData.version === '2024' || formData.version === 'both') && (
+                      <p className="text-sm">
+                        <a href="/downloads/ViewPreviewTool_v1.0_Setup_2024.exe" className="text-blue-600 hover:text-blue-800 underline">
+                          Download for Revit 2024
+                        </a>
+                      </p>
+                    )}
+                    {(formData.version === '2025-2026' || formData.version === 'both') && (
+                      <p className="text-sm">
+                        <a href="/downloads/ViewPreviewTool_v1.0_Setup_2025_2026.exe" className="text-blue-600 hover:text-blue-800 underline">
+                          Download for Revit 2025-2026
+                        </a>
+                      </p>
+                    )}
+                  </div>
                   <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg text-left text-sm mt-4">
                     <p className="font-semibold mb-2">Installation Instructions:</p>
                     <ol className="list-decimal list-inside text-gray-600 dark:text-gray-300 space-y-1">
@@ -121,7 +163,7 @@ export default function FreeTools() {
                     className="mt-6"
                     onClick={() => {
                       setIsSubmitted(false);
-                      setFormData({ name: '', email: '', company: '' });
+                      setFormData({ name: '', email: '', company: '', version: 'both' });
                     }}
                   >
                     Download Another Tool
@@ -225,6 +267,18 @@ export default function FreeTools() {
                           className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
                         />
                         
+                        <select
+                          name="version"
+                          value={formData.version}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600"
+                          required
+                        >
+                          <option value="2024">Revit 2024</option>
+                          <option value="2025-2026">Revit 2025-2026</option>
+                          <option value="both">Both versions</option>
+                        </select>
+                        
                         <Button type="submit" size="lg" className="w-full bg-[#4A9EFF] hover:bg-[#3A8EEF]" disabled={isSubmitting}>
                           {isSubmitting ? (
                             <>Sending...</>
@@ -240,9 +294,17 @@ export default function FreeTools() {
                       <p className="mt-4 text-sm text-gray-500 text-center">
                         Download will start immediately after submitting
                       </p>
-                      <p className="mt-2 text-xs text-gray-400 text-center">
-                        Or <a href="/downloads/ViewPreviewTool_Setup_MultiVersion.exe" className="text-blue-600 hover:text-blue-800 underline">download directly</a> without form
-                      </p>
+                      <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-600">
+                        <p className="text-xs text-gray-400 text-center mb-2">Or download directly without form:</p>
+                        <div className="flex flex-col space-y-1 text-center">
+                          <a href="/downloads/ViewPreviewTool_v1.0_Setup_2024.exe" className="text-xs text-blue-600 hover:text-blue-800 underline">
+                            Revit 2024 version
+                          </a>
+                          <a href="/downloads/ViewPreviewTool_v1.0_Setup_2025_2026.exe" className="text-xs text-blue-600 hover:text-blue-800 underline">
+                            Revit 2025-2026 version
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
