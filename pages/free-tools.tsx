@@ -2,9 +2,10 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Download, Eye, Zap, ArrowRight, CheckCircle } from "lucide-react";
+import { Download, Eye, Zap, ArrowRight, CheckCircle, Expand } from "lucide-react";
 import { useState } from "react";
 import { trackDownload, trackFormSubmit } from "@/components/GoogleAnalytics";
+import { ImageModal } from "@/components/ui/ImageModal";
 
 export default function FreeTools() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function FreeTools() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -313,18 +315,29 @@ export default function FreeTools() {
               {/* Demo Preview Image */}
               <Card className="mb-8">
                 <CardContent className="p-0">
-                  <div className="relative">
+                  <div 
+                    className="relative cursor-pointer group"
+                    onClick={() => setIsImageModalOpen(true)}
+                  >
                     <img 
                       src="/images/view-preview-demo.png" 
                       alt="View Preview Tool Demo - Shows the tool in action within Revit"
-                      className="w-full rounded-lg"
+                      className="w-full rounded-lg transition-transform group-hover:scale-[1.02]"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-lg">
                       <p className="text-white text-sm font-semibold">
                         View Preview in Action - Click once to preview any view instantly
                       </p>
                     </div>
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-lg">
+                      <div className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg">
+                        <Expand className="w-6 h-6 text-gray-800 dark:text-white" />
+                      </div>
+                    </div>
                   </div>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
+                    Click to enlarge
+                  </p>
                 </CardContent>
               </Card>
 
@@ -375,6 +388,13 @@ export default function FreeTools() {
           </motion.div>
         </div>
       </section>
+
+      <ImageModal
+        isOpen={isImageModalOpen}
+        onClose={() => setIsImageModalOpen(false)}
+        imageSrc="/images/view-preview-demo.png"
+        imageAlt="View Preview Tool Demo - Full View"
+      />
     </Layout>
   );
 }
