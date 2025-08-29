@@ -170,6 +170,15 @@ export default function Home() {
                   <h3 className="font-semibold mb-2">No installation required</h3>
                 </div>
               </div>
+
+              {/* Preview Demo Image */}
+              <div className="mb-8">
+                <img 
+                  src="/images/view-preview-demo.png" 
+                  alt="View Preview Tool Demo"
+                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                />
+              </div>
               
               <p className="text-center font-semibold text-green-600 mb-6">
                 100% free for the Revit community
