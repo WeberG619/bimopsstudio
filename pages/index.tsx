@@ -9,6 +9,7 @@ import { ImageModal } from "@/components/ui/ImageModal";
 
 export default function Home() {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [isViewPreviewModalOpen, setIsViewPreviewModalOpen] = useState(false);
 
   return (
     <Layout
@@ -172,12 +173,20 @@ export default function Home() {
               </div>
 
               {/* Preview Demo Image */}
-              <div className="mb-8">
+              <div 
+                className="mb-8 cursor-pointer group relative max-w-2xl mx-auto"
+                onClick={() => setIsViewPreviewModalOpen(true)}
+              >
                 <img 
                   src="/images/view-preview-demo.png" 
                   alt="View Preview Tool Demo"
-                  className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
+                  className="w-full rounded-lg shadow-lg transition-transform group-hover:scale-[1.02]"
                 />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/20 rounded-lg">
+                  <div className="bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg">
+                    <Expand className="w-6 h-6 text-gray-800 dark:text-white" />
+                  </div>
+                </div>
               </div>
               
               <p className="text-center font-semibold text-green-600 mb-6">
@@ -243,6 +252,13 @@ export default function Home() {
         onClose={() => setIsImageModalOpen(false)}
         imageSrc="/professional-sheet-creator-screenshot.png"
         imageAlt="Professional Sheet Creator interface in Revit - Full View"
+      />
+      
+      <ImageModal
+        isOpen={isViewPreviewModalOpen}
+        onClose={() => setIsViewPreviewModalOpen(false)}
+        imageSrc="/images/view-preview-demo.png"
+        imageAlt="View Preview Tool Demo - Full View"
       />
     </Layout>
   );
