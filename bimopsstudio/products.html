@@ -95,10 +95,10 @@
       <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-soft">
         <h2 class="text-xl font-semibold">View Preview Tool</h2>
         <span class="text-sm text-slate-400">v1.1 • Free</span>
-        <div class="flex items-center gap-3 mt-1">
-          <span class="text-xs text-slate-500">Downloaded</span>
-          <span id="downloadCounter" class="text-sm font-bold text-sky-400">0</span>
-          <span class="text-xs text-slate-500">times</span>
+        <div class="flex items-center gap-3 mt-2 p-2 bg-sky-500/10 rounded-lg border border-sky-500/20">
+          <span class="text-sm text-slate-300">Downloaded</span>
+          <span id="downloadCounter" class="text-lg font-bold text-sky-400">Loading...</span>
+          <span class="text-sm text-slate-300">times</span>
         </div>
         <details class="mt-2">
           <summary class="text-xs text-slate-400 cursor-pointer hover:text-slate-300">View download stats</summary>
@@ -164,7 +164,16 @@
     // Initialize download counter from localStorage
     function initDownloadCounter() {
       const count = localStorage.getItem('vpt_download_count') || '0';
-      document.getElementById('downloadCounter').textContent = count;
+      const counterElement = document.getElementById('downloadCounter');
+      if (counterElement) {
+        counterElement.textContent = count;
+      } else {
+        // Retry after a short delay if element not found
+        setTimeout(() => {
+          const counter = document.getElementById('downloadCounter');
+          if (counter) counter.textContent = count;
+        }, 100);
+      }
     }
 
     // Get user timezone as proxy for location
