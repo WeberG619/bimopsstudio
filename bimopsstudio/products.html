@@ -95,6 +95,11 @@
       <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-soft">
         <h2 class="text-xl font-semibold">View Preview Tool</h2>
         <span class="text-sm text-slate-400">v1.1 • Free</span>
+        <div class="flex items-center gap-3 mt-1">
+          <span class="text-xs text-slate-500">Downloaded</span>
+          <span id="downloadCounter" class="text-sm font-bold text-sky-400">0</span>
+          <span class="text-xs text-slate-500">times</span>
+        </div>
         <p class="mt-2 text-slate-300">Instantly preview Revit views with a single click.</p>
         <ul class="mt-4 space-y-2 text-slate-300 list-disc pl-5">
           <li>Click-based preview system</li>
@@ -150,6 +155,34 @@
     let downloadUrl = '';
     let downloadVersion = '';
 
+    // Initialize download counter from localStorage
+    function initDownloadCounter() {
+      const count = localStorage.getItem('vpt_download_count') || '0';
+      document.getElementById('downloadCounter').textContent = count;
+    }
+
+    // Get user location data
+    async function getUserLocation() {
+      try {
+        // Try to get location from IP
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        return {
+          country: data.country_name || 'Unknown',
+          region: data.region || 'Unknown',
+          city: data.city || 'Unknown',
+          ip: data.ip || 'Unknown'
+        };
+      } catch (error) {
+        return {
+          country: 'Unknown',
+          region: 'Unknown',
+          city: 'Unknown',
+          ip: 'Unknown'
+        };
+      }
+    }
+
     function showDownloadForm(url, version) {
       downloadUrl = url;
       downloadVersion = version;
@@ -161,18 +194,48 @@
       document.getElementById('downloadForm').reset();
     }
 
-    function handleDownload(event) {
+    async function handleDownload(event) {
       event.preventDefault();
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData);
       
-      // Log download info (in production, send to analytics/database)
-      console.log('Download requested:', {
+      // Get location data
+      const location = await getUserLocation();
+      
+      // Update download counter
+      let count = parseInt(localStorage.getItem('vpt_download_count') || '0');
+      count++;
+      localStorage.setItem('vpt_download_count', count.toString());
+      document.getElementById('downloadCounter').textContent = count;
+      
+      // Create download record
+      const downloadRecord = {
         ...data,
         tool: 'View Preview Tool',
         version: downloadVersion,
-        timestamp: new Date().toISOString()
-      });
+        timestamp: new Date().toISOString(),
+        location: location,
+        userAgent: navigator.userAgent
+      };
+      
+      // Store download history (keep last 1000 records)
+      let history = JSON.parse(localStorage.getItem('vpt_download_history') || '[]');
+      history.push(downloadRecord);
+      if (history.length > 1000) {
+        history = history.slice(-1000);
+      }
+      localStorage.setItem('vpt_download_history', JSON.stringify(history));
+      
+      // Log for debugging
+      console.log('Download recorded:', downloadRecord);
+      
+      // Send to analytics endpoint (for future implementation)
+      // In production, you'd send this to a backend service
+      try {
+        // Example: await fetch('/api/track-download', { method: 'POST', body: JSON.stringify(downloadRecord) });
+      } catch (error) {
+        // Silently fail analytics
+      }
       
       // Create download link
       const a = document.createElement('a');
@@ -185,9 +248,12 @@
       // Close form
       closeDownloadForm();
       
-      // Show success message
-      alert('Thank you! Your download will begin shortly.');
+      // Show success message with location
+      alert(`Thank you! Your download will begin shortly.\n\nDownloading from: ${location.city}, ${location.region}, ${location.country}`);
     }
+
+    // Initialize counter on page load
+    document.addEventListener('DOMContentLoaded', initDownloadCounter);
   </script>
 
   <footer class="border-t border-white/10 mt-16">
