@@ -91,36 +91,24 @@
 
     <h2 class="text-2xl font-semibold mt-12 mb-6">Free Tools</h2>
     
-    <!-- Download Counter Banner -->
-    <div class="mb-6 p-4 bg-gradient-to-r from-sky-500/20 to-blue-500/20 rounded-xl border border-sky-500/30">
-      <div class="flex items-center justify-center gap-4">
-        <div class="text-center">
-          <p class="text-sm text-slate-300 mb-1">View Preview Tool Downloads</p>
-          <div class="flex items-center gap-2 justify-center">
-            <span class="text-3xl font-bold text-sky-400" id="downloadCounter">0</span>
-            <span class="text-lg text-slate-300">Total Downloads</span>
-          </div>
-          <p class="text-xs text-slate-400 mt-2">Join thousands of Revit users improving their workflow</p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Initialize counter immediately -->
-    <script>
-      // Initialize counter as soon as this script runs
-      (function() {
-        const count = localStorage.getItem('vpt_download_count') || '0';
-        const counter = document.getElementById('downloadCounter');
-        if (counter) {
-          counter.textContent = count;
-        }
-      })();
-    </script>
-    
     <div class="grid md:grid-cols-2 gap-6">
       <article class="rounded-2xl border border-white/10 bg-slate-900/50 p-6 shadow-soft">
         <h2 class="text-xl font-semibold">View Preview Tool</h2>
-        <span class="text-sm text-slate-400">v1.1 • Free</span>
+        <div class="flex items-center justify-between mt-1">
+          <span class="text-sm text-slate-400">v1.1 • Free</span>
+          <div class="flex items-center gap-2 bg-sky-500/10 px-3 py-1 rounded-full">
+            <span class="text-sm text-slate-300">Downloads:</span>
+            <span id="downloadCounter" class="text-sm font-bold text-sky-400">0</span>
+          </div>
+        </div>
+        <!-- Initialize counter immediately -->
+        <script>
+          (function() {
+            const count = localStorage.getItem('vpt_download_count') || '0';
+            const counter = document.getElementById('downloadCounter');
+            if (counter) counter.textContent = count;
+          })();
+        </script>
         <details class="mt-2">
           <summary class="text-xs text-slate-400 cursor-pointer hover:text-slate-300">View download stats</summary>
           <div id="downloadStats" class="mt-2 p-3 bg-slate-800/50 rounded-lg text-xs space-y-2">
