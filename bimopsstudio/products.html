@@ -100,6 +100,12 @@
           <span id="downloadCounter" class="text-sm font-bold text-sky-400">0</span>
           <span class="text-xs text-slate-500">times</span>
         </div>
+        <details class="mt-2">
+          <summary class="text-xs text-slate-400 cursor-pointer hover:text-slate-300">View download stats</summary>
+          <div id="downloadStats" class="mt-2 p-3 bg-slate-800/50 rounded-lg text-xs space-y-2">
+            <div id="regionList" class="space-y-1"></div>
+          </div>
+        </details>
         <p class="mt-2 text-slate-300">Instantly preview Revit views with a single click.</p>
         <ul class="mt-4 space-y-2 text-slate-300 list-disc pl-5">
           <li>Click-based preview system</li>
@@ -161,26 +167,41 @@
       document.getElementById('downloadCounter').textContent = count;
     }
 
-    // Get user location data
-    async function getUserLocation() {
-      try {
-        // Try to get location from IP
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
-        return {
-          country: data.country_name || 'Unknown',
-          region: data.region || 'Unknown',
-          city: data.city || 'Unknown',
-          ip: data.ip || 'Unknown'
-        };
-      } catch (error) {
-        return {
-          country: 'Unknown',
-          region: 'Unknown',
-          city: 'Unknown',
-          ip: 'Unknown'
-        };
-      }
+    // Get user timezone as proxy for location
+    function getUserLocation() {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const locale = navigator.language || 'en-US';
+      
+      // Simple timezone to region mapping
+      const timezoneRegions = {
+        'America/New_York': 'Eastern US',
+        'America/Chicago': 'Central US',
+        'America/Denver': 'Mountain US',
+        'America/Los_Angeles': 'Pacific US',
+        'America/Phoenix': 'Arizona, US',
+        'America/Anchorage': 'Alaska, US',
+        'Pacific/Honolulu': 'Hawaii, US',
+        'Europe/London': 'United Kingdom',
+        'Europe/Paris': 'France',
+        'Europe/Berlin': 'Germany',
+        'Asia/Tokyo': 'Japan',
+        'Asia/Shanghai': 'China',
+        'Australia/Sydney': 'Australia',
+        'America/Toronto': 'Canada',
+        'America/Mexico_City': 'Mexico',
+        'America/Sao_Paulo': 'Brazil',
+        'Asia/Kolkata': 'India',
+        'Asia/Dubai': 'UAE',
+        'Africa/Johannesburg': 'South Africa'
+      };
+      
+      const region = timezoneRegions[timezone] || timezone.split('/').pop().replace(/_/g, ' ');
+      
+      return {
+        region: region,
+        timezone: timezone,
+        locale: locale
+      };
     }
 
     function showDownloadForm(url, version) {
@@ -194,13 +215,13 @@
       document.getElementById('downloadForm').reset();
     }
 
-    async function handleDownload(event) {
+    function handleDownload(event) {
       event.preventDefault();
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData);
       
       // Get location data
-      const location = await getUserLocation();
+      const location = getUserLocation();
       
       // Update download counter
       let count = parseInt(localStorage.getItem('vpt_download_count') || '0');
@@ -248,12 +269,62 @@
       // Close form
       closeDownloadForm();
       
-      // Show success message with location
-      alert(`Thank you! Your download will begin shortly.\n\nDownloading from: ${location.city}, ${location.region}, ${location.country}`);
+      // Update stats display
+      updateDownloadStats();
+      
+      // Show success message
+      alert('Thank you! Your download will begin shortly.');
     }
 
-    // Initialize counter on page load
-    document.addEventListener('DOMContentLoaded', initDownloadCounter);
+    // Update download stats display
+    function updateDownloadStats() {
+      const history = JSON.parse(localStorage.getItem('vpt_download_history') || '[]');
+      
+      // Count by region
+      const regionCounts = {};
+      history.forEach(d => {
+        const region = d.location?.region || 'Unknown';
+        regionCounts[region] = (regionCounts[region] || 0) + 1;
+      });
+      
+      // Display top regions
+      const regionList = document.getElementById('regionList');
+      if (regionList) {
+        regionList.innerHTML = '<div class="font-semibold mb-1">Downloads by Region:</div>';
+        Object.entries(regionCounts)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 5)
+          .forEach(([region, count]) => {
+            const div = document.createElement('div');
+            div.className = 'flex justify-between';
+            div.innerHTML = `<span>${region}</span><span class="font-bold">${count}</span>`;
+            regionList.appendChild(div);
+          });
+        
+        // Add recent downloads
+        if (history.length > 0) {
+          const recentDiv = document.createElement('div');
+          recentDiv.className = 'mt-2 pt-2 border-t border-white/10';
+          recentDiv.innerHTML = '<div class="font-semibold mb-1">Recent Downloads:</div>';
+          
+          history.slice(-3).reverse().forEach(d => {
+            const downloadDiv = document.createElement('div');
+            downloadDiv.className = 'text-slate-400';
+            const time = new Date(d.timestamp).toLocaleDateString();
+            downloadDiv.textContent = `${d.name} (${d.location?.region || 'Unknown'}) - ${time}`;
+            recentDiv.appendChild(downloadDiv);
+          });
+          
+          regionList.appendChild(recentDiv);
+        }
+      }
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      initDownloadCounter();
+      updateDownloadStats();
+    });
   </script>
 
   <footer class="border-t border-white/10 mt-16">
