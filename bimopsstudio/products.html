@@ -12,6 +12,18 @@
   <meta property="og:url" content="https://www.bimopsstudio.com/" />
   <meta name="theme-color" content="#0f172a" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='56' fill='%230f172a'/%3E%3Cpath fill='%23fff' d='M64 168V88a16 16 0 0 1 16-16h64a40 40 0 0 1 0 80H96v16zm32-48h48a16 16 0 0 0 0-32H96zM96 168h48a16 16 0 0 0 0-32H96z'/%3E%3C/svg%3E" />
+  
+  <!-- Google Analytics - REPLACE G-XXXXXXXXXX with your actual Measurement ID -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .glass{backdrop-filter:saturate(180%) blur(10px); background:rgba(15,23,42,.55)}
@@ -247,34 +259,37 @@
       localStorage.setItem('vpt_download_count', count.toString());
       document.getElementById('downloadCounter').textContent = count;
       
-      // Create download record
-      const downloadRecord = {
-        ...data,
-        tool: 'View Preview Tool',
-        version: downloadVersion,
-        timestamp: new Date().toISOString(),
-        location: location,
-        userAgent: navigator.userAgent
-      };
-      
-      // Store download history (keep last 1000 records)
-      let history = JSON.parse(localStorage.getItem('vpt_download_history') || '[]');
-      history.push(downloadRecord);
-      if (history.length > 1000) {
-        history = history.slice(-1000);
+      // Track with Google Analytics (if available)
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'file_download', {
+          file_name: downloadUrl.split('/').pop(),
+          file_extension: '.exe',
+          tool_name: 'View Preview Tool',
+          tool_version: downloadVersion,
+          user_name: data.name,
+          user_email: data.email,
+          user_company: data.company || 'Not provided',
+          user_timezone: location.timezone,
+          user_locale: location.locale
+        });
       }
-      localStorage.setItem('vpt_download_history', JSON.stringify(history));
       
-      // Log for debugging
-      console.log('Download recorded:', downloadRecord);
+      // Also send to a Google Form (backup tracking)
+      // This is a simple way to collect data without a backend
+      const googleFormData = new FormData();
+      googleFormData.append('entry.1234567890', data.name); // Replace with your form field IDs
+      googleFormData.append('entry.0987654321', data.email);
+      googleFormData.append('entry.1111111111', data.company || '');
+      googleFormData.append('entry.2222222222', downloadVersion);
+      googleFormData.append('entry.3333333333', location.region);
+      googleFormData.append('entry.4444444444', new Date().toISOString());
       
-      // Send to analytics endpoint (for future implementation)
-      // In production, you'd send this to a backend service
-      try {
-        // Example: await fetch('/api/track-download', { method: 'POST', body: JSON.stringify(downloadRecord) });
-      } catch (error) {
-        // Silently fail analytics
-      }
+      // Send to Google Form (replace with your form URL)
+      // fetch('https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse', {
+      //   method: 'POST',
+      //   mode: 'no-cors',
+      //   body: googleFormData
+      // });
       
       // Create download link
       const a = document.createElement('a');
