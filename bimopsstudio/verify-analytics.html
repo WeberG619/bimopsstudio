@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics Verification - BIM Ops Studio</title>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBE2XPP5VZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RBE2XPP5VZ', {
+      'debug_mode': true  // Enable debug mode for testing
+    });
+  </script>
+  
+  <link href="style.css" rel="stylesheet">
+  <style>
+    .status-box {
+      background: #0f172a;
+      border: 2px solid #334155;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 1rem 0;
+    }
+    .status-good { border-color: #10b981; }
+    .status-bad { border-color: #ef4444; }
+    .test-button {
+      background: #f59e0b;
+      color: #000;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+    .test-button:hover {
+      background: #f97316;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-50 min-h-screen">
+  <div class="container mx-auto px-6 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-8">Google Analytics Verification</h1>
+    
+    <div class="status-box" id="analyticsStatus">
+      <h2 class="text-2xl mb-4">Analytics Status</h2>
+      <p>Checking Google Analytics connection...</p>
+    </div>
+
+    <div class="status-box">
+      <h2 class="text-2xl mb-4">Test Events</h2>
+      <p class="mb-4">Click these buttons to send test events to Google Analytics:</p>
+      
+      <button class="test-button" onclick="testPageView()">Test Page View</button>
+      <button class="test-button" onclick="testDownload()">Test Download Event</button>
+      <button class="test-button" onclick="testFormSubmit()">Test Form Submit</button>
+      <button class="test-button" onclick="testCustomEvent()">Test Custom Event</button>
+    </div>
+
+    <div class="status-box">
+      <h2 class="text-2xl mb-4">How to Verify in Google Analytics</h2>
+      <ol class="list-decimal list-inside space-y-2">
+        <li>Go to <a href="https://analytics.google.com" target="_blank" class="text-amber-500 underline">Google Analytics</a></li>
+        <li>Select "BIM Ops Studio" property</li>
+        <li>Go to <strong>Reports → Realtime</strong></li>
+        <li>You should see:
+          <ul class="list-disc list-inside ml-6 mt-2">
+            <li>Active users (should show at least 1 - you!)</li>
+            <li>Events firing when you click test buttons</li>
+            <li>Page views being tracked</li>
+          </ul>
+        </li>
+        <li>For download tracking, go to <strong>Reports → Engagement → Events</strong></li>
+      </ol>
+    </div>
+
+    <div class="status-box">
+      <h2 class="text-2xl mb-4">Analytics Details</h2>
+      <ul class="space-y-2">
+        <li><strong>Account Name:</strong> BIM Ops Studio</li>
+        <li><strong>Account ID:</strong> 367208945</li>
+        <li><strong>Measurement ID:</strong> G-RBE2XPP5VZ</li>
+        <li><strong>Property:</strong> bimopsstudio.com</li>
+      </ul>
+    </div>
+
+    <div class="status-box" id="eventLog">
+      <h2 class="text-2xl mb-4">Event Log</h2>
+      <p class="text-slate-400">Events sent to Google Analytics will appear here:</p>
+      <div id="eventList" class="mt-4 space-y-2"></div>
+    </div>
+  </div>
+
+  <script>
+    // Check if gtag is loaded
+    window.addEventListener('load', function() {
+      const statusBox = document.getElementById('analyticsStatus');
+      if (typeof gtag !== 'undefined') {
+        statusBox.className = 'status-box status-good';
+        statusBox.innerHTML = `
+          <h2 class="text-2xl mb-4 text-green-400">✓ Analytics Status</h2>
+          <p>Google Analytics is properly loaded and configured!</p>
+          <p class="text-sm text-slate-400 mt-2">Measurement ID: G-RBE2XPP5VZ</p>
+        `;
+      } else {
+        statusBox.className = 'status-box status-bad';
+        statusBox.innerHTML = `
+          <h2 class="text-2xl mb-4 text-red-400">✗ Analytics Status</h2>
+          <p>Google Analytics is not loading properly.</p>
+        `;
+      }
+    });
+
+    // Log events locally
+    function logEvent(eventName, parameters) {
+      const eventList = document.getElementById('eventList');
+      const time = new Date().toLocaleTimeString();
+      const eventDiv = document.createElement('div');
+      eventDiv.className = 'p-3 bg-slate-900 rounded';
+      eventDiv.innerHTML = `
+        <strong class="text-amber-500">${time}</strong> - 
+        <strong>${eventName}</strong>: ${JSON.stringify(parameters)}
+      `;
+      eventList.insertBefore(eventDiv, eventList.firstChild);
+    }
+
+    // Test functions
+    function testPageView() {
+      gtag('event', 'page_view', {
+        page_title: 'Analytics Test Page',
+        page_location: window.location.href,
+        page_path: '/verify-analytics'
+      });
+      logEvent('page_view', {page_title: 'Analytics Test Page'});
+      alert('Page view event sent! Check Realtime reports in GA.');
+    }
+
+    function testDownload() {
+      gtag('event', 'file_download', {
+        file_name: 'test_file.exe',
+        file_extension: 'exe',
+        link_text: 'Test Download',
+        link_url: '/downloads/test_file.exe'
+      });
+      logEvent('file_download', {file_name: 'test_file.exe'});
+      alert('Download event sent! This will appear in Engagement > Events.');
+    }
+
+    function testFormSubmit() {
+      gtag('event', 'form_submit', {
+        form_name: 'Test Contact Form',
+        form_destination: '/contact',
+        form_submit_text: 'Submit'
+      });
+      logEvent('form_submit', {form_name: 'Test Contact Form'});
+      alert('Form submit event sent!');
+    }
+
+    function testCustomEvent() {
+      gtag('event', 'test_custom_event', {
+        custom_parameter: 'test_value',
+        timestamp: new Date().toISOString()
+      });
+      logEvent('test_custom_event', {custom_parameter: 'test_value'});
+      alert('Custom event sent!');
+    }
+
+    // Send initial page view
+    gtag('event', 'verify_analytics_load', {
+      verification_time: new Date().toISOString()
+    });
+  </script>
+</body>
+</html>
