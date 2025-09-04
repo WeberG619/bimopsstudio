@@ -30,6 +30,8 @@ jobs:
         run: npm install
 
       - name: Build with Next.js
+        env:
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: G-RBE2XPP5VZ
         run: npm run build
 
       - name: Copy built files to root
