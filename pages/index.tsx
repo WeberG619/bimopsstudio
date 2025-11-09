@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, FileText, Clock, ArrowRight, Expand, Download, Eye, Zap } from "lucide-react";
+import { CheckCircle, FileText, Clock, ArrowRight, Expand, Download, Eye, Zap, Brain, Mic, Search } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { ImageModal } from "@/components/ui/ImageModal";
@@ -110,6 +110,64 @@ export default function Home() {
             <p className="mt-8 text-gray-500 text-sm">
               In development • Beta testing coming soon
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* BIMmemory Announcement Banner */}
+      <section className="py-16 bg-gradient-to-br from-primary to-purple-600 text-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Badge className="mb-4 bg-white/20 text-white border-white/30">
+              <Brain className="w-4 h-4 mr-2" />
+              Introducing BIMmemory - Now in Beta
+            </Badge>
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Never Lose Another Design Decision
+            </h2>
+
+            <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
+              Voice-first AI memory for BIM professionals. Capture clashes, RFIs, and design decisions instantly—then recall them with natural language search.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <Mic className="w-8 h-8 mx-auto mb-2" />
+                <div className="font-semibold">Voice Capture</div>
+                <div className="text-sm opacity-80">Call or use app</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <Brain className="w-8 h-8 mx-auto mb-2" />
+                <div className="font-semibold">AI Extraction</div>
+                <div className="text-sm opacity-80">Understands BIM</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <Search className="w-8 h-8 mx-auto mb-2" />
+                <div className="font-semibold">Instant Recall</div>
+                <div className="text-sm opacity-80">Natural language</div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/products/bim-memory">
+                <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+                  Learn More
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white/10">
+                  Request Beta Access
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
