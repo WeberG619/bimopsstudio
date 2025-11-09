@@ -21,6 +21,7 @@ export function Header() {
   }, []);
 
   const navItems = [
+    { href: "/products", label: "Products" },
     { href: "/technical", label: "Technical" },
     { href: "/free-tools", label: "Free Tools" },
     { href: "/contact", label: "Early Access" },
