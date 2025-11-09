@@ -114,6 +114,102 @@ export default function Home() {
         </div>
       </section>
 
+      {/* BIM Ops Connector Add-in CTA */}
+      <section className="py-20 bg-gradient-to-r from-[#4A9EFF] to-[#10B981]">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.div
+            className="text-center text-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Badge className="mb-4 bg-white/20 text-white border-white/30">
+              <Zap className="w-4 h-4 mr-2" />
+              NEW: Free Revit Add-in
+            </Badge>
+
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              See YOUR Project's ROI in 2 Minutes
+            </h2>
+
+            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-95">
+              Install our free Revit add-in and get instant analysis of your current project—no web forms, no sales calls, just personalized insights.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-10 max-w-4xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <div className="text-4xl mb-3">📊</div>
+                <div className="font-semibold text-lg mb-2">Instant Project Analysis</div>
+                <div className="text-sm opacity-90">
+                  Automatically counts sheets, views, families, and team size from your open Revit project
+                </div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <div className="text-4xl mb-3">💰</div>
+                <div className="font-semibold text-lg mb-2">Personalized ROI Calculator</div>
+                <div className="text-sm opacity-90">
+                  See exact time savings and annual cost savings based on YOUR project metrics
+                </div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <div className="text-4xl mb-3">🚀</div>
+                <div className="font-semibold text-lg mb-2">One-Click Trial</div>
+                <div className="text-sm opacity-90">
+                  Start your 14-day free trial directly from Revit—no context switching required
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 max-w-2xl mx-auto border border-white/20 mb-8">
+              <div className="text-sm font-semibold mb-3 uppercase tracking-wider">How It Works</div>
+              <div className="grid md:grid-cols-3 gap-6 text-left">
+                <div className="flex items-start">
+                  <div className="bg-white text-[#4A9EFF] rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">1</div>
+                  <div className="text-sm">
+                    <div className="font-semibold mb-1">Install Free Add-in</div>
+                    <div className="opacity-90">Works with Revit 2024-2026</div>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-white text-[#4A9EFF] rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">2</div>
+                  <div className="text-sm">
+                    <div className="font-semibold mb-1">Click "Project Insights"</div>
+                    <div className="opacity-90">Opens panel in Revit</div>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="bg-white text-[#4A9EFF] rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3 flex-shrink-0">3</div>
+                  <div className="text-sm">
+                    <div className="font-semibold mb-1">See Your ROI</div>
+                    <div className="opacity-90">Instant personalized analysis</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/download">
+                <Button size="lg" className="text-lg px-10 py-6 bg-white text-[#4A9EFF] hover:bg-gray-100">
+                  <Download className="mr-2 w-5 h-5" />
+                  Download Free Add-in
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="text-lg px-10 py-6 border-white text-white hover:bg-white/10">
+                  Request Beta Access
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+            </div>
+
+            <p className="mt-6 text-sm opacity-75">
+              ✓ Free forever • ✓ No credit card • ✓ Works offline • ✓ Privacy-focused
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* BIMmemory Announcement Banner */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 max-w-6xl">
