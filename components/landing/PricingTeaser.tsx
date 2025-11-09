@@ -15,20 +15,20 @@ import {
 
 const plans = [
   {
-    name: "Starter",
+    name: "Individual",
     description: "Perfect for individual BIM professionals",
-    price: "$29",
+    price: "$80",
     period: "per month",
     icon: Users,
     color: "from-blue-500 to-cyan-400",
     popular: false,
     features: [
-      { name: "5 automations per month", included: true },
-      { name: "Basic templates library", included: true },
+      { name: "1 user", included: true },
+      { name: "1 active project", included: true },
+      { name: "Batch sheet creation", included: true },
+      { name: "Auto-populate title blocks", included: true },
+      { name: "PDF/DWG export", included: true },
       { name: "Email support", included: true },
-      { name: "Single user license", included: true },
-      { name: "Cloud sync", included: true },
-      { name: "Custom workflows", included: false },
       { name: "Priority support", included: false },
       { name: "Team collaboration", included: false },
       { name: "Advanced analytics", included: false }
@@ -37,26 +37,26 @@ const plans = [
     savings: null
   },
   {
-    name: "Professional",
+    name: "Team",
     description: "Most popular for BIM teams and consultants",
-    price: "$89",
+    price: "$200",
     period: "per month",
     icon: Building,
     color: "from-electric-blue to-lime-accent",
     popular: true,
     features: [
-      { name: "Unlimited automations", included: true },
-      { name: "Premium templates library", included: true },
-      { name: "Priority email & chat support", included: true },
-      { name: "Up to 5 user licenses", included: true },
-      { name: "Cloud sync & backup", included: true },
-      { name: "Custom workflows", included: true },
+      { name: "Up to 5 users", included: true },
+      { name: "Unlimited projects", included: true },
+      { name: "All Individual features", included: true },
+      { name: "Shared templates library", included: true },
       { name: "Team collaboration tools", included: true },
-      { name: "Basic analytics", included: true },
-      { name: "Advanced analytics", included: false }
+      { name: "Priority support", included: true },
+      { name: "Advanced analytics", included: true },
+      { name: "Custom integrations", included: false },
+      { name: "SLA guarantee", included: false }
     ],
     cta: "Start Free Trial",
-    savings: "Save $60/month vs individual plans"
+    savings: null
   },
   {
     name: "Enterprise",
