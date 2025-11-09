@@ -33,7 +33,7 @@ export function ProductCard({
   return (
     <motion.div
       className={`relative bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-2xl ${
-        highlight ? "ring-2 ring-primary" : ""
+        highlight ? "ring-2 ring-[#4A9EFF]" : ""
       }`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ export function ProductCard({
       )}
 
       {image && (
-        <div className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden">
+        <div className="relative h-48 bg-gradient-to-br from-[#4A9EFF] to-blue-600 overflow-hidden">
           <img
             src={image}
             alt={title}
@@ -58,7 +58,7 @@ export function ProductCard({
 
       <div className="p-8">
         {icon && (
-          <div className="mb-4 text-primary">
+          <div className="mb-4 text-[#4A9EFF]">
             {icon}
           </div>
         )}

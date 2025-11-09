@@ -18,7 +18,7 @@ export default function ProductsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-[#4A9EFF]/10 text-[#4A9EFF] px-4 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4" />
               <span className="text-sm font-semibold">Complete BIM Automation Suite</span>
             </div>
@@ -26,7 +26,7 @@ export default function ProductsPage() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Automate Your Entire
               <br />
-              <span className="text-primary">BIM Workflow</span>
+              <span className="text-[#4A9EFF]">BIM Workflow</span>
             </h1>
 
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-4">
@@ -79,7 +79,7 @@ export default function ProductsPage() {
 
           {/* Bundle Section */}
           <motion.div
-            className="bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-2xl p-12 text-center"
+            className="bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-12 text-center border-2 border-[#4A9EFF]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -114,21 +114,21 @@ export default function ProductsPage() {
             <h2 className="text-3xl font-bold mb-8">Why BIM Ops Studio?</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="p-6">
-                <div className="text-4xl font-bold text-primary mb-2">95%</div>
+                <div className="text-4xl font-bold text-[#4A9EFF] mb-2">95%</div>
                 <div className="text-lg font-semibold mb-2">Time Savings</div>
                 <div className="text-gray-600 dark:text-gray-400">
                   Automate tasks that used to take hours
                 </div>
               </div>
               <div className="p-6">
-                <div className="text-4xl font-bold text-primary mb-2">ADN</div>
+                <div className="text-4xl font-bold text-[#4A9EFF] mb-2">ADN</div>
                 <div className="text-lg font-semibold mb-2">Verified Developer</div>
                 <div className="text-gray-600 dark:text-gray-400">
                   Official Autodesk Developer Network Member
                 </div>
               </div>
               <div className="p-6">
-                <div className="text-4xl font-bold text-primary mb-2">15+</div>
+                <div className="text-4xl font-bold text-[#4A9EFF] mb-2">15+</div>
                 <div className="text-lg font-semibold mb-2">Years Experience</div>
                 <div className="text-gray-600 dark:text-gray-400">
                   Built by architects, for architects
