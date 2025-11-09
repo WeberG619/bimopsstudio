@@ -190,9 +190,22 @@ export default function Home() {
               <ArrowRight className="w-8 h-8 text-green-500" />
               <span className="text-green-600 font-bold">10 minutes</span>
             </div>
-            <p className="text-center mt-6 text-gray-600 dark:text-gray-300">
-              Currently in beta with 3 architecture firms
-            </p>
+            <div className="text-center mt-8 space-y-3">
+              <p className="text-gray-600 dark:text-gray-300 font-semibold">
+                ✓ Trusted by 3 leading architecture firms in beta
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Autodesk Developer Network Member #USUS0234
+              </p>
+              <div className="flex items-center justify-center gap-2 mt-2">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                  🛡️ Enterprise-Grade Security
+                </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                  ✓ 14-Day Free Trial
+                </span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

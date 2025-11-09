@@ -57,13 +57,16 @@ export default function BIMMemoryPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link href="/contact">
                 <Button size="lg" className="text-lg px-8 py-6">
-                  Request Beta Access
+                  Start 14-Day Free Trial
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-                Watch 2-Min Demo
-              </Button>
+              <Link href="/pricing">
+                <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+                  View Pricing
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
             </div>
 
             <p className="text-sm text-gray-500 dark:text-gray-400">

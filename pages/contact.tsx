@@ -4,9 +4,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { trackFormSubmit } from "@/components/GoogleAnalytics";
 
 export default function Contact() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -53,7 +55,8 @@ export default function Contact() {
       if (data.success) {
         // Track successful form submission
         trackFormSubmit('Early Access Request Form');
-        setIsSubmitted(true);
+        // Redirect to thank-you page
+        router.push('/thank-you-beta');
       } else {
         throw new Error(data.message || 'Form submission failed');
       }
@@ -74,10 +77,10 @@ Pain Points: ${formData.painPoints}`
       
       // Open email client with pre-filled information
       window.location.href = `mailto:weber@bimopsstudio.com?subject=${subject}&body=${body}`;
-      
-      // Show success message after a short delay
+
+      // Redirect to thank-you page after a short delay
       setTimeout(() => {
-        setIsSubmitted(true);
+        router.push('/thank-you-beta');
       }, 500);
     } finally {
       setIsSubmitting(false);

@@ -53,8 +53,8 @@ export default function ProductsPage() {
                 "Exports to PDF automatically",
                 "95% time reduction (4 hours → 10 minutes)"
               ]}
-              href="/technical"
-              ctaText="Learn More"
+              href="/contact"
+              ctaText="Start Free Trial"
               icon={<FileText className="w-12 h-12" />}
             />
 
@@ -73,7 +73,7 @@ export default function ProductsPage() {
               href="/products/bim-memory"
               badge="Beta"
               badgeVariant="secondary"
-              ctaText="Request Beta Access"
+              ctaText="Start Free Trial"
               icon={<Brain className="w-12 h-12" />}
               highlight={true}
             />

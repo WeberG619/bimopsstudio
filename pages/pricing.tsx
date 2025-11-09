@@ -165,6 +165,31 @@ export default function Pricing() {
               <strong>14-day free trial</strong> • No credit card required • Cancel anytime
             </p>
 
+            {/* Trust Badges */}
+            <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center">
+                <div className="text-3xl mb-2">🛡️</div>
+                <h4 className="font-semibold mb-1">Secure & Reliable</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Enterprise-grade security for your data
+                </p>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center">
+                <div className="text-3xl mb-2">✓</div>
+                <h4 className="font-semibold mb-1">ADN Member</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Official Autodesk Developer Network #USUS0234
+                </p>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center">
+                <div className="text-3xl mb-2">⭐</div>
+                <h4 className="font-semibold mb-1">Trusted by Firms</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Currently in beta with 3 architecture firms
+                </p>
+              </div>
+            </div>
+
             <Card>
               <CardContent className="pt-8 pb-8">
                 <h3 className="text-2xl font-semibold mb-4">Looking for BIMmemory?</h3>
