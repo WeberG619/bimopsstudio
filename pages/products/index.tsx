@@ -46,6 +46,7 @@ export default function ProductsPage() {
               title="Professional Sheet Creator"
               description="Automate Revit sheet creation from hours to minutes. Batch-create 50+ sheets with templates, auto-populate title blocks, and export to PDF."
               features={[
+                "Starting at $80/month",
                 "Batch creates sheets with proper numbering",
                 "Auto-populates title blocks",
                 "Places views by template",
@@ -62,6 +63,7 @@ export default function ProductsPage() {
               title="BIMmemory"
               description="Never lose another design decision. Voice-first AI memory system that captures, organizes, and recalls all project knowledge instantly."
               features={[
+                "Starting at $99/month",
                 "Voice capture (call or mobile app)",
                 "AI understands BIM terminology",
                 "Instant recall with natural language",
@@ -90,17 +92,19 @@ export default function ProductsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
               <div className="text-center">
-                <div className="text-3xl font-bold">$179<span className="text-lg text-gray-500">/month</span></div>
+                <div className="text-3xl font-bold">$161<span className="text-lg text-gray-500">/month</span></div>
                 <div className="text-sm text-gray-500">Individual Bundle</div>
+                <div className="text-xs text-green-600 dark:text-green-400 mt-1">Save $18 (10% off)</div>
               </div>
               <div className="hidden sm:block text-2xl text-gray-400">•</div>
               <div className="text-center">
-                <div className="text-3xl font-bold">$499<span className="text-lg text-gray-500">/month</span></div>
+                <div className="text-3xl font-bold">$449<span className="text-lg text-gray-500">/month</span></div>
                 <div className="text-sm text-gray-500">Team Bundle (5 users)</div>
+                <div className="text-xs text-green-600 dark:text-green-400 mt-1">Save $50 (10% off)</div>
               </div>
             </div>
-            <p className="text-green-600 dark:text-green-400 font-semibold mb-8">
-              Save 10-20% when you bundle both products
+            <p className="text-gray-600 dark:text-gray-400 mb-8">
+              Get both Professional Sheet Creator and BIMmemory together and save 10%
             </p>
           </motion.div>
 
