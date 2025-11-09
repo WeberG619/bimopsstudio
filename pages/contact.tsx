@@ -174,7 +174,7 @@ Pain Points: ${formData.painPoints}`
             <Card className="mb-8">
               <CardContent className="pt-8 pb-8">
                 <div className="mb-6">
-                  <Mail className="w-16 h-16 mx-auto text-primary mb-4" />
+                  <Mail className="w-16 h-16 mx-auto text-[#4A9EFF] mb-4" />
                   <h2 className="text-2xl font-semibold mb-2">
                     Professional Sheet Creator Beta
                   </h2>
