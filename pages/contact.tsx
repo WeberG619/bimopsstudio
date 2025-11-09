@@ -178,8 +178,11 @@ Pain Points: ${formData.painPoints}`
                   <h2 className="text-2xl font-semibold mb-2">
                     Professional Sheet Creator Beta
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    15 day free trial • Founding-user pricing available
+                  <p className="text-gray-600 dark:text-gray-300 mb-2">
+                    Starting at $80/month • 14-day free trial
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Individual: $80/mo • Team: $200/mo • Enterprise: Custom
                   </p>
                 </div>
 

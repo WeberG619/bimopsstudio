@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <Layout
       title="Professional Sheet Creator for Revit | BIM Ops Studio - ADN Member"
-      description="Automate Revit sheet creation in 2 minutes. Built by Autodesk Developer Network Member. 95% time savings. Free trial available."
+      description="Automate Revit sheet creation in 2 minutes. Starting at $80/month. Built by Autodesk Developer Network Member. 95% time savings. 14-day free trial."
     >
       <section className="pt-32 pb-20 min-h-screen flex items-center">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -64,12 +64,12 @@ export default function Home() {
                 </p>
               </div>
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-                <h3 className="font-semibold mb-2">Status</h3>
+                <h3 className="font-semibold mb-2">Pricing</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Beta testing - 15 day free trial
+                  Starting at $80/month
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  Coming Soon
+                  14-day free trial
                 </p>
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function Home() {
             </Link>
 
             <p className="mt-2 text-gray-500 text-xs">
-              Founding-user pricing available after the trial.
+              Individual: $80/month • Team: $200/month • Enterprise: Custom
             </p>
 
             <p className="mt-8 text-gray-500 text-sm">
