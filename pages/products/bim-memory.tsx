@@ -45,7 +45,7 @@ export default function BIMMemoryPage() {
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Never Lose Another
               <br />
-              <span className="text-primary">Design Decision</span>
+              <span className="text-[#4A9EFF]">Design Decision</span>
             </h1>
 
             <p className="text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -111,7 +111,7 @@ export default function BIMMemoryPage() {
             </div>
 
             <div className="mt-8 text-center text-xl font-semibold text-gray-700 dark:text-gray-300">
-              BIM coordinators spend <span className="text-primary">10+ hours per week</span> searching for information that should be instant.
+              BIM coordinators spend <span className="text-[#4A9EFF]">10+ hours per week</span> searching for information that should be instant.
             </div>
           </motion.div>
         </div>
@@ -130,8 +130,8 @@ export default function BIMMemoryPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Mic className="w-10 h-10 text-primary" />
+              <div className="bg-[#4A9EFF]/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Mic className="w-10 h-10 text-[#4A9EFF]" />
               </div>
               <h3 className="text-2xl font-bold mb-4">1. Speak Naturally</h3>
               <p className="text-gray-600 dark:text-gray-300 text-lg">
@@ -146,8 +146,8 @@ export default function BIMMemoryPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Brain className="w-10 h-10 text-primary" />
+              <div className="bg-[#4A9EFF]/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Brain className="w-10 h-10 text-[#4A9EFF]" />
               </div>
               <h3 className="text-2xl font-bold mb-4">2. AI Extracts & Organizes</h3>
               <p className="text-gray-600 dark:text-gray-300 text-lg">
@@ -162,8 +162,8 @@ export default function BIMMemoryPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Search className="w-10 h-10 text-primary" />
+              <div className="bg-[#4A9EFF]/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Search className="w-10 h-10 text-[#4A9EFF]" />
               </div>
               <h3 className="text-2xl font-bold mb-4">3. Instant Recall</h3>
               <p className="text-gray-600 dark:text-gray-300 text-lg">
@@ -189,7 +189,7 @@ export default function BIMMemoryPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-primary mb-4">{feature.icon}</div>
+                <div className="text-[#4A9EFF] mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
               </motion.div>
@@ -220,7 +220,7 @@ export default function BIMMemoryPage() {
                 <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
                   {useCase.description}
                 </p>
-                <div className="bg-primary/5 p-4 rounded-lg">
+                <div className="bg-[#4A9EFF]/5 p-4 rounded-lg">
                   <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                     <strong>Example:</strong> "{useCase.example}"
                   </p>
@@ -232,7 +232,7 @@ export default function BIMMemoryPage() {
       </section>
 
       {/* Pricing */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-purple-500/5">
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-4xl font-bold text-center mb-4">Simple, Transparent Pricing</h2>
           <p className="text-center text-xl text-gray-600 dark:text-gray-300 mb-16">
@@ -244,7 +244,7 @@ export default function BIMMemoryPage() {
               <motion.div
                 key={index}
                 className={`bg-white dark:bg-gray-800 rounded-2xl p-8 ${
-                  tier.popular ? "ring-2 ring-primary shadow-2xl scale-105" : "shadow-lg"
+                  tier.popular ? "ring-2 ring-[#4A9EFF] shadow-2xl scale-105" : "shadow-lg"
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -302,12 +302,12 @@ export default function BIMMemoryPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-purple-600 text-white">
+      <section className="py-20 bg-[#4A9EFF]">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Ready to Never Lose Another Decision?
           </h2>
-          <p className="text-2xl mb-8 opacity-90">
+          <p className="text-2xl mb-8 text-white opacity-90">
             Join BIM coordinators saving 10+ hours per week
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -321,7 +321,7 @@ export default function BIMMemoryPage() {
               Schedule a Demo
             </Button>
           </div>
-          <p className="mt-6 text-sm opacity-75">
+          <p className="mt-6 text-sm text-white opacity-75">
             14-day free trial • No credit card required • Cancel anytime
           </p>
         </div>

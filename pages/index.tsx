@@ -115,58 +115,60 @@ export default function Home() {
       </section>
 
       {/* BIMmemory Announcement Banner */}
-      <section className="py-16 bg-gradient-to-br from-primary to-purple-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-green-50 dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div
-            className="text-center"
+            className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Badge className="mb-4 bg-white/20 text-white border-white/30">
-              <Brain className="w-4 h-4 mr-2" />
-              Introducing BIMmemory - Now in Beta
-            </Badge>
+            <div className="text-center">
+              <Badge className="mb-4 bg-[#4A9EFF]/10 text-[#4A9EFF] border-[#4A9EFF]/30">
+                <Brain className="w-4 h-4 mr-2" />
+                Introducing BIMmemory - Now in Beta
+              </Badge>
 
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Never Lose Another Design Decision
-            </h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Never Lose Another Design Decision
+              </h2>
 
-            <p className="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
-              Voice-first AI memory for BIM professionals. Capture clashes, RFIs, and design decisions instantly—then recall them with natural language search.
-            </p>
+              <p className="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Voice-first AI memory for BIM professionals. Capture clashes, RFIs, and design decisions instantly—then recall them with natural language search.
+              </p>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Mic className="w-8 h-8 mx-auto mb-2" />
-                <div className="font-semibold">Voice Capture</div>
-                <div className="text-sm opacity-80">Call or use app</div>
+              <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <Mic className="w-8 h-8 mx-auto mb-2 text-[#4A9EFF]" />
+                  <div className="font-semibold">Voice Capture</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Call or use app</div>
+                </div>
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <Brain className="w-8 h-8 mx-auto mb-2 text-[#4A9EFF]" />
+                  <div className="font-semibold">AI Extraction</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Understands BIM</div>
+                </div>
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+                  <Search className="w-8 h-8 mx-auto mb-2 text-[#4A9EFF]" />
+                  <div className="font-semibold">Instant Recall</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Natural language</div>
+                </div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Brain className="w-8 h-8 mx-auto mb-2" />
-                <div className="font-semibold">AI Extraction</div>
-                <div className="text-sm opacity-80">Understands BIM</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Search className="w-8 h-8 mx-auto mb-2" />
-                <div className="font-semibold">Instant Recall</div>
-                <div className="text-sm opacity-80">Natural language</div>
-              </div>
-            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/products/bim-memory">
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                  Learn More
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-transparent border-white text-white hover:bg-white/10">
-                  Request Beta Access
-                </Button>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/products/bim-memory">
+                  <Button size="lg" className="text-lg px-8 py-6 bg-[#4A9EFF] hover:bg-[#3A8EEF]">
+                    Learn More
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+                    Request Beta Access
+                  </Button>
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>
