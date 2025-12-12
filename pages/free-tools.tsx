@@ -196,7 +196,7 @@ export default function FreeTools() {
                 Free Tool: View Preview for Revit
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300">
-                While you wait for Professional Sheet Creator, try our View Preview tool
+                A free gift to the Revit community from BIM Ops Studio
               </p>
             </div>
 

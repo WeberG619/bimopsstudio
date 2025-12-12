@@ -22,9 +22,9 @@ export function Header() {
 
   const navItems = [
     { href: "/products", label: "Products" },
-    { href: "/technical", label: "Technical" },
     { href: "/free-tools", label: "Free Tools" },
-    { href: "/contact", label: "Early Access" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -65,7 +65,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`transition-colors font-medium hover:text-lime-accent ${
+              className={`transition-colors font-medium hover:text-blue-500 ${
                 isScrolled 
                   ? "text-gray-700 dark:text-gray-300" 
                   : "text-white"

@@ -19,25 +19,25 @@ const botResponses = {
     "Hey there! I'm your BIM automation assistant. What can I help you with?"
   ],
   products: [
-    "We offer three main products: ReviTask for parameter automation, SmartSheetList for intelligent sheet generation, and Folder Structure Creator for project organization. Which one interests you?",
-    "Our flagship tools include ReviTask (saves 80% time on parameter updates), SmartSheetList (generates professional sheet sets), and Folder Structure Creator (ISO 19650 compliant). Want to know more about any specific tool?"
+    "Our main product is Professional Sheet Creator - it automates Revit sheet creation with 71 templates. Create 50+ sheets in just 2 minutes! We also have a free View Preview tool.",
+    "Professional Sheet Creator saves 95% of your time on sheet creation. It includes 71 templates, Excel import, and auto title block detection. Available now on the Autodesk App Store!"
   ],
   pricing: [
-    "We offer flexible pricing plans starting with a 14-day free trial. Visit our pricing page to see all options and find the perfect plan for your team size.",
-    "Our pricing is designed for teams of all sizes. Start with our free trial - no credit card required! Check out /pricing for detailed plans."
+    "Professional Sheet Creator is $149 - a one-time purchase with perpetual license. No subscriptions! Available on the Autodesk App Store.",
+    "Simple pricing: $149 one-time purchase. You own it forever. Visit the Autodesk App Store to get it now."
   ],
   demo: [
-    "I'd love to show you a demo! Click the 'Watch Demo' button on our homepage, or schedule a personalized demo with our team through the contact page.",
-    "You can watch our interactive demo right here on the site, or book a live demo session. Would you prefer to see the demo now or schedule a call?"
+    "Check out the screenshots on our Products page to see Professional Sheet Creator in action. You can also visit the Autodesk App Store page for more details!",
+    "Visit our homepage to see Professional Sheet Creator in action. The Autodesk App Store page also has detailed screenshots and descriptions."
   ],
   support: [
-    "Need help? You can reach our support team through the contact page, or I can help answer common questions right here. What specific issue are you facing?",
-    "Our support team is here to help! Contact us through /contact or let me know what you need assistance with."
+    "Need help? Email us at info@bimopsstudio.com and we'll respond within 24-48 business hours.",
+    "Our support team is here to help! Contact us through /contact or email info@bimopsstudio.com."
   ],
   default: [
     "That's a great question! While I can help with basic info about BIM Ops Studio, for detailed technical questions, I'd recommend contacting our team directly.",
-    "I'd be happy to help! Could you be more specific about what you're looking for? I can tell you about our products, pricing, or help you get started.",
-    "Thanks for asking! For the most accurate information, feel free to contact our team. In the meantime, is there anything specific about BIM automation I can help clarify?"
+    "I'd be happy to help! Could you be more specific about what you're looking for? I can tell you about Professional Sheet Creator, pricing, or our free tools.",
+    "Thanks for asking! For the most accurate information, feel free to contact our team at info@bimopsstudio.com."
   ]
 };
 

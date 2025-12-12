@@ -6,9 +6,10 @@ export function Footer() {
     {
       title: "Product",
       links: [
-        { href: "/", label: "Professional Sheet Creator" },
-        { href: "/technical", label: "Technical Details" },
-        { href: "/contact", label: "Early Access" },
+        { href: "/products", label: "Professional Sheet Creator" },
+        { href: "/pricing", label: "Pricing" },
+        { href: "/free-tools", label: "Free Tools" },
+        { href: "/contact", label: "Contact" },
       ],
     },
   ];
