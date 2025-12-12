@@ -1,209 +1,181 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Check, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 export default function Pricing() {
   return (
     <Layout
-      title="Pricing - Professional Sheet Creator"
-      description="Professional Sheet Creator pricing. Starting at $80/month. 14-day free trial."
+      title="Pricing - Professional Sheet Creator for Revit | BIM Ops Studio"
+      description="Get Professional Sheet Creator for Revit - $149 one-time purchase on Autodesk App Store. 71 templates, Excel import, auto title block detection."
     >
       <section className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="container mx-auto px-4 max-w-6xl">
           <motion.div
-            className="text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Professional Sheet Creator Pricing</h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
-              Start your 14-day free trial. No credit card required.
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* Individual Plan */}
-              <Card>
-                <CardContent className="pt-8 pb-8">
-                  <h2 className="text-2xl font-bold mb-2">Individual</h2>
-                  <div className="text-4xl font-bold text-[#4A9EFF] mb-6">
-                    $80<span className="text-lg text-gray-500">/month</span>
-                  </div>
-
-                  <div className="space-y-3 mb-8 text-left">
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>1 user</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>1 active project</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Batch sheet creation</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Auto-populate title blocks</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>PDF/DWG export</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Email support</span>
-                    </div>
-                  </div>
-
-                  <Link href="/contact">
-                    <Button size="lg" className="w-full">
-                      Start Free Trial
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-
-              {/* Team Plan */}
-              <Card className="ring-2 ring-[#4A9EFF] shadow-2xl scale-105">
-                <CardContent className="pt-8 pb-8">
-                  <div className="bg-[#4A9EFF] text-white px-4 py-1 rounded-full text-sm font-semibold inline-block mb-4">
-                    Most Popular
-                  </div>
-                  <h2 className="text-2xl font-bold mb-2">Team</h2>
-                  <div className="text-4xl font-bold text-[#4A9EFF] mb-6">
-                    $200<span className="text-lg text-gray-500">/month</span>
-                  </div>
-
-                  <div className="space-y-3 mb-8 text-left">
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Up to 5 users</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Unlimited projects</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>All Individual features</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Shared templates library</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Team collaboration</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Priority support</span>
-                    </div>
-                  </div>
-
-                  <Link href="/contact">
-                    <Button size="lg" className="w-full">
-                      Start Free Trial
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-
-              {/* Enterprise Plan */}
-              <Card>
-                <CardContent className="pt-8 pb-8">
-                  <h2 className="text-2xl font-bold mb-2">Enterprise</h2>
-                  <div className="text-4xl font-bold text-[#4A9EFF] mb-6">
-                    Custom
-                  </div>
-
-                  <div className="space-y-3 mb-8 text-left">
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Unlimited users</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Unlimited projects</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>All Team features</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Custom integrations</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>Dedicated support</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span>SLA guarantee</span>
-                    </div>
-                  </div>
-
-                  <Link href="/contact">
-                    <Button size="lg" variant="outline" className="w-full">
-                      Contact Sales
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+            <div className="text-center mb-16">
+              <Badge className="mb-4 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                Now Available on Autodesk App Store
+              </Badge>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Simple, Transparent Pricing
+              </h1>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                One-time purchase. Perpetual license. No subscriptions.
+              </p>
             </div>
 
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
-              <strong>14-day free trial</strong> • No credit card required • Cancel anytime
-            </p>
+            {/* Main Product Card */}
+            <div className="max-w-lg mx-auto mb-16">
+              <motion.div
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border-2 border-blue-600"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl font-bold mb-2">Professional Sheet Creator</h2>
+                  <p className="text-gray-600 dark:text-gray-300">For Revit 2024, 2025, 2026</p>
+                </div>
 
-            {/* Trust Badges */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-3xl mx-auto">
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center">
-                <div className="text-3xl mb-2">🛡️</div>
-                <h4 className="font-semibold mb-1">Secure & Reliable</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Enterprise-grade security for your data
-                </p>
-              </div>
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center">
-                <div className="text-3xl mb-2">✓</div>
-                <h4 className="font-semibold mb-1">ADN Member</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Official Autodesk Developer Network #USUS0234
-                </p>
-              </div>
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center">
-                <div className="text-3xl mb-2">⭐</div>
-                <h4 className="font-semibold mb-1">Trusted by Firms</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Currently in beta with 3 architecture firms
-                </p>
-              </div>
-            </div>
+                <div className="text-center mb-8">
+                  <span className="text-5xl font-bold">$149</span>
+                  <span className="text-gray-500 ml-2">USD</span>
+                  <p className="text-sm text-gray-500 mt-2">One-time purchase</p>
+                </div>
 
-            <Card>
-              <CardContent className="pt-8 pb-8">
-                <h3 className="text-2xl font-semibold mb-4">Looking for BIMmemory?</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  Check out our AI-powered memory system for BIM professionals. Starting at $99/month.
-                </p>
-                <Link href="/products/bim-memory">
-                  <Button size="lg" variant="outline">
-                    View BIMmemory Pricing
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>71 pre-configured sheet templates</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Smart title block auto-detection</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Excel/CSV import and export</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Find & Replace across all sheets</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Project presets for quick setup</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Real-time sheet preview</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Load existing sheets from project</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Email support</span>
+                  </li>
+                </ul>
+
+                <a
+                  href="https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <Button size="lg" className="w-full text-lg py-6 bg-blue-600 hover:bg-blue-700">
+                    Purchase on Autodesk App Store
+                    <ExternalLink className="ml-2 w-5 h-5" />
                   </Button>
-                </Link>
-              </CardContent>
-            </Card>
+                </a>
+
+                <p className="text-center text-sm text-gray-500 mt-4">
+                  Secure payment via Autodesk App Store
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Why Buy Section */}
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-center mb-8">Why Professionals Choose Us</h2>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div className="text-4xl mb-4">⚡</div>
+                  <h3 className="font-semibold text-lg mb-2">95% Time Savings</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    What takes 2-3 hours manually takes just 2 minutes with our tool
+                  </p>
+                </div>
+                <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div className="text-4xl mb-4">🏢</div>
+                  <h3 className="font-semibold text-lg mb-2">Built for Pros</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Templates for Commercial, Residential, Educational, and Healthcare
+                  </p>
+                </div>
+                <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                  <div className="text-4xl mb-4">🛡️</div>
+                  <h3 className="font-semibold text-lg mb-2">ADN Member</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Official Autodesk Developer Network Member #USUS0234
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Section */}
+            <div className="max-w-3xl mx-auto mt-20">
+              <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+
+              <div className="space-y-6">
+                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
+                  <h3 className="font-semibold text-lg mb-2">Is this a subscription?</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    No. Professional Sheet Creator is a one-time purchase of $149. You own the license permanently.
+                  </p>
+                </div>
+                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
+                  <h3 className="font-semibold text-lg mb-2">Which Revit versions are supported?</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    The add-in supports Revit 2024, 2025, and 2026.
+                  </p>
+                </div>
+                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
+                  <h3 className="font-semibold text-lg mb-2">How do I get support?</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Contact us at info@bimopsstudio.com. We respond within 24-48 business hours.
+                  </p>
+                </div>
+                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
+                  <h3 className="font-semibold text-lg mb-2">Can I try before buying?</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Check out our free View Preview tool to see the quality of our Revit add-ins.
+                    We also have screenshots and details on the Autodesk App Store page.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Free Tools CTA */}
+            <div className="max-w-3xl mx-auto mt-20 text-center">
+              <h2 className="text-2xl font-bold mb-4">Looking for Free Tools?</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                Try our View Preview tool - 100% free for the Revit community.
+              </p>
+              <Link href="/free-tools">
+                <Button variant="outline" size="lg">
+                  View Free Tools
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
