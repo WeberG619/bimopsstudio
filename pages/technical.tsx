@@ -100,9 +100,9 @@ using (Transaction t = new Transaction(doc, "Create Sheets"))
 
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold mb-3">Beta Program Status:</h3>
+                  <h3 className="text-lg font-semibold mb-3">Availability:</h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    In active development. Beta testing will begin with select architecture firms.
+                    Now available on the Autodesk App Store. $149 one-time purchase.
                   </p>
                 </CardContent>
               </Card>
@@ -110,43 +110,21 @@ using (Transaction t = new Transaction(doc, "Create Sheets"))
 
             <Card className="mb-8">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-4">Pricing & Trial:</h3>
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div>
-                    <div className="text-2xl font-bold text-[#4A9EFF] mb-2">$80<span className="text-lg text-gray-500">/month</span></div>
-                    <div className="font-semibold mb-2">Individual</div>
-                    <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                      <li>• 1 user</li>
-                      <li>• 1 active project</li>
-                      <li>• All core features</li>
-                      <li>• Email support</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-[#4A9EFF] mb-2">$200<span className="text-lg text-gray-500">/month</span></div>
-                    <div className="font-semibold mb-2">Team</div>
-                    <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                      <li>• Up to 5 users</li>
-                      <li>• Unlimited projects</li>
-                      <li>• All core features</li>
-                      <li>• Priority support</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-[#4A9EFF] mb-2">Custom</div>
-                    <div className="font-semibold mb-2">Enterprise</div>
-                    <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                      <li>• Unlimited users</li>
-                      <li>• Custom integrations</li>
-                      <li>• Dedicated support</li>
-                      <li>• SLA guarantee</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                  <p className="text-center text-gray-600 dark:text-gray-300">
-                    <strong>14-day free trial</strong> • No credit card required • Cancel anytime
+                <h3 className="text-xl font-semibold mb-4">Pricing:</h3>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-blue-600 mb-2">$149</div>
+                  <div className="text-lg text-gray-500 mb-4">USD - One-time purchase</div>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">
+                    Perpetual license. No subscription required.
                   </p>
+                  <a
+                    href="https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    Purchase on Autodesk App Store
+                  </a>
                 </div>
               </CardContent>
             </Card>

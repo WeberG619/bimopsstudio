@@ -19,9 +19,9 @@ const complianceItems = [
   {
     icon: FileText,
     title: "Autodesk Developer Agreement",
-    description: "Revit Pro Tools is developed in strict compliance with Autodesk's Developer Terms of Service and API guidelines.",
+    description: "BIM Ops Studio is developed in strict compliance with Autodesk's Developer Terms of Service and API guidelines.",
     details: [
-      "Registered Autodesk Developer Network member",
+      "Registered Autodesk Developer Network member #USUS0234",
       "Compliant with Revit API best practices",
       "Regular security audits and updates",
       "No reverse engineering or unauthorized access"
@@ -32,10 +32,10 @@ const complianceItems = [
     title: "Software Licensing",
     description: "Clear, transparent licensing model designed for commercial use in professional environments.",
     details: [
-      "Per-seat subscription licensing",
-      "Enterprise volume licensing available",
-      "API partner licensing for integrators",
-      "30-day money-back guarantee"
+      "One-time purchase, perpetual license",
+      "Available on Autodesk App Store",
+      "Secure payment via Autodesk",
+      "Email support included"
     ]
   },
   {
@@ -97,8 +97,8 @@ const certifications = [
 export default function Compliance() {
   return (
     <Layout
-      title="Compliance & Licensing - Revit Pro Tools"
-      description="Learn about Revit Pro Tools' compliance with Autodesk guidelines, licensing model, and commitment to data security and legal standards."
+      title="Compliance & Licensing - BIM Ops Studio"
+      description="Learn about BIM Ops Studio's compliance with Autodesk guidelines, licensing model, and commitment to data security and legal standards."
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-deep-navy via-blue-900 to-indigo-900 text-white overflow-hidden">
@@ -111,16 +111,16 @@ export default function Compliance() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge variant="secondary" className="mb-4 bg-lime-accent/10 text-lime-accent border-lime-accent/20">
+            <Badge variant="secondary" className="mb-4 bg-blue-100/10 text-blue-300 border-blue-300/20">
               Enterprise Compliance Standards
             </Badge>
-            
+
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6">
-              Compliance & <span className="text-lime-accent">Licensing</span>
+              Compliance & <span className="text-blue-400">Licensing</span>
             </h1>
-            
+
             <p className="text-xl text-blue-100">
-              Built with integrity, operating with transparency. Revit Pro Tools adheres to the 
+              Built with integrity, operating with transparency. BIM Ops Studio adheres to the
               highest standards of software compliance and business ethics.
             </p>
           </motion.div>
@@ -156,7 +156,7 @@ export default function Compliance() {
                     <ul className="space-y-2">
                       {item.details.map((detail, i) => (
                         <li key={i} className="flex items-start">
-                          <CheckCircle className="w-4 h-4 mr-2 mt-0.5 text-lime-accent flex-shrink-0" />
+                          <CheckCircle className="w-4 h-4 mr-2 mt-0.5 text-blue-600 flex-shrink-0" />
                           <span className="text-sm">{detail}</span>
                         </li>
                       ))}
@@ -276,44 +276,43 @@ export default function Compliance() {
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-12 h-12 bg-lime-accent/20 rounded-lg mx-auto mb-4 
+                <div className="w-12 h-12 bg-blue-400/20 rounded-lg mx-auto mb-4
                   flex items-center justify-center">
-                  <Users className="w-6 h-6 text-lime-accent" />
+                  <Users className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="font-heading text-xl font-bold mb-2">Per-Seat License</h3>
+                <h3 className="font-heading text-xl font-bold mb-2">Perpetual License</h3>
                 <p className="text-blue-100">
-                  Each user requires an individual license. Transferable between devices.
+                  One-time purchase of $149. No recurring fees or subscriptions.
                 </p>
               </div>
-              
+
               <div className="text-center">
-                <div className="w-12 h-12 bg-lime-accent/20 rounded-lg mx-auto mb-4 
+                <div className="w-12 h-12 bg-blue-400/20 rounded-lg mx-auto mb-4
                   flex items-center justify-center">
-                  <Building className="w-6 h-6 text-lime-accent" />
+                  <Building className="w-6 h-6 text-blue-400" />
                 </div>
                 <h3 className="font-heading text-xl font-bold mb-2">Commercial Use</h3>
                 <p className="text-blue-100">
                   Licensed for commercial use in professional architecture firms.
                 </p>
               </div>
-              
+
               <div className="text-center">
-                <div className="w-12 h-12 bg-lime-accent/20 rounded-lg mx-auto mb-4 
+                <div className="w-12 h-12 bg-blue-400/20 rounded-lg mx-auto mb-4
                   flex items-center justify-center">
-                  <Globe className="w-6 h-6 text-lime-accent" />
+                  <Globe className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="font-heading text-xl font-bold mb-2">Global License</h3>
+                <h3 className="font-heading text-xl font-bold mb-2">Autodesk App Store</h3>
                 <p className="text-blue-100">
-                  Valid worldwide with local support in major markets.
+                  Secure purchase and distribution via Autodesk App Store.
                 </p>
               </div>
             </div>
 
             <div className="mt-12 p-6 bg-white/10 backdrop-blur-sm rounded-lg">
               <p className="text-center text-sm">
-                <strong>Important:</strong> This software is strictly for developing commercial Revit add-ins. 
-                Not for production modeling, drafting, or design work. All use must comply with 
-                Autodesk API Terms of Service and applicable laws.
+                <strong>Important:</strong> Professional Sheet Creator is a productivity tool for automating
+                sheet creation in Revit. All use must comply with Autodesk licensing terms and applicable laws.
               </p>
             </div>
           </motion.div>
