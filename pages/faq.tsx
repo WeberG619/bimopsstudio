@@ -16,90 +16,47 @@ import { useState } from "react";
 
 const faqCategories = [
   "All",
-  "Getting Started", 
+  "Getting Started",
   "Technical Support",
-  "Billing & Pricing",
-  "Integrations",
-  "Training",
-  "Enterprise"
+  "Pricing",
 ];
 
 const faqs = [
   {
     category: "Getting Started",
-    question: "How quickly can I get started with BIM Ops Studio?",
-    answer: "You can start using our tools immediately after signing up. Most users are productive within their first day. Our onboarding process includes guided tutorials and sample projects to help you get familiar with the interface."
+    question: "How quickly can I get started with Professional Sheet Creator?",
+    answer: "You can start using Professional Sheet Creator immediately after purchase. Simply download from the Autodesk App Store, install the add-in, and you're ready to create sheets in Revit."
   },
   {
     category: "Getting Started",
     question: "Do I need any special training to use your tools?",
-    answer: "No special training is required. If you know how to use Revit, you can use our tools. However, we do offer comprehensive training programs for teams who want to maximize their productivity."
+    answer: "No special training is required. If you know how to use Revit, you can use our tools. The interface is intuitive with 71 pre-configured templates to get you started immediately."
   },
   {
     category: "Technical Support",
     question: "What Revit versions do you support?",
-    answer: "We support Revit 2020, 2021, 2022, 2023, 2024, and 2025. Both subscription and perpetual licenses are compatible. We typically add support for new Revit versions within 30 days of their release."
-  },
-  {
-    category: "Technical Support", 
-    question: "Can I use your tools with other BIM software?",
-    answer: "Currently, our primary focus is Revit automation. However, we have native integrations with Dynamo, Navisworks, AutoCAD, and provide APIs for custom integrations with other software platforms."
+    answer: "We support Revit 2024, 2025, and 2026. We typically add support for new Revit versions within 30 days of their release."
   },
   {
     category: "Technical Support",
     question: "What happens if I encounter a bug or issue?",
-    answer: "Our support team responds to technical issues within 4 hours during business days. For enterprise customers, we provide 24/7 priority support. You can report issues through email, live chat, or our support portal."
+    answer: "Contact us at info@bimopsstudio.com. We respond within 24-48 business hours for all support requests."
   },
   {
-    category: "Billing & Pricing",
-    question: "Is there a free trial available?",
-    answer: "Yes! All plans include a 14-day free trial with full access to features. No credit card is required to start your trial. You can cancel anytime during the trial period with no charges."
+    category: "Pricing",
+    question: "Is this a subscription?",
+    answer: "No. Professional Sheet Creator is a one-time purchase of $149 USD. You own the license permanently with no recurring fees."
   },
   {
-    category: "Billing & Pricing",
-    question: "Can I change or cancel my subscription anytime?",
-    answer: "Absolutely. You can upgrade, downgrade, or cancel your subscription at any time from your account dashboard. Changes take effect at the next billing cycle, and we provide prorated refunds when applicable."
+    category: "Pricing",
+    question: "Where can I purchase?",
+    answer: "Professional Sheet Creator is available exclusively on the Autodesk App Store. Payment is processed securely through Autodesk."
   },
   {
-    category: "Billing & Pricing",
+    category: "Pricing",
     question: "Do you offer educational discounts?",
-    answer: "Yes! Students and educators get 50% off all plans. Contact us with your .edu email address for verification and discount code. We also offer special pricing for educational institutions."
+    answer: "Contact us at info@bimopsstudio.com to discuss educational pricing options."
   },
-  {
-    category: "Integrations",
-    question: "How does the Dynamo integration work?",
-    answer: "Our tools can export workflows as Dynamo scripts, and you can import existing Dynamo definitions into our workflow builder. This allows you to leverage your existing Dynamo investments while gaining the benefits of our AI-powered automation."
-  },
-  {
-    category: "Integrations",
-    question: "Can I integrate with project management tools?",
-    answer: "Yes, we offer integrations with popular project management platforms like Monday.com, Asana, and Microsoft Project. You can automatically create tasks, update project status, and sync completion data."
-  },
-  {
-    category: "Training",
-    question: "Do you offer training for teams?",
-    answer: "Yes! We provide comprehensive training programs for teams of all sizes, including custom workshops, ongoing support, and certification programs. Training can be conducted remotely or on-site depending on your needs."
-  },
-  {
-    category: "Training",
-    question: "What training resources are available?",
-    answer: "We offer video tutorials, documentation, webinars, sample projects, and one-on-one training sessions. All customers have access to our knowledge base and community forums."
-  },
-  {
-    category: "Enterprise",
-    question: "What's included in Enterprise plans?",
-    answer: "Enterprise plans include unlimited users, on-premise deployment options, custom integrations, dedicated support manager, SLA guarantees, advanced security features, and priority feature requests."
-  },
-  {
-    category: "Enterprise", 
-    question: "Do you offer on-premise deployment?",
-    answer: "Yes, Enterprise customers can choose on-premise deployment for enhanced security and control. We provide full installation, configuration, and maintenance support for on-premise installations."
-  },
-  {
-    category: "Enterprise",
-    question: "What security measures do you have in place?",
-    answer: "We employ enterprise-grade security including end-to-end encryption, SOC 2 Type II compliance, regular security audits, and GDPR compliance. Enterprise customers get additional security features like SSO and advanced access controls."
-  }
 ];
 
 export default function FAQ() {
@@ -130,12 +87,12 @@ export default function FAQ() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge variant="secondary" className="mb-6 bg-lime-accent/10 text-lime-accent border-lime-accent/20">
+              <Badge variant="secondary" className="mb-6 bg-blue-100/10 text-blue-300 border-blue-300/20">
                 <HelpCircle className="w-4 h-4 mr-1" />
                 Help Center
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Frequently Asked <span className="text-lime-accent">Questions</span>
+                Frequently Asked <span className="text-blue-400">Questions</span>
               </h1>
               <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Find answers to common questions about our BIM automation tools, 
@@ -242,7 +199,7 @@ export default function FAQ() {
       </section>
 
       {/* Contact Support CTA */}
-      <section className="py-20 bg-gradient-to-r from-electric-blue to-lime-accent text-white">
+      <section className="py-20 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -120,12 +120,12 @@ export default function Newsletter() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge variant="secondary" className="mb-6 bg-lime-accent/10 text-lime-accent border-lime-accent/20">
+              <Badge variant="secondary" className="mb-6 bg-blue-100/10 text-blue-300 border-blue-300/20">
                 <Mail className="w-4 h-4 mr-1" />
-                Join 5,000+ Subscribers
+                Stay Updated
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                BIM Insights <span className="text-lime-accent">Delivered</span>
+                BIM Insights <span className="text-blue-400">Delivered</span>
               </h1>
               <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Get weekly tips, industry insights, and exclusive resources to 
@@ -401,7 +401,7 @@ export default function Newsletter() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-electric-blue to-lime-accent text-white">
+      <section className="py-20 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
