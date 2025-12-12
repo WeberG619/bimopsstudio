@@ -1,4 +1,4 @@
-﻿/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -10,9 +10,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Professional color palette - removed lime, using blues
         "deep-navy": "#0A1B2A",
         "electric-blue": "#3B82F6",
-        "lime-accent": "#A4F837",
+        "accent-blue": "#2563EB",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -48,17 +49,11 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        heading: ["Outfit", "sans-serif"],
-      },
-      borderRadius: {
-        "2xl": "1rem",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        sans: ["Inter", "system-ui", "sans-serif"],
+        heading: ["Outfit", "system-ui", "sans-serif"],
       },
       animation: {
-        "slide-up": "slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
+        "slide-up": "slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
         slideUp: {
