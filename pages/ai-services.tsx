@@ -323,7 +323,7 @@ export default function AIServices() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-white/30 text-white hover:bg-white hover:text-gray-900 text-base px-8 py-6"
+                  className="border-2 border-white/30 bg-transparent text-white hover:bg-white hover:text-gray-900 text-base px-8 py-6"
                 >
                   weber@bimopsstudio.com
                 </Button>
