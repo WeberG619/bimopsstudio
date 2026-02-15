@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { StatsCard } from '@/components/admin/StatsCard';
+import { MetricsDashboard } from '@/components/admin/MetricsDashboard';
+import { RecentActivity } from '@/components/admin/RecentActivity';
+import { Button } from '@/components/ui/button';
 import { getDashboardMetrics } from '@/lib/api';
-import { Users, Briefcase, CreditCard, Clock, Mail, DollarSign, TrendingUp, UserPlus } from 'lucide-react';
+import { Users, Briefcase, CreditCard, Clock, Mail, DollarSign, TrendingUp, UserPlus, Plus } from 'lucide-react';
+import Link from 'next/link';
 
 interface Metrics {
   totalLeads: number;
@@ -28,8 +32,23 @@ export default function AdminDashboard() {
 
   return (
     <AdminLayout title="Dashboard">
+      {/* Quick Actions */}
+      <div className="flex gap-3 mb-6">
+        <Link href="/admin/leads">
+          <Button size="sm">
+            <Plus size={16} className="mr-1" /> Add Lead
+          </Button>
+        </Link>
+        <Link href="/admin/deals">
+          <Button size="sm" variant="outline">
+            <Plus size={16} className="mr-1" /> Add Deal
+          </Button>
+        </Link>
+      </div>
+
+      {/* Stats Row */}
       {isLoading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {[...Array(8)].map((_, i) => (
             <div key={i} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 animate-pulse">
               <div className="h-10 w-10 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4" />
@@ -39,7 +58,7 @@ export default function AdminDashboard() {
           ))}
         </div>
       ) : metrics && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatsCard label="Total Leads" value={metrics.totalLeads} icon={Users} />
           <StatsCard label="New Leads" value={metrics.newLeads} icon={UserPlus} />
           <StatsCard label="Open Pipeline" value={`$${metrics.openPipelineValue.toLocaleString()}`} icon={DollarSign} />
@@ -50,6 +69,17 @@ export default function AdminDashboard() {
           <StatsCard label="Newsletter Subs" value={metrics.newsletterSubscribers} icon={Mail} />
         </div>
       )}
+
+      {/* Charts */}
+      <div className="mb-8">
+        <MetricsDashboard />
+      </div>
+
+      {/* Recent Activity */}
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+        <h2 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Recent Activity</h2>
+        <RecentActivity />
+      </div>
     </AdminLayout>
   );
 }

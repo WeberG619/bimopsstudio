@@ -9,6 +9,7 @@ import {
   Mail,
   ArrowLeft,
   UserCheck,
+  Newspaper,
 } from 'lucide-react';
 
 const navItems = [
@@ -19,13 +20,19 @@ const navItems = [
   { href: '/admin/subscriptions', label: 'Subscriptions', icon: CreditCard },
   { href: '/admin/trials', label: 'Trials', icon: Clock },
   { href: '/admin/email-logs', label: 'Email Logs', icon: Mail },
+  { href: '/admin/newsletter', label: 'Newsletter', icon: Newspaper },
 ];
 
-export function AdminSidebar() {
+interface AdminSidebarProps {
+  mobileOpen?: boolean;
+  onClose?: () => void;
+}
+
+export function AdminSidebar({ mobileOpen, onClose }: AdminSidebarProps) {
   const router = useRouter();
 
-  return (
-    <aside className="fixed left-0 top-0 bottom-0 w-64 bg-deep-navy text-white hidden md:flex flex-col z-40">
+  const sidebar = (
+    <aside className="fixed left-0 top-0 bottom-0 w-64 bg-deep-navy text-white flex flex-col z-40">
       <div className="p-6 border-b border-white/10">
         <Link href="/" className="flex items-center space-x-2">
           <img src="/logo.png" alt="BIM Ops Studio" className="w-8 h-8" />
@@ -44,6 +51,7 @@ export function AdminSidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={onClose}
               className={`flex items-center px-6 py-3 text-sm font-medium transition-colors ${
                 isActive
                   ? 'bg-electric-blue/20 text-electric-blue border-r-2 border-electric-blue'
@@ -67,5 +75,22 @@ export function AdminSidebar() {
         </Link>
       </div>
     </aside>
+  );
+
+  return (
+    <>
+      {/* Desktop sidebar */}
+      <div className="hidden md:block">
+        {sidebar}
+      </div>
+
+      {/* Mobile overlay */}
+      {mobileOpen && (
+        <div className="md:hidden">
+          <div className="fixed inset-0 bg-black/50 z-30" onClick={onClose} />
+          {sidebar}
+        </div>
+      )}
+    </>
   );
 }

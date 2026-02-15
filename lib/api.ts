@@ -192,3 +192,135 @@ export async function getProfiles() {
   const { data, error } = await supabase.from('profiles').select('*').order('created_at', { ascending: false });
   return { data, error };
 }
+
+export async function getProfile(id: string) {
+  const { data, error } = await supabase.from('profiles').select('*').eq('id', id).single();
+  return { data, error };
+}
+
+// ============================================================
+// EXTENDED QUERIES
+// ============================================================
+
+export async function createLead(lead: {
+  email: string;
+  full_name?: string;
+  company?: string;
+  source?: string;
+  status?: LeadStatus;
+  pain_points?: string;
+  company_size?: string;
+  revit_version?: string;
+  seats?: number;
+  timeline?: string;
+}) {
+  const { data, error } = await supabase.from('leads').insert(lead).select().single();
+  return { data: data as Lead | null, error };
+}
+
+export async function getRecentActivity() {
+  const [{ data: recentLeads }, { data: recentNotes }] = await Promise.all([
+    supabase.from('leads').select('id, full_name, email, status, created_at').order('created_at', { ascending: false }).limit(10),
+    supabase.from('notes').select('id, content, type, lead_id, deal_id, created_at').order('created_at', { ascending: false }).limit(10),
+  ]);
+
+  type ActivityItem = {
+    id: string;
+    type: 'lead' | 'note';
+    description: string;
+    detail: string;
+    created_at: string;
+  };
+
+  const items: ActivityItem[] = [];
+
+  (recentLeads ?? []).forEach((l: any) => {
+    items.push({
+      id: `lead-${l.id}`,
+      type: 'lead',
+      description: `New lead: ${l.full_name || l.email}`,
+      detail: `Status: ${l.status}`,
+      created_at: l.created_at,
+    });
+  });
+
+  (recentNotes ?? []).forEach((n: any) => {
+    items.push({
+      id: `note-${n.id}`,
+      type: 'note',
+      description: `${n.type} note added`,
+      detail: n.content.slice(0, 80) + (n.content.length > 80 ? '...' : ''),
+      created_at: n.created_at,
+    });
+  });
+
+  items.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+  return items.slice(0, 10);
+}
+
+export async function getLeadFunnel() {
+  const { data: leads } = await supabase.from('leads').select('status');
+  const counts: Record<string, number> = { new: 0, contacted: 0, qualified: 0, proposal: 0, won: 0, lost: 0 };
+  (leads ?? []).forEach((l: any) => {
+    if (counts[l.status] !== undefined) counts[l.status]++;
+  });
+  return counts;
+}
+
+export async function getLeadsTimeSeries() {
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+  const { data } = await supabase
+    .from('leads')
+    .select('created_at')
+    .gte('created_at', thirtyDaysAgo.toISOString())
+    .order('created_at', { ascending: true });
+
+  const dayMap: Record<string, number> = {};
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    dayMap[d.toISOString().split('T')[0]] = 0;
+  }
+  (data ?? []).forEach((l: any) => {
+    const day = l.created_at.split('T')[0];
+    if (dayMap[day] !== undefined) dayMap[day]++;
+  });
+
+  return Object.entries(dayMap).map(([date, count]) => ({
+    date: new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+    leads: count,
+  }));
+}
+
+export async function getPipelineByStage() {
+  const { data: deals } = await supabase.from('deals').select('stage, value');
+  const stages: Record<string, number> = { discovery: 0, demo: 0, proposal: 0, negotiation: 0 };
+  (deals ?? []).filter((d: any) => !['closed_won', 'closed_lost'].includes(d.stage)).forEach((d: any) => {
+    if (stages[d.stage] !== undefined) stages[d.stage] += Number(d.value);
+  });
+  return Object.entries(stages).map(([stage, value]) => ({
+    stage: stage.charAt(0).toUpperCase() + stage.slice(1),
+    value,
+  }));
+}
+
+export async function getCustomerDetail(userId: string) {
+  const [profile, subscriptions, trials, downloads] = await Promise.all([
+    supabase.from('profiles').select('*').eq('id', userId).single(),
+    supabase.from('subscriptions').select('*').eq('user_id', userId).order('created_at', { ascending: false }),
+    supabase.from('trials').select('*').eq('user_id', userId).order('created_at', { ascending: false }),
+    supabase.from('downloads').select('*').eq('user_id', userId).order('created_at', { ascending: false }),
+  ]);
+  return {
+    profile: profile.data,
+    subscriptions: subscriptions.data ?? [],
+    trials: trials.data ?? [],
+    downloads: downloads.data ?? [],
+  };
+}
+
+export async function updateNewsletterSubscriber(id: string, updates: { status?: string; unsubscribed_at?: string }) {
+  const { data, error } = await supabase.from('newsletter_subscribers').update(updates).eq('id', id).select().single();
+  return { data, error };
+}
