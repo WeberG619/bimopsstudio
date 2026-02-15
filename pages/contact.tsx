@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { trackFormSubmit } from "@/components/GoogleAnalytics";
+import { supabase } from "@/lib/supabase";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,14 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
+      // Track lead in Supabase CRM
+      supabase.from('leads').insert({
+        email: formData.email,
+        full_name: formData.name,
+        source: 'contact_form',
+        status: 'new',
+      }).then(() => {});
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
