@@ -1,8 +1,8 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
+import {
   Check,
   X,
   Star,
@@ -10,94 +10,96 @@ import {
   Users,
   Building,
   Zap,
-  Crown
+  Crown,
+  ExternalLink
 } from "lucide-react";
+import Link from "next/link";
 
 const plans = [
   {
-    name: "Individual",
-    description: "Perfect for individual BIM professionals",
-    price: "$80",
-    period: "per month",
+    name: "View Preview",
+    description: "Free tool for the Revit community",
+    price: "Free",
+    period: "",
     icon: Users,
-    color: "from-blue-500 to-cyan-400",
+    color: "from-gray-600 to-gray-500",
     popular: false,
     features: [
-      { name: "1 user", included: true },
-      { name: "1 active project", included: true },
-      { name: "Batch sheet creation", included: true },
-      { name: "Auto-populate title blocks", included: true },
-      { name: "PDF/DWG export", included: true },
-      { name: "Email support", included: true },
-      { name: "Priority support", included: false },
-      { name: "Team collaboration", included: false },
-      { name: "Advanced analytics", included: false }
+      { name: "Real-time view previews", included: true },
+      { name: "Zoom-to-cursor navigation", included: true },
+      { name: "All view types supported", included: true },
+      { name: "Revit 2024, 2025 & 2026", included: true },
+      { name: "Batch sheet creation", included: false },
+      { name: "Excel/CSV import", included: false },
+      { name: "Title block auto-detection", included: false },
+      { name: "Find & Replace", included: false },
     ],
-    cta: "Start Free Trial",
+    cta: "Download Free",
+    ctaHref: "/free-tools",
     savings: null
   },
   {
-    name: "Team",
-    description: "Most popular for BIM teams and consultants",
-    price: "$200",
-    period: "per month",
+    name: "Professional Sheet Creator",
+    description: "The complete sheet automation tool",
+    price: "$149",
+    period: "one-time",
     icon: Building,
     color: "from-electric-blue to-lime-accent",
     popular: true,
     features: [
-      { name: "Up to 5 users", included: true },
-      { name: "Unlimited projects", included: true },
-      { name: "All Individual features", included: true },
-      { name: "Shared templates library", included: true },
-      { name: "Team collaboration tools", included: true },
-      { name: "Priority support", included: true },
-      { name: "Advanced analytics", included: true },
-      { name: "Custom integrations", included: false },
-      { name: "SLA guarantee", included: false }
+      { name: "71 pre-configured templates", included: true },
+      { name: "Batch create 50+ sheets in 2 min", included: true },
+      { name: "Excel/CSV import & export", included: true },
+      { name: "Smart title block auto-detection", included: true },
+      { name: "Find & Replace across all sheets", included: true },
+      { name: "Project presets for quick setup", included: true },
+      { name: "Real-time sheet preview", included: true },
+      { name: "Email support", included: true },
     ],
-    cta: "Start Free Trial",
+    cta: "Purchase on App Store",
+    ctaHref: "https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006",
     savings: null
   },
   {
     name: "Enterprise",
-    description: "For large firms and organizations",
+    description: "Custom solutions for large firms",
     price: "Custom",
-    period: "contact us", 
+    period: "contact us",
     icon: Crown,
     color: "from-purple-500 to-pink-400",
     popular: false,
     features: [
-      { name: "Unlimited everything", included: true },
-      { name: "Custom templates & workflows", included: true },
+      { name: "Volume licensing", included: true },
+      { name: "Custom template development", included: true },
       { name: "Dedicated support manager", included: true },
-      { name: "Unlimited user licenses", included: true },
       { name: "On-premise deployment option", included: true },
       { name: "Custom integrations", included: true },
-      { name: "Advanced team management", included: true },  
-      { name: "Complete analytics suite", included: true },
-      { name: "SLA guarantee", included: true }
+      { name: "AI-powered BIM automation", included: true },
+      { name: "Priority SLA guarantee", included: true },
+      { name: "Training sessions included", included: true },
     ],
     cta: "Contact Sales",
+    ctaHref: "/contact",
     savings: "Volume discounts available"
   }
 ];
 
 const faqs = [
   {
-    question: "Is there a free trial?",
-    answer: "Yes! All plans include a 14-day free trial with full access to features. No credit card required."
+    question: "Is this a subscription?",
+    answer: "No. Professional Sheet Creator is a one-time purchase of $149. You own the license permanently with no recurring fees."
   },
   {
-    question: "Can I change plans anytime?",
-    answer: "Absolutely. You can upgrade, downgrade, or cancel your subscription at any time from your account dashboard."
+    question: "Can I try before buying?",
+    answer: "Download our free View Preview tool to experience the quality of our Revit add-ins. We also have screenshots and details on the Autodesk App Store page."
   },
   {
     question: "What Revit versions are supported?",
-    answer: "We support Revit 2020, 2021, 2022, 2023, 2024, and 2025. Both subscription and perpetual licenses."
+    answer: "We support Revit 2024, 2025, and 2026."
   },
   {
     question: "Do you offer educational discounts?",
-    answer: "Yes! Students and educators get 50% off all plans. Contact us with your .edu email for verification."
+    answer: "Yes! Contact us at info@bimopsstudio.com with your .edu email for educational pricing options."
   }
 ];
 
@@ -117,11 +119,11 @@ export function PricingTeaser() {
             Simple, Transparent Pricing
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Plans That Scale <span className="text-electric-blue">With You</span>
+            One Price. <span className="text-electric-blue">Own It Forever.</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Start free, pay only when you're ready. All plans include our core automation tools 
-            and 14-day free trial. <span className="text-electric-blue font-semibold">No setup fees, no contracts.</span>
+            No subscriptions, no recurring fees. Purchase once and use Professional Sheet Creator permanently.
+            <span className="text-electric-blue font-semibold"> Perpetual license included.</span>
           </p>
         </motion.div>
 
@@ -145,7 +147,7 @@ export function PricingTeaser() {
                     </Badge>
                   </div>
                 )}
-                
+
                 <Card className={`h-full ${plan.popular ? 'ring-2 ring-electric-blue shadow-2xl scale-105' : 'shadow-lg'} transition-all duration-300 hover:shadow-xl dark:bg-gray-800`}>
                   {/* Header */}
                   <CardHeader className={`bg-gradient-to-r ${plan.color} text-white rounded-t-lg relative overflow-hidden`}>
@@ -163,8 +165,8 @@ export function PricingTeaser() {
                       <p className="text-white/90 mb-4">{plan.description}</p>
                       <div className="flex items-baseline">
                         <span className="text-4xl font-bold">{plan.price}</span>
-                        {plan.period !== "contact us" && (
-                          <span className="text-white/80 ml-2">/{plan.period}</span>
+                        {plan.period && plan.period !== "contact us" && (
+                          <span className="text-white/80 ml-2">{plan.period}</span>
                         )}
                         {plan.period === "contact us" && (
                           <span className="text-white/80 ml-2 text-lg">{plan.period}</span>
@@ -194,20 +196,37 @@ export function PricingTeaser() {
                     </ul>
 
                     {/* CTA Button */}
-                    <Button 
-                      size="lg"
-                      className={`w-full text-white ${plan.popular 
-                        ? 'bg-electric-blue hover:bg-electric-blue/90' 
-                        : 'bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600'
-                      }`}
-                    >
-                      {plan.cta}
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </Button>
+                    {plan.ctaHref.startsWith('http') ? (
+                      <a href={plan.ctaHref} target="_blank" rel="noopener noreferrer" className="block">
+                        <Button
+                          size="lg"
+                          className={`w-full text-white ${plan.popular
+                            ? 'bg-electric-blue hover:bg-electric-blue/90'
+                            : 'bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600'
+                          }`}
+                        >
+                          {plan.cta}
+                          <ExternalLink className="ml-2 w-5 h-5" />
+                        </Button>
+                      </a>
+                    ) : (
+                      <Link href={plan.ctaHref}>
+                        <Button
+                          size="lg"
+                          className={`w-full text-white ${plan.popular
+                            ? 'bg-electric-blue hover:bg-electric-blue/90'
+                            : 'bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600'
+                          }`}
+                        >
+                          {plan.cta}
+                          <ArrowRight className="ml-2 w-5 h-5" />
+                        </Button>
+                      </Link>
+                    )}
 
-                    {plan.name !== "Enterprise" && (
+                    {plan.popular && (
                       <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
-                        14-day free trial • No credit card required
+                        One-time purchase &middot; Perpetual license
                       </p>
                     )}
                   </CardContent>
@@ -225,15 +244,15 @@ export function PricingTeaser() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {/* Money Back Guarantee */}
+          {/* ADN Member */}
           <div className="text-center md:text-left">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4">
               <Check className="w-8 h-8 text-green-600" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">30-Day Money-Back Guarantee</h3>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">ADN Member #USUS0234</h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Not satisfied? Get a full refund within 30 days, no questions asked. 
-              We're confident you'll love the time savings.
+              Official Autodesk Developer Network member. Built with full API compliance
+              and published on the Autodesk App Store.
             </p>
           </div>
 
@@ -244,8 +263,8 @@ export function PricingTeaser() {
             </div>
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Volume Discounts Available</h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Need more licenses? We offer significant discounts for teams of 10+ users. 
-              Contact our sales team for custom pricing.
+              Need licenses for your whole team? Contact us for volume pricing
+              and custom enterprise solutions.
             </p>
           </div>
         </motion.div>
@@ -263,10 +282,12 @@ export function PricingTeaser() {
               Frequently Asked Questions
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Have questions? We have answers. Can't find what you're looking for? 
-              <Button variant="link" className="p-0 ml-1 text-electric-blue">
-                Contact our support team
-              </Button>
+              Have questions? We have answers. Can't find what you're looking for?
+              <Link href="/contact">
+                <Button variant="link" className="p-0 ml-1 text-electric-blue">
+                  Contact our support team
+                </Button>
+              </Link>
             </p>
           </div>
 

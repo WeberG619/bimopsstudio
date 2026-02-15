@@ -104,7 +104,7 @@ export function Hero() {
                     size="lg"
                     className="bg-lime-accent text-deep-navy hover:bg-lime-accent/90 font-bold text-lg px-8 py-6 shadow-2xl hover:shadow-lime-accent/25 transition-all duration-300 hover:scale-105"
                   >
-                    Start Free Trial - $149/month
+                    Get It Now - $149 One-Time
                     <ArrowRight className="ml-2" size={20} />
                   </Button>
                 </Link>
