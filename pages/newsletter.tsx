@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 import { 
   Mail,
   CheckCircle,
@@ -98,10 +99,36 @@ export default function Newsletter() {
   const [frequency, setFrequency] = useState("weekly");
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send to an API
-    setIsSubscribed(true);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const { error: dbError } = await supabase.from('newsletter_subscribers').insert({
+        email,
+        frequency,
+      });
+
+      if (dbError) {
+        if (dbError.code === '23505') {
+          // Unique constraint — already subscribed
+          setError('This email is already subscribed!');
+        } else {
+          throw dbError;
+        }
+      } else {
+        setIsSubscribed(true);
+      }
+    } catch (err) {
+      console.error('Newsletter subscription error:', err);
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -204,13 +231,19 @@ export default function Newsletter() {
                       </div>
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full">
-                      Subscribe Now
-                      <Send className="ml-2 w-5 h-5" />
+                    {error && (
+                      <div className="p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 text-sm">
+                        {error}
+                      </div>
+                    )}
+
+                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? 'Subscribing...' : 'Subscribe Now'}
+                      {!isSubmitting && <Send className="ml-2 w-5 h-5" />}
                     </Button>
 
                     <p className="text-center text-sm text-gray-500 dark:text-gray-400">
-                      By subscribing, you agree to receive emails from BIM Ops Studio. 
+                      By subscribing, you agree to receive emails from BIM Ops Studio.
                       You can unsubscribe at any time.
                     </p>
                   </form>

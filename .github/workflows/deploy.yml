@@ -32,6 +32,9 @@ jobs:
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_GA_MEASUREMENT_ID: G-RBE2XPP5VZ
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
         run: npm run build
 
       - name: Copy built files to root

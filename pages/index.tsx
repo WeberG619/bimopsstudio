@@ -49,7 +49,7 @@ export default function Home() {
             </p>
 
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 mb-8">
-              <h2 className="text-2xl font-semibold mb-6">What it does:</h2>
+              <h2 className="text-2xl font-semibold mb-6">Key Features:</h2>
               <div className="grid md:grid-cols-2 gap-4 text-left">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-blue-600 mr-3 mt-0.5" />
@@ -78,7 +78,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                 <h3 className="font-semibold mb-2">Compatible With</h3>
                 <p className="text-gray-600 dark:text-gray-300">
