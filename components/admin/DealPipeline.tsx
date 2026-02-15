@@ -2,6 +2,7 @@ import type { Deal } from '@/types';
 
 interface DealPipelineProps {
   deals: Deal[];
+  onDealClick?: (id: string) => void;
 }
 
 const stages = [
@@ -13,7 +14,7 @@ const stages = [
   { key: 'closed_lost', label: 'Lost', color: 'border-red-400' },
 ];
 
-export function DealPipeline({ deals }: DealPipelineProps) {
+export function DealPipeline({ deals, onDealClick }: DealPipelineProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
       {stages.map((stage) => {
@@ -35,6 +36,7 @@ export function DealPipeline({ deals }: DealPipelineProps) {
               {stageDeals.map((deal) => (
                 <div
                   key={deal.id}
+                  onClick={() => onDealClick?.(deal.id)}
                   className="p-2 bg-gray-50 dark:bg-gray-700 rounded text-xs cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
                 >
                   <div className="font-medium text-gray-900 dark:text-white truncate">{deal.title}</div>

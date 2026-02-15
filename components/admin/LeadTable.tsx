@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import type { Lead } from '@/types';
 import { formatDate } from '@/lib/utils';
+import { Trash2 } from 'lucide-react';
 
 interface LeadTableProps {
   leads: Lead[];
+  onDelete?: (id: string) => void;
 }
 
 const statusColors: Record<string, string> = {
@@ -15,7 +17,7 @@ const statusColors: Record<string, string> = {
   lost: 'bg-red-100 text-red-700 dark:bg-red-900/20 dark:text-red-400',
 };
 
-export function LeadTable({ leads }: LeadTableProps) {
+export function LeadTable({ leads, onDelete }: LeadTableProps) {
   if (leads.length === 0) {
     return (
       <div className="text-center py-12 text-gray-500 dark:text-gray-400">
@@ -35,13 +37,14 @@ export function LeadTable({ leads }: LeadTableProps) {
             <th className="text-left py-3 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Status</th>
             <th className="text-left py-3 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Source</th>
             <th className="text-left py-3 px-4 text-sm font-medium text-gray-500 dark:text-gray-400">Date</th>
+            {onDelete && <th className="w-10" />}
           </tr>
         </thead>
         <tbody>
           {leads.map((lead) => (
             <tr
               key={lead.id}
-              className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+              className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group"
             >
               <td className="py-3 px-4">
                 <Link
@@ -60,6 +63,17 @@ export function LeadTable({ leads }: LeadTableProps) {
               </td>
               <td className="py-3 px-4 text-sm text-gray-500 dark:text-gray-400">{lead.source || '—'}</td>
               <td className="py-3 px-4 text-sm text-gray-500 dark:text-gray-400">{formatDate(lead.created_at)}</td>
+              {onDelete && (
+                <td className="py-3 px-2">
+                  <button
+                    onClick={() => onDelete(lead.id)}
+                    className="opacity-0 group-hover:opacity-100 p-1 text-gray-400 hover:text-red-500 transition-all"
+                    title="Delete lead"
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
