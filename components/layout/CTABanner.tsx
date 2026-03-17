@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function CTABanner() {
   return (
@@ -12,20 +13,16 @@ export function CTABanner() {
     >
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         <div className="mb-4 md:mb-0">
-          <h3 className="font-bold text-lg">Ready to automate your sheet creation?</h3>
-          <p className="text-blue-100">Professional Sheet Creator - $149 on Autodesk App Store</p>
+          <h3 className="font-bold text-lg">Transform your CD production.</h3>
+          <p className="text-blue-100">Request a demo today.</p>
         </div>
         <div className="flex space-x-4">
-          <a
-            href="https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="/contact">
             <Button variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
-              Get it Now
-              <ExternalLink className="ml-2 w-4 h-4" />
+              Request Demo
+              <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
     </motion.div>

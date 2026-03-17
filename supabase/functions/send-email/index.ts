@@ -57,7 +57,7 @@ const templates: Record<string, (data: Record<string, string>) => { subject: str
       <div class="highlight">
         <strong>What's next?</strong>
         <ul>
-          <li>Start a 14-day free trial of Professional Sheet Creator</li>
+          <li>Explore our AI-powered BIM automation services</li>
           <li>Download the free BIM Ops Connector for Revit</li>
           <li>Explore our AI services for BIM automation</li>
         </ul>

@@ -19,16 +19,16 @@ const botResponses = {
     "Hey there! I'm your BIM automation assistant. What can I help you with?"
   ],
   products: [
-    "Our main product is Professional Sheet Creator - it automates Revit sheet creation with 71 templates. Create 50+ sheets in just 2 minutes! We also have a free View Preview tool.",
-    "Professional Sheet Creator saves 95% of your time on sheet creation. It includes 71 templates, Excel import, and auto title block detection. Available now on the Autodesk App Store!"
+    "We offer AI-powered BIM automation services built on RevitMCPBridge, our open-source tool that connects AI to Revit. We handle implementation, custom automation, CD production workflows, and team training. We also have a free View Preview tool.",
+    "Our core offering is AI-powered BIM implementation -- we set up RevitMCPBridge for your team, build custom automation scripts, and train your staff. It saves 95% of time on repetitive Revit tasks."
   ],
   pricing: [
-    "Professional Sheet Creator is $149 - a one-time purchase with perpetual license. No subscriptions! Available on the Autodesk App Store.",
-    "Simple pricing: $149 one-time purchase. You own it forever. Visit the Autodesk App Store to get it now."
+    "Our implementation packages start at $5,000 and include RevitMCPBridge setup, custom automation scripts, team training, and 30 days of post-launch support. Contact us for a custom quote!",
+    "Implementation starts at $5,000 with a 2-4 week delivery. We also offer ongoing support retainers. Contact us for details."
   ],
   demo: [
-    "Check out the screenshots on our Products page to see Professional Sheet Creator in action. You can also visit the Autodesk App Store page for more details!",
-    "Visit our homepage to see Professional Sheet Creator in action. The Autodesk App Store page also has detailed screenshots and descriptions."
+    "Check out our Products page to learn about our AI-powered BIM automation services. You can also schedule a discovery call to see a personalized demo!",
+    "Visit our homepage or schedule a discovery call to see our AI-powered BIM automation in action."
   ],
   support: [
     "Need help? Email us at info@bimopsstudio.com and we'll respond within 24-48 business hours.",
@@ -36,7 +36,7 @@ const botResponses = {
   ],
   default: [
     "That's a great question! While I can help with basic info about BIM Ops Studio, for detailed technical questions, I'd recommend contacting our team directly.",
-    "I'd be happy to help! Could you be more specific about what you're looking for? I can tell you about Professional Sheet Creator, pricing, or our free tools.",
+    "I'd be happy to help! Could you be more specific about what you're looking for? I can tell you about our BIM automation services, pricing, or our free tools.",
     "Thanks for asking! For the most accurate information, feel free to contact our team at info@bimopsstudio.com."
   ]
 };

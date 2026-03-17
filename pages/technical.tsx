@@ -6,8 +6,8 @@ import { Code2, FileCode, CheckCircle } from "lucide-react";
 export default function Technical() {
   return (
     <Layout
-      title="Technical Implementation - Professional Sheet Creator"
-      description="Technical details and Revit API implementation of Professional Sheet Creator add-in"
+      title="Technical Implementation - BIM Ops Studio"
+      description="Technical details about BIM Ops Studio's AI-powered Revit automation and RevitMCPBridge implementation"
     >
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -17,34 +17,34 @@ export default function Technical() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl font-bold mb-4">Technical Implementation</h1>
-            <h2 className="text-2xl text-gray-600 mb-8">Professional Sheet Creator - Revit Add-in</h2>
+            <h2 className="text-2xl text-gray-600 dark:text-gray-300 mb-8">RevitMCPBridge - AI-Powered BIM Automation</h2>
 
             <Card className="mb-8">
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
                   <FileCode className="w-6 h-6 mr-2 text-primary" />
-                  Core Functionality:
+                  Core Capabilities:
                 </h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-500 mt-0.5" />
-                    <span>Batch creates sheets from template configuration (50-100 sheets per minute)</span>
+                    <span>AI-to-Revit communication via named pipes (no HTTP overhead)</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-500 mt-0.5" />
-                    <span>Auto-populates title block parameters</span>
+                    <span>Automated wall, room, view, and sheet creation from natural language</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-500 mt-0.5" />
-                    <span>Places views on sheets according to templates</span>
+                    <span>Construction documentation production automation</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-500 mt-0.5" />
-                    <span>Enforces company naming standards</span>
+                    <span>Custom workflow scripting for firm-specific processes</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-500 mt-0.5" />
-                    <span>Exports to PDF/DWG with proper naming</span>
+                    <span>Open-source core with enterprise implementation support</span>
                   </li>
                 </ul>
               </CardContent>
@@ -54,23 +54,20 @@ export default function Technical() {
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
                   <Code2 className="w-6 h-6 mr-2 text-primary" />
-                  Revit API Methods:
+                  Revit API Integration:
                 </h3>
                 <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto">
-                  <code className="text-sm">{`// Sheet Creation
-ViewSheet.Create(document, titleBlockId)
-ViewSheet.SheetNumber = data.SheetNumber
-ViewSheet.Name = data.SheetName
+                  <code className="text-sm">{`// Named Pipe Communication
+NamedPipeServerStream pipe = new("RevitMCPBridge2026",
+    PipeDirection.InOut, 1, PipeTransmissionMode.Byte,
+    PipeOptions.Asynchronous);
 
-// View Placement
-Viewport.Create(document, sheetId, viewId, XYZ)
-FilteredElementCollector(document).OfClass(typeof(ViewPlan))
-
-// Transaction Management  
-using (Transaction t = new Transaction(doc, "Create Sheets"))
+// AI-Driven Element Creation
+using (Transaction t = new Transaction(doc, "AI Create Elements"))
 {
     t.Start();
-    // Operations
+    Wall.Create(doc, curve, levelId, false);
+    ViewSheet.Create(doc, titleBlockId);
     t.Commit();
 }`}</code>
                 </pre>
@@ -82,10 +79,6 @@ using (Transaction t = new Transaction(doc, "Create Sheets"))
                 <CardContent className="pt-6">
                   <h3 className="text-lg font-semibold mb-3">Supported Versions:</h3>
                   <ul className="space-y-1">
-                    <li className="flex items-center">
-                      <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
-                      Revit 2024
-                    </li>
                     <li className="flex items-center">
                       <CheckCircle className="w-4 h-4 mr-2 text-green-500" />
                       Revit 2025
@@ -100,41 +93,20 @@ using (Transaction t = new Transaction(doc, "Create Sheets"))
 
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold mb-3">Availability:</h3>
+                  <h3 className="text-lg font-semibold mb-3">Implementation:</h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Now available on the Autodesk App Store. $149 one-time purchase.
+                    Custom implementation packages starting at $5,000. 2-4 week delivery.
                   </p>
                 </CardContent>
               </Card>
             </div>
 
-            <Card className="mb-8">
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold mb-4">Pricing:</h3>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">$149</div>
-                  <div className="text-lg text-gray-500 mb-4">USD - One-time purchase</div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Perpetual license. No subscription required.
-                  </p>
-                  <a
-                    href="https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    Purchase on Autodesk App Store
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-
             <Card>
               <CardContent className="pt-6">
                 <h3 className="text-lg font-semibold mb-3">ADN Compliance:</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  This software is developed under the Autodesk Developer Network program. 
-                  All Autodesk software licenses are used strictly for add-in development, 
+                  This software is developed under the Autodesk Developer Network program.
+                  All Autodesk software licenses are used strictly for add-in development,
                   testing, and marketing - not for production modeling or drafting.
                 </p>
               </CardContent>

@@ -196,7 +196,8 @@ export default function Resources() {
               transition={{ duration: 0.6 }}
             >
               <Badge variant="secondary" className="mb-6 bg-lime-accent/10 text-lime-accent border-lime-accent/20">
-                📚 Free Learning Resources
+                <BookOpen className="w-4 h-4 mr-1.5 inline-block" />
+                Free Learning Resources
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                 Master BIM <span className="text-lime-accent">Automation</span>

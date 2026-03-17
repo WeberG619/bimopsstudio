@@ -24,38 +24,33 @@ const faqCategories = [
 const faqs = [
   {
     category: "Getting Started",
-    question: "How quickly can I get started with Professional Sheet Creator?",
-    answer: "You can start using Professional Sheet Creator immediately after purchase. Simply download from the Autodesk App Store, install the add-in, and you're ready to create sheets in Revit."
+    question: "What is RevitMCPBridge?",
+    answer: "RevitMCPBridge is our open-source tool that connects AI assistants directly to Autodesk Revit via named pipes. It enables AI-powered BIM automation -- creating walls, rooms, sheets, views, and more through natural language commands. It's the foundation of our implementation services."
   },
   {
     category: "Getting Started",
-    question: "Do I need any special training to use your tools?",
-    answer: "No special training is required. If you know how to use Revit, you can use our tools. The interface is intuitive with 71 pre-configured templates to get you started immediately."
+    question: "How does the implementation process work?",
+    answer: "We start with a discovery call to understand your team's workflows and pain points. From there, we configure RevitMCPBridge for your environment, build custom automation scripts for your specific CD production needs, and train your team on the new workflows. The entire process typically takes 2-4 weeks."
   },
   {
     category: "Technical Support",
-    question: "What Revit versions do you support?",
-    answer: "We support Revit 2024, 2025, and 2026. We typically add support for new Revit versions within 30 days of their release."
+    question: "What Revit versions are supported?",
+    answer: "We support Revit 2025 and 2026. RevitMCPBridge is built with the latest Revit API and uses named pipes for reliable, high-performance communication between AI tools and Revit."
   },
   {
     category: "Technical Support",
-    question: "What happens if I encounter a bug or issue?",
-    answer: "Contact us at info@bimopsstudio.com. We respond within 24-48 business hours for all support requests."
+    question: "How long does implementation take?",
+    answer: "Most implementations are completed in 2-4 weeks, depending on the complexity of your workflows and the number of automations needed. We work in sprints so your team sees results quickly."
   },
   {
     category: "Pricing",
-    question: "Is this a subscription?",
-    answer: "No. Professional Sheet Creator is a one-time purchase of $149 USD. You own the license permanently with no recurring fees."
+    question: "What's included in the $5,000 implementation package?",
+    answer: "The implementation package includes workflow discovery, RevitMCPBridge setup and configuration, custom automation scripts for your CD production pipeline, team training sessions, and 30 days of post-launch support."
   },
   {
     category: "Pricing",
-    question: "Where can I purchase?",
-    answer: "Professional Sheet Creator is available exclusively on the Autodesk App Store. Payment is processed securely through Autodesk."
-  },
-  {
-    category: "Pricing",
-    question: "Do you offer educational discounts?",
-    answer: "Contact us at info@bimopsstudio.com to discuss educational pricing options."
+    question: "Do you offer ongoing support?",
+    answer: "Yes. After the initial implementation, we offer monthly support retainers that include workflow optimization, new automation development, and priority technical support. Contact us at info@bimopsstudio.com for details."
   },
 ];
 

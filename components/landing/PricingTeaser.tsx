@@ -29,35 +29,35 @@ const plans = [
       { name: "Zoom-to-cursor navigation", included: true },
       { name: "All view types supported", included: true },
       { name: "Revit 2024, 2025 & 2026", included: true },
-      { name: "Batch sheet creation", included: false },
-      { name: "Excel/CSV import", included: false },
-      { name: "Title block auto-detection", included: false },
-      { name: "Find & Replace", included: false },
+      { name: "AI-powered automation", included: false },
+      { name: "Custom workflow scripts", included: false },
+      { name: "Team training", included: false },
+      { name: "Dedicated support", included: false },
     ],
     cta: "Download Free",
     ctaHref: "/free-tools",
     savings: null
   },
   {
-    name: "Professional Sheet Creator",
-    description: "The complete sheet automation tool",
-    price: "$149",
-    period: "one-time",
+    name: "Implementation",
+    description: "AI-powered BIM automation for your team",
+    price: "$5,000",
+    period: "starting at",
     icon: Building,
     color: "from-electric-blue to-lime-accent",
     popular: true,
     features: [
-      { name: "71 pre-configured templates", included: true },
-      { name: "Batch create 50+ sheets in 2 min", included: true },
-      { name: "Excel/CSV import & export", included: true },
-      { name: "Smart title block auto-detection", included: true },
-      { name: "Find & Replace across all sheets", included: true },
-      { name: "Project presets for quick setup", included: true },
-      { name: "Real-time sheet preview", included: true },
-      { name: "Email support", included: true },
+      { name: "RevitMCPBridge setup & config", included: true },
+      { name: "Custom CD production automation", included: true },
+      { name: "AI-powered sheet & view creation", included: true },
+      { name: "Workflow discovery & optimization", included: true },
+      { name: "Team training sessions", included: true },
+      { name: "30 days post-launch support", included: true },
+      { name: "Revit 2025 & 2026 support", included: true },
+      { name: "Email & video call support", included: true },
     ],
-    cta: "Purchase on App Store",
-    ctaHref: "https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006",
+    cta: "Schedule Discovery Call",
+    ctaHref: "/contact",
     savings: null
   },
   {
@@ -69,14 +69,14 @@ const plans = [
     color: "from-purple-500 to-pink-400",
     popular: false,
     features: [
-      { name: "Volume licensing", included: true },
-      { name: "Custom template development", included: true },
+      { name: "Multi-team deployment", included: true },
+      { name: "Custom automation development", included: true },
       { name: "Dedicated support manager", included: true },
       { name: "On-premise deployment option", included: true },
       { name: "Custom integrations", included: true },
       { name: "AI-powered BIM automation", included: true },
       { name: "Priority SLA guarantee", included: true },
-      { name: "Training sessions included", included: true },
+      { name: "Ongoing training included", included: true },
     ],
     cta: "Contact Sales",
     ctaHref: "/contact",
@@ -86,20 +86,20 @@ const plans = [
 
 const faqs = [
   {
-    question: "Is this a subscription?",
-    answer: "No. Professional Sheet Creator is a one-time purchase of $149. You own the license permanently with no recurring fees."
+    question: "What is RevitMCPBridge?",
+    answer: "RevitMCPBridge is our open-source tool that connects AI assistants to Revit via named pipes. It's the foundation of our automation services and enables AI-powered BIM workflows."
   },
   {
-    question: "Can I try before buying?",
-    answer: "Download our free View Preview tool to experience the quality of our Revit add-ins. We also have screenshots and details on the Autodesk App Store page."
+    question: "How long does implementation take?",
+    answer: "Most implementations are completed in 2-4 weeks. We work in sprints so your team sees results quickly."
   },
   {
     question: "What Revit versions are supported?",
-    answer: "We support Revit 2024, 2025, and 2026."
+    answer: "We support Revit 2025 and 2026 with RevitMCPBridge."
   },
   {
-    question: "Do you offer educational discounts?",
-    answer: "Yes! Contact us at info@bimopsstudio.com with your .edu email for educational pricing options."
+    question: "Do you offer ongoing support?",
+    answer: "Yes! After implementation, we offer monthly retainers for workflow optimization, new automations, and priority support. Contact us for details."
   }
 ];
 
@@ -119,11 +119,11 @@ export function PricingTeaser() {
             Simple, Transparent Pricing
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            One Price. <span className="text-electric-blue">Own It Forever.</span>
+            AI-Powered BIM. <span className="text-electric-blue">Real Results.</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            No subscriptions, no recurring fees. Purchase once and use Professional Sheet Creator permanently.
-            <span className="text-electric-blue font-semibold"> Perpetual license included.</span>
+            From free open-source tools to full enterprise implementations.
+            <span className="text-electric-blue font-semibold"> Choose what fits your team.</span>
           </p>
         </motion.div>
 
@@ -226,7 +226,7 @@ export function PricingTeaser() {
 
                     {plan.popular && (
                       <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
-                        One-time purchase &middot; Perpetual license
+                        2-4 week delivery &middot; 30 days support included
                       </p>
                     )}
                   </CardContent>
@@ -252,19 +252,19 @@ export function PricingTeaser() {
             <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">ADN Member #USUS0234</h3>
             <p className="text-gray-600 dark:text-gray-300">
               Official Autodesk Developer Network member. Built with full API compliance
-              and published on the Autodesk App Store.
+              and deep Revit expertise.
             </p>
           </div>
 
-          {/* Volume Discounts */}
+          {/* Enterprise */}
           <div className="text-center md:text-left">
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4">
               <Zap className="w-8 h-8 text-electric-blue" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Volume Discounts Available</h3>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Enterprise Solutions Available</h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Need licenses for your whole team? Contact us for volume pricing
-              and custom enterprise solutions.
+              Need automation for your whole team? Contact us for multi-team
+              deployments and custom enterprise solutions.
             </p>
           </div>
         </motion.div>
@@ -285,7 +285,7 @@ export function PricingTeaser() {
               Have questions? We have answers. Can't find what you're looking for?
               <Link href="/contact">
                 <Button variant="link" className="p-0 ml-1 text-electric-blue">
-                  Contact our support team
+                  Contact our team
                 </Button>
               </Link>
             </p>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, ExternalLink } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import { trackFormSubmit } from "@/components/GoogleAnalytics";
 import { supabase } from "@/lib/supabase";
@@ -94,7 +95,7 @@ Message: ${formData.message}`
                   <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Mail className="w-8 h-8 text-green-600" />
                   </div>
-                  <h2 className="text-2xl font-semibold mb-2">Message Sent!</h2>
+                  <h2 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Message Sent!</h2>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">
                     Thank you for reaching out. We'll get back to you within 24-48 business hours.
                   </p>
@@ -120,25 +121,47 @@ Message: ${formData.message}`
       title="Contact Us - BIM Ops Studio"
       description="Get in touch with BIM Ops Studio for support or inquiries"
     >
-      <section className="pt-32 pb-20">
+      {/* Hero with background image */}
+      <section className="relative pt-32 pb-12 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/skyline.jpg"
+            alt="City skyline"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-[#0A1B2A]/85" />
+        </div>
+        <div className="container mx-auto px-4 max-w-4xl relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="text-center mb-8">
+              <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
+              <p className="text-xl text-gray-300">
+                Have questions about AI-powered BIM services? We're here to help.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="pb-20 pt-8">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
-                Questions about Professional Sheet Creator? We're here to help.
-              </p>
-            </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Contact Form */}
               <Card>
                 <CardContent className="pt-6">
-                  <h2 className="text-xl font-semibold mb-4">Send a Message</h2>
+                  <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Send a Message</h2>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <input
                       type="text"
@@ -178,12 +201,12 @@ Message: ${formData.message}`
               <div className="space-y-6">
                 <Card>
                   <CardContent className="pt-6">
-                    <h2 className="text-xl font-semibold mb-4">Direct Contact</h2>
+                    <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Direct Contact</h2>
                     <div className="space-y-4">
                       <div className="flex items-start">
                         <Mail className="w-5 h-5 text-blue-600 mr-3 mt-1" />
                         <div>
-                          <p className="font-medium">Email</p>
+                          <p className="font-medium text-gray-900 dark:text-white">Email</p>
                           <a href="mailto:info@bimopsstudio.com" className="text-blue-600 hover:underline">
                             info@bimopsstudio.com
                           </a>
@@ -195,26 +218,19 @@ Message: ${formData.message}`
 
                 <Card>
                   <CardContent className="pt-6">
-                    <h2 className="text-xl font-semibold mb-4">Purchase</h2>
+                    <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Services</h2>
                     <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      Professional Sheet Creator is available on the Autodesk App Store for $149.
+                      AI-powered BIM workflow implementation, CD production automation, and team training.
                     </p>
-                    <a
-                      href="https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                        View on Autodesk App Store
-                        <ExternalLink className="ml-2 w-4 h-4" />
-                      </Button>
-                    </a>
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700" disabled>
+                      Describe your needs in the message above
+                    </Button>
                   </CardContent>
                 </Card>
 
                 <Card>
                   <CardContent className="pt-6">
-                    <h2 className="text-xl font-semibold mb-4">Support</h2>
+                    <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Support</h2>
                     <p className="text-gray-600 dark:text-gray-300">
                       For technical support, email us and we'll respond within 24-48 business hours.
                     </p>

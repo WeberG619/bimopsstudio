@@ -7,12 +7,12 @@ import { Download, CheckCircle } from 'lucide-react';
 
 const products = [
   {
-    slug: 'psc',
-    name: 'Professional Sheet Creator',
+    slug: 'revitmcpbridge',
+    name: 'RevitMCPBridge',
     version: '1.0.0',
-    size: '~15 MB',
-    description: 'Batch sheet creation, auto title blocks, PDF/DWG export',
-    requiresSub: true,
+    size: '~5 MB',
+    description: 'AI-to-Revit automation bridge via named pipes (open source)',
+    requiresSub: false,
   },
   {
     slug: 'bimmemory',

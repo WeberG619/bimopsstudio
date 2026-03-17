@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ExternalLink, Mail } from "lucide-react";
+import { CheckCircle, ArrowRight, Mail } from "lucide-react";
 import Link from "next/link";
 
 export default function ThankYou() {
@@ -53,13 +53,13 @@ export default function ThankYou() {
 
                   <div className="flex items-start">
                     <div className="bg-blue-100 dark:bg-blue-900/30 rounded-full p-3 mr-4 flex-shrink-0">
-                      <ExternalLink className="w-6 h-6 text-blue-600" />
+                      <ArrowRight className="w-6 h-6 text-blue-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg mb-2">Ready to Purchase?</h3>
+                      <h3 className="font-semibold text-lg mb-2">Ready to Get Started?</h3>
                       <p className="text-gray-600 dark:text-gray-300">
-                        Professional Sheet Creator is available now on the Autodesk App Store
-                        for $149 (one-time purchase).
+                        Explore our AI-powered BIM implementation services.
+                        Contact us to schedule a discovery call.
                       </p>
                     </div>
                   </div>
@@ -69,16 +69,12 @@ export default function ThankYou() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/contact">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  View on Autodesk App Store
-                  <ExternalLink className="ml-2 w-5 h-5" />
+                  Contact Us
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-              </a>
+              </Link>
               <Link href="/">
                 <Button size="lg" variant="outline">
                   Return Home

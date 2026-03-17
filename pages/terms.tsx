@@ -27,23 +27,24 @@ export default function Terms() {
                 bound by the terms and provision of this agreement.
               </p>
 
-              <h2 className="text-2xl font-semibold mt-8 mb-4">2. Use License</h2>
+              <h2 className="text-2xl font-semibold mt-8 mb-4">2. Services</h2>
               <p className="mb-4">
-                Upon purchase of Professional Sheet Creator from the Autodesk App Store, you are granted
-                a perpetual, non-transferable license to use the software for commercial purposes. This is
-                the grant of a license, not a transfer of title.
+                BIM Ops Studio provides AI-powered BIM automation services including RevitMCPBridge
+                implementation, custom workflow development, CD production automation, and consulting.
+                Service terms are defined in individual engagement agreements.
               </p>
 
-              <h2 className="text-2xl font-semibold mt-8 mb-4">3. Software License</h2>
+              <h2 className="text-2xl font-semibold mt-8 mb-4">3. Open Source Software</h2>
               <p className="mb-4">
-                Professional Sheet Creator is sold as a one-time purchase of $149 USD through the Autodesk
-                App Store. The license is perpetual and includes access to updates for the purchased major version.
+                RevitMCPBridge is distributed under the MIT license. Custom implementations and
+                automation scripts developed during engagements are governed by the terms of your
+                service agreement.
               </p>
 
               <h2 className="text-2xl font-semibold mt-8 mb-4">4. Supported Versions</h2>
               <p className="mb-4">
-                Professional Sheet Creator supports Revit 2024, 2025, and 2026. Compatibility with future
-                Revit versions may require additional purchases or updates.
+                BIM Ops Studio services support Revit 2025 and 2026. Compatibility with future
+                Revit versions will be addressed in ongoing support agreements.
               </p>
 
               <h2 className="text-2xl font-semibold mt-8 mb-4">5. Disclaimer</h2>
