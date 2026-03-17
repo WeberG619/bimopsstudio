@@ -2,179 +2,261 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, ExternalLink } from "lucide-react";
+import { Check, ArrowRight, Calculator, ChevronDown, ChevronUp } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+
+const tiers = [
+  {
+    name: "Assessment",
+    price: "Free",
+    description: "Understand your automation potential",
+    features: [
+      "30-minute workflow evaluation call",
+      "Identify automation opportunities",
+      "Custom ROI estimate for your team",
+      "No obligation",
+    ],
+    cta: "Book a Call",
+    href: "/contact",
+    highlight: false,
+  },
+  {
+    name: "Implementation",
+    price: "$5,000",
+    priceNote: "Starting at",
+    description: "Full system setup, configured to your workflow",
+    features: [
+      "Full system setup and configuration",
+      "RevitMCPBridge installation",
+      "AI pipeline integration",
+      "Custom template configuration",
+      "2 weeks of hands-on support",
+      "Team training session",
+    ],
+    cta: "Get Started",
+    href: "/contact",
+    highlight: true,
+    badge: "Most Popular",
+  },
+  {
+    name: "Ongoing Support",
+    price: "$2,000",
+    priceNote: "/month",
+    description: "Continuous optimization and priority access",
+    features: [
+      "Dedicated support channel",
+      "System optimization and tuning",
+      "Monthly training sessions",
+      "Priority updates and new features",
+    ],
+    cta: "Contact Us",
+    href: "/contact",
+    highlight: false,
+  },
+];
+
+const faqs = [
+  {
+    q: "What's included in the implementation?",
+    a: "We install and configure RevitMCPBridge on your systems, integrate it with your existing Revit templates and standards, set up the AI pipeline for your specific CD workflow, and train your team. The 2-week support period covers any adjustments needed as your team ramps up.",
+  },
+  {
+    q: "How long until we see ROI?",
+    a: "Most firms see measurable time savings within the first week of production use. The assessment call includes a custom ROI projection based on your team size and current workflow.",
+  },
+  {
+    q: "Can we try it on one project first?",
+    a: "Yes, we recommend a pilot project. It lets your team build confidence with the system on a real deliverable before rolling it out firm-wide.",
+  },
+  {
+    q: "What if it doesn't work for our workflow?",
+    a: "The assessment is free, so there's zero risk in exploring the fit. Implementation includes a satisfaction guarantee -- if the system doesn't deliver measurable improvement during the 2-week support period, we'll work with you until it does.",
+  },
+];
 
 export default function Pricing() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <Layout
-      title="Pricing - Professional Sheet Creator for Revit | BIM Ops Studio"
-      description="Get Professional Sheet Creator for Revit - $149 one-time purchase on Autodesk App Store. 71 templates, Excel import, auto title block detection."
+      title="Pricing - AI BIM Workflow Implementation | BIM Ops Studio"
+      description="AI-powered BIM workflow implementation for AEC firms. Free assessment, implementation starting at $5,000, ongoing support at $2,000/month."
     >
-      <section className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-6xl">
+      {/* Hero with background image */}
+      <section className="relative pt-32 pb-8 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/conference-room.jpg"
+            alt="Conference room"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-[#0A1B2A]/85" />
+        </div>
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="text-center mb-16"
           >
-            <div className="text-center mb-16">
-              <Badge className="mb-4 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
-                Now Available on Autodesk App Store
-              </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Simple, Transparent Pricing
-              </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                One-time purchase. Perpetual license. No subscriptions.
-              </p>
-            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Investment That Pays for Itself in Week One
+            </h1>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Cut CD production time by 75%. The math speaks for itself.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Main Product Card */}
-            <div className="max-w-lg mx-auto mb-16">
+      <section className="pb-20 pt-8">
+        <div className="container mx-auto px-4 max-w-6xl">
+
+          {/* Pricing Tiers */}
+          <div className="grid md:grid-cols-3 gap-8 mb-24">
+            {tiers.map((tier, i) => (
               <motion.div
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border-2 border-blue-600"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                key={tier.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * (i + 1) }}
+                className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 flex flex-col ${
+                  tier.highlight
+                    ? "border-2 border-blue-600 shadow-2xl scale-[1.02]"
+                    : "border border-gray-200 dark:border-gray-700"
+                }`}
               >
-                <div className="text-center mb-6">
-                  <h2 className="text-2xl font-bold mb-2">Professional Sheet Creator</h2>
-                  <p className="text-gray-600 dark:text-gray-300">For Revit 2024, 2025, 2026</p>
+                {tier.badge && (
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1">
+                    {tier.badge}
+                  </Badge>
+                )}
+
+                <div className="mb-6">
+                  <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">{tier.name}</h2>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    {tier.description}
+                  </p>
                 </div>
 
-                <div className="text-center mb-8">
-                  <span className="text-5xl font-bold">$149</span>
-                  <span className="text-gray-500 ml-2">USD</span>
-                  <p className="text-sm text-gray-500 mt-2">One-time purchase</p>
+                <div className="mb-8">
+                  {tier.priceNote && tier.priceNote !== "/month" && (
+                    <span className="text-sm text-gray-500 block">{tier.priceNote}</span>
+                  )}
+                  <span className="text-4xl font-bold text-gray-900 dark:text-white">{tier.price}</span>
+                  {tier.priceNote === "/month" && (
+                    <span className="text-gray-500 ml-1">/month</span>
+                  )}
                 </div>
 
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>71 pre-configured sheet templates</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Smart title block auto-detection</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Excel/CSV import and export</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Find & Replace across all sheets</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Project presets for quick setup</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Real-time sheet preview</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Load existing sheets from project</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Email support</span>
-                  </li>
+                <ul className="space-y-3 mb-8 flex-grow">
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex items-start">
+                      <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                    </li>
+                  ))}
                 </ul>
 
-                <a
-                  href="https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <Button size="lg" className="w-full text-lg py-6 bg-blue-600 hover:bg-blue-700">
-                    Purchase on Autodesk App Store
-                    <ExternalLink className="ml-2 w-5 h-5" />
+                <Link href={tier.href}>
+                  <Button
+                    size="lg"
+                    className={`w-full ${
+                      tier.highlight
+                        ? "bg-blue-600 hover:bg-blue-700 text-white"
+                        : "bg-gray-100 hover:bg-gray-200 text-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white"
+                    }`}
+                  >
+                    {tier.cta}
+                    <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                </a>
-
-                <p className="text-center text-sm text-gray-500 mt-4">
-                  Secure payment via Autodesk App Store
-                </p>
+                </Link>
               </motion.div>
-            </div>
+            ))}
+          </div>
 
-            {/* Why Buy Section */}
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-center mb-8">Why Professionals Choose Us</h2>
+          {/* ROI Calculator */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto mb-24"
+          >
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 md:p-12">
+              <div className="flex items-center gap-3 mb-6">
+                <Calculator className="w-8 h-8 text-blue-600" />
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white">The Math</h2>
+              </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                  <div className="text-4xl mb-4">⚡</div>
-                  <h3 className="font-semibold text-lg mb-2">95% Time Savings</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    What takes 2-3 hours manually takes just 2 minutes with our tool
-                  </p>
+              <div className="grid md:grid-cols-4 gap-6 mb-8">
+                <div className="text-center p-4 bg-white dark:bg-gray-700 rounded-xl">
+                  <p className="text-3xl font-bold text-blue-600">100</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Hours/month on CDs</p>
                 </div>
-                <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                  <div className="text-4xl mb-4">🏢</div>
-                  <h3 className="font-semibold text-lg mb-2">Built for Pros</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Templates for Commercial, Residential, Educational, and Healthcare
-                  </p>
+                <div className="text-center p-4 bg-white dark:bg-gray-700 rounded-xl">
+                  <p className="text-3xl font-bold text-blue-600">75%</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Time reduction</p>
                 </div>
-                <div className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                  <div className="text-4xl mb-4">🛡️</div>
-                  <h3 className="font-semibold text-lg mb-2">ADN Member</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Official Autodesk Developer Network Member #USUS0234
-                  </p>
+                <div className="text-center p-4 bg-white dark:bg-gray-700 rounded-xl">
+                  <p className="text-3xl font-bold text-blue-600">$85</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Average hourly rate</p>
+                </div>
+                <div className="text-center p-4 bg-white dark:bg-gray-700 rounded-xl border-2 border-blue-600">
+                  <p className="text-3xl font-bold text-green-600">$6,375</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Saved monthly</p>
                 </div>
               </div>
-            </div>
 
-            {/* FAQ Section */}
-            <div className="max-w-3xl mx-auto mt-20">
-              <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-
-              <div className="space-y-6">
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
-                  <h3 className="font-semibold text-lg mb-2">Is this a subscription?</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    No. Professional Sheet Creator is a one-time purchase of $149. You own the license permanently.
-                  </p>
-                </div>
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
-                  <h3 className="font-semibold text-lg mb-2">Which Revit versions are supported?</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    The add-in supports Revit 2024, 2025, and 2026.
-                  </p>
-                </div>
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
-                  <h3 className="font-semibold text-lg mb-2">How do I get support?</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Contact us at info@bimopsstudio.com. We respond within 24-48 business hours.
-                  </p>
-                </div>
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
-                  <h3 className="font-semibold text-lg mb-2">Can I try before buying?</h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Check out our free View Preview tool to see the quality of our Revit add-ins.
-                    We also have screenshots and details on the Autodesk App Store page.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Free Tools CTA */}
-            <div className="max-w-3xl mx-auto mt-20 text-center">
-              <h2 className="text-2xl font-bold mb-4">Looking for Free Tools?</h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Try our View Preview tool - 100% free for the Revit community.
+              <p className="text-gray-600 dark:text-gray-300 text-center">
+                If your team spends 100 hours/month on construction documents and we cut that by 75%, at $85/hr that&apos;s{" "}
+                <span className="font-bold text-green-600">$6,375 saved every month</span>. The implementation pays for itself before the support period ends.
               </p>
-              <Link href="/free-tools">
-                <Button variant="outline" size="lg">
-                  View Free Tools
-                </Button>
-              </Link>
+            </div>
+          </motion.div>
+
+          {/* FAQ */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl mx-auto"
+          >
+            <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">Frequently Asked Questions</h2>
+
+            <div className="space-y-4">
+              {faqs.map((faq, i) => (
+                <div
+                  key={i}
+                  className="bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 dark:border-gray-700 overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full flex items-center justify-between p-6 text-left"
+                  >
+                    <h3 className="font-semibold text-lg pr-4 text-gray-900 dark:text-white">{faq.q}</h3>
+                    {openFaq === i ? (
+                      <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      className="px-6 pb-6"
+                    >
+                      <p className="text-gray-600 dark:text-gray-300">{faq.a}</p>
+                    </motion.div>
+                  )}
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>

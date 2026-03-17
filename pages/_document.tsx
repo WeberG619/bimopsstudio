@@ -2,7 +2,7 @@
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="en" className="dark">
       <Head>
         {/* Primary Meta Tags */}
         <meta name="keywords" content="Revit Pro Tools, Revit automation, BIM automation, construction documentation, sheet generation, Revit API, Revit add-in, BIM Ops Studio" />

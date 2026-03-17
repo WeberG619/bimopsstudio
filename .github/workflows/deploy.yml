@@ -37,15 +37,13 @@ jobs:
           NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
         run: npm run build
 
-      - name: Copy built files to root
-        run: |
-          cp -r out/* .
-          touch .nojekyll
+      - name: Add .nojekyll
+        run: touch out/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: out
 
   deploy:
     environment:

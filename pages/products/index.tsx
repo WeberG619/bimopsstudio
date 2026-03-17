@@ -2,14 +2,14 @@ import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Check, ExternalLink, Download } from "lucide-react";
+import { FileText, Check, ArrowRight, Download, Bot, Cpu } from "lucide-react";
 import Link from "next/link";
 
 export default function ProductsPage() {
   return (
     <Layout
-      title="Products | BIM Ops Studio - Professional Sheet Creator for Revit"
-      description="Professional Sheet Creator for Revit - Create 50+ sheets in 2 minutes. 71 templates, Excel import, auto title block detection. Available on Autodesk App Store."
+      title="Services & Tools | BIM Ops Studio - AI-Powered BIM Automation"
+      description="AI-powered BIM automation services. RevitMCPBridge implementation, CD production automation, and workflow consulting for architecture and construction firms."
     >
       {/* Hero Section */}
       <section className="pt-32 pb-20">
@@ -21,18 +21,18 @@ export default function ProductsPage() {
             transition={{ duration: 0.5 }}
           >
             <Badge className="mb-6 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
-              Now Available on Autodesk App Store
+              ADN Member #USUS0234
             </Badge>
 
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Professional Sheet Creator
+              AI-Powered BIM
               <br />
-              <span className="text-blue-600">for Revit</span>
+              <span className="text-blue-600">Services & Tools</span>
             </h1>
 
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-4">
-              Create entire sheet sets in seconds. 71 templates, Excel import, auto title block detection.
-              Turn hours of work into minutes.
+              Automate your BIM workflows with AI. From CD production to custom Revit automation,
+              we help architecture firms ship faster with fewer errors.
             </p>
 
             <p className="text-lg text-gray-500 dark:text-gray-400">
@@ -40,7 +40,7 @@ export default function ProductsPage() {
             </p>
           </motion.div>
 
-          {/* Main Product Card */}
+          {/* Main Services Card */}
           <motion.div
             className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto mb-16 border border-gray-200 dark:border-gray-700"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -51,48 +51,48 @@ export default function ProductsPage() {
               {/* Left - Features */}
               <div>
                 <div className="flex items-center mb-6">
-                  <FileText className="w-10 h-10 text-blue-600 mr-4" />
+                  <Bot className="w-10 h-10 text-blue-600 mr-4" />
                   <div>
-                    <h2 className="text-2xl font-bold">Professional Sheet Creator</h2>
-                    <p className="text-gray-500">For Revit 2024, 2025, 2026</p>
+                    <h2 className="text-2xl font-bold">Implementation Package</h2>
+                    <p className="text-gray-500">RevitMCPBridge + Custom Automation</p>
                   </div>
                 </div>
 
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start">
                     <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>71 pre-configured sheet templates</span>
+                    <span>RevitMCPBridge setup and configuration</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Smart title block auto-detection</span>
+                    <span>Custom CD production automation scripts</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Excel/CSV import and export</span>
+                    <span>AI-powered sheet and view creation</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Find & Replace across all sheets</span>
+                    <span>Workflow discovery and optimization</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Project presets for quick setup</span>
+                    <span>Team training sessions</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Real-time sheet preview</span>
+                    <span>30 days post-launch support</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
-                    <span>Load existing sheets from project</span>
+                    <span>Revit 2025 and 2026 support</span>
                   </li>
                 </ul>
 
                 <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-6">
-                  <div className="text-sm font-semibold text-blue-800 dark:text-blue-300 mb-1">Template Categories</div>
+                  <div className="text-sm font-semibold text-blue-800 dark:text-blue-300 mb-1">Typical Use Cases</div>
                   <div className="text-sm text-blue-700 dark:text-blue-400">
-                    Commercial • Residential • Educational • Healthcare
+                    Sheet Sets &bull; View Automation &bull; Title Block Data &bull; CD Production
                   </div>
                 </div>
               </div>
@@ -100,35 +100,31 @@ export default function ProductsPage() {
               {/* Right - Pricing & CTA */}
               <div className="flex flex-col justify-center">
                 <div className="text-center mb-8">
-                  <div className="text-5xl font-bold mb-2">$149</div>
-                  <div className="text-gray-500">USD - One-time purchase</div>
-                  <div className="text-sm text-gray-400 mt-2">Perpetual license</div>
+                  <div className="text-lg text-gray-500 mb-1">Starting at</div>
+                  <div className="text-5xl font-bold mb-2">$5,000</div>
+                  <div className="text-gray-500">Implementation package</div>
+                  <div className="text-sm text-gray-400 mt-2">2-4 week delivery</div>
                 </div>
 
-                <a
-                  href="https://apps.autodesk.com/RVT/en/Detail/Index?id=638315571284916006"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mb-4"
-                >
+                <Link href="/contact" className="block mb-4">
                   <Button size="lg" className="w-full text-lg py-6 bg-blue-600 hover:bg-blue-700">
-                    Purchase on Autodesk App Store
-                    <ExternalLink className="ml-2 w-5 h-5" />
+                    Schedule Discovery Call
+                    <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                </a>
+                </Link>
 
                 <p className="text-center text-sm text-gray-500">
-                  Secure payment via Autodesk
+                  Custom scoping &middot; No commitment until proposal
                 </p>
 
                 <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
                   <div className="text-center text-sm text-gray-500 mb-3">Time Savings</div>
                   <div className="flex justify-center items-center space-x-4 text-lg">
                     <span className="text-gray-400 line-through">2-3 hours</span>
-                    <span className="text-blue-600">→</span>
+                    <span className="text-blue-600">&rarr;</span>
                     <span className="text-blue-600 font-bold">2 minutes</span>
                   </div>
-                  <div className="text-center text-sm text-blue-600 font-semibold mt-2">95% faster</div>
+                  <div className="text-center text-sm text-blue-600 font-semibold mt-2">95% faster CD production</div>
                 </div>
               </div>
             </div>
@@ -141,13 +137,13 @@ export default function ProductsPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-3xl font-bold mb-8">Why Professionals Choose Us</h2>
+            <h2 className="text-3xl font-bold mb-8">Why Firms Choose BIM Ops Studio</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
                 <div className="text-4xl font-bold text-blue-600 mb-2">95%</div>
                 <div className="text-lg font-semibold mb-2">Time Savings</div>
                 <div className="text-gray-600 dark:text-gray-400">
-                  What takes 2-3 hours manually now takes 2 minutes
+                  What takes 2-3 hours manually now takes 2 minutes with AI automation
                 </div>
               </div>
               <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
@@ -174,10 +170,10 @@ export default function ProductsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h2 className="text-2xl font-bold mb-4">Looking for Free Tools?</h2>
+            <h2 className="text-2xl font-bold mb-4">Open Source Tools</h2>
             <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-              Try our View Preview tool - toggle between Revit views instantly with a single click.
-              100% free for the Revit community.
+              RevitMCPBridge is open source. Try our View Preview tool for free -- toggle between
+              Revit views instantly with a single click.
             </p>
             <Link href="/free-tools">
               <Button size="lg" variant="outline">

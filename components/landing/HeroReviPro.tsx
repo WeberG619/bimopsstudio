@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Play, Zap, Shield, Clock, FileText, Layers, CheckCircle } from "lucide-react";
+import { ArrowRight, Play, Zap, Shield, Clock, FileText, Layers, CheckCircle, Bot } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 
 const stats = [
-  { icon: FileText, value: "50+", label: "Sheets in 2 Minutes" },
+  { icon: Bot, value: "AI", label: "Powered Automation" },
   { icon: Clock, value: "95%", label: "Time Saved" },
-  { icon: Layers, value: "Excel", label: "Data Import" },
+  { icon: Layers, value: "Revit", label: "2025 & 2026" },
   { icon: Shield, value: "100%", label: "API Compliant" },
 ];
 
 const features = [
-  "Batch creates sheets from Excel/CSV data",
-  "Auto-populates title block parameters",
-  "Places views on sheets according to templates",
-  "Enforces company naming standards",
-  "Exports to PDF/DWG with proper naming",
-  "Built with ViewSheet.Create() API"
+  "AI-to-Revit automation via named pipes",
+  "Automated sheet and view creation",
+  "CD production workflow automation",
+  "Custom scripts for your firm's processes",
+  "Open-source RevitMCPBridge core",
+  "Built with the Revit API for reliability"
 ];
 
 export function Hero() {
@@ -28,11 +28,11 @@ export function Hero() {
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-br from-deep-navy via-blue-900 to-indigo-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white">
       {/* Animated Background Grid */}
       <div className="absolute inset-0 bg-grid-white-05" />
-      
+
       {/* Gradient Overlays */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-deep-navy/50 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-deep-navy to-transparent" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Product Badge */}
@@ -43,7 +43,7 @@ export function Hero() {
             transition={{ duration: 0.5 }}
           >
             <Badge variant="secondary" className="bg-lime-accent/10 text-lime-accent border-lime-accent/20 text-sm px-4 py-2">
-              🚀 Professional Sheet Creator - Now Supporting Revit 2024, 2025 & 2026
+              AI-Powered BIM Automation - Revit 2025 & 2026
             </Badge>
           </motion.div>
 
@@ -51,30 +51,30 @@ export function Hero() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
             <div>
-              <motion.h1 
+              <motion.h1
                 className="font-heading text-4xl md:text-6xl font-bold mb-6 leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                <span className="text-lime-accent">Professional Sheet Creator</span>
+                <span className="text-lime-accent">AI-Powered BIM</span>
                 <br />
                 <span className="text-3xl md:text-5xl">
-                  Create 50+ Revit Sheets
+                  Automate Your Revit Workflows
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-electric-blue to-cyan-400 bg-clip-text text-transparent">
-                  in 2 Minutes
+                  Ship Faster
                 </span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-xl text-blue-100 mb-8 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Create 50+ Revit sheets in 2 minutes. Automate sheet creation, view placement, and title block data from Excel. Built for production teams on deadline.
+                Connect AI directly to Revit. Automate CD production, sheet creation, and repetitive BIM tasks. Built for production teams on deadline.
               </motion.p>
 
               {/* Feature List */}
@@ -91,25 +91,25 @@ export function Hero() {
                   </div>
                 ))}
               </motion.div>
-              
+
               {/* CTA Buttons */}
-              <motion.div 
+              <motion.div
                 className="flex flex-col sm:flex-row gap-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <Link href="/pricing">
-                  <Button 
+                <Link href="/contact">
+                  <Button
                     size="lg"
                     className="bg-lime-accent text-deep-navy hover:bg-lime-accent/90 font-bold text-lg px-8 py-6 shadow-2xl hover:shadow-lime-accent/25 transition-all duration-300 hover:scale-105"
                   >
-                    Get It Now - $149 One-Time
+                    Schedule Discovery Call
                     <ArrowRight className="ml-2" size={20} />
                   </Button>
                 </Link>
-                
-                <Button 
+
+                <Button
                   variant="outline"
                   size="lg"
                   className="border-2 border-white/30 text-white hover:bg-white hover:text-gray-900 hover:border-white text-lg px-8 py-6 backdrop-blur-sm transition-all duration-300 hover:scale-105"
@@ -136,13 +136,13 @@ export function Hero() {
                     C# 11.0
                   </Badge>
                   <Badge variant="outline" className="bg-white/5 border-white/20">
-                    WPF/MVVM
+                    Named Pipes
                   </Badge>
                   <Badge variant="outline" className="bg-white/5 border-white/20">
-                    Revit API 2024+
+                    Revit API 2025+
                   </Badge>
                   <Badge variant="outline" className="bg-white/5 border-white/20">
-                    FilteredElementCollector
+                    MCP Protocol
                   </Badge>
                 </div>
               </motion.div>
@@ -188,7 +188,7 @@ export function Hero() {
             <div className="flex justify-center items-center space-x-8 text-white/60 text-sm">
               <div>10-500 Employee Firms</div>
               <div className="w-1 h-1 bg-white/60 rounded-full"></div>
-              <div>Revit API 2024-2026</div>
+              <div>Revit API 2025-2026</div>
               <div className="w-1 h-1 bg-white/60 rounded-full"></div>
               <div>Enterprise Support</div>
             </div>
@@ -214,13 +214,13 @@ export function Hero() {
               className="absolute top-4 right-4 z-10 bg-black/20 hover:bg-black/40 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors"
               onClick={() => setIsVideoPlaying(false)}
             >
-              ✕
+              X
             </button>
-            
+
             <iframe
               src="/demo-revipro.html"
               className="w-full h-full border-0"
-              title="Professional Sheet Creator Demo"
+              title="BIM Ops Studio Demo"
               allowFullScreen
             />
           </motion.div>

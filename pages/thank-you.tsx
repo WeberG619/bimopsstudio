@@ -71,7 +71,7 @@ export default function ThankYou() {
                     <div>
                       <h3 className="font-semibold text-lg mb-2">Schedule Your Demo</h3>
                       <p className="text-gray-600 dark:text-gray-300">
-                        We'll schedule a personalized demo to show you exactly how Professional Sheet Creator
+                        We'll schedule a personalized demo to show you exactly how AI-powered BIM automation
                         can save your team 4+ hours on every project delivery.
                       </p>
                     </div>

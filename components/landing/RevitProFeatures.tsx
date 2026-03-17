@@ -104,12 +104,12 @@ export function RevitProFeatures() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Professional Sheet Creator
+            BIM Automation
             <span className="text-primary block mt-2">Technical Features</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Built with the Revit API for construction documentation automation. 
-            No AI gimmicks, just reliable automation that works.
+            Built with the Revit API for construction documentation automation.
+            AI-powered reliability that works.
           </p>
         </motion.div>
 

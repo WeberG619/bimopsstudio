@@ -24,6 +24,7 @@ import {
   Building
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const services = [
   {
@@ -198,8 +199,17 @@ export default function ServicesConstructionDocs() {
       description="Professional services for implementing Revit Pro Tools and automating your construction documentation workflow. Implementation, training, and custom development."
     >
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-deep-navy via-blue-900 to-indigo-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white-05" />
+      <section className="relative pt-32 pb-20 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/tech-workspace.jpg"
+            alt="Technology workspace"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-[#0A1B2A]/85" />
+        </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -282,7 +292,7 @@ export default function ServicesConstructionDocs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               Our <span className="text-electric-blue">Services</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -333,7 +343,7 @@ export default function ServicesConstructionDocs() {
                     </div>
                     
                     <div>
-                      <h4 className="font-semibold mb-2">What's Included:</h4>
+                      <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">What's Included:</h4>
                       <ul className="space-y-1">
                         {service.features.slice(0, 3).map((feature, i) => (
                           <li key={i} className="flex items-start text-sm">
@@ -373,7 +383,7 @@ export default function ServicesConstructionDocs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
               Our <span className="text-electric-blue">Process</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -401,7 +411,7 @@ export default function ServicesConstructionDocs() {
                       bg-gradient-to-r from-electric-blue to-transparent" />
                   )}
                 </div>
-                <h3 className="font-heading text-xl font-bold mb-2">{step.title}</h3>
+                <h3 className="font-heading text-xl font-bold mb-2 text-gray-900 dark:text-white">{step.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400">{step.description}</p>
               </motion.div>
             ))}
@@ -419,7 +429,7 @@ export default function ServicesConstructionDocs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
               Why Choose <span className="text-electric-blue">BIM Ops Studio</span>
             </h2>
             
@@ -430,7 +440,7 @@ export default function ServicesConstructionDocs() {
                     <Building className="w-6 h-6 text-lime-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Industry Expertise</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Industry Expertise</h3>
                     <p className="text-gray-600 dark:text-gray-400">
                       Over 10 years of experience in construction documentation and BIM workflows
                     </p>
@@ -442,7 +452,7 @@ export default function ServicesConstructionDocs() {
                     <Shield className="w-6 h-6 text-lime-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Proven Results</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Proven Results</h3>
                     <p className="text-gray-600 dark:text-gray-400">
                       500+ successful implementations with measurable ROI within 30 days
                     </p>
@@ -456,7 +466,7 @@ export default function ServicesConstructionDocs() {
                     <Users className="w-6 h-6 text-lime-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Dedicated Support</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Dedicated Support</h3>
                     <p className="text-gray-600 dark:text-gray-400">
                       Expert team available 24/7 to ensure your success
                     </p>
@@ -468,7 +478,7 @@ export default function ServicesConstructionDocs() {
                     <Zap className="w-6 h-6 text-lime-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Cutting-Edge Technology</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Cutting-Edge Technology</h3>
                     <p className="text-gray-600 dark:text-gray-400">
                       Latest Revit API features and enterprise-grade architecture
                     </p>

@@ -29,13 +29,13 @@ const complianceItems = [
   },
   {
     icon: Key,
-    title: "Software Licensing",
-    description: "Clear, transparent licensing model designed for commercial use in professional environments.",
+    title: "Software & Services Licensing",
+    description: "Clear, transparent licensing and service agreements designed for professional environments.",
     details: [
-      "One-time purchase, perpetual license",
-      "Available on Autodesk App Store",
-      "Secure payment via Autodesk",
-      "Email support included"
+      "Open-source RevitMCPBridge (MIT license)",
+      "Custom implementation agreements",
+      "Transparent service pricing",
+      "Email and ongoing support options"
     ]
   },
   {
@@ -280,9 +280,9 @@ export default function Compliance() {
                   flex items-center justify-center">
                   <Users className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="font-heading text-xl font-bold mb-2">Perpetual License</h3>
+                <h3 className="font-heading text-xl font-bold mb-2">Open Source Core</h3>
                 <p className="text-blue-100">
-                  One-time purchase of $149. No recurring fees or subscriptions.
+                  RevitMCPBridge is open-source under MIT license. Implementation services priced transparently.
                 </p>
               </div>
 
@@ -311,8 +311,8 @@ export default function Compliance() {
 
             <div className="mt-12 p-6 bg-white/10 backdrop-blur-sm rounded-lg">
               <p className="text-center text-sm">
-                <strong>Important:</strong> Professional Sheet Creator is a productivity tool for automating
-                sheet creation in Revit. All use must comply with Autodesk licensing terms and applicable laws.
+                <strong>Important:</strong> BIM Ops Studio provides AI-powered BIM automation services and tools.
+                All use must comply with Autodesk licensing terms and applicable laws.
               </p>
             </div>
           </motion.div>

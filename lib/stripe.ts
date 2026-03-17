@@ -11,7 +11,7 @@ export const STRIPE_PRICE_IDS: Record<string, string> = {
 };
 
 export const PRODUCT_DISPLAY: Record<ProductSlug, string> = {
-  psc: 'Professional Sheet Creator',
+  psc: 'BIM Automation Suite',
   bimmemory: 'BIMmemory',
   bundle: 'Bundle',
 };
