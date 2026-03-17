@@ -10,10 +10,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Professional color palette - removed lime, using blues
+        // Professional color palette
         "deep-navy": "#0A1B2A",
         "electric-blue": "#3B82F6",
         "accent-blue": "#2563EB",
+        "lime-accent": "#F59E0B",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

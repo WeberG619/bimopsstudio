@@ -1,119 +1,74 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { useState } from "react";
-import { 
+import Image from "next/image";
+import {
   Calendar,
   Clock,
   User,
   ArrowRight,
-  Search,
-  Tag,
-  TrendingUp
+  BookOpen,
+  TrendingUp,
 } from "lucide-react";
 
 const featuredPost = {
-  title: "The Future of BIM Automation: AI-Driven Workflows in 2025",
-  excerpt: "Explore how artificial intelligence is revolutionizing BIM workflows and what it means for the future of construction technology.",
-  author: "Sarah Chen",
-  date: "January 15, 2025",
+  title: "How AI Controls Revit Through Named Pipes — And Why It Matters",
+  excerpt:
+    "A technical deep-dive into RevitMCPBridge: how we built a named-pipe IPC bridge that lets AI models create walls, sheets, and views in Revit without HTTP overhead.",
+  author: "Weber Gouin",
+  date: "February 26, 2026",
   readTime: "8 min read",
-  category: "Industry Insights",
-  image: "/api/placeholder/800/400",
-  slug: "future-of-bim-automation-ai-2025"
+  category: "Technical",
+  image: "/images/blueprint-detail.jpg",
+  slug: "ai-controls-revit-named-pipes",
 };
 
 const posts = [
   {
-    title: "10 Revit Shortcuts That Will Transform Your Productivity",
-    excerpt: "Master these essential Revit shortcuts and watch your modeling speed increase by 50%.",
-    author: "Michael Rodriguez",
-    date: "January 12, 2025",
-    readTime: "5 min read",
-    category: "Tips & Tricks",
-    image: "/api/placeholder/400/250",
-    slug: "revit-shortcuts-productivity"
-  },
-  {
-    title: "How to Implement BIM Standards Across Your Organization",
-    excerpt: "A comprehensive guide to establishing and maintaining consistent BIM standards for teams of any size.",
-    author: "Emma Thompson",
-    date: "January 10, 2025",
-    readTime: "12 min read",
-    category: "Best Practices",
-    image: "/api/placeholder/400/250",
-    slug: "implement-bim-standards-organization"
-  },
-  {
-    title: "From Manual to Automated: A Case Study",
-    excerpt: "See how one architecture firm reduced their modeling time by 80% using BIM Ops Studio automation tools.",
-    author: "David Park",
-    date: "January 8, 2025",
-    readTime: "7 min read",
-    category: "Case Studies",
-    image: "/api/placeholder/400/250",
-    slug: "manual-to-automated-case-study"
-  },
-  {
-    title: "Dynamo vs. Custom Add-ins: Which Is Right for You?",
-    excerpt: "Compare the pros and cons of Dynamo scripts versus custom Revit add-ins for your automation needs.",
-    author: "Sarah Chen",
-    date: "January 5, 2025",
+    title: "From 3 Hours to 2 Minutes: Automating CD Production",
+    excerpt:
+      "A practical walkthrough of how AI-driven sheet generation replaces manual construction document workflows.",
+    author: "Weber Gouin",
+    date: "March 10, 2026",
     readTime: "6 min read",
-    category: "Technical",
-    image: "/api/placeholder/400/250",
-    slug: "dynamo-vs-custom-addins"
+    category: "Case Studies",
+    image: "/images/construction-docs.jpg",
+    slug: "automating-cd-production",
   },
   {
-    title: "The Complete Guide to Revit Families Automation",
-    excerpt: "Learn how to automate family creation, modification, and management for consistent project delivery.",
-    author: "Michael Rodriguez",
-    date: "January 3, 2025",
+    title: "Why MCP Is the Protocol That Connects AI to Your Design Tools",
+    excerpt:
+      "The Model Context Protocol is becoming the standard for AI-to-application communication. Here's what AEC firms need to know.",
+    author: "Weber Gouin",
+    date: "March 5, 2026",
+    readTime: "5 min read",
+    category: "Industry Insights",
+    image: "/images/modern-office.jpg",
+    slug: "mcp-protocol-design-tools",
+  },
+  {
+    title: "Getting Started with RevitMCPBridge: A Quickstart Guide",
+    excerpt:
+      "Step-by-step setup guide for connecting Claude or any MCP-compatible AI to Revit 2025/2026.",
+    author: "Weber Gouin",
+    date: "February 28, 2026",
     readTime: "10 min read",
     category: "Tutorials",
-    image: "/api/placeholder/400/250",
-    slug: "complete-guide-revit-families-automation"
+    image: "/images/tech-workspace.jpg",
+    slug: "revitmcpbridge-quickstart",
   },
-  {
-    title: "BIM Coordination in the Cloud: Best Practices for 2025",
-    excerpt: "Discover the latest strategies for cloud-based BIM coordination and collaboration.",
-    author: "Emma Thompson",
-    date: "December 30, 2024",
-    readTime: "9 min read",
-    category: "Industry Insights",
-    image: "/api/placeholder/400/250",
-    slug: "bim-coordination-cloud-best-practices"
-  }
-];
-
-const categories = [
-  "All Posts",
-  "Industry Insights",
-  "Tips & Tricks",
-  "Best Practices",
-  "Case Studies",
-  "Technical",
-  "Tutorials"
 ];
 
 export default function Blog() {
-  const [visiblePosts, setVisiblePosts] = useState(6);
-  
-  const handleLoadMore = () => {
-    setVisiblePosts(prev => prev + 6);
-  };
   return (
     <Layout
-      title="BIM Ops Studio Blog - BIM Automation Insights & Tips"
-      description="Stay updated with the latest BIM automation trends, Revit tips, and industry insights from the BIM Ops Studio team."
+      title="Blog - BIM Automation Insights | BIM Ops Studio"
+      description="Practical insights on BIM automation, Revit API development, and AI-powered construction documentation from Weber Gouin."
     >
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-br from-deep-navy via-blue-900 to-indigo-900 text-white">
-        <div className="absolute inset-0 bg-grid-white-05" />
-        
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-br from-[#0A1B2A] via-blue-900 to-indigo-900 text-white">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -121,46 +76,21 @@ export default function Blog() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge variant="secondary" className="mb-6 bg-lime-accent/10 text-lime-accent border-lime-accent/20">
-                📚 Knowledge Hub
+              <Badge
+                variant="secondary"
+                className="mb-6 bg-amber-500/10 text-amber-400 border-amber-500/20"
+              >
+                <BookOpen className="w-4 h-4 mr-1.5 inline-block" />
+                Blog
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                BIM <span className="text-lime-accent">Insights</span> & Updates
+                BIM <span className="text-amber-500">Insights</span> & Updates
               </h1>
               <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Stay ahead of the curve with expert insights, practical tips, 
-                and the latest trends in BIM automation.
+                Practical notes on BIM automation, Revit API development, and
+                building AI tools for architecture.
               </p>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Categories & Search */}
-      <section className="py-12 bg-white dark:bg-gray-900 border-b dark:border-gray-700">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={category === "All Posts" ? "default" : "outline"}
-                  size="sm"
-                  className={category === "All Posts" ? "bg-electric-blue" : ""}
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-            
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-4 h-4" />
-              <input
-                type="text"
-                placeholder="Search articles..."
-                className="pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-electric-blue focus:border-transparent w-80"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -176,12 +106,19 @@ export default function Blog() {
           >
             <Badge className="mb-4 bg-orange-100 text-orange-700 border-orange-200">
               <TrendingUp className="w-4 h-4 mr-1" />
-              Featured Article
+              Featured
             </Badge>
-            
+
             <Card className="overflow-hidden shadow-xl hover:shadow-2xl transition-shadow dark:bg-gray-700">
               <div className="grid lg:grid-cols-2 gap-0">
-                <div className="aspect-video lg:aspect-auto bg-gradient-to-br from-electric-blue to-lime-accent"></div>
+                <div className="aspect-video lg:aspect-auto relative">
+                  <Image
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <CardContent className="p-8 lg:p-12">
                   <Badge className="mb-4">{featuredPost.category}</Badge>
                   <CardTitle className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
@@ -190,7 +127,7 @@ export default function Blog() {
                   <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
-                  
+
                   <div className="flex items-center gap-4 mb-6 text-sm text-gray-500 dark:text-gray-400">
                     <div className="flex items-center">
                       <User className="w-4 h-4 mr-1" />
@@ -205,16 +142,10 @@ export default function Blog() {
                       {featuredPost.readTime}
                     </div>
                   </div>
-                  
-                  <Button 
-                    size="lg"
-                    onClick={() => {
-                      alert(`Opening featured article: ${featuredPost.title}. In production, this would navigate to the full article page.`);
-                    }}
-                  >
-                    Read Full Article
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
+
+                  <Badge variant="outline" className="text-sm">
+                    Coming Soon
+                  </Badge>
                 </CardContent>
               </div>
             </Card>
@@ -236,12 +167,13 @@ export default function Blog() {
               Latest Articles
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Practical insights and expert tips to help you master BIM automation.
+              Practical insights from the field — what works, what doesn&apos;t,
+              and what&apos;s next.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.slice(0, visiblePosts).map((post, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {posts.map((post, index) => (
               <motion.div
                 key={post.slug}
                 initial={{ opacity: 0, y: 30 }}
@@ -249,17 +181,26 @@ export default function Blog() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 dark:bg-gray-800">
-                  <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300"></div>
+                <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 dark:bg-gray-800 overflow-hidden">
+                  <div className="aspect-video relative">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <CardContent className="p-6">
-                    <Badge className="mb-3" variant="secondary">{post.category}</Badge>
+                    <Badge className="mb-3" variant="secondary">
+                      {post.category}
+                    </Badge>
                     <CardTitle className="text-lg font-bold text-gray-900 dark:text-white mb-3 leading-tight">
                       {post.title}
                     </CardTitle>
                     <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
                       {post.excerpt}
                     </p>
-                    
+
                     <div className="flex items-center gap-3 mb-4 text-xs text-gray-500 dark:text-gray-400">
                       <div className="flex items-center">
                         <User className="w-3 h-3 mr-1" />
@@ -274,44 +215,20 @@ export default function Blog() {
                         {post.readTime}
                       </div>
                     </div>
-                    
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className="w-full"
-                      onClick={() => {
-                        // In production, this would navigate to /blog/[slug]
-                        alert(`Opening article: ${post.title}. In production, this would navigate to the full article page.`);
-                      }}
-                    >
-                      Read More
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
+
+                    <Badge variant="outline" className="text-xs">
+                      Coming Soon
+                    </Badge>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
-
-          {/* Load More */}
-          {visiblePosts < posts.length && (
-            <motion.div
-              className="text-center mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <Button variant="outline" size="lg" onClick={handleLoadMore}>
-                Load More Articles
-              </Button>
-            </motion.div>
-          )}
         </div>
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-20 bg-gradient-to-r from-electric-blue to-lime-accent text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -319,19 +236,21 @@ export default function Blog() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-4">
-              Never Miss an Update
-            </h2>
+            <h2 className="text-3xl font-bold mb-4">Stay in the Loop</h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Get the latest BIM automation insights, tips, and product updates delivered to your inbox.
+              Get notified when new articles drop — BIM automation, Revit API
+              tips, and AI workflow updates.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg text-gray-900 dark:text-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
+                className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
               />
-              <Button size="lg" className="bg-white text-electric-blue hover:bg-gray-100">
+              <Button
+                size="lg"
+                className="bg-white text-blue-700 hover:bg-gray-100"
+              >
                 Subscribe
               </Button>
             </div>
