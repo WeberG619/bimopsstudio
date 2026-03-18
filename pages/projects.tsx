@@ -15,6 +15,17 @@ const revitMCPTech = ["C#", ".NET", "Revit API", "MCP", "Named Pipes", "Python",
 
 const cadreTech = ["Python", "Claude API", "MCP Servers", "Desktop Automation"];
 
+const riaccaImages = [
+  { src: "/images/RIACCA-1.PNG", alt: "RIACCA overview dashboard", caption: "Overview dashboard" },
+  { src: "/images/RIACCA-2.PNG", alt: "Issue checking & code references", caption: "Issue checking & code references" },
+  { src: "/images/RIACCA-3.PNG", alt: "Automated markup suggestions", caption: "Automated markup suggestions" },
+  { src: "/images/RIACCA-4.PNG", alt: "Detail review and standards enforcement", caption: "Detail review & standards" },
+  { src: "/images/RIACCA-5.PNG", alt: "QC checklist integration", caption: "QC checklist integration" },
+  { src: "/images/RIACCA-6.PNG", alt: "Issue tracking and status", caption: "Issue tracking & status" },
+  { src: "/images/RIACCA-7.PNG", alt: "Cross-reference validation", caption: "Cross-reference validation" },
+  { src: "/images/RIACCA-8.PNG", alt: "Model-to-document comparison", caption: "Model-to-document comparison" },
+  { src: "/images/RIACCA-9.PNG", alt: "Resolution recommendations", caption: "Resolution recommendations" },
+];
 
 export default function Projects() {
   return (
@@ -175,34 +186,48 @@ export default function Projects() {
       </section>
 
       {/* RIACCA */}
-      <section className="pb-12 bg-slate-950">
+      <section className="py-12 bg-gradient-to-b from-slate-950 to-gray-900 dark:to-gray-900">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-2xl border border-white/10 bg-slate-900/60 p-8 shadow-xl"
           >
-            <div className="mb-4">
+            <div className="mb-6">
               <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 mb-3 tracking-wide uppercase">
                 In Development
               </span>
-              <h2 className="font-heading text-2xl font-bold text-white">RIACCA</h2>
-              <p className="mt-1 text-slate-400">Revit Intelligent Assistant for Code &amp; Coordination</p>
+              <h2 className="font-heading text-xl md:text-2xl font-semibold text-white mb-1">
+                RIACCA
+              </h2>
+              <p className="text-slate-400 text-sm uppercase tracking-widest mb-2">
+                Revit Intelligent Assistant for Code &amp; Coordination
+              </p>
+              <p className="text-slate-300 max-w-3xl">
+                Automated code compliance checking, QC checklists, cross-reference validation, and
+                markup-to-model resolution. Catches coordination issues before they become RFIs.
+              </p>
             </div>
-            <p className="text-slate-300 leading-relaxed max-w-3xl mb-5">
-              Automated code compliance checking, QC checklists, cross-reference validation, and
-              markup-to-model resolution. Catches coordination issues before they become RFIs.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["Code Checking", "QC Checklists", "Cross-Reference Validation", "Markup Resolution", "Revit API"].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 rounded-lg text-xs bg-slate-800 text-slate-300 border border-white/5"
+
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+              {riaccaImages.map((img, i) => (
+                <motion.figure
+                  key={img.src}
+                  className="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 shadow-lg"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.06 }}
                 >
-                  {tag}
-                </span>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-44 object-cover"
+                    loading="lazy"
+                  />
+                  <figcaption className="p-4 text-sm text-slate-300">{img.caption}</figcaption>
+                </motion.figure>
               ))}
             </div>
           </motion.div>
@@ -210,35 +235,46 @@ export default function Projects() {
       </section>
 
       {/* ReviTask / Sheet Creator */}
-      <section className="pb-20 bg-slate-950">
+      <section className="py-12 pb-20 bg-gray-900 dark:bg-gray-900">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-2xl border border-white/10 bg-slate-900/60 p-8 shadow-xl"
           >
-            <div className="mb-4">
+            <div className="mb-6">
               <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 mb-3 tracking-wide uppercase">
                 Production Tool
               </span>
-              <h2 className="font-heading text-2xl font-bold text-white">ReviTask</h2>
-              <p className="mt-1 text-slate-400">Automated Sheets, Views, &amp; Annotation</p>
+              <h2 className="font-heading text-xl md:text-2xl font-semibold text-white mb-1">
+                ReviTask
+              </h2>
+              <p className="text-slate-400 text-sm uppercase tracking-widest mb-2">
+                Automated Sheets, Views, &amp; Annotation
+              </p>
+              <p className="text-slate-300 max-w-3xl">
+                Batch sheet creation with title-block control, smart view placement, and export
+                automation. Turns hours of manual CD setup into minutes.
+              </p>
             </div>
-            <p className="text-slate-300 leading-relaxed max-w-3xl mb-5">
-              Batch sheet creation with title-block control, smart view placement, and export
-              automation. Turns hours of manual CD setup into minutes.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["Sheet Generation", "View Placement", "Title Blocks", "Batch Export", "Revit API"].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 rounded-lg text-xs bg-slate-800 text-slate-300 border border-white/5"
-                >
-                  {tag}
-                </span>
-              ))}
+
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+              <motion.figure
+                className="rounded-2xl overflow-hidden border border-white/10 bg-slate-900/60 shadow-lg"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+              >
+                <img
+                  src="/images/SheetCreator.PNG"
+                  alt="ReviTask sheet creation workflow"
+                  className="w-full h-44 object-cover"
+                  loading="lazy"
+                />
+                <figcaption className="p-4 text-sm text-slate-300">Sheet creation workflow</figcaption>
+              </motion.figure>
             </div>
           </motion.div>
         </div>
