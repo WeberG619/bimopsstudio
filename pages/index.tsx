@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <Layout
       title="BIM Ops Studio | Architecture & BIM Services"
-      description="BIM Ops Studio helps AEC firms implement intelligent workflows that slash construction document production time by 75%. Built by an architect who codes."
+      description="BIM Ops Studio helps AEC firms implement intelligent workflows that slash construction document production time by 75%. Built by a BIM specialist who codes."
     >
       {/* Hero Section — full background image with dark overlay */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -417,11 +417,11 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Built by an Architect Who Codes
+              Built by a BIM Specialist Who Codes
             </h2>
             <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
             <p className="text-gray-500 dark:text-gray-400 text-lg">
-              For architects who don&apos;t have to
+              So your team doesn&apos;t have to
             </p>
           </motion.div>
 
@@ -440,7 +440,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  15 years of architecture experience across residential,
+                  15 years of AEC experience across residential,
                   commercial, and institutional projects. Transitioned from
                   producing construction documents to building the intelligent systems
                   that produce them.

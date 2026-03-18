@@ -64,9 +64,9 @@ const techStack = [
 const milestones = [
   {
     year: "2010",
-    title: "Architecture Roots",
+    title: "AEC Career Begins",
     description:
-      "Started career in architecture and construction documentation, learning the pain of manual CD production firsthand.",
+      "Started career in construction documentation and BIM coordination, learning the pain of manual CD production firsthand.",
   },
   {
     year: "2023",
@@ -91,8 +91,8 @@ const milestones = [
 export default function About() {
   return (
     <Layout
-      title="About BIM Ops Studio - Architect Who Codes"
-      description="BIM Ops Studio is founded by Weber Gouin, an architect and developer building AI-powered BIM automation tools. ADN Member #USUS0234."
+      title="About BIM Ops Studio - BIM Specialist Who Codes"
+      description="BIM Ops Studio is founded by Weber Gouin, a BIM specialist and developer building AI-powered BIM automation tools. ADN Member #USUS0234."
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 text-white overflow-hidden">
@@ -122,14 +122,14 @@ export default function About() {
             </Badge>
 
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6">
-              Built by an{" "}
-              <span className="text-amber-500">Architect</span>
+              Built by a{" "}
+              <span className="text-amber-500">BIM Specialist</span>
               <br />
               Who <span className="text-blue-400">Codes</span>
             </h1>
 
             <p className="text-xl text-blue-100 mb-8">
-              BIM Ops Studio combines 15+ years of architecture experience with
+              BIM Ops Studio combines 15+ years of AEC experience with
               deep Revit API expertise to build AI-powered automation that
               actually understands your workflow.
             </p>
@@ -166,7 +166,7 @@ export default function About() {
                 </div>
 
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
-                  I&apos;ve spent 15+ years in architecture — drafting CDs,
+                  I&apos;ve spent 15+ years in AEC — drafting CDs,
                   coordinating models, and watching teams burn hours on
                   repetitive Revit tasks that should take minutes.
                 </p>

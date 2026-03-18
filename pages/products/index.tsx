@@ -157,7 +157,7 @@ export default function ProductsPage() {
                 <div className="text-4xl font-bold text-blue-600 mb-2">15+</div>
                 <div className="text-lg font-semibold mb-2">Years Experience</div>
                 <div className="text-gray-600 dark:text-gray-400">
-                  Built by architects, for architects
+                  Built by a BIM specialist, for AEC teams
                 </div>
               </div>
             </div>
