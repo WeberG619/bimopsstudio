@@ -20,9 +20,12 @@ import {
   Building2,
   Layers,
   PenTool,
+  ZoomIn,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import { ImageModal } from "@/components/ui/ImageModal";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -39,6 +42,8 @@ const staggerItem = {
 };
 
 export default function Home() {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
   return (
     <Layout
       title="BIM Ops Studio | Architecture & BIM Services"
@@ -311,9 +316,19 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.15 }}
               >
                 <Card className="overflow-hidden bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10 h-full hover:shadow-lg transition-shadow">
-                  <div className="relative aspect-[4/3] bg-gray-100 dark:bg-[#0f2640]">
+                  <button
+                    type="button"
+                    onClick={() => setModalImage({ src: item.src, alt: item.title })}
+                    className="group relative block w-full aspect-[4/3] bg-gray-100 dark:bg-[#0f2640] cursor-zoom-in"
+                    aria-label={`View ${item.title} larger`}
+                  >
                     <Image src={item.src} alt={item.title} fill className="object-cover" />
-                  </div>
+                    <div className="absolute inset-0 flex items-center justify-center bg-[#0A1B2A]/0 group-hover:bg-[#0A1B2A]/30 transition-colors">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-amber-500/90 rounded-full p-3">
+                        <ZoomIn className="w-6 h-6 text-white" />
+                      </span>
+                    </div>
+                  </button>
                   <CardContent className="p-6">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                       {item.title}
@@ -634,6 +649,13 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <ImageModal
+        isOpen={modalImage !== null}
+        onClose={() => setModalImage(null)}
+        imageSrc={modalImage?.src ?? ""}
+        imageAlt={modalImage?.alt ?? ""}
+      />
     </Layout>
   );
 }
