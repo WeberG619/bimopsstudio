@@ -26,6 +26,7 @@ export function Header() {
   const navItems = [
     { href: "/products", label: "Products" },
     { href: "/ai-services", label: "AI Services" },
+    { href: "/3d-mapping", label: "3D Mapping" },
     { href: "/projects", label: "Projects" },
     { href: "/free-tools", label: "Free Tools" },
     { href: "/pricing", label: "Pricing" },

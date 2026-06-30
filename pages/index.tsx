@@ -265,6 +265,82 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3D Mapping Showcase Section */}
+      <section id="3d-mapping" className="py-24 bg-white dark:bg-[#0A1B2A]">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="h-px w-12 bg-amber-500" />
+              <span className="text-amber-600 dark:text-amber-500 text-sm font-medium uppercase tracking-wider">
+                3D Mapping
+              </span>
+              <div className="h-px w-12 bg-amber-500" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              From Anywhere on Earth to a Revit 3D Massing
+            </h2>
+            <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
+            <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+              Give us an address and we convert real-world aerial and GIS data into an
+              accurate, native Revit 3D site massing — buildings, terrain, roads, and water
+              — for virtually any location in the world.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                src: "/images/3d-mapping/fisher-island.png",
+                title: "Fisher Island, Miami",
+                desc: "Island site massing with terrain, golf course, and building footprints generated from GIS data.",
+              },
+              {
+                src: "/images/3d-mapping/brickell.png",
+                title: "Brickell, Miami",
+                desc: "Downtown skyline massing — towers extruded to real heights over an aerial-photo base.",
+              },
+              {
+                src: "/images/3d-mapping/niagara.png",
+                title: "Niagara Falls",
+                desc: "City-scale massing across the river — buildings, roads, and water modeled in context.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                {...staggerItem}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+              >
+                <Card className="overflow-hidden bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10 h-full hover:shadow-lg transition-shadow">
+                  <div className="relative aspect-[4/3] bg-gray-100 dark:bg-[#0f2640]">
+                    <Image src={item.src} alt={item.title} fill className="object-cover" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div {...fadeInUp} className="text-center mt-12">
+            <Link href="/3d-mapping">
+              <Button
+                size="lg"
+                className="text-base px-8 py-6 bg-amber-500 hover:bg-amber-600 text-white font-semibold"
+              >
+                Explore 3D Mapping
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Technology Pipeline Section */}
       <section className="py-24 bg-gray-50 dark:bg-[#0f2640]">
         <div className="container mx-auto px-4 max-w-5xl">
