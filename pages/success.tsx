@@ -152,6 +152,13 @@ export default function Success() {
               That&apos;s the whole setup — install, paste your key, and just talk to it. Studio Copilot
               introduces itself and shows you what it can do. No manual to read.
             </p>
+            <p className="mt-3">
+              New to it?{" "}
+              <Link href="/get-started" className="text-[#4A9EFF] underline">
+                See the 3-step setup guide
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>
