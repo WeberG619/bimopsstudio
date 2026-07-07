@@ -108,12 +108,10 @@ export default function Success() {
                       {copied ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
                     </Button>
                   </div>
-                  {email && (
-                    <p className="text-sm text-gray-500 mt-3">
-                      A copy is on its way to <strong>{email}</strong>. Keep this key safe — you&apos;ll
-                      paste it into the app on first launch.
-                    </p>
-                  )}
+                  <p className="text-sm text-gray-500 mt-3">
+                    Save this key somewhere safe{email ? <> (your account is <strong>{email}</strong>)</> : null} —
+                    you&apos;ll paste it into the app on first launch.
+                  </p>
                 </div>
               )}
 
