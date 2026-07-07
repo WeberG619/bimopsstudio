@@ -147,13 +147,11 @@ export default function Success() {
             </Link>
           </div>
 
-          <div className="mt-10 text-sm text-gray-500 dark:text-gray-400">
-            <p className="font-semibold text-gray-700 dark:text-gray-200 mb-2">Getting started</p>
-            <ol className="list-decimal list-inside space-y-1">
-              <li>Install Studio Copilot and open it.</li>
-              <li>Paste your license key when prompted on first launch.</li>
-              <li>Point it at your Revit install and start driving your model.</li>
-            </ol>
+          <div className="mt-10 text-sm text-gray-500 dark:text-gray-400 text-center max-w-md mx-auto">
+            <p>
+              That&apos;s the whole setup — install, paste your key, and just talk to it. Studio Copilot
+              introduces itself and shows you what it can do. No manual to read.
+            </p>
           </div>
         </div>
       </section>
