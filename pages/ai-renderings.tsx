@@ -91,7 +91,10 @@ function Lightbox({
       <div className="flex items-center justify-between text-white mb-4 max-w-6xl w-full mx-auto">
         <div>
           <h3 className="text-xl font-bold">
-            {design.name} <span className="text-amber-500">Modern</span>
+            {design.name}{" "}
+            <span className="text-amber-500">
+              {design.category === "Mixed-Use" ? "Mixed-Use" : "Modern"}
+            </span>
           </h3>
           <p className="text-sm text-gray-400">
             {current.label} · {design.code} · {index + 1} / {count}
@@ -151,15 +154,16 @@ function Lightbox({
 
 export default function AiRenderings() {
   const [active, setActive] = useState<{ design: Design; view: number } | null>(null);
-  const [filter, setFilter] = useState<number | "all">("all");
+  const [filter, setFilter] = useState<string>("all");
 
-  const storyOptions = Array.from(new Set(designs.map((d) => d.stories))).sort();
-  const shown = designs.filter((d) => filter === "all" || d.stories === filter);
+  const cat = (d: Design) => d.category ?? "Residential";
+  const categories = ["Residential", "Mixed-Use"];
+  const shown = designs.filter((d) => filter === "all" || cat(d) === filter);
 
   return (
     <Layout
       title="AI-Generated Renderings | Modern Exterior Design Concepts | BIM Ops Studio"
-      description="A growing gallery of modern residential exterior design concepts for South Florida — each one modeled 100% in Revit and rendered 100% with AI on BIM Ops Studio's own automation system."
+      description="A growing gallery of modern exterior design concepts for South Florida — single-family homes and mixed-use mid- and high-rise buildings — each modeled 100% in Revit and rendered 100% with AI on BIM Ops Studio's own automation system."
     >
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
@@ -192,8 +196,9 @@ export default function AiRenderings() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
-              A growing collection of modern residential concept designs for South Florida —
-              each one modeled <strong className="text-white">100% in Revit</strong> and rendered{" "}
+              A growing collection of modern concept designs for South Florida — from single-family
+              homes to mixed-use mid- and high-rise buildings — each one modeled{" "}
+              <strong className="text-white">100% in Revit</strong> and rendered{" "}
               <strong className="text-white">100% with AI</strong> on our own BIM Ops Studio system.
               This is exterior design exploration at a speed regular Revit can&apos;t touch.
             </p>
@@ -293,20 +298,20 @@ export default function AiRenderings() {
             </h2>
             <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
             <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              {designs.length} distinct modern concepts so far. Click any design to step through its
-              renders. More on the way — including 3-story homes and larger buildings.
+              {designs.length} distinct concepts so far — modern homes and mixed-use mid- and
+              high-rise buildings. Click any design to step through its renders.
             </p>
           </motion.div>
 
           {/* Story filter (extensible) */}
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             <FilterChip label="All" active={filter === "all"} onClick={() => setFilter("all")} />
-            {storyOptions.map((s) => (
+            {categories.map((c) => (
               <FilterChip
-                key={s}
-                label={`${s}-Story`}
-                active={filter === s}
-                onClick={() => setFilter(s)}
+                key={c}
+                label={c}
+                active={filter === c}
+                onClick={() => setFilter(c)}
               />
             ))}
           </div>
@@ -346,7 +351,10 @@ export default function AiRenderings() {
                   <div className="p-6">
                     <div className="flex items-baseline justify-between mb-2">
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                        {d.name} <span className="text-amber-500 font-normal">Modern</span>
+                        {d.name}{" "}
+                        <span className="text-amber-500 font-normal">
+                          {cat(d) === "Mixed-Use" ? "Mixed-Use" : "Modern"}
+                        </span>
                       </h3>
                       <span className="text-xs text-gray-400 font-mono">{d.code}</span>
                     </div>
@@ -354,7 +362,7 @@ export default function AiRenderings() {
                       {d.parti}
                     </p>
                     <div className="flex flex-wrap gap-1.5 mt-4">
-                      <Tag>Exterior Design</Tag>
+                      <Tag>{cat(d) === "Mixed-Use" ? "Mixed-Use" : "Exterior Design"}</Tag>
                       <Tag>South Florida</Tag>
                     </div>
                   </div>
