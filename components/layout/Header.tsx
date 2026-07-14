@@ -27,6 +27,7 @@ export function Header() {
     { href: "/products", label: "Products" },
     { href: "/ai-services", label: "AI Services" },
     { href: "/3d-mapping", label: "3D Mapping" },
+    { href: "/ai-renderings", label: "AI Renderings" },
     { href: "/projects", label: "Projects" },
     { href: "/free-tools", label: "Free Tools" },
     { href: "/pricing", label: "Pricing" },
