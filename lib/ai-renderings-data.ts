@@ -7,7 +7,7 @@ export const designs: Design[] = [
     "name": "Costa Verde",
     "code": "CV-2601",
     "stories": 1,
-    "parti": "Flat-roof stucco box with a double-height entry portico and a rear pool \u2014 the clean modern baseline.",
+    "parti": "Flat-roof stucco box with a double-height entry portico and a rear pool — the clean modern baseline.",
     "cover": "/images/ai-renderings/costa-verde/corner.jpg",
     "tags": [
       "Exterior Design",
@@ -39,6 +39,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/costa-verde/corner.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/costa-verde/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-kitchen",
+        "label": "Interior — Kitchen",
+        "src": "/images/ai-renderings/costa-verde/interior-kitchen.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/costa-verde/interior-living.jpg"
       }
     ]
   },
@@ -79,6 +94,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/verano/corner.jpg"
+      },
+      {
+        "view": "int-entry",
+        "label": "Interior — Foyer",
+        "src": "/images/ai-renderings/verano/interior-entry.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/verano/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/verano/interior-living.jpg"
       }
     ]
   },
@@ -159,6 +189,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/sereno/corner.jpg"
+      },
+      {
+        "view": "int-gallery",
+        "label": "Interior — Gallery",
+        "src": "/images/ai-renderings/sereno/interior-gallery.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/sereno/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/sereno/interior-living.jpg"
       }
     ]
   },
@@ -167,7 +212,7 @@ export const designs: Design[] = [
     "name": "Ladera",
     "code": "LD-2601",
     "stories": 1,
-    "parti": "Single-story butterfly roof \u2014 two charcoal shed planes rising to tall outer eaves over full-height glass gable ends.",
+    "parti": "Single-story butterfly roof — two charcoal shed planes rising to tall outer eaves over full-height glass gable ends.",
     "cover": "/images/ai-renderings/ladera/corner.jpg",
     "tags": [
       "Exterior Design",
@@ -199,6 +244,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/ladera/corner.jpg"
+      },
+      {
+        "view": "int-dining",
+        "label": "Interior — Dining",
+        "src": "/images/ai-renderings/ladera/interior-dining.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/ladera/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/ladera/interior-living.jpg"
       }
     ]
   },
@@ -207,7 +267,7 @@ export const designs: Design[] = [
     "name": "Puente",
     "code": "PU-2601",
     "stories": 1,
-    "parti": "Two floating-roof pavilions joined by a lower glass breezeway you see straight through \u2014 the link is the entry.",
+    "parti": "Two floating-roof pavilions joined by a lower glass breezeway you see straight through — the link is the entry.",
     "cover": "/images/ai-renderings/puente/aerial.jpg",
     "tags": [
       "Exterior Design",
@@ -239,6 +299,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/puente/corner.jpg"
+      },
+      {
+        "view": "int-breezeway",
+        "label": "Interior — Breezeway",
+        "src": "/images/ai-renderings/puente/interior-breezeway.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/puente/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/puente/interior-living.jpg"
       }
     ]
   },
@@ -279,6 +354,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/solana/corner.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/solana/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-kitchen",
+        "label": "Interior — Kitchen",
+        "src": "/images/ai-renderings/solana/interior-kitchen.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/solana/interior-living.jpg"
       }
     ]
   },
@@ -319,6 +409,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/espejo/corner.jpg"
+      },
+      {
+        "view": "int-kitchen",
+        "label": "Interior — Kitchen",
+        "src": "/images/ai-renderings/espejo/interior-kitchen.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/espejo/interior-living.jpg"
+      },
+      {
+        "view": "int-pool",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/espejo/interior-pool.jpg"
       }
     ]
   },
@@ -367,7 +472,7 @@ export const designs: Design[] = [
     "name": "Luna",
     "code": "LU-2601",
     "stories": 1,
-    "parti": "A sweeping crescent \u2014 curved white roof and continuous curved glass wrapping a pool held in the arc's embrace.",
+    "parti": "A sweeping crescent — curved white roof and continuous curved glass wrapping a pool held in the arc's embrace.",
     "cover": "/images/ai-renderings/luna/aerial.jpg",
     "tags": [
       "Exterior Design",
@@ -439,6 +544,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/vela/corner.jpg"
+      },
+      {
+        "view": "int-dining",
+        "label": "Interior — Dining",
+        "src": "/images/ai-renderings/vela/interior-dining.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/vela/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/vela/interior-living.jpg"
       }
     ]
   },
@@ -479,6 +599,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/cumbre/corner.jpg"
+      },
+      {
+        "view": "int-dining",
+        "label": "Interior — Dining",
+        "src": "/images/ai-renderings/cumbre/interior-dining.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/cumbre/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/cumbre/interior-living.jpg"
       }
     ]
   },
@@ -519,6 +654,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/faro/corner.jpg"
+      },
+      {
+        "view": "int-gallery",
+        "label": "Interior — Gallery",
+        "src": "/images/ai-renderings/faro/interior-gallery.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/faro/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-lounge",
+        "label": "Interior — Lounge",
+        "src": "/images/ai-renderings/faro/interior-lounge.jpg"
       }
     ]
   },
@@ -527,7 +677,7 @@ export const designs: Design[] = [
     "name": "Claustro",
     "code": "CL-2601",
     "stories": 1,
-    "parti": "An enclosed courtyard house \u2014 a solid outer ring wrapping a private glass-lined inner oasis with pool and palms.",
+    "parti": "An enclosed courtyard house — a solid outer ring wrapping a private glass-lined inner oasis with pool and palms.",
     "cover": "/images/ai-renderings/claustro/aerial.jpg",
     "tags": [
       "Exterior Design",
@@ -559,6 +709,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/claustro/corner.jpg"
+      },
+      {
+        "view": "int-gallery",
+        "label": "Interior — Gallery",
+        "src": "/images/ai-renderings/claustro/interior-gallery.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/claustro/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/claustro/interior-living.jpg"
       }
     ]
   },
@@ -567,7 +732,7 @@ export const designs: Design[] = [
     "name": "Vuelo",
     "code": "VU-2601",
     "stories": 2,
-    "parti": "A sculptural two-story cantilever \u2014 the white upper volume floats over the entry on columns with a teak soffit.",
+    "parti": "A sculptural two-story cantilever — the white upper volume floats over the entry on columns with a teak soffit.",
     "cover": "/images/ai-renderings/vuelo/corner.jpg",
     "tags": [
       "Exterior Design",
@@ -607,7 +772,7 @@ export const designs: Design[] = [
     "name": "Bayshore",
     "code": "BAY-2601",
     "stories": 2,
-    "parti": "The original study that started this series \u2014 a clean modern flat-roof home with a resort-style pool.",
+    "parti": "The original study that started this series — a clean modern flat-roof home with a resort-style pool.",
     "cover": "/images/ai-renderings/bayshore/entry.jpg",
     "tags": [
       "Exterior Design",
@@ -639,6 +804,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/bayshore/corner.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/bayshore/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-kitchen",
+        "label": "Interior — Kitchen",
+        "src": "/images/ai-renderings/bayshore/interior-kitchen.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/bayshore/interior-living.jpg"
       }
     ]
   },
@@ -762,6 +942,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/cortina/street.jpg"
+      },
+      {
+        "view": "int-atrium",
+        "label": "Interior — Atrium",
+        "src": "/images/ai-renderings/cortina/interior-atrium.jpg"
+      },
+      {
+        "view": "int-concourse",
+        "label": "Interior — Concourse",
+        "src": "/images/ai-renderings/cortina/interior-concourse.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/cortina/interior-lobby.jpg"
       }
     ]
   },
@@ -1172,6 +1367,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/corona/street.jpg"
+      },
+      {
+        "view": "int-atrium",
+        "label": "Interior — Atrium",
+        "src": "/images/ai-renderings/corona/interior-atrium.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/corona/interior-lobby.jpg"
+      },
+      {
+        "view": "int-skylounge",
+        "label": "Interior — Sky Lounge",
+        "src": "/images/ai-renderings/corona/interior-skylounge.jpg"
       }
     ]
   },
@@ -1208,6 +1418,21 @@ export const designs: Design[] = [
         "view": "top",
         "label": "Top View",
         "src": "/images/ai-renderings/voladizo/top.jpg"
+      },
+      {
+        "view": "int-entry",
+        "label": "Interior — Foyer",
+        "src": "/images/ai-renderings/voladizo/interior-entry.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/voladizo/interior-lobby.jpg"
+      },
+      {
+        "view": "int-skylobby",
+        "label": "Interior — Lobby Lounge",
+        "src": "/images/ai-renderings/voladizo/interior-skylobby.jpg"
       }
     ]
   },
