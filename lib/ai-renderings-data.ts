@@ -149,6 +149,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/mirador/corner.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/mirador/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/mirador/interior-living.jpg"
+      },
+      {
+        "view": "int-lounge",
+        "label": "Interior — Lounge",
+        "src": "/images/ai-renderings/mirador/interior-lounge.jpg"
       }
     ]
   },
@@ -464,6 +479,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/terraza/corner.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/terraza/interior-living.jpg"
+      },
+      {
+        "view": "int-terrace",
+        "label": "Interior — Terrace",
+        "src": "/images/ai-renderings/terraza/interior-terrace.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/terraza/interior-greatroom.jpg"
       }
     ]
   },
@@ -504,6 +534,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/luna/corner.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/luna/interior-living.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/luna/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-dining",
+        "label": "Interior — Dining",
+        "src": "/images/ai-renderings/luna/interior-dining.jpg"
       }
     ]
   },
@@ -764,6 +809,21 @@ export const designs: Design[] = [
         "view": "corner",
         "label": "Street Corner",
         "src": "/images/ai-renderings/vuelo/corner.jpg"
+      },
+      {
+        "view": "int-greatroom",
+        "label": "Interior — Great Room",
+        "src": "/images/ai-renderings/vuelo/interior-greatroom.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/vuelo/interior-living.jpg"
+      },
+      {
+        "view": "int-suite",
+        "label": "Interior — Suite",
+        "src": "/images/ai-renderings/vuelo/interior-suite.jpg"
       }
     ]
   },
@@ -814,6 +874,11 @@ export const designs: Design[] = [
         "view": "int-kitchen",
         "label": "Interior — Kitchen",
         "src": "/images/ai-renderings/bayshore/interior-kitchen.jpg"
+      },
+      {
+        "view": "int-living",
+        "label": "Interior — Living",
+        "src": "/images/ai-renderings/bayshore/interior-living.jpg"
       }
     ]
   },
@@ -1135,6 +1200,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/curva/street.jpg"
+      },
+      {
+        "view": "int-gallery",
+        "label": "Interior — Gallery",
+        "src": "/images/ai-renderings/curva/interior-gallery.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/curva/interior-lobby.jpg"
+      },
+      {
+        "view": "int-lounge",
+        "label": "Interior — Lounge",
+        "src": "/images/ai-renderings/curva/interior-lounge.jpg"
       }
     ]
   },
@@ -1176,6 +1256,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/punto/street.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/punto/interior-lobby.jpg"
+      },
+      {
+        "view": "int-lounge",
+        "label": "Interior — Lounge",
+        "src": "/images/ai-renderings/punto/interior-lounge.jpg"
+      },
+      {
+        "view": "int-retail",
+        "label": "Interior — Retail",
+        "src": "/images/ai-renderings/punto/interior-retail.jpg"
       }
     ]
   },
@@ -1217,6 +1312,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/desplazado/street.jpg"
+      },
+      {
+        "view": "int-gallery",
+        "label": "Interior — Gallery",
+        "src": "/images/ai-renderings/desplazado/interior-gallery.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/desplazado/interior-lobby.jpg"
+      },
+      {
+        "view": "int-lounge",
+        "label": "Interior — Lounge",
+        "src": "/images/ai-renderings/desplazado/interior-lounge.jpg"
       }
     ]
   },
@@ -1258,6 +1368,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/verde/street.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/verde/interior-lobby.jpg"
+      },
+      {
+        "view": "int-skyterrace",
+        "label": "Interior — Sky Terrace",
+        "src": "/images/ai-renderings/verde/interior-skyterrace.jpg"
+      },
+      {
+        "view": "int-residence",
+        "label": "Interior — Residence",
+        "src": "/images/ai-renderings/verde/interior-residence.jpg"
       }
     ]
   },
@@ -1299,6 +1424,21 @@ export const designs: Design[] = [
         "view": "top",
         "label": "Top View",
         "src": "/images/ai-renderings/gemelas/top.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/gemelas/interior-lobby.jpg"
+      },
+      {
+        "view": "int-skylounge",
+        "label": "Interior — Sky Lounge",
+        "src": "/images/ai-renderings/gemelas/interior-skylounge.jpg"
+      },
+      {
+        "view": "int-residence",
+        "label": "Interior — Residence",
+        "src": "/images/ai-renderings/gemelas/interior-residence.jpg"
       }
     ]
   },
@@ -1340,6 +1480,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/giro/street.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/giro/interior-lobby.jpg"
+      },
+      {
+        "view": "int-skylounge",
+        "label": "Interior — Sky Lounge",
+        "src": "/images/ai-renderings/giro/interior-skylounge.jpg"
+      },
+      {
+        "view": "int-residence",
+        "label": "Interior — Residence",
+        "src": "/images/ai-renderings/giro/interior-residence.jpg"
       }
     ]
   },
@@ -1381,6 +1536,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/diagrid/street.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/diagrid/interior-lobby.jpg"
+      },
+      {
+        "view": "int-skylounge",
+        "label": "Interior — Sky Lounge",
+        "src": "/images/ai-renderings/diagrid/interior-skylounge.jpg"
+      },
+      {
+        "view": "int-cowork",
+        "label": "Interior — Co-Working",
+        "src": "/images/ai-renderings/diagrid/interior-cowork.jpg"
       }
     ]
   },
@@ -1529,6 +1699,21 @@ export const designs: Design[] = [
         "view": "top",
         "label": "Top View",
         "src": "/images/ai-renderings/faro-alto/top.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/faro-alto/interior-lobby.jpg"
+      },
+      {
+        "view": "int-skylounge",
+        "label": "Interior — Sky Lounge",
+        "src": "/images/ai-renderings/faro-alto/interior-skylounge.jpg"
+      },
+      {
+        "view": "int-amenity",
+        "label": "Interior — Amenity",
+        "src": "/images/ai-renderings/faro-alto/interior-amenity.jpg"
       }
     ]
   }
