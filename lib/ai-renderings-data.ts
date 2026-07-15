@@ -814,11 +814,6 @@ export const designs: Design[] = [
         "view": "int-kitchen",
         "label": "Interior — Kitchen",
         "src": "/images/ai-renderings/bayshore/interior-kitchen.jpg"
-      },
-      {
-        "view": "int-living",
-        "label": "Interior — Living",
-        "src": "/images/ai-renderings/bayshore/interior-living.jpg"
       }
     ]
   },

@@ -12,6 +12,7 @@ import {
   ChevronRight,
   MapPin,
   Cpu,
+  AlertTriangle,
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
@@ -148,6 +149,14 @@ function Lightbox({
           </button>
         ))}
       </div>
+
+      <p
+        className="text-center text-xs text-gray-400 mt-3 max-w-3xl w-full mx-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        AI-generated concept study — not construction documents. Consult a licensed
+        architect, engineer or designer before use.
+      </p>
     </div>
   );
 }
@@ -370,6 +379,49 @@ export default function AiRenderings() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Disclaimer */}
+      <section className="py-16 bg-gray-50 dark:bg-[#0f2640] border-t border-gray-200 dark:border-white/10">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <motion.div
+            {...fadeInUp}
+            className="rounded-xl border border-amber-500/40 bg-amber-500/5 dark:bg-amber-500/10 p-6 md:p-8"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <AlertTriangle className="w-6 h-6 text-amber-600 dark:text-amber-500 shrink-0" />
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white">
+                Important — please read before using these designs
+              </h3>
+            </div>
+            <div className="space-y-4 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p>
+                Every image in this gallery is an{" "}
+                <strong className="text-gray-900 dark:text-white">
+                  AI-generated concept and design study
+                </strong>
+                , created to explore and communicate ideas. These are{" "}
+                <strong className="text-gray-900 dark:text-white">
+                  not construction documents
+                </strong>
+                , not a finished or fully-engineered design, and not a representation of what can be
+                permitted or built as shown. Not every design is fully resolved — some are early
+                studies that would need further development, and the depicted layouts, structure,
+                dimensions, materials, code compliance and cost have{" "}
+                <strong className="text-gray-900 dark:text-white">not been verified</strong>.
+              </p>
+              <p>
+                Do not build from, rely on, or otherwise use any of these designs without first
+                engaging appropriately{" "}
+                <strong className="text-gray-900 dark:text-white">licensed professionals</strong> — a
+                licensed architect, engineer, and/or licensed interior designer — in the project&apos;s
+                jurisdiction to review, develop, and stamp the work. BIM Ops Studio and WG Design
+                Drafting provide these concepts for inspiration and discussion only and accept no
+                liability for their use without qualified professional review.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
