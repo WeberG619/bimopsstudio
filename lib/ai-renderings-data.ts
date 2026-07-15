@@ -855,6 +855,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/podio/street.jpg"
+      },
+      {
+        "view": "int-cafe",
+        "label": "Interior — Cafe & Lounge",
+        "src": "/images/ai-renderings/podio/interior-cafe.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/podio/interior-lobby.jpg"
+      },
+      {
+        "view": "int-retail",
+        "label": "Interior — Retail Concourse",
+        "src": "/images/ai-renderings/podio/interior-retail.jpg"
       }
     ]
   },
@@ -896,6 +911,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/terrazas/street.jpg"
+      },
+      {
+        "view": "int-atrium",
+        "label": "Interior — Garden Atrium",
+        "src": "/images/ai-renderings/terrazas/interior-atrium.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/terrazas/interior-lobby.jpg"
+      },
+      {
+        "view": "int-lounge",
+        "label": "Interior — Lounge",
+        "src": "/images/ai-renderings/terrazas/interior-lounge.jpg"
       }
     ]
   },
@@ -993,6 +1023,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/persiana/street.jpg"
+      },
+      {
+        "view": "int-arcade",
+        "label": "Interior — Retail Arcade",
+        "src": "/images/ai-renderings/persiana/interior-arcade.jpg"
+      },
+      {
+        "view": "int-cowork",
+        "label": "Interior — Co-Working",
+        "src": "/images/ai-renderings/persiana/interior-cowork.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/persiana/interior-lobby.jpg"
       }
     ]
   },
@@ -1034,6 +1079,21 @@ export const designs: Design[] = [
         "view": "street",
         "label": "Street View",
         "src": "/images/ai-renderings/balcones/street.jpg"
+      },
+      {
+        "view": "int-amenity",
+        "label": "Interior — Amenity Lounge",
+        "src": "/images/ai-renderings/balcones/interior-amenity.jpg"
+      },
+      {
+        "view": "int-lobby",
+        "label": "Interior — Lobby",
+        "src": "/images/ai-renderings/balcones/interior-lobby.jpg"
+      },
+      {
+        "view": "int-unit",
+        "label": "Interior — Residence",
+        "src": "/images/ai-renderings/balcones/interior-unit.jpg"
       }
     ]
   },
