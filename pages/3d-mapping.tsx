@@ -44,6 +44,11 @@ const examples = [
     desc: "Downtown skyline massing — towers extruded to real heights over an aerial-photo base.",
   },
   {
+    src: "/images/3d-mapping/brickell-siteplane.png",
+    title: "Brickell — Bayfront Site",
+    desc: "The same downtown massing set on its GIS site plane — dense urban fabric meeting Biscayne Bay.",
+  },
+  {
     src: "/images/3d-mapping/niagara.png",
     title: "Niagara Falls",
     desc: "City-scale massing across the river — buildings, roads, and water modeled in context.",
