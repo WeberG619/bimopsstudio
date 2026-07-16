@@ -53,6 +53,16 @@ const examples = [
     title: "Niagara Falls",
     desc: "City-scale massing across the river — buildings, roads, and water modeled in context.",
   },
+  {
+    src: "/images/3d-mapping/sandpoint.png",
+    title: "Sandpoint, Idaho",
+    desc: "Whole-downtown massing — hundreds of buildings, streets, and terrain extruded across the full town grid.",
+  },
+  {
+    src: "/images/3d-mapping/river-city.png",
+    title: "Riverfront District",
+    desc: "Color-coded GIS massing of an urban riverfront — parcels, roads, islands, and water read at a glance.",
+  },
 ];
 
 const steps = [
