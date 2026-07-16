@@ -94,7 +94,7 @@ function Lightbox({
           <h3 className="text-xl font-bold">
             {design.name}{" "}
             <span className="text-amber-500">
-              {design.category === "Mixed-Use" ? "Mixed-Use" : "Modern"}
+              {design.style ?? (design.category === "Mixed-Use" ? "Mixed-Use" : "Modern")}
             </span>
           </h3>
           <p className="text-sm text-gray-400">
@@ -343,7 +343,7 @@ export default function AiRenderings() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={d.cover}
-                      alt={`${d.name} Modern — AI render`}
+                      alt={`${d.name} ${d.style ?? "Modern"} — AI render`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
@@ -362,7 +362,7 @@ export default function AiRenderings() {
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                         {d.name}{" "}
                         <span className="text-amber-500 font-normal">
-                          {cat(d) === "Mixed-Use" ? "Mixed-Use" : "Modern"}
+                          {d.style ?? (cat(d) === "Mixed-Use" ? "Mixed-Use" : "Modern")}
                         </span>
                       </h3>
                       <span className="text-xs text-gray-400 font-mono">{d.code}</span>
