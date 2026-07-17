@@ -1,19 +1,13 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Moon, Sun, LogIn } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useSabbathMode } from "@/lib/sabbath-mode";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
-import { useAuth } from "@/contexts/AuthContext";
-import { UserMenu } from "@/components/auth/UserMenu";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { isSabbath, toggleSabbathMode } = useSabbathMode();
   const { theme, toggleTheme } = useTheme();
-  const { user } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,45 +18,42 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { href: "/products", label: "Products" },
-    { href: "/ai-services", label: "AI Services" },
-    { href: "/3d-mapping", label: "3D Mapping" },
-    { href: "/ai-renderings", label: "AI Renderings" },
-    { href: "/projects", label: "Projects" },
-    { href: "/free-tools", label: "Free Tools" },
-    { href: "/pricing", label: "Pricing" },
+    { href: "/#work", label: "Work" },
+    { href: "/services", label: "Services" },
+    { href: "/ai-services", label: "How It Works" },
+    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <header 
+    <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md py-2" 
-          : "bg-black/20 backdrop-blur-sm py-4"
+        isScrolled
+          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md py-2"
+          : "bg-white/80 dark:bg-black/20 backdrop-blur-sm py-4"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
-          <img 
-            src="/logo.png" 
-            alt="BIM Ops Studio" 
+          <img
+            src="/logo.png"
+            alt="BIM Ops Studio"
             className="w-10 h-10"
           />
           <div className="flex flex-col">
             <span className={`font-heading text-xl font-bold transition-colors ${
-              isScrolled 
-                ? "text-deep-navy dark:text-white" 
-                : "text-white"
+              isScrolled
+                ? "text-deep-navy dark:text-white"
+                : "text-gray-900 dark:text-white"
             }`}>
               BIM Ops Studio
             </span>
             <span className={`text-xs transition-colors ${
-              isScrolled 
-                ? "text-[#4A9EFF]" 
+              isScrolled
+                ? "text-[#4A9EFF]"
                 : "text-[#4A9EFF]"
             }`}>
-              ADN Member
+              AI-Powered BIM Workflows
             </span>
           </div>
         </Link>
@@ -73,46 +64,34 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={`transition-colors font-medium hover:text-blue-500 ${
-                isScrolled 
-                  ? "text-gray-700 dark:text-gray-300" 
-                  : "text-white"
+                isScrolled
+                  ? "text-gray-700 dark:text-gray-300"
+                  : "text-gray-700 dark:text-white"
               }`}
             >
               {item.label}
             </Link>
           ))}
-          
+
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
             className={`p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700 ${
               isScrolled
                 ? "text-gray-700 dark:text-gray-300"
-                : "text-white hover:bg-white/10"
+                : "text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10"
             }`}
             aria-label="Toggle dark mode"
           >
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
-
-          {/* Auth */}
-          {user ? (
-            <UserMenu isScrolled={isScrolled} />
-          ) : (
-            <Link href="/auth/login">
-              <Button size="sm" className="bg-electric-blue hover:bg-electric-blue/90">
-                <LogIn size={16} className="mr-1.5" />
-                Sign In
-              </Button>
-            </Link>
-          )}
         </nav>
 
         <button
           className={`md:hidden transition-colors ${
-            isScrolled 
-              ? "text-gray-700 dark:text-gray-300" 
-              : "text-white"
+            isScrolled
+              ? "text-gray-700 dark:text-gray-300"
+              : "text-gray-700 dark:text-white"
           }`}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
@@ -139,7 +118,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            
+
             {/* Mobile Dark Mode Toggle */}
             <button
               onClick={toggleTheme}
@@ -148,27 +127,6 @@ export function Header() {
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
             </button>
-
-            {/* Mobile Auth */}
-            {user ? (
-              <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                <Link
-                  href="/account"
-                  className="block text-gray-700 dark:text-gray-300 hover:text-electric-blue transition-colors font-medium py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  My Account
-                </Link>
-              </div>
-            ) : (
-              <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                <Link href="/auth/login" onClick={() => setIsOpen(false)}>
-                  <Button size="sm" className="w-full bg-electric-blue hover:bg-electric-blue/90">
-                    Sign In
-                  </Button>
-                </Link>
-              </div>
-            )}
           </div>
         </motion.div>
       )}

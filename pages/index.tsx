@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -20,11 +21,9 @@ import {
   Building2,
   Layers,
   PenTool,
-  ZoomIn,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { ImageModal } from "@/components/ui/ImageModal";
 
 const fadeInUp = {
@@ -41,25 +40,82 @@ const staggerItem = {
   transition: { duration: 0.5 },
 };
 
+// Every image below was produced by our own pipeline: Revit model -> automation -> AI render.
+const HERO_IMAGES = [
+  { src: "/images/work/hero-gemelas.jpg", alt: "Gemelas twin-tower concept with skybridge at sunset" },
+  { src: "/images/work/hero-curva.jpg", alt: "Curva glass tower over a reflecting pool at golden hour" },
+  { src: "/images/work/hero-verano.jpg", alt: "Verano modern residence with pool, South Florida" },
+  { src: "/images/work/hero-brickell.jpg", alt: "Photoreal aerial of Brickell, Miami city model" },
+];
+
+const WORK_TILES = [
+  {
+    src: "/images/work/tile-faro-alto.jpg",
+    title: "Faro Alto",
+    tag: "Mixed-use tower - night plaza",
+  },
+  {
+    src: "/images/work/tile-interior.jpg",
+    title: "Verano Great Room",
+    tag: "Interior visualization",
+  },
+  {
+    src: "/images/work/tile-mirador.jpg",
+    title: "Mirador Villa",
+    tag: "Residential design - aerial",
+  },
+  {
+    src: "/images/work/tile-brickell.jpg",
+    title: "Brickell, Miami",
+    tag: "City-scale digital twin",
+  },
+  {
+    src: "/images/work/tile-sandpoint.jpg",
+    title: "Sandpoint, Idaho",
+    tag: "Whole-town LOD 300 model",
+  },
+  {
+    src: "/images/work/tile-corona.jpg",
+    title: "Corona Crown",
+    tag: "High-rise concept",
+  },
+];
+
 export default function Home() {
+  const [heroIdx, setHeroIdx] = useState(0);
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+  useEffect(() => {
+    const t = setInterval(() => setHeroIdx((i) => (i + 1) % HERO_IMAGES.length), 6000);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <Layout
       title="BIM Ops Studio | Architecture & BIM Services"
       description="BIM Ops Studio helps AEC firms implement intelligent workflows that slash construction document production time by 75%. Built by a BIM specialist who codes."
     >
-      {/* Hero Section — full background image with dark overlay */}
+      {/* Hero Section — rotating showcase of our own renders */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/images/hero-building.jpg"
-            alt="Modern architecture"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1B2A]/95 via-[#0A1B2A]/90 to-[#0A1B2A]/70" />
+          {HERO_IMAGES.map((img, i) => (
+            <motion.div
+              key={img.src}
+              className="absolute inset-0"
+              initial={false}
+              animate={{ opacity: i === heroIdx ? 1 : 0, scale: i === heroIdx ? 1.04 : 1 }}
+              transition={{ opacity: { duration: 1.6, ease: "easeInOut" }, scale: { duration: 7, ease: "linear" } }}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+                priority={i === 0}
+              />
+            </motion.div>
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1B2A]/90 via-[#0A1B2A]/75 to-[#0A1B2A]/40" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0A1B2A] to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 max-w-6xl relative z-10 pt-32 pb-20">
@@ -97,17 +153,101 @@ export default function Home() {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Link href="#how-it-works">
+              <Link href="#work">
                 <Button
                   size="lg"
                   variant="outline"
                   className="text-base px-8 py-6 border-white/30 text-white hover:bg-white/10"
                 >
-                  See How It Works
+                  See the Work
                 </Button>
               </Link>
             </div>
+
+            <p className="mt-10 text-sm text-gray-400">
+              Every image on this page came out of our pipeline — Revit model in,
+              photoreal visualization out.
+            </p>
           </motion.div>
+        </div>
+
+        {/* hero rotation indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+          {HERO_IMAGES.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Show slide ${i + 1}`}
+              onClick={() => setHeroIdx(i)}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                i === heroIdx ? "w-8 bg-amber-500" : "w-3 bg-white/30 hover:bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Work Showcase — best assets up top */}
+      <section id="work" className="py-24 bg-white dark:bg-[#0A1B2A]">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.div {...fadeInUp} className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              The Work Speaks First
+            </h2>
+            <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
+            <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+              Concept design, photoreal rendering, interiors, and city-scale
+              modeling — all produced by the same automated Revit pipeline we
+              install for your firm.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+            {WORK_TILES.map((tile, i) => (
+              <motion.div
+                key={tile.src}
+                {...staggerItem}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+              >
+                <div
+                  className="group relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 cursor-zoom-in"
+                  onClick={() => setModalImage({ src: tile.src, alt: `${tile.title} — ${tile.tag}` })}
+                >
+                  <Image
+                    src={tile.src}
+                    alt={`${tile.title} — ${tile.tag}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pt-16 pb-4 px-5">
+                    <p className="text-white font-semibold">{tile.title}</p>
+                    <p className="text-gray-300 text-sm">{tile.tag}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/ai-renderings/">
+              <Button
+                size="lg"
+                className="text-base px-8 py-6 bg-amber-500 hover:bg-amber-600 text-white font-semibold"
+              >
+                Full Gallery — 31 Designs, 124 Renders
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </a>
+            <a href="/showcase.html">
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-base px-8 py-6 border-gray-300 dark:border-white/30 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10"
+              >
+                City-Scale Planning Showcase
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -267,92 +407,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* 3D Mapping Showcase Section */}
-      <section id="3d-mapping" className="py-24 bg-white dark:bg-[#0A1B2A]">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="h-px w-12 bg-amber-500" />
-              <span className="text-amber-600 dark:text-amber-500 text-sm font-medium uppercase tracking-wider">
-                3D Mapping
-              </span>
-              <div className="h-px w-12 bg-amber-500" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              From Anywhere on Earth to a Revit 3D Massing
-            </h2>
-            <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
-            <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              Give us an address and we convert real-world aerial and GIS data into an
-              accurate, native Revit 3D site massing — buildings, terrain, roads, and water
-              — for virtually any location in the world.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                src: "/images/3d-mapping/fisher-island.png",
-                title: "Fisher Island, Miami",
-                desc: "Island site massing with terrain, golf course, and building footprints generated from GIS data.",
-              },
-              {
-                src: "/images/3d-mapping/brickell.png",
-                title: "Brickell, Miami",
-                desc: "Downtown skyline massing — towers extruded to real heights over an aerial-photo base.",
-              },
-              {
-                src: "/images/3d-mapping/niagara.png",
-                title: "Niagara Falls",
-                desc: "City-scale massing across the river — buildings, roads, and water modeled in context.",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                {...staggerItem}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-              >
-                <Card className="overflow-hidden bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10 h-full hover:shadow-lg transition-shadow">
-                  <button
-                    type="button"
-                    onClick={() => setModalImage({ src: item.src, alt: item.title })}
-                    className="group relative block w-full aspect-[4/3] bg-gray-100 dark:bg-[#0f2640] cursor-zoom-in"
-                    aria-label={`View ${item.title} larger`}
-                  >
-                    <Image src={item.src} alt={item.title} fill className="object-cover" />
-                    <div className="absolute inset-0 flex items-center justify-center bg-[#0A1B2A]/0 group-hover:bg-[#0A1B2A]/30 transition-colors">
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-amber-500/90 rounded-full p-3">
-                        <ZoomIn className="w-6 h-6 text-white" />
-                      </span>
-                    </div>
-                  </button>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div {...fadeInUp} className="text-center mt-12">
-            <Link href="/3d-mapping">
-              <Button
-                size="lg"
-                className="text-base px-8 py-6 bg-amber-500 hover:bg-amber-600 text-white font-semibold"
-              >
-                Explore 3D Mapping
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-          </motion.div>
         </div>
       </section>
 
@@ -651,7 +705,7 @@ export default function Home() {
       </section>
 
       <ImageModal
-        isOpen={modalImage !== null}
+        isOpen={!!modalImage}
         onClose={() => setModalImage(null)}
         imageSrc={modalImage?.src ?? ""}
         imageAlt={modalImage?.alt ?? ""}
