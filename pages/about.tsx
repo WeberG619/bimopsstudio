@@ -258,6 +258,83 @@ export default function About() {
         </div>
       </section>
 
+      {/* Collaborators Section */}
+      <section className="py-20 border-t border-gray-200 dark:border-gray-700">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+                Our <span className="text-blue-500">Collaborators</span>
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
+                Independent professionals who bring senior depth to BIM Ops
+                Studio projects.
+              </p>
+
+              <div className="bg-gradient-to-br from-blue-500/5 to-indigo-600/5 rounded-2xl p-8 md:p-10">
+                <div className="mb-6">
+                  <h3 className="font-heading text-2xl font-bold text-gray-900 dark:text-white">
+                    Krishna E. Royer
+                  </h3>
+                  <p className="text-blue-500 font-medium mb-1">
+                    BIM Project Manager
+                  </p>
+                  <p className="text-sm italic text-gray-500 dark:text-gray-400">
+                    Principal, KRM Designs
+                  </p>
+                </div>
+
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                  Born in Dominica with a passion for architecture and travel,
+                  Krishna graduated from architecture school in Cuba in 2005 and
+                  moved to the British Virgin Islands, where he partnered with a
+                  local structural engineer to found a design + build firm.
+                  Their work paired beautiful homes and stunning views with
+                  uncompromising structural integrity — and every building they
+                  designed and built has withstood the annual Atlantic hurricane
+                  season, including Irma and Maria in 2017.
+                </p>
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
+                  Through KRM Designs, Krishna works with local architecture
+                  firms, arts and cultural institutions, non-profits, and
+                  residential and commercial developers, providing outsourcing
+                  support to architecture, interior design, and engineering
+                  practices across the United States.
+                </p>
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                  He has worked in Revit since 2007 and spent more than six
+                  years as a Project Manager on large-scale healthcare,
+                  aviation, stadium, and high-end mixed-use high-rise projects.
+                  Krishna and Weber Gouin have worked together on projects for
+                  more than a decade.
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Revit since 2007",
+                    "BIM Project Management",
+                    "Healthcare",
+                    "Aviation",
+                    "Stadiums",
+                    "High-Rise Mixed-Use",
+                    "Design + Build",
+                  ].map((skill) => (
+                    <Badge key={skill} variant="outline" className="text-sm">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Technical Architecture */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
