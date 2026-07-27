@@ -87,7 +87,7 @@ const plans = [
 const faqs = [
   {
     question: "What is RevitMCPBridge?",
-    answer: "RevitMCPBridge is our open-source tool that connects AI assistants to Revit via named pipes. It's the foundation of our automation services and enables AI-powered BIM workflows."
+    answer: "RevitMCPBridge is our tool that connects AI assistants to Revit via named pipes. It's the foundation of our automation services and enables AI-powered BIM workflows."
   },
   {
     question: "How long does implementation take?",
@@ -122,7 +122,7 @@ export function PricingTeaser() {
             AI-Powered BIM. <span className="text-electric-blue">Real Results.</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            From free open-source tools to full enterprise implementations.
+            From free tools to full enterprise implementations.
             <span className="text-electric-blue font-semibold"> Choose what fits your team.</span>
           </p>
         </motion.div>

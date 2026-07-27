@@ -17,7 +17,7 @@ const features = [
   "Automated sheet and view creation",
   "CD production workflow automation",
   "Custom scripts for your firm's processes",
-  "Open-source RevitMCPBridge core",
+  "Purpose-built RevitMCPBridge core",
   "Built with the Revit API for reliability"
 ];
 

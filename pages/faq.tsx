@@ -25,7 +25,7 @@ const faqs = [
   {
     category: "Getting Started",
     question: "What is RevitMCPBridge?",
-    answer: "RevitMCPBridge is our open-source tool that connects AI assistants directly to Autodesk Revit via named pipes. It enables AI-powered BIM automation -- creating walls, rooms, sheets, views, and more through natural language commands. It's the foundation of our implementation services."
+    answer: "RevitMCPBridge is our tool that connects AI assistants directly to Autodesk Revit via named pipes. It enables AI-powered BIM automation -- creating walls, rooms, sheets, views, and more through natural language commands. It's the foundation of our implementation services."
   },
   {
     category: "Getting Started",

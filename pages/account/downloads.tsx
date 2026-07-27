@@ -11,7 +11,7 @@ const products = [
     name: 'RevitMCPBridge',
     version: '1.0.0',
     size: '~5 MB',
-    description: 'AI-to-Revit automation bridge via named pipes (open source)',
+    description: 'AI-to-Revit automation bridge via named pipes',
     requiresSub: false,
   },
   {

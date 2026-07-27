@@ -29,7 +29,7 @@ const communityStats = [
 const communityChannels = [
   {
     name: "GitHub Discussions",
-    description: "Technical discussions, feature requests, and open-source contributions.",
+    description: "Technical discussions, feature requests, and product feedback.",
     icon: Github,
     link: "https://github.com/bimopsstudio/discussions",
     members: "450+ developers",

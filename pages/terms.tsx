@@ -34,11 +34,12 @@ export default function Terms() {
                 Service terms are defined in individual engagement agreements.
               </p>
 
-              <h2 className="text-2xl font-semibold mt-8 mb-4">3. Open Source Software</h2>
+              <h2 className="text-2xl font-semibold mt-8 mb-4">3. Software Licensing</h2>
               <p className="mb-4">
-                RevitMCPBridge is distributed under the MIT license. Custom implementations and
-                automation scripts developed during engagements are governed by the terms of your
-                service agreement.
+                RevitMCPBridge and all BIM Ops Studio software are proprietary and licensed, not
+                sold. Use is governed by the license terms accompanying each product. Custom
+                implementations and automation scripts developed during engagements are governed
+                by the terms of your service agreement.
               </p>
 
               <h2 className="text-2xl font-semibold mt-8 mb-4">4. Supported Versions</h2>

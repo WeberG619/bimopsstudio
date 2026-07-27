@@ -31,7 +31,7 @@ export default function Projects() {
   return (
     <Layout
       title="Projects & Portfolio | BIM Ops Studio"
-      description="Open-source tools, production Revit add-ins, and AI infrastructure for the AEC industry. RevitMCPBridge, Cadre AI, RIACCA, and ReviTask."
+      description="Production Revit add-ins and AI infrastructure for the AEC industry. RevitMCPBridge, Cadre AI, RIACCA, and ReviTask."
     >
       {/* Hero */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-slate-950 via-slate-900 to-sky-950">
@@ -45,7 +45,7 @@ export default function Projects() {
               Projects &amp; Portfolio
             </h1>
             <p className="text-slate-300 text-lg max-w-3xl">
-              Open-source tools, production Revit add-ins, and AI infrastructure for the AEC industry.
+              Production Revit add-ins and AI infrastructure for the AEC industry.
             </p>
           </motion.div>
         </div>
@@ -65,12 +65,12 @@ export default function Projects() {
             <div className="flex items-start justify-between flex-wrap gap-4 mb-4">
               <div>
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/20 text-sky-300 mb-3 tracking-wide uppercase">
-                  Flagship &bull; Open Source
+                  Flagship &bull; Production
                 </span>
                 <h2 className="font-heading text-2xl md:text-3xl font-bold text-white">
                   RevitMCPBridge
                 </h2>
-                <p className="mt-1 text-slate-400">The first open-source AI-to-Revit bridge</p>
+                <p className="mt-1 text-slate-400">The first native AI-to-Revit bridge</p>
               </div>
               <a
                 href="https://github.com/WeberG619/RevitMCPBridge2026"
@@ -135,7 +135,7 @@ export default function Projects() {
             <div className="flex items-start justify-between flex-wrap gap-4 mb-4">
               <div>
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 mb-3 tracking-wide uppercase">
-                  AI Infrastructure &bull; Open Source
+                  AI Infrastructure &bull; Production
                 </span>
                 <h2 className="font-heading text-2xl font-bold text-white">Cadre AI</h2>
                 <p className="mt-1 text-slate-400">Agent framework with persistent memory</p>

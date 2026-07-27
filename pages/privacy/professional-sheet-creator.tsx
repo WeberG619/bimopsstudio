@@ -48,7 +48,7 @@ export default function ServicesPrivacyAddendum() {
 
               <h2 className="text-2xl font-semibold mt-8 mb-4">2. RevitMCPBridge</h2>
               <p className="mb-4">
-                RevitMCPBridge is open-source software that communicates with Revit via local named pipes.
+                RevitMCPBridge communicates with Revit via local named pipes.
                 It does not transmit data over the internet and does not collect analytics or telemetry.
               </p>
 

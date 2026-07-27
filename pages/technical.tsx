@@ -44,7 +44,7 @@ export default function Technical() {
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 mr-2 text-green-500 mt-0.5" />
-                    <span>Open-source core with enterprise implementation support</span>
+                    <span>Purpose-built core with enterprise implementation support</span>
                   </li>
                 </ul>
               </CardContent>

@@ -170,9 +170,9 @@ export default function ProductsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h2 className="text-2xl font-bold mb-4">Open Source Tools</h2>
+            <h2 className="text-2xl font-bold mb-4">Free Tools</h2>
             <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-              RevitMCPBridge is open source. Try our View Preview tool for free -- toggle between
+              Try our View Preview tool for free -- toggle between
               Revit views instantly with a single click.
             </p>
             <Link href="/free-tools">

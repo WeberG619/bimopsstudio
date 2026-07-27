@@ -19,7 +19,7 @@ const botResponses = {
     "Hey there! I'm your BIM automation assistant. What can I help you with?"
   ],
   products: [
-    "We offer AI-powered BIM automation services built on RevitMCPBridge, our open-source tool that connects AI to Revit. We handle implementation, custom automation, CD production workflows, and team training. We also have a free View Preview tool.",
+    "We offer AI-powered BIM automation services built on RevitMCPBridge, our tool that connects AI to Revit. We handle implementation, custom automation, CD production workflows, and team training. We also have a free View Preview tool.",
     "Our core offering is AI-powered BIM implementation -- we set up RevitMCPBridge for your team, build custom automation scripts, and train your staff. It saves 95% of time on repetitive Revit tasks."
   ],
   pricing: [
