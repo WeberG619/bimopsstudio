@@ -313,7 +313,7 @@ export default function About() {
                   practices across the United States.
                 </p>
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                  He has worked in Revit since 2007 and spent more than six
+                  He has worked in Revit since 2007 and spent more than ten
                   years as a Project Manager on large-scale healthcare,
                   aviation, stadium, and high-end mixed-use high-rise projects.
                   Krishna and Weber Gouin have worked together on projects for
