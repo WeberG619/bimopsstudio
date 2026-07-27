@@ -419,7 +419,7 @@ export default function Home() {
             </h2>
             <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
             <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              A production-tested pipeline connecting Revit to intelligent automation through open-source infrastructure
+              A production-tested pipeline connecting Revit to intelligent automation through purpose-built infrastructure
             </p>
           </motion.div>
 
@@ -623,7 +623,7 @@ export default function Home() {
                     icon: GitBranch,
                     title: "RevitMCPBridge",
                     description:
-                      "Open-source bridge connecting Revit to intelligent automation via named pipes. Production-tested, community-driven.",
+                      "Purpose-built bridge connecting Revit to intelligent automation via named pipes. Production-tested on live projects.",
                   },
                   {
                     icon: Layers,

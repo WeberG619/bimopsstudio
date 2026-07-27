@@ -170,7 +170,7 @@ export default function AIServices() {
                   layer: "Layer 2",
                   name: "RevitMCPBridge",
                   detail:
-                    "Named pipe connection — not HTTP, zero latency. Open source on GitHub.",
+                    "Named pipe connection — not HTTP, zero latency. Built and maintained in-house.",
                   color: "bg-purple-600",
                   icon: Zap,
                   width: "w-[94%]",

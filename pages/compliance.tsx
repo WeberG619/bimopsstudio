@@ -32,7 +32,7 @@ const complianceItems = [
     title: "Software & Services Licensing",
     description: "Clear, transparent licensing and service agreements designed for professional environments.",
     details: [
-      "Open-source RevitMCPBridge (MIT license)",
+      "Proprietary RevitMCPBridge licensing",
       "Custom implementation agreements",
       "Transparent service pricing",
       "Email and ongoing support options"
@@ -280,9 +280,9 @@ export default function Compliance() {
                   flex items-center justify-center">
                   <Users className="w-6 h-6 text-blue-400" />
                 </div>
-                <h3 className="font-heading text-xl font-bold mb-2">Open Source Core</h3>
+                <h3 className="font-heading text-xl font-bold mb-2">Purpose-Built Core</h3>
                 <p className="text-blue-100">
-                  RevitMCPBridge is open-source under MIT license. Implementation services priced transparently.
+                  RevitMCPBridge is developed and maintained in-house. Implementation services priced transparently.
                 </p>
               </div>
 
