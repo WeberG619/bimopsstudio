@@ -78,7 +78,7 @@ const milestones = [
     year: "2025",
     title: "RevitMCPBridge Launch",
     description:
-      "Released RevitMCPBridge as open source — the first named-pipe bridge connecting AI directly to Revit.",
+      "Launched RevitMCPBridge — the first named-pipe bridge connecting AI directly to Revit.",
   },
   {
     year: "2026",
@@ -174,7 +174,7 @@ export default function About() {
                   So I learned to code and built the tools myself.
                   RevitMCPBridge is the first system that lets AI control Revit
                   directly through named pipes — no HTTP servers, no
-                  workarounds. It&apos;s open source, and it works.
+                  workarounds. It works.
                 </p>
 
                 <div className="flex items-center gap-4 mb-8">
@@ -287,6 +287,12 @@ export default function About() {
                   <p className="text-sm italic text-gray-500 dark:text-gray-400">
                     Principal, KRM Designs
                   </p>
+                  <a
+                    href="mailto:krishna@bimopsstudio.com"
+                    className="mt-2 inline-block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors"
+                  >
+                    krishna@bimopsstudio.com
+                  </a>
                 </div>
 
                 <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
