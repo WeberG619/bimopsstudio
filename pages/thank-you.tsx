@@ -126,7 +126,7 @@ export default function ThankYou() {
                   Back to Homepage
                 </Button>
               </Link>
-              <Link href="/products">
+              <Link href="/services/">
                 <Button size="lg">
                   Explore All Products
                   <ArrowRight className="ml-2 w-5 h-5" />

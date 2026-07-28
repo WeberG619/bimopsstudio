@@ -254,7 +254,7 @@ export function FlagshipTools() {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Link href="/products">
+            <Link href="/services/">
               <Button variant="outline" size="lg">
                 View All Tools
               </Button>

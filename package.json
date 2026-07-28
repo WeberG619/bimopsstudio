@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "dev:8000": "next dev -p 8000",
+    "prebuild": "node scripts/gen-sitemap.mjs",
     "build": "next build",
+    "sitemap": "node scripts/gen-sitemap.mjs",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit"
