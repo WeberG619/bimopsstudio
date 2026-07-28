@@ -1,4 +1,5 @@
-import { Layout } from "@/components/layout/Layout";
+import { Layout, SITE_URL } from "@/components/layout/Layout";
+import Head from "next/head";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -173,7 +174,32 @@ export default function AiRenderings() {
     <Layout
       title="AI-Generated Renderings | Modern Exterior Design Concepts | BIM Ops Studio"
       description="A growing gallery of modern exterior design concepts for South Florida — single-family homes and mixed-use mid- and high-rise buildings — each modeled 100% in Revit and rendered 100% with AI on BIM Ops Studio's own automation system."
+      ogImage={designs[0]?.cover}
     >
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ImageGallery",
+              name: "AI-Generated Architectural Renderings",
+              description:
+                "Modern exterior design concepts for South Florida — each modeled in Revit and rendered with AI by BIM Ops Studio.",
+              url: `${SITE_URL}/ai-renderings/`,
+              author: { "@type": "Organization", name: "BIM Ops Studio", url: `${SITE_URL}/` },
+              image: designs.map((d) => ({
+                "@type": "ImageObject",
+                name: `${d.name} — AI-rendered ${cat(d).toLowerCase()} concept`,
+                caption: d.parti,
+                contentUrl: `${SITE_URL}${d.cover}`,
+                creditText: "BIM Ops Studio",
+                creator: { "@type": "Organization", name: "BIM Ops Studio" },
+              })),
+            }),
+          }}
+        />
+      </Head>
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
