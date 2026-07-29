@@ -2,30 +2,21 @@ import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
-  // Trailing slashes matter — next.config.js sets trailingSlash: true, so a
-  // link without one costs an extra 301 on every crawl.
   const footerLinks = [
-    {
-      title: "What We Do",
-      links: [
-        { href: "/services/", label: "Services" },
-        { href: "/ai-renderings/", label: "AI Renderings" },
-        { href: "/3d-mapping/", label: "3D Site Massing" },
-        { href: "/compliance/", label: "Code Compliance" },
-        { href: "/projects/", label: "Projects" },
-        { href: "/studio-copilot/", label: "How We Work" },
-      ],
-    },
     {
       title: "Company",
       links: [
-        { href: "/about/", label: "About" },
-        { href: "/pricing/", label: "Pricing" },
-        { href: "/free-tools/", label: "Free Tools" },
-        { href: "/faq/", label: "FAQ" },
-        { href: "/contact/", label: "Contact" },
-        { href: "/privacy/", label: "Privacy" },
-        { href: "/terms/", label: "Terms" },
+        { href: "/services", label: "Services" },
+        { href: "/ai-services", label: "How It Works" },
+        { href: "/about", label: "About" },
+        { href: "/contact", label: "Contact" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { href: "/privacy", label: "Privacy Policy" },
+        { href: "/terms", label: "Terms of Service" },
       ],
     },
   ];
@@ -109,13 +100,13 @@ export function Footer() {
               &copy; {new Date().getFullYear()} BIM Ops Studio. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-gray-500 dark:text-gray-400">
-              <Link href="/privacy/" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              <Link href="/privacy" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms/" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              <Link href="/terms" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/contact/" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              <Link href="/contact" className="hover:text-gray-900 dark:hover:text-white transition-colors">
                 Contact
               </Link>
             </div>
