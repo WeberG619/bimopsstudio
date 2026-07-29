@@ -67,43 +67,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.bimopsstudio.com/compliance/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.bimopsstudio.com/free-tools/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.bimopsstudio.com/blog/</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.bimopsstudio.com/community/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.bimopsstudio.com/download/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.bimopsstudio.com/faq/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.bimopsstudio.com/get-started/</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -140,12 +110,6 @@
   </url>
   <url>
     <loc>https://www.bimopsstudio.com/resources/sheet-creation-best-practices/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.bimopsstudio.com/technical-specs/</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
