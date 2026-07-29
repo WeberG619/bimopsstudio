@@ -5,6 +5,7 @@ export default function Document() {
     <Html lang="en" className="dark">
       <Head>
         {/* Primary Meta Tags */}
+        <meta name="google-site-verification" content="JxvFt8wsL_7jr3B5DvLYlPE4KdzVA6u8ic4cIXfYQgA" />
         <meta name="keywords" content="Revit Pro Tools, Revit automation, BIM automation, construction documentation, sheet generation, Revit API, Revit add-in, BIM Ops Studio" />
         <meta name="author" content="BIM Ops Studio" />
         
