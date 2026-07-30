@@ -70,7 +70,19 @@ export default function Terms() {
                 is developed in accordance with ADN guidelines and best practices.
               </p>
 
-              <h2 className="text-2xl font-semibold mt-8 mb-4">8. Contact Information</h2>
+              <h2 className="text-2xl font-semibold mt-8 mb-4">8. Image and Rendering Licensing</h2>
+              <p className="mb-4">
+                All architectural renderings, images, and visual content published on this website are
+                the copyrighted property of BIM Ops Studio, © 2026, all rights reserved. They may not
+                be reproduced, redistributed, or used commercially without prior written permission.
+              </p>
+              <p className="mb-4">
+                Licensed use is available. To request rights for a specific image, contact us at{" "}
+                <a href="/contact/" className="underline">bimopsstudio.com/contact</a> or
+                info@bimopsstudio.com, and include the image and your intended use.
+              </p>
+
+              <h2 className="text-2xl font-semibold mt-8 mb-4">9. Contact Information</h2>
               <p className="mb-4">
                 Questions about the Terms of Service should be sent to us at info@bimopsstudio.com
               </p>

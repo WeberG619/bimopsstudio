@@ -195,6 +195,9 @@ export default function AiRenderings() {
                 contentUrl: `${SITE_URL}${d.cover}`,
                 creditText: "BIM Ops Studio",
                 creator: { "@type": "Organization", name: "BIM Ops Studio" },
+                copyrightNotice: "© 2026 BIM Ops Studio",
+                license: `${SITE_URL}/terms/`,
+                acquireLicensePage: `${SITE_URL}/contact/`,
               })),
             }),
           }}
