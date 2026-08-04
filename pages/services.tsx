@@ -117,7 +117,7 @@ const services = [
     ]
   },
   {
-    name: "Team Training & Certification",
+    name: "Team Training",
     description: "Comprehensive training program to maximize your team's productivity with Revit Pro Tools and documentation automation.",
     icon: GraduationCap,
     gradient: "from-orange-500 to-red-400",
@@ -128,8 +128,7 @@ const services = [
       "Real project exercises",
       "Best practices training",
       "Troubleshooting techniques",
-      "Advanced features deep-dive",
-      "Certification program"
+      "Advanced features deep-dive"
     ],
     deliverables: [
       "Training workbooks",
@@ -154,7 +153,7 @@ const services = [
       "Quarterly business reviews"
     ],
     deliverables: [
-      "24/7 support access",
+      "Priority direct support access",
       "Monthly reports",
       "Performance analytics",
       "Optimization recommendations"
@@ -186,10 +185,10 @@ const processSteps = [
 ];
 
 const stats = [
-  { value: "500+", label: "Projects Automated" },
-  { value: "80%", label: "Time Savings" },
-  { value: "99.9%", label: "Accuracy Rate" },
-  { value: "24/7", label: "Support Available" }
+  { value: "75%", label: "Faster CD Production" },
+  { value: "15+", label: "Years in AEC" },
+  { value: "2-4 wk", label: "Typical Implementation" },
+  { value: "ADN", label: "Autodesk Developer Network Member" }
 ];
 
 export default function ServicesConstructionDocs() {
@@ -228,8 +227,8 @@ export default function ServicesConstructionDocs() {
             </h1>
             
             <p className="text-xl text-blue-100 mb-8">
-              From implementation to optimization, our expert team helps you achieve 
-              80% time savings with Revit Pro Tools automation.
+              From implementation to optimization, we help firms cut construction
+              document production time by up to 75%.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -442,7 +441,7 @@ export default function ServicesConstructionDocs() {
                   <div>
                     <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Industry Expertise</h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Over 10 years of experience in construction documentation and BIM workflows
+                      15+ years of experience in construction documentation and BIM workflows
                     </p>
                   </div>
                 </div>
@@ -452,9 +451,9 @@ export default function ServicesConstructionDocs() {
                     <Shield className="w-6 h-6 text-lime-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Proven Results</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Production Tested</h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      500+ successful implementations with measurable ROI within 30 days
+                      Not a prototype — this system produces real construction documents on real projects
                     </p>
                   </div>
                 </div>
@@ -466,9 +465,9 @@ export default function ServicesConstructionDocs() {
                     <Users className="w-6 h-6 text-lime-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Dedicated Support</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Direct Access</h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Expert team available 24/7 to ensure your success
+                      You work directly with the person who built the system — no support tier to climb
                     </p>
                   </div>
                 </div>

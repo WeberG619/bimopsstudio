@@ -425,7 +425,7 @@ export default function DynamoForBIMManagers() {
               Ready to Automate Your BIM Workflows?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Start your Dynamo journey today and join thousands of BIM professionals 
+              Start your Dynamo journey today and join the BIM professionals
               who have transformed their productivity.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
