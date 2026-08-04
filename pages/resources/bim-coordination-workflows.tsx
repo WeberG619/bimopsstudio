@@ -340,7 +340,7 @@ export default function BIMCoordinationWorkflows() {
         </div>
       </section>
 
-      {/* Case Study */}
+      {/* Coordination capability */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -356,34 +356,36 @@ export default function BIMCoordinationWorkflows() {
                     <AlertCircle className="w-8 h-8 text-electric-blue mr-4 flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                        Case Study: 40-Story Mixed-Use Tower
+                        Structured Coordination Workflows
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300">
-                        How structured coordination workflows reduced RFIs by 60% and eliminated 
-                        construction delays on a complex urban development project.
+                        Clash detection, issue tracking, and model federation run on a defined
+                        cadence &mdash; so conflicts surface in the model instead of in the field.
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-3 gap-6 mb-6">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-electric-blue mb-1">2,400</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">Clashes Resolved</div>
+                    <div>
+                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Federated review</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400">Models combined and reviewed on a fixed cycle</div>
                     </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-electric-blue mb-1">60%</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">RFI Reduction</div>
+                    <div>
+                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Triaged clashes</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400">Results assigned to a responsible party, not just exported</div>
                     </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-electric-blue mb-1">0</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">Schedule Delays</div>
+                    <div>
+                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Tracked to closure</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400">Every issue carries an audit trail from open to resolved</div>
                     </div>
                   </div>
-                  
-                  <Button className="w-full md:w-auto">
-                    Read Full Case Study
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
+
+                  <Link href="/contact">
+                    <Button className="w-full md:w-auto">
+                      Talk through your coordination workflow
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             </motion.div>

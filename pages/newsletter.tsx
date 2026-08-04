@@ -73,27 +73,6 @@ const pastNewsletters = [
   }
 ];
 
-const testimonials = [
-  {
-    quote: "The BIM Ops newsletter is my go-to resource for staying current. The tips have saved me countless hours.",
-    author: "Sarah Mitchell",
-    role: "BIM Manager",
-    company: "HOK"
-  },
-  {
-    quote: "I love the practical, actionable content. Every issue has something I can implement immediately.",
-    author: "Carlos Rodriguez",
-    role: "Senior Architect",
-    company: "Gensler"
-  },
-  {
-    quote: "The case studies and real-world examples are invaluable. It's like having a mentor in my inbox.",
-    author: "Emily Chen",
-    role: "BIM Coordinator",
-    company: "AECOM"
-  }
-];
-
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [frequency, setFrequency] = useState("weekly");
@@ -380,59 +359,6 @@ export default function Newsletter() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              What Subscribers Say
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Join thousands of BIM professionals who rely on our newsletter for insights.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.author}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full dark:bg-gray-700">
-                  <CardContent className="p-6">
-                    <div className="flex items-center mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Sparkles key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 italic">
-                      "{testimonial.quote}"
-                    </p>
-                    <div>
-                      <div className="font-semibold text-gray-900 dark:text-white">
-                        {testimonial.author}
-                      </div>
-                      <div className="text-sm text-gray-600 dark:text-gray-400">
-                        {testimonial.role}, {testimonial.company}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
@@ -446,7 +372,7 @@ export default function Newsletter() {
               Don't Miss Out on BIM Innovation
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join 5,000+ BIM professionals getting weekly insights and resources. 
+              Get practical BIM automation insights in your inbox.
               Subscribe now and transform your workflow.
             </p>
             <Button 

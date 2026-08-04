@@ -20,7 +20,7 @@ const botResponses = {
   ],
   products: [
     "We offer AI-powered BIM automation services built on RevitMCPBridge, our tool that connects AI to Revit. We handle implementation, custom automation, CD production workflows, and team training. We also have a free View Preview tool.",
-    "Our core offering is AI-powered BIM implementation -- we set up RevitMCPBridge for your team, build custom automation scripts, and train your staff. It saves 95% of time on repetitive Revit tasks."
+    "Our core offering is AI-powered BIM implementation -- we set up RevitMCPBridge for your team, build custom automation scripts, and train your staff. It cuts construction document production time by up to 75%."
   ],
   pricing: [
     "Our implementation packages start at $5,000 and include RevitMCPBridge setup, custom automation scripts, team training, and 30 days of post-launch support. Contact us for a custom quote!",
