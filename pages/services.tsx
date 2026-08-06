@@ -10,7 +10,6 @@ import {
   Wrench,
   GraduationCap,
   Headphones,
-  Cloud,
   ArrowRight,
   CheckCircle,
   Star,
@@ -92,28 +91,6 @@ const services = [
       "Source code (optional)",
       "API documentation",
       "12-month support"
-    ]
-  },
-  {
-    name: "Enterprise Integration Services",
-    description: "Connect Revit Pro Tools with your enterprise systems including BIM 360, PIM systems, and project management platforms.",
-    icon: Cloud,
-    gradient: "from-indigo-500 to-blue-400",
-    price: "Starting at $12,000",
-    duration: "3-6 weeks",
-    features: [
-      "BIM 360/ACC integration",
-      "Database connectivity setup",
-      "ERP system integration",
-      "Custom data workflows",
-      "Automated reporting pipelines",
-      "Real-time synchronization"
-    ],
-    deliverables: [
-      "Integration architecture",
-      "Connection modules",
-      "Data mapping documentation",
-      "Monitoring dashboard"
     ]
   },
   {
