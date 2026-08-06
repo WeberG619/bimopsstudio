@@ -186,9 +186,9 @@ export default function AIServices() {
                 },
                 {
                   layer: "Layer 4",
-                  name: "MCP Servers (17+)",
+                  name: "MCP Servers (12)",
                   detail:
-                    "Excel, Bluebeam, browser, file system, database — all connected.",
+                    "Bluebeam, AutoCAD, browser automation, rendering, voice — all connected.",
                   color: "bg-indigo-600",
                   icon: ExternalLink,
                   width: "w-[82%]",
@@ -279,7 +279,7 @@ export default function AIServices() {
                 title: "Produces Construction Details",
                 input: "Detail requirements from plans and specifications",
                 output:
-                  "Selects from 498+ cataloged details and places them at the correct locations",
+                  "Selects from a library of 115 cataloged details and places them at the correct locations",
               },
             ].map((item, index) => (
               <motion.div
