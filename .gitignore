@@ -78,3 +78,67 @@ Autodesk_backup_code.txt
 .env
 .env.local
 .claude/
+
+# ── PII / government identifiers — added 2026-08-10 ──────────────────────
+# Found untracked AND unignored in this public repo's working tree. The SS-4
+# has box 7b (SSN) populated; the call card carries legal name, home address
+# and phone. Nothing here may ever be committed.
+SS4*.pdf
+add_ssn.py
+EIN_Call_Card.md
+*SSN*
+*ssn*
+*_EIN*
+*W-9*
+*w9*
+
+# Vendor / partner agreements and account docs (Autodesk ADN, etc.)
+ADN/
+*ADN*
+*Autodesk*.pdf
+*Autodesk*.docx
+0103-0621-EN-*.pdf
+
+# ── Product-era marketing with fabricated metrics — untracked 2026-08-10 ──
+# These sold RapidSheetStarter / SmartTaggerPro, products no longer offered,
+# and carried invented numbers (99.2% of code violations, 99.9% accuracy,
+# 37x return, a fabricated customer quote, a 99.9% uptime SLA we cannot
+# honor). Nothing in the site read them. Kept on disk, never republished.
+Website_Content/
+Pitch_Decks/
+Presentation/
+
+# Internal ops notes — analytics setup, launch checklists, video scripts.
+# No reason for these to be world-readable.
+ANALYTICS_DASHBOARD_SETUP.md
+ANALYTICS_SETUP.md
+BIMMEMORY_LAUNCH_COMPLETE.md
+CREATE-VIDEO-NOW.md
+FORM_SETUP_INSTRUCTIONS.md
+GA_CONVERSION_GOALS_SETUP.md
+GOOGLE_FORM_TRACKING_SETUP.md
+LAUNCH_READINESS_AUDIT.md
+LAUNCH_READY_CHECKLIST.md
+WEBSITE_REVIEW_COMPLETE.md
+COMPREHENSIVE_WEBSITE_REVIEW.md
+SITE_VERIFICATION_RESULTS.md
+DEPLOYMENT_VERIFIED.md
+commercial_launch_playbook.md
+demo-video-script.md
+quick-video-creation-guide.md
+reply.md
+social-media-content.md
+video-production-guide.md
+video-storyboard.md
+
+# Client-facing work product and brand assets — not site content
+Proposals/
+Projects/
+Brand_Pack/
+YouTube_Branding/
+3d-mapping/
+Products/
+Conductor/
+Jarvis_Overnight/
+AI_Video_Creator/
+*.docx
