@@ -74,7 +74,7 @@ export default function AIServices() {
   return (
     <Layout
       title="AI-Powered BIM Automation | BIM Ops Studio"
-      description="Production AI that controls Revit through named pipes. 75% faster CD production, 89 hours saved monthly, 29x ROI. See the system that automates construction document production."
+      description="Production AI that controls Revit through named pipes. 75% faster CD production. See the system that automates construction document production."
     >
       {/* ── Hero ── */}
       <section className="relative pt-40 pb-32 text-white overflow-hidden">

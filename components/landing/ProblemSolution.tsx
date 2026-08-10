@@ -46,13 +46,13 @@ const solutions = [
     icon: Zap,
     title: "One-Click Automation",
     description: "Generate entire sheet sets, views, and project structures in seconds, not hours",
-    impact: "80% faster project setup"
+    impact: "Setup in seconds, not hours"
   },
   {
     icon: Shield,
     title: "Error-Free Consistency",
     description: "AI ensures perfect naming conventions, complete parameters, and standard compliance",
-    impact: "95% reduction in errors"
+    impact: "Standards enforced on every sheet"
   },
   {
     icon: TrendingUp,
