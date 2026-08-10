@@ -25,115 +25,120 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
+// We are a production studio, not a software vendor. Every entry below is work
+// we do FOR the client and hand back as a finished file — nothing here asks
+// them to install, license, or learn a tool. Pricing is quoted per project
+// because scope varies far too much to publish a number we'd have to honour.
 const services = [
   {
-    name: "Revit Pro Tools Implementation",
-    description: "Full deployment and configuration of Revit Pro Tools for your organization. We handle everything from installation to team training.",
-    icon: Settings,
+    name: "DWG → Revit Conversion",
+    description: "Send us your CAD backgrounds and we build the Revit model. Walls, doors, windows, levels and grids, drawn to your standards — not traced approximations.",
+    icon: Layers,
     gradient: "from-blue-500 to-cyan-400",
-    price: "Starting at $5,000",
-    duration: "1-2 weeks",
+    price: "Quoted per project",
+    duration: "Scoped by sheet count",
     features: [
-      "Multi-seat deployment & licensing",
-      "Custom template configuration",
-      "Sheet numbering system setup",
-      "View placement rules definition",
-      "Quality control parameters",
-      "Export automation configuration"
+      "Walls built as continuous centrelines",
+      "Doors and windows placed from the CAD blocks",
+      "Levels and grids matched to your set",
+      "Curves modelled as true arcs, not segments",
+      "Your templates, families and naming",
+      "Dimensions to core finish"
     ],
     deliverables: [
-      "Fully configured Revit Pro Tools",
-      "Custom templates library",
-      "Admin documentation",
-      "Training videos & materials"
+      "Native .rvt model",
+      "Floor plans ready for documentation",
+      "Model matched to your project standards",
+      "Source CAD retained as a linked underlay"
     ],
     popular: true
   },
   {
-    name: "Construction Documentation Automation",
-    description: "Transform your entire documentation workflow with custom automation strategies designed for your specific project types.",
+    name: "PDF → Revit Conversion",
+    description: "Only have PDFs or scans? We scale the sheets, read the geometry and build the model from them — including older drawings where no CAD file exists.",
     icon: FileText,
     gradient: "from-purple-500 to-pink-400",
-    price: "Starting at $8,000",
-    duration: "2-4 weeks",
+    price: "Quoted per project",
+    duration: "Scoped by sheet count",
     features: [
-      "Current workflow assessment",
-      "Automation opportunity analysis",
-      "Custom sheet generation templates",
-      "View standardization protocols",
-      "Batch export configurations",
-      "Integration with existing tools"
+      "Sheets scaled from known dimensions",
+      "Geometry extracted, not hand-traced",
+      "Scanned and photographed drawings handled",
+      "Dimensions read from the drawing, never guessed",
+      "Underlay aligned per sheet",
+      "Discrepancies flagged back to you"
     ],
     deliverables: [
-      "Workflow automation blueprint",
-      "Custom Revit Pro Tools scripts",
-      "Process documentation",
-      "ROI analysis report"
+      "Native .rvt model",
+      "Underlays aligned to the model",
+      "A written list of anything ambiguous in the source",
+      "Floor plans ready for documentation"
     ]
   },
   {
-    name: "Custom API Development",
-    description: "Extend Revit Pro Tools with custom functionality tailored to your unique requirements using the Revit API.",
-    icon: Code2,
+    name: "Construction Document Production",
+    description: "Overflow CD capacity. We pick up the sheet set — plans, elevations, sections, schedules — and produce it in your template, at your standards.",
+    icon: Wrench,
     gradient: "from-green-500 to-emerald-400",
-    price: "Starting at $15,000",
-    duration: "4-8 weeks",
+    price: "Quoted per project",
+    duration: "Scoped by phase",
     features: [
-      "Custom Revit API commands",
-      "Integration with external systems",
-      "Specialized batch processors",
-      "Custom quality control rules",
-      "Proprietary workflow automation",
-      "API documentation & support"
+      "Sheet sets built and numbered to your standard",
+      "Plans, elevations, sections and callouts",
+      "Door, window and room finish schedules",
+      "Dimension strings and annotation",
+      "Titleblock and revision handling",
+      "Issued as a coordinated PDF set"
     ],
     deliverables: [
-      "Custom add-in modules",
-      "Source code (optional)",
-      "API documentation",
-      "12-month support"
+      "Complete sheet set in your template",
+      "Coordinated PDF issue",
+      "Native .rvt returned to you",
+      "Schedules exported on request"
     ]
   },
   {
-    name: "Team Training",
-    description: "Comprehensive training program to maximize your team's productivity with Revit Pro Tools and documentation automation.",
-    icon: GraduationCap,
+    name: "Photoreal Renderings",
+    description: "Renderings produced from your actual model, with real site context — the surrounding buildings, streets and terrain, not a generic backdrop.",
+    icon: Zap,
     gradient: "from-orange-500 to-red-400",
-    price: "$2,500 per session",
-    duration: "2-3 days",
+    price: "Quoted per project",
+    duration: "Scoped by view count",
     features: [
-      "Hands-on workshop sessions",
-      "Real project exercises",
-      "Best practices training",
-      "Troubleshooting techniques",
-      "Advanced features deep-dive"
+      "Rendered from your Revit geometry",
+      "Real surveyed and GIS site context",
+      "Camera matched to a real photograph where needed",
+      "Exterior, interior and aerial views",
+      "Material and lighting options per view",
+      "Revisions until the direction is right"
     ],
     deliverables: [
-      "Training workbooks",
-      "Video recordings",
-      "Quick reference guides",
-      "Completion certificates"
+      "High-resolution images, print ready",
+      "Multiple view options per scene",
+      "Files sized for email or shared as a link",
+      "Source view saved back into the model"
     ]
   },
   {
-    name: "Ongoing Support & Optimization",
-    description: "Continuous support and optimization services to ensure peak performance and adapt to evolving project needs.",
-    icon: Headphones,
+    name: "3D Site Massing & Context",
+    description: "Accurate site models built from survey, GIS and aerial data — real parcel boundaries, real building heights, real terrain. Useful for feasibility, planning and approvals.",
+    icon: Building,
     gradient: "from-teal-500 to-green-400",
-    price: "$2,000/month",
-    duration: "Ongoing",
+    price: "Quoted per project",
+    duration: "Scoped by site area",
     features: [
-      "Priority technical support",
-      "Monthly optimization reviews",
-      "Workflow refinement",
-      "Performance monitoring",
-      "Update management",
-      "Quarterly business reviews"
+      "Parcel boundaries from the record survey",
+      "Surrounding buildings at measured heights",
+      "Street edges, centrelines and water bodies",
+      "Terrain and grade modelled, not approximated",
+      "Aerial imagery calibrated to real-world scale",
+      "Your massing placed in true orientation"
     ],
     deliverables: [
-      "Priority direct support access",
-      "Monthly reports",
-      "Performance analytics",
-      "Optimization recommendations"
+      "Native .rvt site model",
+      "Context massing you can build on top of",
+      "Site plan views set up",
+      "Aerial and orientation views"
     ]
   }
 ];
@@ -141,38 +146,38 @@ const services = [
 const processSteps = [
   {
     number: "01",
-    title: "Discovery & Assessment",
-    description: "We analyze your current documentation workflows and identify automation opportunities"
+    title: "Send Us the Drawings",
+    description: "CAD, PDF or scans — whatever you have. We tell you straight away what is workable and what is missing"
   },
   {
     number: "02",
-    title: "Strategy Development",
-    description: "Create a customized automation strategy aligned with your project requirements"
+    title: "Scope & Quote",
+    description: "We scope the work against your actual set and quote it as a fixed project price before anything starts"
   },
   {
     number: "03",
-    title: "Implementation",
-    description: "Deploy and configure Revit Pro Tools with your custom settings and templates"
+    title: "We Build It",
+    description: "The modelling and documentation happens on our side, in your template and to your standards"
   },
   {
     number: "04",
-    title: "Training & Launch",
-    description: "Train your team and launch the automated workflow with ongoing support"
+    title: "Review & Revise",
+    description: "You mark it up, we revise, and the native Revit file comes back to you when you are happy with it"
   }
 ];
 
 const stats = [
   { value: "75%", label: "Faster CD Production" },
   { value: "15+", label: "Years in AEC" },
-  { value: "2-4 wk", label: "Typical Implementation" },
+  { value: "2025/26", label: "Revit Versions Supported" },
   { value: "ADN", label: "Autodesk Developer Network Member" }
 ];
 
 export default function ServicesConstructionDocs() {
   return (
     <Layout
-      title="Construction Documentation Automation Services - Revit Pro Tools"
-      description="Professional services for implementing Revit Pro Tools and automating your construction documentation workflow. Implementation, training, and custom development."
+      title="Revit Production Services | BIM Ops Studio"
+      description="Done-for-you Revit production. DWG and PDF to Revit conversion, construction document production, photoreal renderings and 3D site massing. We do the work and hand back the native file. Quoted per project."
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 text-white overflow-hidden">
@@ -195,17 +200,17 @@ export default function ServicesConstructionDocs() {
             transition={{ duration: 0.6 }}
           >
             <Badge variant="secondary" className="mb-4 bg-lime-accent/10 text-lime-accent border-lime-accent/20">
-              Professional Services for Construction Documentation
+              Done-For-You Revit Production
             </Badge>
-            
+
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6">
-              Transform Your Documentation
-              <span className="block text-lime-accent">Workflow Today</span>
+              Send Us the Drawings.
+              <span className="block text-lime-accent">We Build the Model.</span>
             </h1>
-            
+
             <p className="text-xl text-blue-100 mb-8">
-              From implementation to optimization, we help firms cut construction
-              document production time by up to 75%.
+              You don&apos;t install anything and nobody on your team learns a new tool.
+              We take on the production work and hand back the native Revit file.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -218,13 +223,13 @@ export default function ServicesConstructionDocs() {
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>
-              <Link href="/contact">
-                <Button 
+              <Link href="/ai-renderings">
+                <Button
                   variant="outline"
                   size="lg"
                   className="border-2 border-white text-white hover:bg-white hover:text-gray-900"
                 >
-                  View Case Studies
+                  See Recent Work
                 </Button>
               </Link>
             </div>
@@ -477,11 +482,11 @@ export default function ServicesConstructionDocs() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
-              Ready to Automate Your Documentation?
+              Have a Set That Needs Modelling?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Let's discuss how Revit Pro Tools can transform your workflow. 
-              Schedule a free consultation to see the automation in action.
+              Send us the drawings and we&apos;ll tell you what&apos;s workable, what&apos;s
+              missing, and what it will cost — before you commit to anything.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/book-consultation">
@@ -493,7 +498,7 @@ export default function ServicesConstructionDocs() {
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>
-              <Link href="/technical-specs">
+              <Link href="/technical">
                 <Button 
                   variant="outline"
                   size="lg"
