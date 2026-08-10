@@ -56,3 +56,25 @@ Thumbs.db
 yarn.lock
 package-lock.json
 # pnpm-lock.yaml is kept
+# ── Business-confidential — NEVER commit to this repo ────────────────────
+# This repo is PUBLIC by necessity: it serves www.bimopsstudio.com via GitHub
+# Pages, and Pages-from-private requires a paid plan. So anything committed
+# here is world-readable. Untracked 2026-08-10 after these were found live
+# at HTTP 200 with no authentication.
+BIM_Ops_Studio_Business_Plan.md
+COMPLETE_PRICING_AUDIT.md
+PRICING_CONSISTENCY_VERIFIED.md
+PRICING_ISSUES_FOUND.md
+PRICING_FIX_SUMMARY.md
+SAM_Registration_Answer_Sheet.md
+Business_Plan/
+Financial_Models/
+Case_Studies/
+
+# Credentials, CRM and client data — one `git add -A` from being public
+CRM/
+Autodesk_backup_code.txt
+*backup_code*
+.env
+.env.local
+.claude/
