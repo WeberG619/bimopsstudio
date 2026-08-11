@@ -77,7 +77,7 @@ export function Layout({ children, title, description, ogImage }: LayoutProps) {
         <meta name="twitter:image" content={siteImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        {/* favicons are declared once in pages/_document.tsx */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
