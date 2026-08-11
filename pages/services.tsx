@@ -140,6 +140,50 @@ const services = [
       "Site plan views set up",
       "Aerial and orientation views"
     ]
+  },
+  {
+    name: "Feasibility & Code Review",
+    description: "Before a scheme is committed: what the zoning allows, what actually fits on the site, and where the code pushes back. Delivered as a report you can put in front of an owner or a lender.",
+    icon: Shield,
+    gradient: "from-indigo-500 to-blue-400",
+    price: "Quoted per project",
+    duration: "Scoped by site and use",
+    features: [
+      "Zoning analysis — setbacks, height, coverage and FAR",
+      "Buildable envelope drawn to the setbacks, not estimated",
+      "Parking and unit counts worked to the code requirement",
+      "Test layouts that fit the envelope, with code-sized rooms",
+      "Scheme options compared, each one massed",
+      "Non-conforming items flagged for your review"
+    ],
+    deliverables: [
+      "Written feasibility report — PDF and editable Word",
+      "Conceptual site plan with setbacks and dimensions",
+      "Massing options and renderings of each scheme",
+      "A plain verdict: what fits, what does not, what to confirm"
+    ]
+  },
+  {
+    name: "Construction Administration Support",
+    description: "CA-phase drawing support, handled remotely. We turn RFIs around, draw up the field changes and keep the set coordinated — your team stays on site, we carry the documentation.",
+    icon: Headphones,
+    gradient: "from-amber-500 to-yellow-400",
+    price: "Quoted per project",
+    duration: "Ongoing through the CA phase",
+    features: [
+      "RFI responses drafted and drawn up",
+      "Field changes documented as sketches and bulletins",
+      "Revisions clouded, tagged and tracked on the set",
+      "Consultant drawings coordinated back into the model",
+      "The record set kept current as changes land",
+      "Remote support — site visits stay with your team"
+    ],
+    deliverables: [
+      "RFI response sketches issued as PDF",
+      "Revised sheets with clouds and revision tags",
+      "An updated, coordinated native .rvt",
+      "A running log of what changed and when"
+    ]
   }
 ];
 
@@ -177,7 +221,7 @@ export default function ServicesConstructionDocs() {
   return (
     <Layout
       title="Revit Production Services | BIM Ops Studio"
-      description="Done-for-you Revit production. DWG and PDF to Revit conversion, construction document production, photoreal renderings and 3D site massing. We do the work and hand back the native file. Quoted per project."
+      description="Done-for-you Revit production. DWG and PDF to Revit conversion, construction document production, photoreal renderings, 3D site massing, feasibility and code review, and construction administration support. We do the work and hand back the native file. Quoted per project."
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 text-white overflow-hidden">
