@@ -23,8 +23,8 @@ const botResponses = {
     "Our core offering is AI-powered BIM implementation -- we set up RevitMCPBridge for your team, build custom automation scripts, and train your staff. It cuts construction document production time by up to 75%."
   ],
   pricing: [
-    "Our implementation packages start at $5,000 and include RevitMCPBridge setup, custom automation scripts, team training, and 30 days of post-launch support. Contact us for a custom quote!",
-    "Implementation starts at $5,000 with a 2-4 week delivery. We also offer ongoing support retainers. Contact us for details."
+    "Every project is quoted as a fixed fee per deliverable after we review your drawing set, so you know the cost before anything starts. Email info@bimopsstudio.com and we'll scope it for you.",
+    "We quote per project rather than publishing rates -- scope varies too much. Send us the set and we'll come back with a fixed fee. Contact info@bimopsstudio.com."
   ],
   demo: [
     "Check out our Products page to learn about our AI-powered BIM automation services. You can also schedule a discovery call to see a personalized demo!",

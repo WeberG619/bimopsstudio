@@ -480,7 +480,7 @@ export default function Home() {
                 title: "Workflow Implementation",
                 description:
                   "We set up, configure, and integrate the BIM production pipeline into your firm's Revit environment. Includes team training and workflow documentation.",
-                price: "Starting at $5,000",
+                price: "Quoted per project",
                 features: [
                   "Full system setup and configuration",
                   "Custom workflow mapping",
@@ -506,7 +506,7 @@ export default function Home() {
                 title: "Training & Support",
                 description:
                   "Your team learns the system inside and out. We provide ongoing support, optimization, and updates as the technology evolves.",
-                price: "$2,500 per session",
+                price: "Quoted per project",
                 features: [
                   "Hands-on training sessions",
                   "Custom documentation for your team",

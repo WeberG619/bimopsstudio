@@ -95,7 +95,7 @@ using (Transaction t = new Transaction(doc, "AI Create Elements"))
                 <CardContent className="pt-6">
                   <h3 className="text-lg font-semibold mb-3">Implementation:</h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Custom implementation packages starting at $5,000. 2-4 week delivery.
+                    Scoped and quoted per project after we review your requirements.
                   </p>
                 </CardContent>
               </Card>

@@ -339,7 +339,7 @@ export default function AIServices() {
               Measured Results
             </h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {[
                 {
                   value: "75%",
@@ -350,11 +350,6 @@ export default function AIServices() {
                   value: "89",
                   label: "Hours Saved Monthly",
                   detail: "2+ full work weeks",
-                },
-                {
-                  value: "$461",
-                  label: "Total Monthly Cost",
-                  detail: "all AI + tooling",
                 },
                 {
                   value: "29x",

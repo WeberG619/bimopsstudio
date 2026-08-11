@@ -44,8 +44,8 @@ const faqs = [
   },
   {
     category: "Pricing",
-    question: "What's included in the $5,000 implementation package?",
-    answer: "The implementation package includes workflow discovery, RevitMCPBridge setup and configuration, custom automation scripts for your CD production pipeline, team training sessions, and 30 days of post-launch support."
+    question: "How do you price the work?",
+    answer: "Every project is quoted as a fixed fee per deliverable — per sheet, per model, per report, per image — after we review your actual drawing set. You know the cost before anything starts, and two revision rounds are included. Contact us at info@bimopsstudio.com for a quote."
   },
   {
     category: "Pricing",
