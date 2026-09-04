@@ -86,12 +86,12 @@ export default function ThankYou() {
                 <h2 className="text-2xl font-bold mb-6">Meanwhile, Explore Our Resources</h2>
 
                 <div className="grid md:grid-cols-3 gap-6">
-                  <Link href="/free-tools">
+                  <Link href="/services">
                     <div className="bg-white dark:bg-gray-800 p-6 rounded-lg hover:shadow-lg transition-shadow cursor-pointer">
                       <Download className="w-10 h-10 text-[#4A9EFF] mb-4 mx-auto" />
-                      <h3 className="font-semibold mb-2">Free Tools</h3>
+                      <h3 className="font-semibold mb-2">Our Services</h3>
                       <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Download our free View Preview tool for Revit
+                        See how we automate BIM and construction documentation
                       </p>
                     </div>
                   </Link>
