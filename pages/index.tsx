@@ -357,7 +357,7 @@ export default function Home() {
             </h2>
             <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
             <p className="text-gray-400 text-lg">
-              Three steps to transforming your CD production
+              Three steps from your drawings to finished files
             </p>
           </motion.div>
 
@@ -366,23 +366,23 @@ export default function Home() {
               {
                 step: "01",
                 icon: BarChart3,
-                title: "We Assess Your Workflow",
+                title: "You Send Us the Drawings",
                 description:
-                  "We analyze your current CD production process, identify bottlenecks, and map automation opportunities specific to your firm.",
+                  "CAD, PDFs, scans or a site address. We scope the work against what you actually send and come back with a number and a date.",
               },
               {
                 step: "02",
                 icon: Settings,
-                title: "We Implement the System",
+                title: "We Build It",
                 description:
-                  "RevitMCPBridge, MCP servers, and the automation pipeline are integrated directly into your Revit environment. No disruption to ongoing projects.",
+                  "The model, the sheet set, the renderings — produced in your template, to your standards, in our studio. Nothing to install on your side.",
               },
               {
                 step: "03",
                 icon: Zap,
-                title: "Your Team Produces CDs Faster",
+                title: "You Get the Files",
                 description:
-                  "Automation handles the repetitive tasks — redline incorporation, sheet setup, coordination. Your architects focus on what they do best: design.",
+                  "Native Revit, coordinated PDFs, print-ready images. Reviewed with you, with one revision round included in the scope.",
               },
             ].map((item, i) => (
               <motion.div
@@ -469,49 +469,49 @@ export default function Home() {
             </h2>
             <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
             <p className="text-gray-400 text-lg">
-              Choose the engagement model that fits your firm
+              The work we take on
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: Settings,
-                title: "Workflow Implementation",
+                icon: Layers,
+                title: "Model Production",
                 description:
-                  "We set up, configure, and integrate the BIM production pipeline into your firm's Revit environment. Includes team training and workflow documentation.",
+                  "You send CAD, PDFs or scans. We build the native Revit model — walls, doors, levels and grids, drawn to your standards.",
                 price: "Quoted per project",
                 features: [
-                  "Full system setup and configuration",
-                  "Custom workflow mapping",
-                  "Team onboarding and training",
-                  "30-day post-launch support",
+                  "DWG and DXF converted to real elements",
+                  "PDFs and scans scaled and rebuilt",
+                  "Site and context models from survey and GIS",
+                  "Your templates, families and naming",
                 ],
               },
               {
                 icon: FileText,
-                title: "CD Production Services",
+                title: "Construction Document Production",
                 description:
-                  "We produce your construction documents using our pipeline. Faster delivery, lower cost, same quality your clients expect.",
-                price: "Project-based pricing",
+                  "We pick up the sheet set and produce it in your template, at your standards. Overflow capacity when your team is at the wall.",
+                price: "Quoted per project",
                 features: [
-                  "Accelerated CD production",
-                  "Quality review at every milestone",
-                  "Coordination across disciplines",
-                  "Revisions included in scope",
+                  "Sheet sets built and numbered to your standard",
+                  "Plans, elevations, sections and callouts",
+                  "Door, window and room finish schedules",
+                  "Issued as a coordinated PDF set",
                 ],
               },
               {
-                icon: GraduationCap,
-                title: "Training & Support",
+                icon: PenTool,
+                title: "Visualization & Feasibility",
                 description:
-                  "Your team learns the system inside and out. We provide ongoing support, optimization, and updates as the technology evolves.",
+                  "Photoreal images from your actual model, and zoning studies that say what fits before a scheme is committed.",
                 price: "Quoted per project",
                 features: [
-                  "Hands-on training sessions",
-                  "Custom documentation for your team",
-                  "Ongoing technical support",
-                  "Quarterly optimization reviews",
+                  "Renderings from your Revit geometry",
+                  "Real surveyed and GIS site context",
+                  "Zoning envelope, setbacks and FAR",
+                  "Written feasibility report",
                 ],
               },
             ].map((service, i) => (

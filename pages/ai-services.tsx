@@ -395,35 +395,35 @@ export default function AIServices() {
         <div className="container mx-auto px-4">
           <motion.div {...fadeInUp} transition={{ duration: 0.6 }}>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
-              Implementation Process
+              How the Work Gets Produced
             </h2>
             <p className="text-center text-gray-500 dark:text-gray-400 mb-16 text-lg max-w-2xl mx-auto">
-              From assessment to production in five weeks. No disruption to
-              active projects.
+              From your files to a finished deliverable. Nothing installed on
+              your side.
             </p>
           </motion.div>
 
           <div className="max-w-3xl mx-auto">
             {[
               {
-                week: "Week 1-2",
-                title: "Assessment & Setup",
+                week: "Step 1",
+                title: "Your Standards, Loaded",
                 description:
-                  "We analyze your current workflow, template standards, sheet naming conventions, and detail library. The system gets configured to match your firm's standards — not the other way around.",
+                  "We take your template, sheet naming conventions, detail library and QA checklist, and set the pipeline to match them. Your standards drive the output — not ours.",
                 icon: FileText,
               },
               {
-                week: "Week 3-4",
-                title: "Integration & Testing",
+                week: "Step 2",
+                title: "Built and Checked",
                 description:
-                  "RevitMCPBridge installed on your machines. AI pipeline connected and tested on a real project from your backlog. We validate output against your QA checklist.",
+                  "The work is produced in our studio and validated against your QA checklist before it goes anywhere near you.",
                 icon: Zap,
               },
               {
-                week: "Week 5+",
-                title: "Production & Training",
+                week: "Step 3",
+                title: "Delivered and Revised",
                 description:
-                  "Your team starts using the system on live projects. Hands-on training for BIM managers and project architects. Ongoing support as you scale.",
+                  "You get native Revit files and a coordinated PDF set. One revision round against the delivered scope is part of the job.",
                 icon: CheckCircle,
               },
             ].map((phase, index) => (
