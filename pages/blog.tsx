@@ -14,58 +14,58 @@ import {
 } from "lucide-react";
 
 const featuredPost = {
-  title: "How AI Controls Revit Through Named Pipes — And Why It Matters",
+  title: "Overflow CD Capacity Without Handing Over Your Standards",
   excerpt:
-    "A technical deep-dive into RevitMCPBridge: how we built a named-pipe IPC bridge that lets AI models create walls, sheets, and views in Revit without HTTP overhead.",
+    "What it looks like when someone else produces your sheet set: how we pick up a set mid-stream, work in your template and naming, and hand back a coordinated PDF and the native model.",
   author: "Weber Gouin",
   date: "February 26, 2026",
   readTime: "8 min read",
-  category: "Technical",
+  category: "How We Work",
   image: "/images/blueprint-detail.jpg",
-  slug: "ai-controls-revit-named-pipes",
+  slug: "overflow-cd-capacity",
 };
 
 const posts = [
   {
-    title: "From 3 Hours to 2 Minutes: Automating CD Production",
+    title: "Reading a Drawing Set That Has No CAD Behind It",
     excerpt:
-      "A practical walkthrough of how AI-driven sheet generation replaces manual construction document workflows.",
+      "Older buildings rarely come with a CAD file. How we scale the sheets, read the geometry, and flag what the source never resolved.",
     author: "Weber Gouin",
     date: "March 10, 2026",
     readTime: "6 min read",
-    category: "Case Studies",
+    category: "How We Work",
     image: "/images/construction-docs.jpg",
-    slug: "automating-cd-production",
+    slug: "modelling-from-pdfs-and-scans",
   },
   {
-    title: "Why MCP Is the Protocol That Connects AI to Your Design Tools",
+    title: "Why We Model the Site Before Anyone Talks About Massing",
     excerpt:
-      "The Model Context Protocol is becoming the standard for AI-to-application communication. Here's what AEC firms need to know.",
+      "Real parcel boundaries, measured neighbouring heights, and modelled terrain change what a scheme can be. Generic context hides the problems you most need to see.",
     author: "Weber Gouin",
     date: "March 5, 2026",
     readTime: "5 min read",
-    category: "Industry Insights",
+    category: "Practice Notes",
     image: "/images/modern-office.jpg",
-    slug: "mcp-protocol-design-tools",
+    slug: "site-context-before-massing",
   },
   {
-    title: "Getting Started with RevitMCPBridge: A Quickstart Guide",
+    title: "A Feasibility Study Should End With a Verdict, Not a Maybe",
     excerpt:
-      "Step-by-step setup guide for connecting Claude or any MCP-compatible AI to Revit 2025/2026.",
+      "Setbacks, height, coverage and FAR worked to the code — then a plain answer on what fits, what does not, and what still has to be confirmed.",
     author: "Weber Gouin",
     date: "February 28, 2026",
     readTime: "10 min read",
-    category: "Tutorials",
+    category: "Practice Notes",
     image: "/images/tech-workspace.jpg",
-    slug: "revitmcpbridge-quickstart",
+    slug: "feasibility-needs-a-verdict",
   },
 ];
 
 export default function Blog() {
   return (
     <Layout
-      title="Blog - BIM Automation Insights | BIM Ops Studio"
-      description="Practical insights on BIM automation, Revit API development, and AI-powered construction documentation from Weber Gouin."
+      title="Blog - Notes From the Studio | BIM Ops Studio"
+      description="Notes on modelling, construction documents, site context and feasibility - how the work gets produced and what to expect from a set."
     >
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-br from-[#0A1B2A] via-blue-900 to-indigo-900 text-white">
@@ -84,11 +84,11 @@ export default function Blog() {
                 Blog
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                BIM <span className="text-amber-500">Insights</span> & Updates
+                Notes <span className="text-amber-500">From</span> the Studio
               </h1>
               <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Practical notes on BIM automation, Revit API development, and
-                building AI tools for architecture.
+                How the work gets produced — modelling, construction documents,
+                site context and feasibility.
               </p>
             </motion.div>
           </div>
@@ -238,8 +238,8 @@ export default function Blog() {
           >
             <h2 className="text-3xl font-bold mb-4">Stay in the Loop</h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Get notified when new articles drop — BIM automation, Revit API
-              tips, and AI workflow updates.
+              Get notified when new articles drop — notes on modelling,
+              construction documents, site context and feasibility.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
               <input

@@ -477,19 +477,19 @@ export default function AIServices() {
             <div className="bg-white/5 rounded-2xl border border-white/10 px-8">
               <FAQItem
                 question="Does this replace our architects?"
-                answer="No. It replaces the repetitive 70% of construction document work — sheet creation, view placement, annotation, detail coordination. Your architects spend more time on design, client relationships, and the decisions that actually require professional judgment."
+                answer="No. We take the repetitive production work off your desk — sheet creation, view placement, annotation, detail coordination — and hand back finished files. Design, client relationships and the decisions that require professional judgment stay with your team, and so does the seal."
               />
               <FAQItem
-                question="What Revit versions are supported?"
-                answer="Revit 2024, 2025, and 2026. RevitMCPBridge uses version-specific named pipe connections. Each installation targets a single Revit version, and multiple versions can run on the same machine."
+                question="What Revit versions do you work in?"
+                answer="Revit 2024, 2025 and 2026. We work in your version and hand back a native .rvt you can open and keep working in, built in your template with your families and naming."
               />
               <FAQItem
                 question="Is our project data secure?"
-                answer="Everything runs locally on your machine. No cloud processing, no data uploads, no external API calls to third-party BIM services. Your models and documents never leave your network. The AI engine runs through a local connection to Claude via your own API key."
+                answer="Your files stay on infrastructure under our control and are never uploaded to third-party BIM services or used to train anything. Work is produced in the United States. Nothing is installed on your machines and nothing runs on your network."
               />
               <FAQItem
-                question="How is this different from Copilot or ChatGPT?"
-                answer="Those are chatbots that generate text suggestions. This is a production system wired directly into Revit via named pipes with sub-millisecond response time. It doesn't suggest — it executes. It reads your model, creates elements, places views, and assembles documents."
+                question="Why is this faster than a conventional drafting team?"
+                answer="The production pipeline described above is ours and it runs in our studio. It reads the source, builds elements, places views and assembles documents directly in Revit rather than clicking through them. You buy the output it produces, not the pipeline."
               />
             </div>
           </motion.div>

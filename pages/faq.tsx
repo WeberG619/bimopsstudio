@@ -24,33 +24,33 @@ const faqCategories = [
 const faqs = [
   {
     category: "Getting Started",
-    question: "What is RevitMCPBridge?",
-    answer: "RevitMCPBridge is our tool that connects AI assistants directly to Autodesk Revit via named pipes. It enables AI-powered BIM automation -- creating walls, rooms, sheets, views, and more through natural language commands. It's the foundation of our implementation services."
+    question: "What do you actually do?",
+    answer: "We produce the work and hand it back as finished files. Modelling from CAD, PDFs or scans; construction document sets built in your template; photoreal renderings; site and context models; feasibility and code review; and drawing support through the CA phase. There is nothing for you to install, license or learn."
   },
   {
     category: "Getting Started",
-    question: "How does the implementation process work?",
-    answer: "We start with a discovery call to understand your team's workflows and pain points. From there, we configure RevitMCPBridge for your environment, build custom automation scripts for your specific CD production needs, and train your team on the new workflows. The entire process typically takes 2-4 weeks."
+    question: "How does a project start?",
+    answer: "You send the source — CAD, PDFs, scans or a site address — along with the scope. We quote a fixed number and a date against that actual source, usually the same day. Once you accept, we build it in your template, your naming and your standards."
   },
   {
     category: "Technical Support",
-    question: "What Revit versions are supported?",
-    answer: "We support Revit 2025 and 2026. RevitMCPBridge is built with the latest Revit API and uses named pipes for reliable, high-performance communication between AI tools and Revit."
+    question: "What Revit versions do you work in?",
+    answer: "Revit 2025 and 2026. We work in your version and hand back a native .rvt you can open and keep working in, along with a coordinated PDF set. Your templates, families and naming conventions drive the output."
   },
   {
     category: "Technical Support",
-    question: "How long does implementation take?",
-    answer: "Most implementations are completed in 2-4 weeks, depending on the complexity of your workflows and the number of automations needed. We work in sprints so your team sees results quickly."
+    question: "How long does a project take?",
+    answer: "It depends on scope, and the date is quoted with the fee so you have it before anything starts. A single model or a small set turns around in days; a full document set is scoped by phase. Turnaround is part of the quote, never a surprise."
   },
   {
     category: "Pricing",
     question: "How do you price the work?",
-    answer: "Every project is quoted as a fixed fee per deliverable — per sheet, per model, per report, per image — after we review your actual drawing set. You know the cost before anything starts, and two revision rounds are included. Contact us at info@bimopsstudio.com for a quote."
+    answer: "Every project is quoted as a fixed fee per deliverable — per sheet, per model, per report, per image — after we review your actual drawing set. You know the cost before anything starts, and one revision round against the delivered scope is included. Contact us at info@bimopsstudio.com for a quote."
   },
   {
     category: "Pricing",
-    question: "Do you offer ongoing support?",
-    answer: "Yes. After the initial implementation, we offer monthly support retainers that include workflow optimization, new automation development, and priority technical support. Contact us at info@bimopsstudio.com for details."
+    question: "Do you support the set after it is issued?",
+    answer: "Yes. We carry drawing support through the construction administration phase — RFI responses drafted and drawn up, field changes documented as sketches and bulletins, revisions clouded and tracked, and the record set kept current. Remote; site visits stay with your team."
   },
 ];
 
