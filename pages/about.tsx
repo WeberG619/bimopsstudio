@@ -288,10 +288,10 @@ export default function About() {
                     Principal, KRM Designs
                   </p>
                   <a
-                    href="mailto:krishna@bimopsstudio.com"
+                    href="mailto:krmdesigns19@gmail.com"
                     className="mt-2 inline-block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors"
                   >
-                    krishna@bimopsstudio.com
+                    krmdesigns19@gmail.com
                   </a>
                 </div>
 
