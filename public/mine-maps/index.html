@@ -133,54 +133,54 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <script>
 const SITES = [
- {id:'pittsburgh', lon:-80.03, lat:40.36, name:'Pittsburgh, PA', sub:'Saw Mill Run Mine, 1922 · Baldwin Twp, Allegheny Co.',
+ {id:'pittsburgh', lon:-80.0055, lat:40.3818, name:'Pittsburgh, PA', sub:'Saw Mill Run Mine, 1922 · Baldwin Twp, Allegheny Co.',
   img:'img/pittsburgh.jpg', tag:'3D + route', text:'A 1922 drift mine under a hillside neighborhood. Click any house in the 3D view for its address and how much ground lies between it and the old workings.',
   facts:[['104','buildings over the workings'],['63 m','most ground above the mine'],['15-19 m','from the state\'s own placement']],
   acts:[['Open the 3D mine','3d/pittsburgh.html']]},
- {id:'butler', lon:-79.79, lat:40.68, name:'Butler County, PA', sub:'Bethenergy Mine 91, 1989 · Clinton & Buffalo Twps',
+ {id:'butler', lon:-79.7839, lat:40.6840, name:'Butler County, PA', sub:'Bethenergy Mine 91, 1989 · Clinton & Buffalo Twps',
   img:'img/butler.jpg', tag:'3D + route', text:'148 acres of room-and-pillar mining, placed from the sheet\'s printed coordinate grid and laid on the coal seam at the tilt the surveyors measured.',
   facts:[['4.5 m','from the state\'s own placement'],['148','acres mined'],['32','buildings over the workings']],
   acts:[['Open the 3D mine','3d/butler.html']]},
- {id:'fawn', lon:-79.79, lat:40.640, name:'Fawn & Frazer Twps, PA', sub:'Allegheny No. 2 & Portal No. 3 Mine, 1992 · Allegheny Co.',
+ {id:'fawn', lon:-79.7787, lat:40.6424, name:'Fawn & Frazer Twps, PA', sub:'Allegheny No. 2 & Portal No. 3 Mine, 1992 · Allegheny Co.',
   img:'img/fawn.jpg', tag:'3D + route', text:'Two sheets of Penn Allegh Coal Co.\'s final 1992 survey, placed automatically from their printed State Plane grids and laid on the seam at 32 floor elevations the surveyors wrote on the map.',
   facts:[['377','acres mined'],['158','buildings over the workings'],['6.6 m','from the state\'s own placement']],
   acts:[['Open the 3D mine','3d/fawn.html']]},
- {id:'newcastle', lon:-122.16, lat:47.54, name:'Newcastle, WA', sub:'B.&R. mine, 1937 · King County',
+ {id:'newcastle', lon:-122.1526, lat:47.5393, name:'Newcastle, WA', sub:'B.&R. mine, 1937 · King County',
   img:'img/newcastle.jpg', tag:'3D + route + atlas', text:'A steep-seam Washington mine worked from level gangways, laid at the elevations and dips written on the 1937 survey, with King County\'s coal mine hazard area drawn on top.',
   facts:[['34°','seam dip, from the map'],['25','acres traced'],['1937','survey date']],
   acts:[['Open the 3D mine','3d/newcastle.html'],['Search addresses nearby','/mine-atlas/?addr=6803%20136TH%20AVE%20SE']]},
- {id:'issaquah', lon:-122.045, lat:47.525, name:'Issaquah, WA', sub:'Queen No. 1 mine, 1947 · King County',
+ {id:'issaquah', lon:-122.0772, lat:47.5253, name:'Issaquah, WA', sub:'Queen No. 1 mine, 1947 · King County',
   img:'img/issaquah.jpg', tag:'3D + route', text:'A steep Washington coal seam mined from a level gangway, laid at the gangway elevations on the 1947 survey and the 39° dip derived from the sheet itself. The workings run right along King County\'s own hazard line.',
   facts:[['39°','seam dip, derived from the map'],['33','acres mined'],['260 m','most ground above the mine']],
   acts:[['Open the 3D mine','3d/issaquah.html'],['Search Issaquah addresses','/mine-atlas/']]},
- {id:'renton', lon:-122.198, lat:47.445, name:'Renton, WA', sub:'Spring Brook workings, 1947 · King County',
+ {id:'renton', lon:-122.2029, lat:47.4471, name:'Renton, WA', sub:'Spring Brook workings, 1947 · King County',
   img:'img/renton.jpg', tag:'3D + route', text:'A steep seam (57-61° on the sheet) under a Renton neighborhood, with the shafts the map records. The state\'s file for this sheet was about 1.5 km off, so we placed it from the streets printed on the map and checked it against the map\'s own elevations and drill holes.',
   facts:[['32','buildings over the workings'],['57-61°','seam dip, written on the map'],['2','shafts from the map']],
   acts:[['Open the 3D mine','3d/renton.html'],['Search Renton addresses','/mine-atlas/']]},
- {id:'blackdiamond', lon:-121.898, lat:47.345, name:'Black Diamond, WA', sub:'Elk Coal Co. mine, 1924 · King County',
+ {id:'blackdiamond', lon:-121.9020, lat:47.3452, name:'Black Diamond, WA', sub:'Elk Coal Co. mine, 1924 · King County',
   img:'img/blackdiamond.jpg', tag:'3D + route', text:'Rooms and pillars stepping down a 15° seam from the hoist, laid at 11 station elevations the surveyors wrote on the sheet. Five survey stations on the surface match today\'s lidar ground to within 3 m.',
   facts:[['15.7°','seam dip, fitted (arrows on map: 13.5-16.5°)'],['1.8 m','seam fit error'],['18','acres mined']],
   acts:[['Open the 3D mine','3d/blackdiamond.html']]},
- {id:'mayvalley', lon:-122.120, lat:47.452, name:'May Valley, WA', sub:'Fire King mine, 1946 · King County',
+ {id:'mayvalley', lon:-122.1227, lat:47.4521, name:'May Valley, WA', sub:'Fire King mine, 1946 · King County',
   img:'img/mayvalley.jpg', tag:'3D + route', text:'A small 1946 mine under a May Valley neighborhood, including areas the surveyors marked robbed (pillars taken out). Nine homes stand over the workings; three surface survey stations on the map match today\'s lidar within 3 m.',
   facts:[['9','homes over the workings'],['9-57 m','ground above the mine'],['1946','survey date']],
   acts:[['Open the 3D mine','3d/mayvalley.html'],['Search May Valley addresses','/mine-atlas/']]},
- {id:'franklin', lon:-121.955, lat:47.292, name:'Franklin, WA', sub:'Franklin mines south extension, 1956-59 · Green River gorge',
+ {id:'franklin', lon:-121.9572, lat:47.2919, name:'Franklin, WA', sub:'Franklin mines south extension, 1956-59 · Green River gorge',
   img:'img/franklin.jpg', tag:'3D + route', text:'A level gangway driven from a slope portal at the Green River bridge, with rooms worked up a steep seam. The dips (43° and 60°) are worked out from the map itself. The haulage route (portal, slope, gangway) is drawn in 3D through the 10 elevations surveyed along it.',
   facts:[['43-60°','seam dip, derived from the map'],['116 m','most ground above the mine'],['2','map elevations confirmed by lidar']],
   acts:[['Open the 3D mine','3d/franklin.html']]},
- {id:'newdurham', lon:-121.887, lat:47.339, name:'Durham, WA', sub:'New Durham mine, 1936-37 · King County',
+ {id:'newdurham', lon:-121.8866, lat:47.3411, name:'Durham, WA', sub:'New Durham mine, 1936-37 · King County',
   img:'img/newdurham.jpg', tag:'3D + route', text:'A water-level gangway about 87 m under the Durham Creek hills, with rooms worked up a 33° seam (written on the sheet). The map\'s air-course portal elevation matches today\'s lidar ground within 6 m.',
   facts:[['33°','seam dip, written on the map'],['15','gangway elevations read'],['196 m','most ground above the mine']],
   acts:[['Open the 3D mine','3d/newdurham.html']]},
- {id:'reynolds', lon:-121.995, lat:47.557, name:'Issaquah Highlands, WA', sub:'Reynolds Coal Co. mine, 1936 · Grand Ridge',
+ {id:'reynolds', lon:-121.9935, lat:47.5582, name:'Issaquah Highlands, WA', sub:'Reynolds Coal Co. mine, 1936 · Grand Ridge',
   img:'img/reynolds.jpg', tag:'3D + route', text:'Rooms worked up a 45° seam from a gangway 67-94 m below today\'s ground. Six surface survey stations on the sheet all sit the same distance from today\'s lidar ground (spread 3 m), which confirms the placement and shows the company used its own datum.',
   facts:[['45-47°','seam dip, written on the map'],['6','surface stations checked'],['7','acres mined']],
   acts:[['Open the 3D mine','3d/reynolds.html']]},
  {id:'kingcounty', lon:-121.95, lat:47.40, name:'King County, WA', sub:'King County Mine Atlas · free address search',
-  img:'img/newcastle.jpg', tag:'Address search', text:'Type any King County address to see the county\'s coal mine hazard area and the original mine survey maps that cover it, laid over today\'s streets.',
+  img:'img/newcastle.jpg', tag:'Address search + 8 mines in 3D', text:'Type any King County address to see the county\'s coal mine hazard area and the original mine survey maps that cover it, laid over today\'s streets. Eight King County mines are built in 3D: open any of them below, or search an address inside one.',
   facts:[['486','placed mine maps'],['13','original maps overlaid'],['Free','public tool']],
-  acts:[['Search an address','/mine-atlas/']]},
+  acts:[['Search an address','/mine-atlas/'],['Newcastle 3D','3d/newcastle.html'],['Issaquah 3D','3d/issaquah.html'],['Issaquah Highlands 3D','3d/reynolds.html'],['Renton 3D','3d/renton.html'],['May Valley 3D','3d/mayvalley.html'],['Black Diamond 3D','3d/blackdiamond.html'],['Durham 3D','3d/newdurham.html'],['Franklin 3D','3d/franklin.html']]},
 ];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function show(id) {
@@ -206,7 +206,7 @@ fetch('mines.json').then(r => r.json()).then(d => {
   const marks = rows.map(r => { const [lat, lon, k, name, coll, st, scan, grp, yrs] = r; sheets += k;
     const m = L.circleMarker([lat, lon], {radius: 5, color: '#0B1220', weight: 1.2, fillColor: '#ffb347', fillOpacity: .95});
     m.bindPopup(() => `<b>${esc(grp ? coll + ' maps' : name)}</b><br><span style="color:#8592A6">${st === 'PA' ? 'Pennsylvania' : 'Washington'} · ${k} map${k > 1 ? 's' : ''}${yrs ? ' · ' + esc(yrs) : ''}${grp ? '' : '<br>' + esc(coll)}</span><br>
-      ${scan ? `<a href="${scan}" target="_blank" rel="noopener">Open an original scan</a><br>` : ''}<a href="/contact/">Request this site in 3D &rarr;</a>`);
+      ${scan ? `<a href="${scan}" target="_blank" rel="noopener">Open an original scan</a><br>` : ''}${(b => b ? `<a href="${b.acts[0][1]}"><b>Open the 3D mine nearby (${esc(b.name)}) &rarr;</b></a>` : '<a href="/contact/">Request this site in 3D &rarr;</a>')(nearBuilt(lat, lon))}`);
     return m; });
   cluster.addLayers(marks); map.addLayer(cluster);
   document.getElementById('stat').textContent = `${rows.length.toLocaleString()} mapped mine locations · ${sheets.toLocaleString()} historical maps · Pennsylvania and Washington archives so far`;
@@ -214,6 +214,11 @@ fetch('mines.json').then(r => r.json()).then(d => {
 });
 map.on('zoomend', () => document.getElementById('map').classList.toggle('far', map.getZoom() < 7));
 document.getElementById('map').classList.add('far');
+function nearBuilt(lat, lon) {   // a built 3D site within ~1.5 km of an archive dot
+  let best = null, bd = 1500;
+  for (const s of SITES) { if (s.id === 'kingcounty') continue; const d = Math.hypot((s.lon - lon) * 111320 * Math.cos(lat * Math.PI / 180), (s.lat - lat) * 110540); if (d < bd) { bd = d; best = s; } }
+  return best;
+}
 function addBuilt() {
   SITES.filter(s => s.id !== 'kingcounty').forEach(s => {
     const icon = L.divIcon({className: '', html: `<div class="built"></div><div class="built-l">${esc(s.pin || s.name)}</div>`, iconSize: [26, 26], iconAnchor: [13, 13]});

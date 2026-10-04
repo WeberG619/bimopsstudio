@@ -121,6 +121,8 @@ Promise.all(['data/kc_coal_hazard.geojson', 'data/dnr_kc_georef_maps.geojson', '
     const im = L.imageOverlay(`overlays/${id}.png`, m.bounds, {pane: 'ov', opacity: .7, interactive: false}); im.addTo(ovLayer); ovImgs.push(im);
   }
   for (const s of s3) L.rectangle(s.bounds, {color: '#5cf2c0', weight: 2, fill: false, dashArray: '6 4'}).bindTooltip('3D view: ' + s.name).on('click', () => window.open(s.href, '_blank')).addTo(s3dLayer);
+  for (const s of s3) L.circleMarker([(s.bounds[0][0] + s.bounds[1][0]) / 2, (s.bounds[0][1] + s.bounds[1][1]) / 2], {radius: 8, color: '#0B1220', weight: 1.5, fillColor: '#5cf2c0', fillOpacity: 1})
+    .bindTooltip('Open in 3D: ' + s.name, {direction: 'top'}).on('click', () => window.open(s.href, '_blank')).addTo(s3dLayer);   // visible at county zoom
   const q = new URLSearchParams(location.search).get('addr'); if (q) { $('q').value = q; search(q, true); }
 });
 const toggle = (cb, layer) => $(cb).onchange = e => e.target.checked ? layer.addTo(map) : map.removeLayer(layer);
