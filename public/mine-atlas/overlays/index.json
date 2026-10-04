@@ -1,0 +1,353 @@
+{
+ "K27_G": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.53646327117696,
+    -122.1657728796092
+   ],
+   [
+    47.54421718476135,
+    -122.14214364360853
+   ]
+  ],
+  "title": "Map showing survey in Baima and Rubitina mine leased from Pacific Coast Coal Co. showing lower split No. 3 seam and No. 4 seam",
+  "year": 1937,
+  "mine": "K27",
+  "rms_ft": 0.561149,
+  "control_points": 5,
+  "details": "Roads, RR tracks, buildings, streams, elevations, mine workings",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K27_G.pdf",
+  "px": [
+   2220,
+   1079
+  ],
+  "kb": 204
+ },
+ "K11_A": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.51558030489415,
+    -122.07232955873546
+   ],
+   [
+    47.52413329260108,
+    -122.05587728837318
+   ]
+  ],
+  "title": "Harris-Richmond coal mine",
+  "year": 1930,
+  "mine": "K11",
+  "rms_ft": 6.17407,
+  "control_points": 4,
+  "details": "Roads, streams, elevations, mine workings",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K11_A.pdf",
+  "px": [
+   1547,
+   1191
+  ],
+  "kb": 200
+ },
+ "K12_U": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.51632594280517,
+    -122.09104231493431
+   ],
+   [
+    47.5332003338262,
+    -122.05988200430843
+   ]
+  ],
+  "title": "Queen No. 1 mine, No. 2 or upper Bagley seam and Muldoon seam",
+  "year": 1953,
+  "mine": "K12",
+  "rms_ft": 2.29,
+  "control_points": 5,
+  "details": "Roads, buildings, streams, elevations, contours, mine workings. Also shows May Creek seam",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K12_U.pdf",
+  "px": [
+   2928,
+   2349
+  ],
+  "kb": 32,
+  "skip": "palette-coded TIFF converted to almost no line work; fix later"
+ },
+ "K12_Q1": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.516375885112645,
+    -122.09068441379492
+   ],
+   [
+    47.53300641538769,
+    -122.05941984406344
+   ]
+  ],
+  "title": "Map of Queen No. 1 mine, No. 1 or lower Bagley seam and May Creek seam",
+  "year": 1947,
+  "mine": "K12",
+  "rms_ft": 1.23764,
+  "control_points": 4,
+  "details": "Roads, buildings, streams, elevations, contours, mine workings",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K12_Q1.pdf",
+  "px": [
+   2938,
+   2315
+  ],
+  "kb": 531
+ },
+ "K15_C": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.52419841576122,
+    -122.10964138177421
+   ],
+   [
+    47.53379037992074,
+    -122.08748561485467
+   ]
+  ],
+  "title": "B. and R. New Slope mine and showing lower Bagley seam workings",
+  "year": 1957,
+  "mine": "K15",
+  "rms_ft": 3.3,
+  "control_points": 5,
+  "details": "Streams, elevations, contours, mine workings",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K15_C.pdf",
+  "px": [
+   2082,
+   1335
+  ],
+  "kb": 220
+ },
+ "K15_B": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.524317714089314,
+    -122.10958854255608
+   ],
+   [
+    47.533515795849596,
+    -122.08775610737453
+   ]
+  ],
+  "title": "Map of the B. and R. New Slope mine and showing lower Bagley seam workings",
+  "year": 1956,
+  "mine": "K15",
+  "rms_ft": 0.904563,
+  "control_points": 4,
+  "details": "Streams, elevations, contours, mine workings",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K15_B.pdf",
+  "px": [
+   2052,
+   1280
+  ],
+  "kb": 467
+ },
+ "K18_H": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.527378301438375,
+    -122.14209031048878
+   ],
+   [
+    47.54240618509013,
+    -122.10826888891759
+   ]
+  ],
+  "title": "Newcastle Mine (workings in vicinity of Ford slope)",
+  "year": 1942,
+  "mine": "K18",
+  "rms_ft": 5.68,
+  "control_points": 5,
+  "details": "Roads, buildings, elevations, mine workings-surface stripping, outcrop workings. Underground mines located-all closed",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K18_H.pdf",
+  "px": [
+   3178,
+   2092
+  ],
+  "kb": 564
+ },
+ "K18_C": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.52903406029104,
+    -122.13851433605724
+   ],
+   [
+    47.54011873480364,
+    -122.11730322758936
+   ]
+  ],
+  "title": "Strain Coal Co., Coal Creek (workings in vicinity of Ford slope)",
+  "year": 1936,
+  "mine": "K18",
+  "rms_ft": 0.93803,
+  "control_points": 6,
+  "details": "Roads, elevations, mine workings. Shows No.3 and No. 4 and Muldoon in relation to old Pacific Coast Coal Co. workings",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K18_C.pdf",
+  "px": [
+   1993,
+   1543
+  ],
+  "kb": 118
+ },
+ "K19_A": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.531682374267874,
+    -122.15317295778874
+   ],
+   [
+    47.53813018095425,
+    -122.13942316985255
+   ]
+  ],
+  "title": "B. and R. coal mine, Muldoon seam",
+  "year": 1939,
+  "mine": "K19",
+  "rms_ft": 1.02105,
+  "control_points": 4,
+  "details": "Buildings, mine workings",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K19_A.pdf",
+  "px": [
+   1292,
+   898
+  ],
+  "kb": 47
+ },
+ "K19_G": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.52945101407424,
+    -122.15221396156367
+   ],
+   [
+    47.53867624589709,
+    -122.1369511446402
+   ]
+  ],
+  "title": "Underground workings of B. and R. Coal Co.'s Newcastle mines",
+  "year": 1947,
+  "mine": "K19",
+  "rms_ft": 1.05081,
+  "control_points": 5,
+  "details": "Elevations, mine workings, pencil update on Jones seam. Survey into sec. 34 with Gladding-Mcbean prospect (117 foot tunnel)",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K19_G.pdf",
+  "px": [
+   1434,
+   1284
+  ],
+  "kb": 343
+ },
+ "K22_M": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.525213641146976,
+    -122.13704714405286
+   ],
+   [
+    47.543624528889445,
+    -122.08593184107383
+   ]
+  ],
+  "title": "Newcastle mine No. 4 seam, Pacific Coast Coal Co.",
+  "year": 1928,
+  "mine": "K22",
+  "rms_ft": 1.92738,
+  "control_points": 4,
+  "details": "Roads, RR tracks, buildings, streams, elevations, mine workings. Town of Newcastle",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K22_M.pdf",
+  "px": [
+   4803,
+   2562
+  ],
+  "kb": 1078
+ },
+ "K22_C": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.52477999443604,
+    -122.10437755503496
+   ],
+   [
+    47.53693931212879,
+    -122.08376176643435
+   ]
+  ],
+  "title": "Map of Newcastle mine, lower Bagley seam",
+  "year": 1929,
+  "mine": "K22",
+  "rms_ft": 14.8829,
+  "control_points": 5,
+  "details": "Mine workings",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K22_C.pdf",
+  "px": [
+   1937,
+   1692
+  ],
+  "kb": 555
+ },
+ "K24_A": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.535815071121206,
+    -122.16930842562172
+   ],
+   [
+    47.55219607817853,
+    -122.13381153146177
+   ]
+  ],
+  "title": "Map showing survey in relation to coal prospect situated on land owned by John Collins estate",
+  "year": 1935,
+  "mine": "K24",
+  "rms_ft": 9.45619,
+  "control_points": 5,
+  "details": "Roads, RR tracks, streams, elevations, mine workings. Property survey only.",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K24_A.pdf",
+  "px": [
+   3335,
+   2280
+  ],
+  "kb": 203
+ },
+ "K27_C": {
+  "crs": "EPSG:2927",
+  "bounds": [
+   [
+    47.5367854783004,
+    -122.16517271694487
+   ],
+   [
+    47.543705543749994,
+    -122.14587713975163
+   ]
+  ],
+  "title": "Map showing survey in B. and R. mine, lower split No. 3",
+  "year": 1933,
+  "mine": "K27",
+  "rms_ft": 0.70159,
+  "control_points": 5,
+  "details": "Roads, RR tracks, buildings, streams, elevations, mine workings",
+  "pdf": "https://fortress.wa.gov/dnr/geologydata/coal_maps/pdfs/K27_C.pdf",
+  "px": [
+   1813,
+   963
+  ],
+  "kb": 126
+ }
+}
