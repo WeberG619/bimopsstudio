@@ -67,6 +67,11 @@ h1 span{color:var(--teal)}
 @media(max-width:900px){.how{grid-template-columns:1fr}}
 .how h4{margin:0 0 6px;font-size:17px}.how p{margin:0;color:var(--body);font-size:15px}.how .mono{color:var(--teal);font-size:12px;display:block;margin-bottom:10px}
 .note{font-size:13px;color:var(--muted);border-left:3px solid var(--teal);padding:10px 14px;background:rgba(76,190,196,.05);margin-bottom:60px}
+.facts-sec{padding-block:20px 70px}.fl{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:28px}
+@media(max-width:1000px){.fl{grid-template-columns:1fr}}
+.fl h4{margin:0 0 10px;font-size:17px}.fl ul{margin:0;padding-left:18px;color:var(--body);font-size:15px}.fl li{margin-bottom:8px}
+.fl .must{border:1px solid rgba(255,179,71,.45);background:rgba(255,179,71,.06);border-radius:4px;padding:18px 20px}
+.fl .must h4{color:#ffd59a}.fl .must p{color:var(--body);font-size:15px;margin:0 0 10px}
 footer{border-top:1px solid var(--rule);padding-block:26px;color:var(--muted);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </style></head><body>
@@ -100,8 +105,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  <div><span class="mono">02</span><h4>Placed and checked</h4><p>Placed on the modern map from printed grids, streets, rail and streams, then checked against the state's own placement.</p></div>
  <div><span class="mono">03</span><h4>Shown in 3D</h4><p>Workings at the depths written on the map, under USGS lidar terrain, with every building above clickable for its address.</p></div>
 </section>
-<div class="wrap"><p class="note">Screening information only, not a geotechnical report. Historical mine maps can be incomplete or
- inaccurately located; assumptions are stated inside each 3D view. Need this for a specific site? <a href="/contact/" style="color:var(--teal)">Contact us</a>.</p></div>
+<section class="wrap facts-sec">
+ <div class="shead"><h3>Facts and limits</h3></div>
+ <div class="fl">
+  <div><h4>What the 3D views are built from</h4><ul>
+   <li>The mining company's own survey sheets, from public state archives (PA DEP / PASDA, WA DNR).</li>
+   <li>Placement from printed coordinate grids, streets, rail and streams. In a blind test on six gridded sheets, every one landed within 50 m of the state's own placement and five within 20 m (6&ndash;22 m).</li>
+   <li>Seam depth from floor elevations written on the sheets, under USGS 3DEP lidar terrain.</li>
+   <li>Parcels, buildings and addresses from county GIS and assessment records.</li></ul></div>
+  <div><h4>What they are not</h4><ul>
+   <li>Not a geotechnical report, property disclosure or engineering opinion.</li>
+   <li>Old maps can be incomplete: workings after the survey date, robbed pillars and unmapped entries may exist.</li>
+   <li>Where a view simplifies (for example a seam drawn as a flat or tilted plane), the view says so.</li>
+   <li>Absence of a mapped mine is not evidence that no mine exists.</li></ul></div>
+  <div class="must"><h4>Required before any decision</h4>
+   <p>Before buying, designing, permitting or building on a site near mapped workings, the actual conditions must be confirmed by a
+   <b>physical site investigation</b>: borings and/or geophysical survey, carried out and signed by a licensed professional engineer or geologist.
+   Some jurisdictions require it by code; in King County, Washington, a coal mine hazard assessment by a Washington-licensed professional is required before permits in mapped hazard areas.</p>
+   <p>We prepare the historical mapping that such an investigation starts from. <a href="/contact/" style="color:var(--teal)">Contact us</a> for a specific site.</p></div>
+ </div>
+</section>
 </main>
 <footer><div class="wrap"><span>© 2026 BIM Ops Studio</span><span class="mono">Sources: PA DEP / PASDA, WA DNR, USGS 3DEP, county GIS</span></div></footer>
 
@@ -117,6 +140,10 @@ const SITES = [
   img:'img/butler.jpg', tag:'3D', text:'148 acres of room-and-pillar mining, placed from the sheet\'s printed coordinate grid and laid on the coal seam at the tilt the surveyors measured.',
   facts:[['4.5 m','from the state\'s own placement'],['148','acres mined'],['32','buildings over the workings']],
   acts:[['Open the 3D mine','3d/butler.html']]},
+ {id:'fawn', lon:-79.79, lat:40.640, name:'Fawn & Frazer Twps, PA', sub:'Allegheny No. 2 & Portal No. 3 Mine, 1992 · Allegheny Co.',
+  img:'img/fawn.jpg', tag:'3D', text:'Two sheets of Penn Allegh Coal Co.\'s final 1992 survey, placed automatically from their printed State Plane grids and laid on the seam at 32 floor elevations the surveyors wrote on the map.',
+  facts:[['377','acres mined'],['158','buildings over the workings'],['6.6 m','from the state\'s own placement']],
+  acts:[['Open the 3D mine','3d/fawn.html']]},
  {id:'newcastle', lon:-122.16, lat:47.54, name:'Newcastle, WA', pin:'Newcastle / King County, WA', sub:'B.&R. mine, 1937 · King County',
   img:'img/newcastle.jpg', tag:'3D + atlas', text:'A steep-seam Washington mine worked from level gangways, laid at the elevations and dips written on the 1937 survey, with King County\'s coal mine hazard area drawn on top.',
   facts:[['34°','seam dip, from the map'],['25','acres traced'],['1937','survey date']],

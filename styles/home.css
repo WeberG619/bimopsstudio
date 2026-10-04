@@ -168,3 +168,5 @@ html.dark .bh{
 .bh .minecards b{display:block;font-size:16.5px;font-weight:600;color:var(--ink);padding-inline:16px}
 .bh .minecards span{display:block;font-size:13.5px;color:var(--muted);padding:3px 16px 0}
 .bh .minecards i{display:block;font-style:normal;font-size:12px;color:var(--teal);padding:10px 16px 0}
+
+.bh .small-note{font-size:13px;color:var(--muted);margin:18px 0 0;max-width:46ch}

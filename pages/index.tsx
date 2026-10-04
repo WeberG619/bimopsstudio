@@ -149,8 +149,9 @@ export default function Home() {
                 click any house.</p>
               <div className="acts">
                 <Link className="btn" href="/mine-maps/">Open the US map</Link>
-                <Link className="line" href="/contact/">Need this for a site?</Link>
+                <Link className="line" href="/mine-atlas/">Search King County addresses</Link>
               </div>
+              <p className="small-note">Screening information only. Site decisions need a physical investigation by a licensed engineer or geologist.</p>
             </div>
           </div>
           <div className="minecards">
@@ -160,8 +161,8 @@ export default function Home() {
               <b>Butler County, PA</b><span>Bethenergy Mine 91, 1989 · 148 acres</span><i className="mono">Open 3D →</i></Link>
             <Link href="/mine-maps/3d/newcastle.html"><img src="/mine-maps/img/newcastle.jpg" alt="" loading="lazy" />
               <b>Newcastle, WA</b><span>B.&amp;R. mine, 1937 · King County</span><i className="mono">Open 3D →</i></Link>
-            <Link href="/mine-atlas/"><img src="/mine-maps/img/pittsburgh-house.jpg" alt="" loading="lazy" />
-              <b>King County Mine Atlas</b><span>Search any address · 486 placed maps</span><i className="mono">Search →</i></Link>
+            <Link href="/mine-maps/3d/fawn.html"><img src="/mine-maps/img/fawn.jpg" alt="" loading="lazy" />
+              <b>Fawn &amp; Frazer Twps, PA</b><span>Allegheny No. 2 &amp; Portal No. 3, 1992 · 377 acres</span><i className="mono">Open 3D →</i></Link>
           </div>
         </section>
 
