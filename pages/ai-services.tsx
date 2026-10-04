@@ -481,7 +481,7 @@ export default function AIServices() {
               />
               <FAQItem
                 question="What Revit versions do you work in?"
-                answer="Revit 2024, 2025 and 2026. We work in your version and hand back a native .rvt you can open and keep working in, built in your template with your families and naming."
+                answer="Revit 2025, 2026 and 2027. We work in your version and hand back a native .rvt you can open and keep working in, built in your template with your families and naming."
               />
               <FAQItem
                 question="Is our project data secure?"
