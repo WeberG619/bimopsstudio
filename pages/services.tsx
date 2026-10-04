@@ -211,7 +211,7 @@ const processSteps = [
 ];
 
 const stats = [
-  { value: "Same day", label: "Fixed quote, usually" },
+  { value: "Fixed", label: "Price and date, agreed up front" },
   { value: "15+", label: "Years in AEC" },
   { value: "2025–2027", label: "Revit Versions Supported" },
   { value: "ADN", label: "Autodesk Developer Network Member" }

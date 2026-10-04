@@ -204,7 +204,7 @@ export default function PdfToRevit() {
             </h2>
             <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
               Send it over. We&apos;ll look at it and come back with a fixed quote and
-              a turnaround date — usually the same day.
+              a delivery date before any work starts.
             </p>
             <Button asChild size="lg" className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold">
               <Link href="/contact/">

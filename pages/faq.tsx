@@ -30,7 +30,7 @@ const faqs = [
   {
     category: "Getting Started",
     question: "How does a project start?",
-    answer: "You send the source — CAD, PDFs, scans or a site address — along with the scope. We quote a fixed number and a date against that actual source, usually the same day. Once you accept, we build it in your template, your naming and your standards."
+    answer: "You send the source — CAD, PDFs, scans or a site address — along with the scope. We quote a fixed price and a delivery date against that actual source, before any work starts. Once you accept, we build it in your template, your naming and your standards."
   },
   {
     category: "Technical Support",

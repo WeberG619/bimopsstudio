@@ -101,9 +101,9 @@ export default function Home() {
             <div><span className="mono">01</span><h3>Native Revit, your template</h3>
               <p>Real walls, doors, levels and sheets on your titleblock and standards. Not a traced shell your team has to rebuild.</p></div>
             <div><span className="mono">02</span><h3>A fixed price and a date</h3>
-              <p>Send the drawings and you get a number and a delivery date, usually the same day.</p></div>
+              <p>Send the drawings and you get a fixed price and a delivery date, agreed before any work starts.</p></div>
             <div><span className="mono">03</span><h3>Checked, not eyeballed</h3>
-              <p>Placement and quantities are checked against the record: the survey, the county parcel, the cover sheet.</p></div>
+              <p>Every model is tied to the real project address. We check it against the county parcel, the survey and the lidar terrain, and map the site around it, so it sits where it is actually built.</p></div>
             <div><span className="mono">04</span><h3>A specialist signs off</h3>
               <p>Our automation does the volume. A BIM specialist reviews every set before it reaches you.</p></div>
           </div>
@@ -178,7 +178,7 @@ export default function Home() {
 
         <section className="closer wrap">
           <h2>Send us a drawing.</h2>
-          <p>A fixed number and a date, usually the same day.</p>
+          <p>A fixed price and a delivery date, agreed before any work starts.</p>
           <Link className="btn" href="/contact/">Start a project</Link>
         </section>
       </div>

@@ -203,8 +203,8 @@ export default function DwgToRevit() {
               Ready to Move Your CAD Into BIM?
             </h2>
             <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
-              Send a DWG. We&apos;ll come back with a fixed quote and a turnaround
-              date — usually the same day.
+              Send a DWG. We&apos;ll come back with a fixed quote and a delivery
+              date before any work starts.
             </p>
             <Button asChild size="lg" className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold">
               <Link href="/contact/">
