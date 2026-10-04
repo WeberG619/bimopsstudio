@@ -34,11 +34,8 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="mb-4">
               <div className="flex items-center space-x-2 mb-4">
-                <img
-                  src="/logo.png"
-                  alt="BIM Ops Studio"
-                  className="w-10 h-10"
-                />
+                <img src="/images/brand/mark-on-light-256.png" alt="BIM Ops Studio" className="h-10 w-auto dark:hidden" />
+                <img src="/images/brand/mark-on-dark-256.png" alt="BIM Ops Studio" className="h-10 w-auto hidden dark:block" />
                 <span className="font-heading text-xl font-bold">BIM Ops Studio</span>
               </div>
             </div>

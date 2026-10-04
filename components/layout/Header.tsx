@@ -22,6 +22,7 @@ export function Header() {
     { href: "/services", label: "Services" },
     { href: "/ai-services", label: "How It Works" },
     { href: "/about", label: "About" },
+    { href: "/mine-maps/", label: "Mine Maps" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -35,11 +36,9 @@ export function Header() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
-          <img
-            src="/logo.png"
-            alt="BIM Ops Studio"
-            className="w-10 h-10"
-          />
+          {/* cube mark only, full resolution: navy on light, white + teal on dark (the navy mark vanished on the dark header) */}
+          <img src="/images/brand/mark-on-light-256.png" alt="BIM Ops Studio" className="h-10 w-auto dark:hidden" />
+          <img src="/images/brand/mark-on-dark-256.png" alt="BIM Ops Studio" className="h-10 w-auto hidden dark:block" />
           <div className="flex flex-col">
             <span className={`font-heading text-xl font-bold transition-colors ${
               isScrolled
@@ -47,13 +46,6 @@ export function Header() {
                 : "text-gray-900 dark:text-white"
             }`}>
               BIM Ops Studio
-            </span>
-            <span className={`text-xs transition-colors ${
-              isScrolled
-                ? "text-[#4A9EFF]"
-                : "text-[#4A9EFF]"
-            }`}>
-              AI-Powered BIM Workflows
             </span>
           </div>
         </Link>
@@ -63,7 +55,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`transition-colors font-medium hover:text-blue-500 ${
+              className={`transition-colors font-medium hover:text-[#4CBEC4] ${
                 isScrolled
                   ? "text-gray-700 dark:text-gray-300"
                   : "text-gray-700 dark:text-white"

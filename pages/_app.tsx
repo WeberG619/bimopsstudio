@@ -1,4 +1,5 @@
 ﻿import "../styles/globals.css";
+import "../styles/home.css";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { AuthProvider } from "@/contexts/AuthContext";

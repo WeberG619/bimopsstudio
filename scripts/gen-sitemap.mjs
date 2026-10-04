@@ -32,6 +32,8 @@ const PRIORITY = {
   "/services/": 0.9,
   "/ai-renderings/": 0.9,
   "/3d-mapping/": 0.9,
+  "/mine-maps/": 0.9,
+  "/mine-atlas/": 0.8,
   "/projects/": 0.8,
   "/studio-copilot/": 0.8,
   "/ai-services/": 0.8,
@@ -73,7 +75,10 @@ function walk(dir, prefix = "") {
 
 const today = new Date().toISOString().slice(0, 10);
 
-const routes = [...new Set(walk(join(ROOT, "pages")))]
+// Static pages served from public/ (not under pages/), e.g. the mine-map tools.
+const STATIC_ROUTES = ["/mine-maps/", "/mine-atlas/"];
+
+const routes = [...new Set([...walk(join(ROOT, "pages")), ...STATIC_ROUTES])]
   .filter((r) => !EXCLUDE_ROUTES.has(r))
   .sort((a, b) => (PRIORITY[b] ?? 0.6) - (PRIORITY[a] ?? 0.6) || a.localeCompare(b));
 

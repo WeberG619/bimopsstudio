@@ -1,715 +1,186 @@
-import { Layout } from "@/components/layout/Layout";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import {
-  ArrowRight,
-  CheckCircle2,
-  XCircle,
-  Clock,
-  Zap,
-  FileText,
-  Users,
-  BarChart3,
-  Settings,
-  GraduationCap,
-  Shield,
-  GitBranch,
-  Mail,
-  ChevronRight,
-  Building2,
-  Layers,
-  PenTool,
-} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
-import { ImageModal } from "@/components/ui/ImageModal";
+import { Layout } from "@/components/layout/Layout";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 },
-};
+// Home page, 2026-10 refresh: the 9/20 approved preview in the site's dark theme (light theme follows the
+// header toggle). Images are Real-ESRGAN upscales to 2600px of our own renders, so the full-screen hero stays sharp
+// on a 2560-CSS-px / 1.5x display (hero slides 3840px). Styles: styles/home.css (all scoped under .bh). Previous page:
+// Website_Content/index.tsx.before-2026-10-04 (gitignored) and git history.
 
-const staggerItem = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-};
-
-// Every image below was produced by our own pipeline: Revit model -> automation -> AI render.
-const HERO_IMAGES = [
-  { src: "/images/work/hero-gemelas.jpg", alt: "Gemelas twin-tower concept with skybridge at sunset" },
-  { src: "/images/work/hero-curva.jpg", alt: "Curva glass tower over a reflecting pool at golden hour" },
-  { src: "/images/work/hero-verano.jpg", alt: "Verano modern residence with pool, South Florida" },
-  { src: "/images/work/hero-brickell.jpg", alt: "Photoreal aerial of Brickell, Miami city model" },
+// wide renders only: a tall frame (Corona) would lose its crown on a wide screen
+const SLIDES = [
+  { src: "/images/home/hero/gemelas-corner.jpg", name: "Gemelas", code: "GE-2601", pos: "center 40%" },
+  { src: "/images/home/hero/podio-street.jpg", name: "Pódio", code: "PD-2601", pos: "center 45%" },
+  { src: "/images/home/hero/curva-corner.jpg", name: "Curva", code: "CU-2601", pos: "center 45%" },
+  { src: "/images/home/hero/giro-corner.jpg", name: "Giro", code: "GI-2601", pos: "center 35%" },
+  { src: "/images/home/hero/diagrid-corner.jpg", name: "Diagrid", code: "DG-2601", pos: "center 30%" },
 ];
 
-const WORK_TILES = [
-  {
-    src: "/images/work/tile-faro-alto.jpg",
-    title: "Faro Alto",
-    tag: "Mixed-use tower - night plaza",
-  },
-  {
-    src: "/images/work/tile-interior.jpg",
-    title: "Verano Great Room",
-    tag: "Interior visualization",
-  },
-  {
-    src: "/images/work/tile-mirador.jpg",
-    title: "Mirador Villa",
-    tag: "Residential design - aerial",
-  },
-  {
-    src: "/images/work/tile-brickell.jpg",
-    title: "Brickell, Miami",
-    tag: "City-scale digital twin",
-  },
-  {
-    src: "/images/work/tile-sandpoint.jpg",
-    title: "Sandpoint, Idaho",
-    tag: "Whole-town LOD 300 model",
-  },
-  {
-    src: "/images/work/tile-corona.jpg",
-    title: "Corona Crown",
-    tag: "High-rise concept",
-  },
+const PROJECTS = [
+  { src: "/images/home/gemelas-corner.jpg", name: "Gemelas", code: "GE-2601", d: "Twin residential towers · sky bridges" },
+  { src: "/images/home/podio-street.jpg", name: "Pódio", code: "PD-2601", d: "Mixed-use · retail podium · 5 storeys" },
+  { src: "/images/home/curva-corner.jpg", name: "Curva", code: "CU-2601", d: "Residential tower · curved facade" },
+  { src: "/images/home/corona-corner.jpg", name: "Corona", code: "CR-2601", d: "Mid-rise · crowned massing" },
+  { src: "/images/home/faro-alto-corner.jpg", name: "Faro Alto", code: "FA-2602", d: "Tower · beacon crown · vertical core" },
+  { src: "/images/home/diagrid-corner.jpg", name: "Diagrid", code: "DG-2601", d: "Office tower · diagrid exoskeleton" },
+  { src: "/images/home/balcones-corner.jpg", name: "Balcones", code: "BA-2601", d: "Residential · stacked balcony bands" },
+  { src: "/images/home/giro-corner.jpg", name: "Giro", code: "GI-2601", d: "Tower · twisting floor plates" },
 ];
+
+function Hero() {
+  const [i, setI] = useState(0);
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const start = () => {
+    if (timer.current) clearInterval(timer.current);
+    timer.current = setInterval(() => setI((n) => (n + 1) % SLIDES.length), 6000);
+  };
+  useEffect(() => {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) start();
+    return () => { if (timer.current) clearInterval(timer.current); };
+  }, []);
+  return (
+    <div className="hero">
+      {SLIDES.map((s, k) => (
+        <figure key={s.src} className={`sl${k === i ? " on" : ""}`} aria-hidden={k !== i}>
+          <img src={s.src} alt={`${s.name}, rendered from our Revit model`} style={{ objectPosition: s.pos }}
+               loading={k === 0 ? "eager" : "lazy"} {...(k === 0 ? { fetchPriority: "high" as any } : {})} />
+        </figure>
+      ))}
+      <div className="hero-in">
+        <div className="hero-tx">
+          <p className="kick">AI-driven Revit production for architecture firms</p>
+          <h1>We build the models.<span>You do the architecture.</span></h1>
+          <p className="sub">Send drawings. Get back native Revit on your template, built by AI-driven automation we wrote
+            and signed off by a BIM specialist.</p>
+          <div className="acts">
+            <Link className="btn" href="/contact/">Send us a drawing</Link>
+            <a className="line" href="#work">See the work</a>
+          </div>
+          <p className="cred mono"><span>Autodesk Developer Network member · #USUS0234</span><br /><span>Revit 2025–2027 · Produced in the United States</span></p>
+        </div>
+      </div>
+      <div className="hcap">
+        <span><b>{SLIDES[i].name}</b> <span className="mono">{SLIDES[i].code}</span></span>
+        <div className="dots">
+          {SLIDES.map((s, k) => (
+            <button key={s.code} className={`dot${k === i ? " on" : ""}`} aria-label={`Show ${s.name}`}
+                    onClick={() => { setI(k); start(); }} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
-  const [heroIdx, setHeroIdx] = useState(0);
-  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
-  useEffect(() => {
-    const t = setInterval(() => setHeroIdx((i) => (i + 1) % HERO_IMAGES.length), 6000);
-    return () => clearInterval(t);
-  }, []);
-
   return (
     <Layout
-      title="BIM Ops Studio | Architecture & BIM Services"
-      description="BIM Ops Studio helps AEC firms implement intelligent workflows that slash construction document production time by 75%. Built by a BIM specialist who codes."
+      title="BIM Ops Studio | Revit Production & Construction Documents for Architecture Firms"
+      description="Send drawings, get back native Revit on your template: models, construction documents, site context and renderings, built by our own automation and signed off by a BIM specialist."
     >
-      {/* Hero Section — rotating showcase of our own renders */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          {HERO_IMAGES.map((img, i) => (
-            <motion.div
-              key={img.src}
-              className="absolute inset-0"
-              initial={false}
-              animate={{ opacity: i === heroIdx ? 1 : 0, scale: i === heroIdx ? 1.04 : 1 }}
-              transition={{ opacity: { duration: 1.6, ease: "easeInOut" }, scale: { duration: 7, ease: "linear" } }}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover"
-                priority={i === 0}
-              />
-            </motion.div>
-          ))}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1B2A]/90 via-[#0A1B2A]/75 to-[#0A1B2A]/40" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0A1B2A] to-transparent" />
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+      </Head>
+      <div className="bh">
+        <Hero />
+
+        <div className="ticker">
+          <div><b>1,500+</b><span>automated Revit operations in production</span></div>
+          <div><b>3,722</b><span>survey points verified against the county record on one site</span></div>
+          <div><b>486</b><span>historical mine maps searchable in our free public atlas</span></div>
+          <div><b>2025–2027</b><span>Revit versions we deliver in</span></div>
         </div>
 
-        <div className="container mx-auto px-4 max-w-6xl relative z-10 pt-32 pb-20">
-          <motion.div
-            className="max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center gap-2 mb-8">
-              <div className="h-px w-12 bg-amber-500" />
-              <span className="text-amber-500 text-sm font-medium uppercase tracking-wider">
-                Autodesk Developer Network Member
-              </span>
-            </div>
+        <section className="why wrap">
+          <p className="kick">Why firms send us their drawings</p>
+          <h2 className="big">Your team keeps designing. The production comes back done, on your standards.</h2>
+          <div className="whyg">
+            <div><span className="mono">01</span><h3>Native Revit, your template</h3>
+              <p>Real walls, doors, levels and sheets on your titleblock and standards. Not a traced shell your team has to rebuild.</p></div>
+            <div><span className="mono">02</span><h3>A fixed price and a date</h3>
+              <p>Send the drawings and you get a number and a delivery date, usually the same day.</p></div>
+            <div><span className="mono">03</span><h3>Checked, not eyeballed</h3>
+              <p>Placement and quantities are checked against the record: the survey, the county parcel, the cover sheet.</p></div>
+            <div><span className="mono">04</span><h3>A specialist signs off</h3>
+              <p>Our automation does the volume. A BIM specialist reviews every set before it reaches you.</p></div>
+          </div>
+        </section>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-              Your Firm&apos;s Construction Documents.{" "}
-              <span className="text-amber-500">75% Faster.</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
-              BIM Ops Studio helps architecture and engineering firms implement
-              intelligent workflows that slash CD production time — without
-              replacing your team.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-start gap-4">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="text-base px-8 py-6 bg-amber-500 hover:bg-amber-600 text-white font-semibold"
-                >
-                  Request a Demo
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+        <section className="wrap" id="work">
+          <div className="shead"><h2>Projects</h2><Link className="mono" href="/ai-renderings/">All renderings →</Link></div>
+          <div className="biggrid">
+            {PROJECTS.map((p) => (
+              <Link className="bt" href="/ai-renderings/" key={p.code}>
+                <img src={p.src} alt={`${p.name}: ${p.d}`} loading="lazy" />
+                <span className="bt-m"><b>{p.name}</b><i className="mono">{p.code}</i></span>
+                <span className="bt-d mono">{p.d}</span>
               </Link>
-              <Link href="#work">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-base px-8 py-6 border-white/30 text-white hover:bg-white/10"
-                >
-                  See the Work
-                </Button>
-              </Link>
+            ))}
+          </div>
+        </section>
+
+        <div className="system">
+          <div className="wrap">
+            <p className="kick">The difference</p>
+            <h2>Hundreds of studios do Revit production.<span>We built a system that does it.</span></h2>
+            <div className="syscols">
+              <p>Not a faster drafter. An automation layer we wrote ourselves that drives Revit directly, and a
+                correction ledger behind it that gets more accurate every project, because every mistake is written
+                down and never repeated.</p>
+              <p>It is why a set comes back in days, and why placement is proved against the county record instead
+                of eyeballed onto an aerial. A BIM specialist signs off on all of it.</p>
             </div>
-
-            <p className="mt-10 text-sm text-gray-400">
-              Every image on this page came out of our pipeline — Revit model in,
-              photoreal visualization out.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* hero rotation indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-          {HERO_IMAGES.map((_, i) => (
-            <button
-              key={i}
-              aria-label={`Show slide ${i + 1}`}
-              onClick={() => setHeroIdx(i)}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                i === heroIdx ? "w-8 bg-amber-500" : "w-3 bg-white/30 hover:bg-white/50"
-              }`}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Work Showcase — best assets up top */}
-      <section id="work" className="py-24 bg-white dark:bg-[#0A1B2A]">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div {...fadeInUp} className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              The Work Speaks First
-            </h2>
-            <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
-            <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              Concept design, photoreal rendering, interiors, and city-scale
-              modeling — all produced by the same automated Revit pipeline we
-              install for your firm.
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
-            {WORK_TILES.map((tile, i) => (
-              <motion.div
-                key={tile.src}
-                {...staggerItem}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-              >
-                <div
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 cursor-zoom-in"
-                  onClick={() => setModalImage({ src: tile.src, alt: `${tile.title} — ${tile.tag}` })}
-                >
-                  <Image
-                    src={tile.src}
-                    alt={`${tile.title} — ${tile.tag}`}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pt-16 pb-4 px-5">
-                    <p className="text-white font-semibold">{tile.title}</p>
-                    <p className="text-gray-300 text-sm">{tile.tag}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="/ai-renderings/">
-              <Button
-                size="lg"
-                className="text-base px-8 py-6 bg-amber-500 hover:bg-amber-600 text-white font-semibold"
-              >
-                Full Gallery — 31 Designs, 124 Renders
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </a>
-            <a href="/showcase.html">
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-base px-8 py-6 border-gray-300 dark:border-white/30 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10"
-              >
-                City-Scale Planning Showcase
-              </Button>
-            </a>
+            <p className="sysline">The system is not for sale. <em>What it produces is.</em></p>
           </div>
         </div>
-      </section>
 
-      {/* Problem / Solution — image on left, content on right */}
-      <section className="relative overflow-hidden bg-gray-50 dark:bg-[#0f2640]">
-        <div className="grid lg:grid-cols-2">
-          {/* Image side */}
-          <div className="relative h-64 lg:h-auto">
-            <Image
-              src="/images/blueprints.jpg"
-              alt="Architectural blueprints"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-[#0A1B2A]/40" />
-          </div>
-
-          {/* Content side */}
-          <div className="py-16 lg:py-24 px-8 lg:px-16">
-            <motion.div {...fadeInUp}>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                The Industry Problem
-              </h2>
-              <div className="h-1 w-16 bg-amber-500 mb-8" />
-
-              <div className="space-y-8">
-                <div>
-                  <ul className="space-y-4">
-                    {[
-                      "Firms spend 60-70% of project time producing construction documents",
-                      "Redline incorporation takes days of manual, error-prone work",
-                      "Coordination between disciplines is tedious and manual",
-                      "Talented architects spend their time on repetitive tasks, not design",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start text-gray-600 dark:text-gray-300">
-                        <XCircle className="w-5 h-5 text-red-600 dark:text-red-400 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="h-px bg-gray-200 dark:bg-gray-700" />
-
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Our Approach</h3>
-                  <ul className="space-y-4">
-                    {[
-                      "Intelligent systems read your markups and incorporate redlines automatically",
-                      "Models are built and updated through an integrated pipeline",
-                      "Documents are coordinated across disciplines in minutes",
-                      "Your team focuses on design while automation handles production",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start text-gray-600 dark:text-gray-300">
-                        <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-3 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        <section className="wrap">
+          <div className="shead"><h2>Mine maps in 3D · free to explore</h2><Link className="mono" href="/mine-maps/">US map of all locations →</Link></div>
+          <div className="feature">
+            <Link href="/mine-maps/3d/pittsburgh.html"><img src="/mine-maps/img/pittsburgh.jpg" loading="lazy"
+              alt="3D view of 1922 coal mine workings under a present-day Pittsburgh neighborhood" /></Link>
+            <div>
+              <h3>Old underground mines, in 3D under today's ground</h3>
+              <p>We take the coal companies' own survey maps, place them on the modern map and show the workings at
+                depth under the real terrain, with every parcel and building above them. Rotate it, look underneath,
+                click any house.</p>
+              <div className="acts">
+                <Link className="btn" href="/mine-maps/">Open the US map</Link>
+                <Link className="line" href="/contact/">Need this for a site?</Link>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Band */}
-      <section className="py-16 bg-white dark:bg-[#0A1B2A]">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { value: "89", unit: "hours", label: "Saved monthly per project team", icon: Clock },
-              { value: "29x", unit: "", label: "Return on implementation investment", icon: BarChart3 },
-              { value: "Zero", unit: "", label: "Downtime during implementation", icon: Shield },
-            ].map((stat, i) => (
-              <motion.div key={i} {...staggerItem} transition={{ duration: 0.5, delay: i * 0.1 }}>
-                <div className="text-center">
-                  <stat.icon className="w-6 h-6 text-amber-600 dark:text-amber-500 mx-auto mb-3" />
-                  <div className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-1">
-                    {stat.value}
-                    {stat.unit && <span className="text-lg text-gray-500 dark:text-gray-400 ml-1">{stat.unit}</span>}
-                  </div>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">{stat.label}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section — with background image */}
-      <section id="how-it-works" className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/construction-docs.jpg"
-            alt="Construction site"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-[#0A1B2A]/90" />
-        </div>
-
-        <div className="container mx-auto px-4 max-w-5xl relative z-10">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              How It Works
-            </h2>
-            <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
-            <p className="text-gray-400 text-lg">
-              Three steps from your drawings to finished files
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                step: "01",
-                icon: BarChart3,
-                title: "You Send Us the Drawings",
-                description:
-                  "CAD, PDFs, scans or a site address. We scope the work against what you actually send and come back with a number and a date.",
-              },
-              {
-                step: "02",
-                icon: Settings,
-                title: "We Build It",
-                description:
-                  "The model, the sheet set, the renderings — produced in your template, to your standards, in our studio. Nothing to install on your side.",
-              },
-              {
-                step: "03",
-                icon: Zap,
-                title: "You Get the Files",
-                description:
-                  "Native Revit, coordinated PDFs, print-ready images. Reviewed with you, with one revision round included in the scope.",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                {...staggerItem}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-              >
-                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 text-center h-full hover:bg-white/10 transition-colors">
-                  <div className="text-6xl font-bold text-white/5 absolute top-3 right-5">
-                    {item.step}
-                  </div>
-                  <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3 w-14 h-14 flex items-center justify-center mx-auto mb-6">
-                    <item.icon className="w-7 h-7 text-amber-500" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Technology Pipeline Section */}
-      <section className="py-24 bg-gray-50 dark:bg-[#0f2640]">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              The Technology
-            </h2>
-            <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
-            <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              A production-tested pipeline connecting Revit to intelligent automation through purpose-built infrastructure
-            </p>
-          </motion.div>
-
-          <motion.div {...fadeInUp} className="mb-12">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-0">
-              {[
-                { label: "Revit", sub: "Your BIM environment", icon: Building2 },
-                { label: "RevitMCPBridge", sub: "Named pipe connection", icon: GitBranch },
-                { label: "Automation Engine", sub: "Claude + 17 MCP servers", icon: Settings },
-                { label: "Markup Reading", sub: "PDF redline interpretation", icon: PenTool },
-                { label: "CD Assembly", sub: "Automated sheet production", icon: Layers },
-              ].map((node, i) => (
-                <div key={i} className="flex items-center">
-                  <div className="bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-5 py-4 text-center min-w-[160px] hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
-                    <node.icon className="w-5 h-5 text-amber-600 dark:text-amber-500 mx-auto mb-2" />
-                    <p className="text-gray-900 dark:text-white font-semibold text-sm">
-                      {node.label}
-                    </p>
-                    <p className="text-gray-500 text-xs mt-1">{node.sub}</p>
-                  </div>
-                  {i < 4 && (
-                    <ChevronRight className="w-5 h-5 text-amber-500/40 mx-2 hidden md:block flex-shrink-0" />
-                  )}
-                </div>
-              ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Services Grid Section — with background image */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/modern-office.jpg"
-            alt="Modern office"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-[#0A1B2A]/92" />
-        </div>
-
-        <div className="container mx-auto px-4 max-w-5xl relative z-10">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Services
-            </h2>
-            <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
-            <p className="text-gray-400 text-lg">
-              The work we take on
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Layers,
-                title: "Model Production",
-                description:
-                  "You send CAD, PDFs or scans. We build the native Revit model — walls, doors, levels and grids, drawn to your standards.",
-                price: "Quoted per project",
-                features: [
-                  "DWG and DXF converted to real elements",
-                  "PDFs and scans scaled and rebuilt",
-                  "Site and context models from survey and GIS",
-                  "Your templates, families and naming",
-                ],
-              },
-              {
-                icon: FileText,
-                title: "Construction Document Production",
-                description:
-                  "We pick up the sheet set and produce it in your template, at your standards. Overflow capacity when your team is at the wall.",
-                price: "Quoted per project",
-                features: [
-                  "Sheet sets built and numbered to your standard",
-                  "Plans, elevations, sections and callouts",
-                  "Door, window and room finish schedules",
-                  "Issued as a coordinated PDF set",
-                ],
-              },
-              {
-                icon: PenTool,
-                title: "Visualization & Feasibility",
-                description:
-                  "Photoreal images from your actual model, and zoning studies that say what fits before a scheme is committed.",
-                price: "Quoted per project",
-                features: [
-                  "Renderings from your Revit geometry",
-                  "Real surveyed and GIS site context",
-                  "Zoning envelope, setbacks and FAR",
-                  "Written feasibility report",
-                ],
-              },
-            ].map((service, i) => (
-              <motion.div
-                key={i}
-                {...staggerItem}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-              >
-                <Card className="bg-white/80 dark:bg-white/5 backdrop-blur-sm border-gray-200 dark:border-white/10 h-full flex flex-col hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
-                  <CardHeader>
-                    <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3 w-12 h-12 flex items-center justify-center mb-4">
-                      <service.icon className="w-6 h-6 text-amber-600 dark:text-amber-500" />
-                    </div>
-                    <CardTitle className="text-xl text-gray-900 dark:text-white">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-1 flex flex-col">
-                    <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-2 mb-6">
-                      {service.features.map((feature, j) => (
-                        <li
-                          key={j}
-                          className="flex items-start text-gray-600 dark:text-gray-300 text-sm"
-                        >
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-auto pt-4 border-t border-gray-200 dark:border-white/10">
-                      <p className="text-amber-600 dark:text-amber-500 font-semibold">
-                        {service.price}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
           </div>
-        </div>
-      </section>
-
-      {/* Credentials Section */}
-      <section className="py-24 bg-gray-50 dark:bg-[#0f2640]">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Built by a BIM Specialist Who Codes
-            </h2>
-            <div className="h-1 w-16 bg-amber-500 mx-auto mb-4" />
-            <p className="text-gray-500 dark:text-gray-400 text-lg">
-              So your team doesn&apos;t have to
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div {...fadeInUp}>
-              <div className="bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl p-8">
-                <div className="flex items-center mb-6">
-                  <Users className="w-8 h-8 text-amber-600 dark:text-amber-500 mr-4" />
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                      Weber Gouin
-                    </h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Principal / BIM Specialist
-                    </p>
-                  </div>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                  15 years of AEC experience across residential,
-                  commercial, and institutional projects. Transitioned from
-                  producing construction documents to building the intelligent systems
-                  that produce them.
-                </p>
-                <div className="flex items-center space-x-4">
-                  <img
-                    src="/ADN/autodesk-authorized-developer-logo/autodesk-authorized-developer-logo-rgb-white.png"
-                    alt="Autodesk Developer Network Member"
-                    className="h-10 dark:block hidden"
-                  />
-                  <img
-                    src="/ADN/autodesk-authorized-developer-logo/autodesk-authorized-developer-logo-rgb-black.png"
-                    alt="Autodesk Developer Network Member"
-                    className="h-10 dark:hidden block"
-                  />
-                  <div>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                      Autodesk Developer Network
-                    </p>
-                    <p className="text-sm text-amber-600 dark:text-amber-500">
-                      Member #USUS0234
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              {...fadeInUp}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="space-y-6">
-                {[
-                  {
-                    icon: GitBranch,
-                    title: "RevitMCPBridge",
-                    description:
-                      "Purpose-built bridge connecting Revit to intelligent automation via named pipes. Production-tested on live projects.",
-                  },
-                  {
-                    icon: Layers,
-                    title: "17 MCP Servers",
-                    description:
-                      "A coordinated fleet of tools handling everything from markup reading to sheet assembly.",
-                  },
-                  {
-                    icon: Shield,
-                    title: "Production Tested",
-                    description:
-                      "Not a prototype. This system has been used to produce real construction documents on real projects.",
-                  },
-                ].map((cred, i) => (
-                  <div
-                    key={i}
-                    className="bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl p-6 flex items-start hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
-                  >
-                    <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-2 mr-4 flex-shrink-0">
-                      <cred.icon className="w-5 h-5 text-amber-600 dark:text-amber-500" />
-                    </div>
-                    <div>
-                      <h4 className="text-gray-900 dark:text-white font-semibold mb-1">
-                        {cred.title}
-                      </h4>
-                      <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                        {cred.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+          <div className="minecards">
+            <Link href="/mine-maps/3d/pittsburgh.html"><img src="/mine-maps/img/pittsburgh-under.jpg" alt="" loading="lazy" />
+              <b>Pittsburgh, PA</b><span>Saw Mill Run Mine, 1922 · 104 buildings above</span><i className="mono">Open 3D →</i></Link>
+            <Link href="/mine-maps/3d/butler.html"><img src="/mine-maps/img/butler.jpg" alt="" loading="lazy" />
+              <b>Butler County, PA</b><span>Bethenergy Mine 91, 1989 · 148 acres</span><i className="mono">Open 3D →</i></Link>
+            <Link href="/mine-maps/3d/newcastle.html"><img src="/mine-maps/img/newcastle.jpg" alt="" loading="lazy" />
+              <b>Newcastle, WA</b><span>B.&amp;R. mine, 1937 · King County</span><i className="mono">Open 3D →</i></Link>
+            <Link href="/mine-atlas/"><img src="/mine-maps/img/pittsburgh-house.jpg" alt="" loading="lazy" />
+              <b>King County Mine Atlas</b><span>Search any address · 486 placed maps</span><i className="mono">Search →</i></Link>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section — with skyline background */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/skyline.jpg"
-            alt="City skyline"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-[#0A1B2A]/85" />
-        </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <motion.div {...fadeInUp}>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Transform Your CD Production?
-            </h2>
-            <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-              Let us show you how intelligent automation can cut your construction document
-              production time by 75% — on your next project.
-            </p>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                className="text-lg px-10 py-6 bg-amber-500 hover:bg-amber-600 text-white font-semibold"
-              >
-                Request a Demo
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-            <p className="mt-6 text-gray-400 flex items-center justify-center gap-2">
-              <Mail className="w-4 h-4" />
-              Or email us at{" "}
-              <a
-                href="mailto:info@bimopsstudio.com"
-                className="underline hover:text-white transition-colors text-gray-300"
-              >
-                info@bimopsstudio.com
-              </a>
-            </p>
-          </motion.div>
-        </div>
-      </section>
+        <section className="wrap">
+          <div className="shead"><h2>What we produce</h2><Link className="mono" href="/services/">Services →</Link></div>
+          <div className="caps">
+            <Link href="/services/"><span className="mono">01</span><h3>Models</h3><p>PDF, DWG or sketch to native Revit.</p></Link>
+            <Link href="/services/"><span className="mono">02</span><h3>Documents</h3><p>Sheets and schedules on your titleblock.</p></Link>
+            <Link href="/3d-mapping/"><span className="mono">03</span><h3>Site</h3><p>Context, terrain and submittal files, measured.</p></Link>
+            <Link href="/ai-renderings/"><span className="mono">04</span><h3>Renderings</h3><p>Rendered from your model, your design held exactly.</p></Link>
+          </div>
+        </section>
 
-      <ImageModal
-        isOpen={!!modalImage}
-        onClose={() => setModalImage(null)}
-        imageSrc={modalImage?.src ?? ""}
-        imageAlt={modalImage?.alt ?? ""}
-      />
+        <section className="closer wrap">
+          <h2>Send us a drawing.</h2>
+          <p>A fixed number and a date, usually the same day.</p>
+          <Link className="btn" href="/contact/">Start a project</Link>
+        </section>
+      </div>
     </Layout>
   );
 }
