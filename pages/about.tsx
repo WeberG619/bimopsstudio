@@ -465,8 +465,8 @@ export default function About() {
               Ready to Automate Your BIM Workflow?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Book a free assessment call and see how AI-powered automation can
-              cut your CD production time by 75%.
+              Book a free call: send a drawing and get a fixed number and a date,
+              built by AI-driven automation and signed off by a BIM specialist.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">

@@ -40,7 +40,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-gray-600 dark:text-gray-300 mb-4 max-w-md">
-              AI-powered BIM workflow implementation for architecture and engineering firms.
+              AI-driven Revit production and construction documents for architecture firms, signed off by a BIM specialist.
             </p>
             <div className="space-y-1 mb-6">
               <p className="text-gray-600 dark:text-gray-300 text-sm">

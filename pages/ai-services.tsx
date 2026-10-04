@@ -74,7 +74,7 @@ export default function AIServices() {
   return (
     <Layout
       title="AI-Powered BIM Automation | BIM Ops Studio"
-      description="Production AI that controls Revit through named pipes. 75% faster CD production. See the system that automates construction document production."
+      description="Production AI that controls Revit through named pipes, signed off by a BIM specialist. See the system that automates construction document production."
     >
       {/* ── Hero ── */}
       <section className="relative pt-40 pb-32 text-white overflow-hidden">
@@ -336,25 +336,25 @@ export default function AIServices() {
             transition={{ duration: 0.7 }}
           >
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-16">
-              Measured Results
+              The System, In Numbers
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {[
                 {
-                  value: "75%",
-                  label: "Faster CD Production",
-                  detail: "vs. manual workflow",
+                  value: "1,500+",
+                  label: "Automated Revit Operations",
+                  detail: "in production use",
                 },
                 {
-                  value: "89",
-                  label: "Hours Saved Monthly",
-                  detail: "2+ full work weeks",
+                  value: "2025–2027",
+                  label: "Revit Versions",
+                  detail: "delivered on your template",
                 },
                 {
-                  value: "29x",
-                  label: "Return on Investment",
-                  detail: "time value recovered",
+                  value: "ADN",
+                  label: "Autodesk Developer Network",
+                  detail: "member #USUS0234",
                 },
               ].map((stat, index) => (
                 <motion.div

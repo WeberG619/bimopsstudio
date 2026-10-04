@@ -10,7 +10,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 183 51% 39%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 84% 4.9%;
@@ -22,18 +22,18 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 183 51% 39%;
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 49% 8%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
+    --primary: 183 51% 53%;
     --primary-foreground: 222.2 84% 4.9%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -104,3 +104,8 @@ textarea::placeholder {
 select option[value=""] {
   color: rgb(156 163 175); /* gray-400 */
 }
+
+/* 2026-10 brand pass: white text on the bright teal accents is hard to read; use the dark ink instead */
+.bg-amber-500.text-white, .bg-amber-400.text-white, .bg-electric-blue.text-white, .bg-blue-500.text-white,
+.bg-orange-500.text-white, .bg-yellow-500.text-white { color: #0B1220 !important; }
+.bg-amber-500.text-white svg, .bg-electric-blue.text-white svg { color: #0B1220 !important; }

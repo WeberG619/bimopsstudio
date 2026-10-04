@@ -20,7 +20,7 @@ const botResponses = {
   ],
   products: [
     "We offer AI-powered BIM automation services built on RevitMCPBridge, our tool that connects AI to Revit. We handle implementation, custom automation, CD production workflows, and team training. We also have a free View Preview tool.",
-    "Our core offering is AI-powered BIM implementation -- we set up RevitMCPBridge for your team, build custom automation scripts, and train your staff. It cuts construction document production time by up to 75%."
+    "Our core offering is AI-powered BIM implementation -- we set up RevitMCPBridge for your team, build custom automation scripts, and train your staff. Every deliverable is reviewed and signed off by a BIM specialist."
   ],
   pricing: [
     "Every project is quoted as a fixed fee per deliverable after we review your drawing set, so you know the cost before anything starts. Email info@bimopsstudio.com and we'll scope it for you.",

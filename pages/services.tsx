@@ -211,9 +211,9 @@ const processSteps = [
 ];
 
 const stats = [
-  { value: "75%", label: "Faster CD Production" },
+  { value: "Same day", label: "Fixed quote, usually" },
   { value: "15+", label: "Years in AEC" },
-  { value: "2025/26", label: "Revit Versions Supported" },
+  { value: "2025–2027", label: "Revit Versions Supported" },
   { value: "ADN", label: "Autodesk Developer Network Member" }
 ];
 
