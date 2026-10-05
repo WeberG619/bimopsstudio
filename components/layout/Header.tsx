@@ -22,7 +22,6 @@ export function Header() {
     { href: "/services", label: "Services" },
     { href: "/ai-services", label: "How It Works" },
     { href: "/about", label: "About" },
-    { href: "/mine-maps/", label: "Mine Maps" },
     { href: "/contact", label: "Contact" },
   ];
 

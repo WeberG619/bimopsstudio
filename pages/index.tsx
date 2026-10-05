@@ -90,7 +90,7 @@ export default function Home() {
         <div className="ticker">
           <div><b>1,500+</b><span>automated Revit operations in production</span></div>
           <div><b>3,722</b><span>survey points verified against the county record on one site</span></div>
-          <div><b>486</b><span>historical mine maps searchable in our free public atlas</span></div>
+          <div><b>Fixed</b><span>price and delivery date, agreed before work starts</span></div>
           <div><b>2025–2027</b><span>Revit versions we deliver in</span></div>
         </div>
 
@@ -138,31 +138,26 @@ export default function Home() {
         </div>
 
         <section className="wrap">
-          <div className="shead"><h2>Mine maps in 3D · free to explore</h2><Link className="mono" href="/mine-maps/">US map of all locations →</Link></div>
+          <div className="shead"><h2>Site and context</h2><Link className="mono" href="/3d-mapping/">Site and 3D mapping →</Link></div>
           <div className="feature">
-            <Link href="/mine-maps/3d/pittsburgh.html"><img src="/mine-maps/img/pittsburgh.jpg" loading="lazy"
-              alt="3D view of 1922 coal mine workings under a present-day Pittsburgh neighborhood" /></Link>
+            <img src="/images/home/site-revit.jpg" loading="lazy"
+              alt="A street corner modeled in Revit: roads, sidewalks, curbs, crossings, street trees, lights and the neighbouring buildings" />
             <div>
-              <h3>Old underground mines, in 3D under today's ground</h3>
-              <p>We take the coal companies' own survey maps, place them on the modern map and show the workings at
-                depth under the real terrain, with every parcel and building above them. Rotate it, look underneath,
-                click any house.</p>
+              <h3>The whole site, built in Revit around your building</h3>
+              <p>We start from the aerial and the public record for the address and model the site at real size: the
+                streets and crossings, the parcels and terrain, the trees and the buildings next door. Your building sits
+                in its real context from the first view.</p>
+              <ul>
+                <li><span className="mono">01</span>Streets, sidewalks, curbs, crossings and lane markings</li>
+                <li><span className="mono">02</span>County parcel lines and lidar terrain</li>
+                <li><span className="mono">03</span>Neighbouring buildings to their real height</li>
+                <li><span className="mono">04</span>Street trees, lights and site furniture</li>
+              </ul>
               <div className="acts">
-                <Link className="btn" href="/mine-maps/">Open the US map</Link>
-                <Link className="line" href="/mine-atlas/">Search King County addresses</Link>
+                <Link className="btn" href="/contact/">Send us an address</Link>
+                <Link className="line" href="/3d-mapping/">See site work</Link>
               </div>
-              <p className="small-note">Screening information only. Site decisions need a physical investigation by a licensed engineer or geologist.</p>
             </div>
-          </div>
-          <div className="minecards">
-            <Link href="/mine-maps/3d/pittsburgh.html"><img src="/mine-maps/img/pittsburgh-under.jpg" alt="" loading="lazy" />
-              <b>Pittsburgh, PA</b><span>Saw Mill Run Mine, 1922 · 104 buildings above</span><i className="mono">Open 3D →</i></Link>
-            <Link href="/mine-maps/3d/butler.html"><img src="/mine-maps/img/butler.jpg" alt="" loading="lazy" />
-              <b>Butler County, PA</b><span>Bethenergy Mine 91, 1989 · 148 acres</span><i className="mono">Open 3D →</i></Link>
-            <Link href="/mine-maps/3d/newcastle.html"><img src="/mine-maps/img/newcastle.jpg" alt="" loading="lazy" />
-              <b>Newcastle, WA</b><span>B.&amp;R. mine, 1937 · King County</span><i className="mono">Open 3D →</i></Link>
-            <Link href="/mine-maps/3d/fawn.html"><img src="/mine-maps/img/fawn.jpg" alt="" loading="lazy" />
-              <b>Fawn &amp; Frazer Twps, PA</b><span>Allegheny No. 2 &amp; Portal No. 3, 1992 · 377 acres</span><i className="mono">Open 3D →</i></Link>
           </div>
         </section>
 
