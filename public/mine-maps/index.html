@@ -336,7 +336,8 @@ f.addEventListener('submit',async ev=>{ev.preventDefault();const d=Object.fromEn
   f.querySelectorAll('input,select,textarea,button').forEach(x=>x.disabled=true);
   msg.innerHTML='<div class="ok"><b>Order request received.</b> We will email you within one business day with coverage, a quote and a date.</div>';
  }catch(e){btn.disabled=false;btn.textContent='Send order request';
-  msg.innerHTML='<p class="fine">Could not send from this page. Email <b>weber@bimopsstudio.com</b> with the parcel number or address.</p>'}
+  const mt='mailto:weber@bimopsstudio.com?subject='+encodeURIComponent('Mine Maps: site report order - '+d.parcel)+'&body='+encodeURIComponent(body);
+  msg.innerHTML='<div class="ok">The form could not send from this browser. <a href="'+mt+'" style="color:var(--teal);font-weight:600">Send the same order by email &rarr;</a><br><span class="fine">or write to weber@bimopsstudio.com with the parcel number or address.</span></div>'}
 });})();
 </script>
 </body></html>
