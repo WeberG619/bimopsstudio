@@ -75,6 +75,35 @@ h1 span{color:var(--teal)}
 .fl .must h4{color:#ffd59a}.fl .must p{color:var(--body);font-size:15px;margin:0 0 10px}
 footer{border-top:1px solid var(--rule);padding-block:26px;color:var(--muted);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* site screening report (order) */
+.rep{padding-block:56px 64px;border-top:1px solid var(--rule);scroll-margin-top:80px}
+.rep .rg{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:start}
+@media(max-width:900px){.rep .rg{grid-template-columns:1fr}}
+.rep h2{font-size:clamp(28px,3.4vw,40px);line-height:1.12;margin:0 0 14px;letter-spacing:-.01em}.rep h2 span{color:var(--teal)}
+.rep p{color:var(--body);margin:0 0 14px}.rep ul{margin:0 0 18px;padding-left:20px;color:var(--body)}.rep li{margin:5px 0}
+.rep .price{display:flex;gap:22px;flex-wrap:wrap;margin:18px 0 22px}.rep .price div{border-left:2px solid var(--teal);padding-left:12px}
+.rep .price b{display:block;font-family:"IBM Plex Mono",monospace;font-size:22px;color:var(--ink);font-weight:500}.rep .price span{font-size:13px;color:var(--muted)}
+.rep .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.rep .thumbs img{width:100%;aspect-ratio:8.5/11;object-fit:cover;object-position:top;border:1px solid var(--rule);border-radius:2px;background:#fff;display:block}
+.rep .ghost{display:inline-block;border:1px solid var(--teal);color:var(--teal);font-weight:600;font-size:15px;padding:11px 18px;border-radius:2px;margin-left:10px}
+.rep form{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:22px;display:grid;gap:12px}
+.rep form h3{margin:0 0 4px;font-size:19px}.rep label{display:grid;gap:5px;font-size:13px;color:var(--muted)}
+.rep input,.rep select,.rep textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:2px;padding:10px 12px;width:100%}
+.rep input:focus,.rep select:focus,.rep textarea:focus{outline:2px solid var(--teal);outline-offset:0;border-color:var(--teal)}
+.rep .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:560px){.rep .two{grid-template-columns:1fr}}
+.rep button{font:inherit;cursor:pointer;border:0}.rep .fine{font-size:12.5px;color:var(--muted);margin:0}
+.rep .ok{border:1px solid var(--teal);padding:14px;border-radius:2px;color:var(--ink)}
+
+/* mine status filter */
+.sfilt{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.sfilt button{font:inherit;font-size:13px;color:var(--body);background:transparent;border:1px solid var(--rule);border-radius:2px;padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.sfilt button[aria-pressed="true"]{border-color:var(--teal);color:var(--ink);background:rgba(76,190,196,.08)}
+.sfilt button[aria-pressed="false"]{opacity:.62}
+.sfilt i{display:inline-block;width:11px;height:11px;border-radius:50%}.sfilt i.dia{border-radius:1px;transform:rotate(45deg);background:#E35D9B;width:9px;height:9px}
+.sfilt b{font-family:"IBM Plex Mono",monospace;font-weight:500;color:var(--muted)}
+.mc.mcc{background:rgba(133,146,166,.25)}.mc.mcc div{background:#8592A6;color:#0B1220}
+.mc.mca{background:rgba(61,220,132,.35)}.mc.mca div{box-shadow:0 0 0 3px #3DDC84}
 </style></head><body>
 <header><div class="wrap">
  <a class="brand" href="/"><img src="/images/brand/mark-on-dark-256.png" alt="">BIM Ops Studio</a>
@@ -86,12 +115,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  <div><p class="kick">Mine maps · 3D · parcel level</p>
   <h1>Old underground mines, <span>in 3D under today's ground.</span></h1></div>
  <p>The coal companies' own survey maps, placed on the modern map and shown at depth under the real terrain, with the
- parcels and buildings that sit above the workings. Pick a location on the map.</p>
+ parcels and buildings that sit above the workings. Pick a location on the map, or <a href="#report" style="color:var(--teal)">order a site report for one parcel</a>.</p>
 </section>
 
 <section class="wrap mapgrid">
  <div class="mapbox"><div id="map" role="application" aria-label="Zoomable map of mapped mines"></div>
-  <div class="legend"><span><i style="background:#4CBEC4"></i>Built in 3D, open it now</span><span><i style="background:#ffb347"></i>Mapped mine in public archives (click for its maps)</span></div>
+  <div class="legend"><span><i style="background:#4CBEC4"></i>Built in 3D, open it now</span></div>
+  <div class="sfilt" id="sfilt" role="group" aria-label="Show mines by status">
+   <button type="button" data-s="a" aria-pressed="true"><i style="background:#3DDC84"></i>Still working <b id="n_a"></b></button>
+   <button type="button" data-s="c" aria-pressed="true"><i style="background:#8592A6"></i>Closed <b id="n_c"></b></button>
+   <button type="button" data-s="u" aria-pressed="true"><i style="background:transparent;border:2px solid #ffb347"></i>Status not recorded <b id="n_u"></b></button>
+   <button type="button" data-s="o" aria-pressed="false"><i class="dia"></i>Operating mines, no maps on file <b id="n_o"></b></button>
+  </div>
+  <p class="stat" id="sasof"></p>
   <p class="stat" id="stat"></p></div>
  <div class="detail" id="detail" aria-live="polite"></div>
 </section>
@@ -105,6 +141,39 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  <div><span class="mono">01</span><h4>The original survey</h4><p>Each scene starts from the mining company's own map, from public state archives.</p></div>
  <div><span class="mono">02</span><h4>Placed and checked</h4><p>Placed on the modern map from printed grids, streets, rail and streams, then checked against the state's own placement.</p></div>
  <div><span class="mono">03</span><h4>Shown in 3D</h4><p>Workings at the depths written on the map, under USGS lidar terrain, with every building above clickable for its address.</p></div>
+</section>
+<section class="wrap rep" id="report">
+ <div class="rg">
+  <div>
+   <p class="kick">Site screening report &middot; King County, WA</p>
+   <h2>Is there an old coal mine <span>under this parcel?</span></h2>
+   <p>A four-page PDF for one parcel, built from the mining company&rsquo;s own survey map, placed and checked on today&rsquo;s ground. For engineers, geologists, environmental consultants, developers and buyers who need the answer before a coal mine hazard assessment, a purchase or a design.</p>
+   <ul>
+    <li>How much of the parcel lies over mapped workings, and anything within 50&nbsp;ft</li>
+    <li>Depth to the workings across the parcel, with a section drawing</li>
+    <li>Screening against the county&rsquo;s typical severe / moderate / declassified depths</li>
+    <li>King County coal mine hazard map, buildings over workings, nearest recorded mine opening</li>
+    <li>Where the map came from, how it was placed, and how far to trust it</li>
+   </ul>
+   <div class="price"><div><b>Quoted per parcel</b><span>price and date by email, before any work</span></div><div><b>Portfolios</b><span>and corridors quoted</span></div></div>
+   <div class="thumbs"><img src="report/sample-p1.jpg" alt="Sample report, page 1: summary" loading="lazy"><img src="report/sample-p2.jpg" alt="Sample report, page 2: plan" loading="lazy"><img src="report/sample-p3.jpg" alt="Sample report, page 3: section and map source" loading="lazy"><img src="report/sample-p4.jpg" alt="Sample report, page 4: next steps and limits" loading="lazy"></div>
+   <p class="fine">Sample: Newcastle Golf Club parcel, prepared from public records only. <a class="ghost" style="margin:8px 0 0;display:inline-block" href="report/sample-site-report-newcastle.pdf" target="_blank" rel="noopener">Open the sample report (PDF)</a></p>
+  </div>
+  <form id="orderForm" novalidate>
+   <h3>Order a site report</h3>
+   <div class="two"><label>Name<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
+   <div class="two"><label>Company<input name="company" autocomplete="organization"></label>
+    <label>You are<select name="role"><option>Engineer / geologist</option><option>Environmental consultant</option><option>Developer / builder</option><option>Architect</option><option>Buyer / owner / agent</option><option>Other</option></select></label></div>
+   <label>Parcel number or street address<input name="parcel" required placeholder="e.g. 2724059013 or 15500 Six Penny Ln, Newcastle"></label>
+   <div class="two"><label>County / state<input name="county" value="King County, WA"></label>
+    <label>Needed by<input name="needed" placeholder="date or &lsquo;no rush&rsquo;"></label></div>
+   <label>What is it for? (optional)<textarea name="purpose" rows="3" placeholder="purchase, permit, design, a portfolio..."></textarea></label>
+   <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+   <button class="btn" type="submit" id="orderBtn">Send order request</button>
+   <p class="fine">We reply with coverage, a quote and a date before any work starts. Nothing is charged until you approve. Screening only: not an engineering opinion or hazard classification.</p>
+   <div id="orderMsg" aria-live="polite"></div>
+  </form>
+ </div>
 </section>
 <section class="wrap facts-sec">
  <div class="shead"><h3>Facts and limits</h3></div>
@@ -123,7 +192,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
    <p>Before buying, designing, permitting or building on a site near mapped workings, the actual conditions must be confirmed by a
    <b>physical site investigation</b>: borings and/or geophysical survey, carried out and signed by a licensed professional engineer or geologist.
    Some jurisdictions require it by code; in King County, Washington, a coal mine hazard assessment by a Washington-licensed professional is required before permits in mapped hazard areas.</p>
-   <p>We prepare the historical mapping that such an investigation starts from. <a href="/contact/" style="color:var(--teal)">Contact us</a> for a specific site.</p></div>
+   <p>We prepare the historical mapping that such an investigation starts from. <a href="#report" style="color:var(--teal)">Order a site report</a> for a specific parcel.</p></div>
  </div>
 </section>
 </main>
@@ -199,19 +268,45 @@ const map = L.map('map', {zoomControl: true, maxZoom: 18, worldCopyJump: true}).
 L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}', {maxZoom: 18, maxNativeZoom: 16,
   className: 'darkmap', attribution: 'Base map: USGS The National Map'}).addTo(map);
 const cluster = L.markerClusterGroup({showCoverageOnHover: false, maxClusterRadius: 46, chunkedLoading: true,
-  iconCreateFunction: c => { const n = c.getChildCount(); const cls = n < 50 ? '' : n < 500 ? ' m2' : ' m3';
+  iconCreateFunction: c => { const n = c.getChildCount(); let cls = n < 50 ? '' : n < 500 ? ' m2' : ' m3';
+    const ch = c.getAllChildMarkers(); let na = 0, nc = 0; for (const m of ch) { const f = m.options.fillColor; if (f === '#3DDC84') na++; else if (f === '#8592A6' || f === '#E8C547') nc++; }
+    cls += na ? ' mca' : (nc * 2 >= ch.length ? ' mcc' : '');   // green ring = holds a working mine; grey = mostly closed; orange = mostly not recorded
     return L.divIcon({html: `<div>${n >= 1000 ? (n / 1000).toFixed(1) + 'k' : n}</div>`, className: 'mc' + cls, iconSize: [40, 40]}); }});
+// mine status (from public records: MSHA federal mine list, PA DEP archive filing, WA). Never guessed: no record = "not recorded".
+const STY = {a: {radius: 6.5, color: '#0B1220', weight: 1.4, fillColor: '#3DDC84', fillOpacity: 1},
+             c: {radius: 5, color: '#0B1220', weight: 1.1, fillColor: '#8592A6', fillOpacity: .95},
+             u: {radius: 5, color: '#ffb347', weight: 1.6, fillColor: '#ffb347', fillOpacity: .12},
+             i: {radius: 5.5, color: '#0B1220', weight: 1.2, fillColor: '#E8C547', fillOpacity: 1}};
+const SLAB = {a: 'Still working', i: 'Idle', c: 'Closed', u: 'Status not recorded'};
+const byS = {a: [], i: [], c: [], u: []}, on = {a: true, c: true, u: true, i: true, o: false};
+const fmtD = s => { const t = new Date(s + 'T12:00:00'); return isNaN(t) ? s : t.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'}); };
+let operLayer = null;
+function refilter() { cluster.clearLayers(); cluster.addLayers(['a', 'i', 'c', 'u'].filter(k => on[k]).flatMap(k => byS[k]));
+  if (operLayer) { on.o ? map.addLayer(operLayer) : map.removeLayer(operLayer); } }
+document.querySelectorAll('#sfilt button').forEach(b => b.onclick = () => { const k = b.dataset.s; on[k] = !on[k]; if (k === 'c') on.i = on.c;
+  b.setAttribute('aria-pressed', on[k]); if (k === 'o' && on.o && !operLayer) loadOper(); else refilter(); });
 fetch('mines.json').then(r => r.json()).then(d => {
-  const rows = d.rows; let sheets = 0;
-  const marks = rows.map(r => { const [lat, lon, k, name, coll, st, scan, grp, yrs] = r; sheets += k;
-    const m = L.circleMarker([lat, lon], {radius: 5, color: '#0B1220', weight: 1.2, fillColor: '#ffb347', fillOpacity: .95});
+  const rows = d.rows, C = d.cols, iS = C.indexOf('status'), iW = C.indexOf('why'), asof = d.status_asof ? fmtD(d.status_asof) : ''; let sheets = 0;
+  rows.forEach(r => { const [lat, lon, k, name, coll, st, scan, grp, yrs] = r; const sk = (iS >= 0 && r[iS]) || 'u'; sheets += k;
+    const m = L.circleMarker([lat, lon], STY[sk] || STY.u);
     m.bindPopup(() => `<b>${esc(grp ? coll + ' maps' : name)}</b><br><span style="color:#8592A6">${st === 'PA' ? 'Pennsylvania' : 'Washington'} · ${k} map${k > 1 ? 's' : ''}${yrs ? ' · ' + esc(yrs) : ''}${grp ? '' : '<br>' + esc(coll)}</span><br>
+      <span style="display:block;margin:6px 0;padding:5px 8px;border-left:3px solid ${(STY[sk] || STY.u).fillColor === '#ffb347' ? '#ffb347' : (STY[sk] || STY.u).fillColor};background:rgba(133,146,166,.1);font-size:12.5px"><b>${SLAB[sk] || SLAB.u}</b><br>${esc(iW >= 0 ? d.why[r[iW]] : '')}${sk === 'a' || sk === 'i' ? ' (federal list of ' + asof + ')' : ''}</span>
       ${scan ? `<a href="${scan}" target="_blank" rel="noopener">Open an original scan</a><br>` : ''}${(b => b ? `<a href="${b.acts[0][1]}"><b>Open the 3D mine nearby (${esc(b.name)}) &rarr;</b></a>` : '<a href="/contact/">Request this site in 3D &rarr;</a>')(nearBuilt(lat, lon))}`);
-    return m; });
-  cluster.addLayers(marks); map.addLayer(cluster);
+    (byS[sk] || byS.u).push(m); });
+  for (const k of ['a', 'c', 'u']) document.getElementById('n_' + k).textContent = (k === 'c' ? byS.c.length + byS.i.length : byS[k].length).toLocaleString();
+  refilter(); map.addLayer(cluster);
   document.getElementById('stat').textContent = `${rows.length.toLocaleString()} mapped mine locations · ${sheets.toLocaleString()} historical maps · Pennsylvania and Washington archives so far`;
+  document.getElementById('sasof').textContent = `Still working = listed Active by MSHA, the federal mine safety agency (list of ${asof}). Closed = MSHA abandoned/sealed, or filed as abandoned in the state archive. Where no public record says either way, we say so.`;
   addBuilt();
 });
+fetch('operating.json').then(r => r.json()).then(d => { document.getElementById('n_o').textContent = d.rows.length; });
+function loadOper() { fetch('operating.json').then(r => r.json()).then(d => {
+  const ic = L.divIcon({className: '', html: '<div style="width:10px;height:10px;background:#E35D9B;border:1.5px solid #0B1220;transform:rotate(45deg)"></div>', iconSize: [10, 10], iconAnchor: [5, 5]});
+  operLayer = L.layerGroup(d.rows.map(([lat, lon, name, st, kind, com, stat, since, id]) => L.marker([lat, lon], {icon: ic, title: name}).bindPopup(
+    `<b>${esc(name)}</b><br><span style="color:#8592A6">${esc(st)} · ${esc(kind)}${com ? ' · ' + esc(com) : ''}</span><br>
+     <span style="display:block;margin:6px 0;padding:5px 8px;border-left:3px solid #E35D9B;background:rgba(133,146,166,.1);font-size:12.5px"><b>Operating underground mine</b><br>MSHA ID ${esc(id)}, ${esc(stat)} since ${esc(since)} (federal list of ${fmtD(d.asof)}). No historical maps of it are on file here.</span>
+     <a href="/contact/">Need it mapped? Ask us &rarr;</a>`)));
+  refilter(); }); }
 map.on('zoomend', () => document.getElementById('map').classList.toggle('far', map.getZoom() < 7));
 document.getElementById('map').classList.add('far');
 function nearBuilt(lat, lon) {   // a built 3D site within ~1.5 km of an archive dot
@@ -227,5 +322,21 @@ function addBuilt() {
   const want = new URLSearchParams(location.search).get('site'); show(want || 'pittsburgh');
 }
 document.querySelectorAll('.card').forEach(c => c.addEventListener('click', () => { const s = SITES.find(x => x.id === c.dataset.id); if (s) map.flyTo([s.lat, s.lon], s.id === 'kingcounty' ? 10 : 11); }));
+</script>
+
+<script>
+(function(){const f=document.getElementById('orderForm');if(!f)return;const msg=document.getElementById('orderMsg'),btn=document.getElementById('orderBtn');
+f.addEventListener('submit',async ev=>{ev.preventDefault();const d=Object.fromEntries(new FormData(f).entries());
+ if(!d.name||!d.email||!d.parcel||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){msg.innerHTML='<p class="fine" style="color:#ffb347">Please add your name, a valid email and the parcel or address.</p>';return}
+ btn.disabled=true;btn.textContent='Sending...';
+ const body=`Site report order\n\nParcel/address: ${d.parcel}\nCounty/state: ${d.county}\nNeeded by: ${d.needed}\nRole: ${d.role}\nCompany: ${d.company}\nPurpose: ${d.purpose}\n\nFrom: ${d.name} <${d.email}>\nPage: ${location.href}`;
+ try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+   body:JSON.stringify({access_key:'6a361fd9-4582-4fc6-9b17-19222400caca',subject:'Mine Maps: site report order - '+d.parcel,from_name:'BIM Ops Studio Mine Maps',name:d.name,email:d.email,replyto:d.email,message:body,botcheck:d.botcheck||''})});
+  const j=await r.json();if(!j.success)throw new Error(j.message||'failed');
+  f.querySelectorAll('input,select,textarea,button').forEach(x=>x.disabled=true);
+  msg.innerHTML='<div class="ok"><b>Order request received.</b> We will email you within one business day with coverage, a quote and a date.</div>';
+ }catch(e){btn.disabled=false;btn.textContent='Send order request';
+  msg.innerHTML='<p class="fine">Could not send from this page. Email <b>weber@bimopsstudio.com</b> with the parcel number or address.</p>'}
+});})();
 </script>
 </body></html>
