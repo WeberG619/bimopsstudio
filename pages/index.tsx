@@ -139,19 +139,25 @@ export default function Home() {
 
         <section className="wrap">
           <div className="shead"><h2>Site and context</h2><Link className="mono" href="/3d-mapping/">Site and 3D mapping →</Link></div>
-          <div className="feature">
-            <img src="/images/home/site-revit.jpg" loading="lazy"
-              alt="A street corner modeled in Revit: roads, sidewalks, curbs, crossings, street trees, lights and the neighbouring buildings" />
+          <div className="sitepair">
+            <figure><img src="/images/home/site-photo.jpg" loading="lazy" alt="Aerial photo of a block in Brickell, Miami (USDA NAIP, public domain)" />
+              <figcaption><span className="mono">01</span>The aerial photo</figcaption></figure>
+            <figure><img src="/images/home/site-revit.jpg" loading="lazy" alt="The same Brickell block built in Revit: 63 buildings to their recorded heights, the streets, the Metromover guideway and the park" />
+              <figcaption><span className="mono">02</span>The same block, built in Revit</figcaption></figure>
+          </div>
+          <div className="feature sitetx">
             <div>
-              <h3>The whole site, built in Revit around your building</h3>
-              <p>We start from the aerial and the public record for the address and model the site at real size: the
-                streets and crossings, the parcels and terrain, the trees and the buildings next door. Your building sits
-                in its real context from the first view.</p>
+              <h3>From an aerial photo to the whole site in Revit</h3>
+              <p>We take the aerial and the public record for the address and model the site at real size around your
+                building: every neighbouring building to its recorded height, the streets, the transit line, the parks.
+                This block in Brickell, Miami is 63 buildings, built from public data.</p>
+            </div>
+            <div>
               <ul>
-                <li><span className="mono">01</span>Streets, sidewalks, curbs, crossings and lane markings</li>
-                <li><span className="mono">02</span>County parcel lines and lidar terrain</li>
-                <li><span className="mono">03</span>Neighbouring buildings to their real height</li>
-                <li><span className="mono">04</span>Street trees, lights and site furniture</li>
+                <li><span className="mono">01</span>Neighbouring buildings to their real height</li>
+                <li><span className="mono">02</span>Streets, crossings, transit and parks</li>
+                <li><span className="mono">03</span>County parcel lines and lidar terrain</li>
+                <li><span className="mono">04</span>Placed on the project address, checked against the record</li>
               </ul>
               <div className="acts">
                 <Link className="btn" href="/contact/">Send us an address</Link>
