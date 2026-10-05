@@ -1,549 +1,212 @@
-import { Layout } from "@/components/layout/Layout";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  ArrowRight,
-  FileText,
-  Layers,
-  Zap,
-  Shield,
-  Clock,
-  CheckCircle,
-  ChevronDown,
-  ExternalLink,
-} from "lucide-react";
+import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import { Layout } from "@/components/layout/Layout";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-};
+// How It Works, 2026-10 rebuild in the home page's .bh system (styles/home.css). The page shows the process on our own
+// work: three office buildings (showcase-office, 10/4/26) taken massing -> rendering -> Revit model built from the
+// rendering -> sheet set, with the narrated build videos. Previous page: Website_Content/ai-services.tsx.before-2026-10-04 and git.
 
-const staggerContainer = {
-  initial: {},
-  whileInView: { transition: { staggerChildren: 0.1 } },
-  viewport: { once: true },
-};
+const STAGES = [
+  { n: "01", h: "Massing", img: "/images/how/a-massing.jpg", fit: "contain",
+    p: "The big moves first: how the building sits on the corner, how tall it is, where it steps and cantilevers. Simple volumes in Revit, quick to compare." },
+  { n: "02", h: "Rendering", img: "/images/how/a-render.jpg", fit: "cover",
+    p: "That exact Revit view is rendered with AI, held to the massing and a project palette. The approved rendering becomes the design." },
+  { n: "03", h: "Revit model", img: "/images/how/a-model.jpg", fit: "contain",
+    p: "We measure the rendering (every band, fin, pier and bay) and build the Revit model to match it, down to the street in front." },
+  { n: "04", h: "Documents", img: "/images/how/a-sheet.jpg", fit: "contain",
+    p: "Plans, RCPs, elevations, sections and schedules on your titleblock, with the rendering in the set." },
+];
 
-const staggerItem = {
-  initial: { opacity: 0, y: 15 },
-  whileInView: { opacity: 1, y: 0 },
-};
+const VIDEOS = [
+  { src: "/videos/how/office-a.mp4", poster: "/images/how/a-poster.jpg", t: "Option A · Shifted bars", d: "Massing, rendering, model, street, core and sheets. 2:01" },
+  { src: "/videos/how/office-b.mp4", poster: "/images/how/b-poster.jpg", t: "Option B · Stepped terraces", d: "One aerial rendering, built to match. 1:42" },
+  { src: "/videos/how/office-c.mp4", poster: "/images/how/c-poster.jpg", t: "Option C · Carved corner", d: "A four-storey plaza carved out of the corner. 1:25" },
+];
 
-function FAQItem({
-  question,
-  answer,
-}: {
-  question: string;
-  answer: string;
-}) {
-  const [isOpen, setIsOpen] = useState(false);
+const OPTIONS = [
+  { code: "BOS-2611A", t: "Option A · Shifted bars", render: "/images/how/a-render.jpg", model: "/images/how/a-model.jpg",
+    d: "Limestone podium, glass behind bronze fins, and a white upper bar cantilevered past the corner." },
+  { code: "BOS-2611B", t: "Option B · Stepped terraces", render: "/images/how/b-render.jpg", model: "/images/how/b-model.jpg",
+    d: "Buff precast base, a terracotta tier and a glass top, stepping back from the street with planted terraces." },
+  { code: "BOS-2611C", t: "Option C · Carved corner", render: "/images/how/c-render.jpg", model: "/images/how/c-model.jpg",
+    d: "One charcoal block with a four-storey, timber-lined plaza carved out of the street corner." },
+];
 
-  return (
-    <div className="border-b border-white/10 last:border-0">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between py-6 text-left group"
-      >
-        <span className="font-heading text-lg font-semibold text-white pr-4">
-          {question}
-        </span>
-        <ChevronDown
-          className={`w-5 h-5 text-[#4A9EFF] flex-shrink-0 transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-40 pb-6" : "max-h-0"
-        }`}
-      >
-        <p className="text-blue-100/70 leading-relaxed">{answer}</p>
-      </div>
-    </div>
-  );
-}
+const STEPS = [
+  { n: "01", h: "Send what you have", p: "A massing, a rendering, PDFs, DWGs, scans, sketches or redlines. For site work, the project address is enough to start." },
+  { n: "02", h: "A fixed price and a date", p: "We review the source and come back with a fixed price and a delivery date, agreed before any work starts." },
+  { n: "03", h: "Built and checked", p: "Built in Revit on your template by our automation, then checked: placement against the project address, county parcel, survey and lidar terrain; the model against the source, view by view." },
+  { n: "04", h: "Signed off and delivered", p: "A BIM specialist reviews the set before it reaches you. You get native Revit and a coordinated PDF set, with one revision round included." },
+];
 
-export default function AIServices() {
+const FAQ = [
+  { q: "Can you start from a massing or a rendering instead of drawings?", a: "Yes. Send a massing, a sketch or an approved rendering and we build the Revit model to match it, then document it, the way the three office buildings on this page were done." },
+  { q: "Does this replace our architects?", a: "No. We take the repetitive production work off your desk (modeling, sheet creation, view placement, annotation) and hand back finished files. Design, client relationships and the decisions that need professional judgment stay with your team, and so does the seal." },
+  { q: "What Revit versions do you work in?", a: "Revit 2025, 2026 and 2027. We work in your version and hand back a native .rvt you can open and keep working in, built in your template with your families and naming." },
+  { q: "Is our project data secure?", a: "Your files stay on infrastructure under our control and are never uploaded to third-party BIM services or used to train anything. Work is produced in the United States. Nothing is installed on your machines and nothing runs on your network." },
+  { q: "Why is this faster than a conventional drafting team?", a: "Our own automation drives Revit directly: it builds the elements, places the views and assembles the sheets instead of clicking through them by hand. A specialist checks the result. You buy what it produces, not the software." },
+];
+
+export default function HowItWorks() {
   return (
     <Layout
-      title="AI-Powered BIM Automation | BIM Ops Studio"
-      description="Production AI that controls Revit through named pipes, signed off by a BIM specialist. See the system that automates construction document production."
+      title="How It Works | BIM Ops Studio"
+      description="From a massing to a Revit set: we render the massing, build the Revit model from the approved rendering and document it on your titleblock. Three office buildings, start to finish, with the build videos."
     >
-      {/* ── Hero ── */}
-      <section className="relative pt-40 pb-32 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/blueprint-detail.jpg"
-            alt="Blueprint detail"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-[#0A1B2A]/[0.92]" />
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#4A9EFF]/[0.08] rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl" />
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <Badge className="mb-6 bg-[#4A9EFF]/20 text-[#4A9EFF] border-[#4A9EFF]/30 text-sm px-4 py-1">
-              Production System &mdash; Not a Prototype
-            </Badge>
-
-            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
-              AI-Powered BIM.
-              <span className="block text-[#4A9EFF] mt-2">
-                Not Science Fiction &mdash; Production Reality.
-              </span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-blue-100/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Our system connects Claude AI directly to Revit through named
-              pipes, reading markups, creating walls, placing views, and
-              assembling construction document sets &mdash; all in real time.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="bg-[#4A9EFF] text-white hover:bg-[#4A9EFF]/90 font-bold text-base px-8 py-6"
-                >
-                  Request a Live Demo
-                  <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </Link>
-              <a href="mailto:info@bimopsstudio.com">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-white/30 bg-transparent text-white hover:bg-white hover:text-gray-900 text-base px-8 py-6"
-                >
-                  info@bimopsstudio.com
-                </Button>
-              </a>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+      </Head>
+      <div className="bh">
+        <div className="hero inner">
+          <figure className="sl on">
+            <img src="/images/how/a-render-hero.jpg" alt="Office Option A, the approved rendering the Revit model was built from" style={{ objectPosition: "center 40%" }}
+                 loading="eager" {...({ fetchPriority: "high" } as any)} />
+          </figure>
+          <div className="hero-in">
+            <div className="hero-tx">
+              <p className="kick">How it works</p>
+              <h1>From a massing<span>to a Revit set.</span></h1>
+              <p className="sub">We render the massing, build the Revit model from the approved rendering, and document it on your
+                titleblock. Here are three office buildings, start to finish.</p>
+              <div className="acts">
+                <Link className="btn" href="/contact/">Start a project</Link>
+                <a className="line" href="#watch">Watch it built</a>
+              </div>
             </div>
-          </motion.div>
+          </div>
+          <div className="hcap"><span><b>Office, Option A</b> <span className="mono">BOS-2611A</span></span></div>
         </div>
-      </section>
 
-      {/* ── The Pipeline ── */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-800/50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-4xl mx-auto"
-            {...fadeInUp}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
-              The Pipeline
-            </h2>
-            <p className="text-center text-gray-500 dark:text-gray-400 mb-16 text-lg max-w-2xl mx-auto">
-              Four layers working together. One AI orchestrating everything from
-              markup to construction document.
-            </p>
-
-            <div className="space-y-4">
-              {[
-                {
-                  layer: "Layer 1",
-                  name: "Revit",
-                  detail:
-                    "Your BIM model, your data, your standards. The single source of truth.",
-                  color: "bg-cyan-600",
-                  icon: Layers,
-                  width: "w-full",
-                },
-                {
-                  layer: "Layer 2",
-                  name: "RevitMCPBridge",
-                  detail:
-                    "Named pipe connection — not HTTP, zero latency. Built and maintained in-house.",
-                  color: "bg-purple-600",
-                  icon: Zap,
-                  width: "w-[94%]",
-                },
-                {
-                  layer: "Layer 3",
-                  name: "AI Engine (Claude)",
-                  detail:
-                    "Understands architectural intent. Reads markups. Makes decisions.",
-                  color: "bg-[#4A9EFF]",
-                  icon: Shield,
-                  width: "w-[88%]",
-                },
-                {
-                  layer: "Layer 4",
-                  name: "MCP Servers (12)",
-                  detail:
-                    "Bluebeam, AutoCAD, browser automation, rendering, voice — all connected.",
-                  color: "bg-indigo-600",
-                  icon: ExternalLink,
-                  width: "w-[82%]",
-                },
-              ].map((layer, index) => (
-                <motion.div
-                  key={layer.layer}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.12 }}
-                  className={`${layer.width} mx-auto`}
-                >
-                  <div
-                    className={`${layer.color} rounded-xl p-6 text-white shadow-lg`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <layer.icon className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-1">
-                          <span className="text-white/50 text-xs uppercase tracking-wider font-medium">
-                            {layer.layer}
-                          </span>
-                          <span className="font-heading font-bold text-lg">
-                            {layer.name}
-                          </span>
-                        </div>
-                        <p className="text-white/70 text-sm">{layer.detail}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Connector lines are implied by the stacked, narrowing layout */}
-            <motion.p
-              className="text-center text-sm text-gray-400 dark:text-gray-500 mt-8"
-              {...fadeInUp}
-              transition={{ duration: 0.4, delay: 0.6 }}
-            >
-              Named pipes deliver sub-millisecond IPC &mdash; no REST overhead,
-              no network dependency.
-            </motion.p>
-          </motion.div>
+        <div className="ticker">
+          <div><b>1,500+</b><span>automated Revit operations in production</span></div>
+          <div><b>Fixed</b><span>price and delivery date, agreed before work starts</span></div>
+          <div><b>2025–2027</b><span>Revit versions we deliver in</span></div>
+          <div><b>ADN</b><span>Autodesk Developer Network member #USUS0234</span></div>
         </div>
-      </section>
 
-      {/* ── What AI Actually Does ── */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeInUp} transition={{ duration: 0.6 }}>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
-              What AI Actually Does
-            </h2>
-            <p className="text-center text-gray-500 dark:text-gray-400 mb-16 text-lg max-w-2xl mx-auto">
-              Not chatbot suggestions. Real execution on real Revit models.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                icon: FileText,
-                title: "Reads PDF Markups",
-                input: "Redlined PDFs with dimensions, notes, and callouts",
-                output:
-                  "Identifies changes and applies them directly to the Revit model",
-              },
-              {
-                icon: Layers,
-                title: "Assembles CD Sets",
-                input: "Project requirements and view templates",
-                output:
-                  "Creates sheets, places views, sets scales, adds annotations — 50+ sheets in minutes",
-              },
-              {
-                icon: Shield,
-                title: "Coordinates Documents",
-                input: "Plans, sections, elevations across disciplines",
-                output:
-                  "Cross-references and catches conflicts before they reach the field",
-              },
-              {
-                icon: Clock,
-                title: "Produces Construction Details",
-                input: "Detail requirements from plans and specifications",
-                output:
-                  "Selects from a library of 115 cataloged details and places them at the correct locations",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-                  <CardContent className="p-6 pt-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#4A9EFF]/10 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-6 h-6 text-[#4A9EFF]" />
-                      </div>
-                      <div>
-                        <h3 className="font-heading text-xl font-bold mb-3 text-gray-900 dark:text-white">
-                          {item.title}
-                        </h3>
-                        <div className="space-y-2">
-                          <div className="flex items-start gap-2">
-                            <span className="text-xs uppercase tracking-wider text-gray-400 font-semibold mt-0.5 w-10 flex-shrink-0">
-                              In
-                            </span>
-                            <p className="text-gray-500 dark:text-gray-400 text-sm">
-                              {item.input}
-                            </p>
-                          </div>
-                          <div className="flex items-start gap-2">
-                            <span className="text-xs uppercase tracking-wider text-[#4A9EFF] font-semibold mt-0.5 w-10 flex-shrink-0">
-                              Out
-                            </span>
-                            <p className="text-gray-700 dark:text-gray-200 text-sm font-medium">
-                              {item.output}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+        <section className="why wrap" id="process">
+          <p className="kick">The process</p>
+          <h2 className="big">One building, four stages. Every stage is a real file.</h2>
+          <div className="stages">
+            {STAGES.map((s) => (
+              <figure key={s.n}>
+                <div className={"stimg " + s.fit}><img src={s.img} alt={`Office Option A, stage ${s.n}: ${s.h}`} loading="lazy" /></div>
+                <figcaption><span className="mono">{s.n}</span><h3>{s.h}</h3><p>{s.p}</p></figcaption>
+              </figure>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── Results ── */}
-      <section className="py-32 bg-gradient-to-br from-deep-navy via-blue-900 to-indigo-900 text-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
-            {...fadeInUp}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-16">
-              The System, In Numbers
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-              {[
-                {
-                  value: "1,500+",
-                  label: "Automated Revit Operations",
-                  detail: "in production use",
-                },
-                {
-                  value: "2025–2027",
-                  label: "Revit Versions",
-                  detail: "delivered on your template",
-                },
-                {
-                  value: "ADN",
-                  label: "Autodesk Developer Network",
-                  detail: "member #USUS0234",
-                },
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-[#4A9EFF] mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="font-heading text-sm md:text-base font-semibold mb-1">
-                    {stat.label}
-                  </div>
-                  <div className="text-blue-200/50 text-xs md:text-sm">
-                    {stat.detail}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.p
-              className="mt-16 text-blue-100/60 text-base max-w-xl mx-auto"
-              {...fadeInUp}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              Numbers from production use on residential and commercial
-              projects. Not projections &mdash; actual tracked output.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── Implementation Process ── */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeInUp} transition={{ duration: 0.6 }}>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
-              How the Work Gets Produced
-            </h2>
-            <p className="text-center text-gray-500 dark:text-gray-400 mb-16 text-lg max-w-2xl mx-auto">
-              From your files to a finished deliverable. Nothing installed on
-              your side.
-            </p>
-          </motion.div>
-
-          <div className="max-w-3xl mx-auto">
-            {[
-              {
-                week: "Step 1",
-                title: "Your Standards, Loaded",
-                description:
-                  "We take your template, sheet naming conventions, detail library and QA checklist, and set the pipeline to match them. Your standards drive the output — not ours.",
-                icon: FileText,
-              },
-              {
-                week: "Step 2",
-                title: "Built and Checked",
-                description:
-                  "The work is produced in our studio and validated against your QA checklist before it goes anywhere near you.",
-                icon: Zap,
-              },
-              {
-                week: "Step 3",
-                title: "Delivered and Revised",
-                description:
-                  "You get native Revit files and a coordinated PDF set. One revision round against the delivered scope is part of the job.",
-                icon: CheckCircle,
-              },
-            ].map((phase, index) => (
-              <motion.div
-                key={phase.week}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="flex gap-6 mb-12 last:mb-0"
-              >
-                {/* Timeline line */}
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#4A9EFF]/10 flex items-center justify-center flex-shrink-0">
-                    <phase.icon className="w-5 h-5 text-[#4A9EFF]" />
-                  </div>
-                  {index < 2 && (
-                    <div className="w-px h-full bg-[#4A9EFF]/20 mt-2" />
-                  )}
-                </div>
-
-                <div className="pb-2">
-                  <Badge className="mb-2 bg-[#4A9EFF]/10 text-[#4A9EFF] border-[#4A9EFF]/20 text-xs">
-                    {phase.week}
-                  </Badge>
-                  <h3 className="font-heading text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                    {phase.title}
-                  </h3>
-                  <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
-                    {phase.description}
-                  </p>
-                </div>
-              </motion.div>
+        <section className="wrap" id="watch">
+          <div className="shead"><h2>Watch it built</h2><span className="mono">Recorded in Revit, hands off</span></div>
+          <div className="vids">
+            {VIDEOS.map((v, i) => (
+              <figure key={v.src} className={i === 0 ? "vbig" : ""}>
+                <video controls preload="none" playsInline poster={v.poster}>
+                  <source src={v.src} type="video/mp4" />
+                </video>
+                <figcaption><b>{v.t}</b><span>{v.d}</span></figcaption>
+              </figure>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── FAQ ── */}
-      <section className="py-24 bg-gradient-to-br from-deep-navy to-blue-900 text-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-3xl mx-auto"
-            {...fadeInUp}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-16">
-              Common Questions
-            </h2>
+        <section className="wrap">
+          <div className="shead"><h2>Three buildings, one process</h2><span className="mono">Rendering, then the model built from it</span></div>
+          <div className="opts">
+            {OPTIONS.map((o) => (
+              <div key={o.code} className="opt">
+                <div className="pair">
+                  <figure><img src={o.render} alt={`${o.t}, approved rendering`} loading="lazy" /><figcaption className="mono">Rendering</figcaption></figure>
+                  <figure><img src={o.model} alt={`${o.t}, Revit model built from the rendering`} loading="lazy" /><figcaption className="mono">Revit model</figcaption></figure>
+                </div>
+                <div className="bt-m"><b>{o.t}</b><i className="mono">{o.code}</i></div>
+                <span className="bt-d">{o.d}</span>
+              </div>
+            ))}
+          </div>
+        </section>
 
-            <div className="bg-white/5 rounded-2xl border border-white/10 px-8">
-              <FAQItem
-                question="Does this replace our architects?"
-                answer="No. We take the repetitive production work off your desk — sheet creation, view placement, annotation, detail coordination — and hand back finished files. Design, client relationships and the decisions that require professional judgment stay with your team, and so does the seal."
-              />
-              <FAQItem
-                question="What Revit versions do you work in?"
-                answer="Revit 2025, 2026 and 2027. We work in your version and hand back a native .rvt you can open and keep working in, built in your template with your families and naming."
-              />
-              <FAQItem
-                question="Is our project data secure?"
-                answer="Your files stay on infrastructure under our control and are never uploaded to third-party BIM services or used to train anything. Work is produced in the United States. Nothing is installed on your machines and nothing runs on your network."
-              />
-              <FAQItem
-                question="Why is this faster than a conventional drafting team?"
-                answer="The production pipeline described above is ours and it runs in our studio. It reads the source, builds elements, places views and assembles documents directly in Revit rather than clicking through them. You buy the output it produces, not the pipeline."
-              />
+        <div className="system">
+          <div className="wrap">
+            <p className="kick">Who does the work</p>
+            <h2>Automation does the volume.<span>A specialist signs every set.</span></h2>
+            <div className="syscols">
+              <p>The production runs on software we wrote ourselves. It drives Revit directly, builds the elements, places
+                the views and assembles the sheets, and it gets more accurate every project because every mistake is written
+                down and checked for next time.</p>
+              <p>Nothing leaves the studio without a BIM specialist's review against your standards and QA checklist. The
+                work is produced in the United States, and nothing is installed on your side.</p>
             </div>
-          </motion.div>
+            <p className="sysline">You buy what it produces. <em>Not the software.</em></p>
+          </div>
         </div>
-      </section>
 
-      {/* ── CTA ── */}
-      <section className="py-32">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            className="max-w-2xl mx-auto"
-            {...fadeInUp}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
-              See it in action.
-              <span className="block text-[#4A9EFF] mt-2">
-                Request a live demo.
-              </span>
-            </h2>
+        <section className="why wrap" id="steps">
+          <p className="kick">Working with us</p>
+          <h2 className="big">Four steps, one point of contact, no surprises on price.</h2>
+          <div className="whyg">
+            {STEPS.map((s) => (
+              <div key={s.n}><span className="mono">{s.n}</span><h3>{s.h}</h3><p>{s.p}</p></div>
+            ))}
+          </div>
+        </section>
 
-            <p className="text-gray-500 dark:text-gray-400 text-lg mb-10 max-w-lg mx-auto">
-              Not a slide deck. A live system running on a real machine,
-              building real construction documents, in real time.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="bg-[#4A9EFF] text-white hover:bg-[#4A9EFF]/90 font-bold text-base px-8 py-6"
-                >
-                  Request Demo
-                  <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </Link>
-              <a href="mailto:info@bimopsstudio.com">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 text-base px-8 py-6"
-                >
-                  info@bimopsstudio.com
-                </Button>
-              </a>
+        <section className="wrap">
+          <div className="shead"><h2>What comes back</h2><Link className="mono" href="/services/">Services →</Link></div>
+          <div className="feature">
+            <img src="/images/how/c-model.jpg" alt="Office Option C, the Revit model with its street" loading="lazy" />
+            <div>
+              <h3>A working model, not a traced shell</h3>
+              <p>Real walls, floors, curtain walls, doors, rooms and sheets your team can open and keep designing in, in your
+                version of Revit, on your titleblock.</p>
+              <ul>
+                <li><span className="mono">01</span>Native .rvt built on your template, families and naming</li>
+                <li><span className="mono">02</span>Plans, elevations, sections and schedules placed on your titleblock</li>
+                <li><span className="mono">03</span>A coordinated PDF set</li>
+                <li><span className="mono">04</span>The renderings, placed in the set</li>
+                <li><span className="mono">05</span>One revision round against the delivered scope</li>
+              </ul>
             </div>
+          </div>
+        </section>
 
-            <p className="mt-12 text-gray-400 dark:text-gray-500 text-sm">
-              Weber Gouin &nbsp;&middot;&nbsp; BIM Ops Studio
-              &nbsp;&middot;&nbsp; Autodesk Developer Network Member
-            </p>
-          </motion.div>
-        </div>
-      </section>
+        <section className="wrap">
+          <div className="shead"><h2>Placed on the real site</h2><Link className="mono" href="/3d-mapping/">Site and 3D mapping →</Link></div>
+          <div className="feature rev">
+            <img src="/images/work/hero-brickell.jpg" alt="Brickell site context model built from public mapping data" loading="lazy" />
+            <div>
+              <h3>Tied to the project address, checked against the record</h3>
+              <p>On a real project, the model starts from where the building really is. We check placement against public
+                records for the address and build the site around it, so the model sits where it will be built, not eyeballed
+                onto an aerial.</p>
+              <ul>
+                <li><span className="mono">01</span>County parcel lines and the recorded lot area</li>
+                <li><span className="mono">02</span>The survey you send, point by point</li>
+                <li><span className="mono">03</span>USGS lidar terrain for real ground levels</li>
+                <li><span className="mono">04</span>Surrounding buildings, streets and context, mapped</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="wrap">
+          <div className="shead"><h2>Common questions</h2><Link className="mono" href="/faq/">All questions →</Link></div>
+          <div className="faq">
+            {FAQ.map((f) => (
+              <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+            ))}
+          </div>
+        </section>
+
+        <section className="closer wrap">
+          <h2>Send us a massing, a rendering or a drawing.</h2>
+          <p>A fixed price and a delivery date, agreed before any work starts.</p>
+          <Link className="btn" href="/contact/">Start a project</Link>
+        </section>
+      </div>
     </Layout>
   );
 }
