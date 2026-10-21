@@ -18,14 +18,14 @@ const STAGES = [
 ];
 
 const VIDEOS = [
-  { src: "/videos/how/office-a.mp4", poster: "/images/how/a-poster.jpg", t: "Option A · Shifted bars", d: "Massing, rendering, model, street, core and sheets. 2:01" },
+  { src: "/videos/how/office-a.mp4", poster: "/images/how/a-poster.jpg", t: "Option A · Shifted bars", d: "Massing, one rendering, model, street, core and sheets. 1:51" },
   { src: "/videos/how/office-b.mp4", poster: "/images/how/b-poster.jpg", t: "Option B · Stepped terraces", d: "One aerial rendering, built to match. 1:42" },
   { src: "/videos/how/office-c.mp4", poster: "/images/how/c-poster.jpg", t: "Option C · Carved corner", d: "A four-storey plaza carved out of the corner. 1:25" },
 ];
 
 const OPTIONS = [
   { code: "BOS-2611A", t: "Option A · Shifted bars", render: "/images/how/a-render.jpg", model: "/images/how/a-model.jpg",
-    d: "Limestone podium, glass behind bronze fins, and a white upper bar cantilevered past the corner." },
+    d: "Limestone podium, glass behind bronze fins, and a white upper bar slid east, cantilevered past the podium over a glass storey." },
   { code: "BOS-2611B", t: "Option B · Stepped terraces", render: "/images/how/b-render.jpg", model: "/images/how/b-model.jpg",
     d: "Buff precast base, a terracotta tier and a glass top, stepping back from the street with planted terraces." },
   { code: "BOS-2611C", t: "Option C · Carved corner", render: "/images/how/c-render.jpg", model: "/images/how/c-model.jpg",
