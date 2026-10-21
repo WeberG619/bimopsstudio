@@ -104,7 +104,7 @@ export default function HowItWorks() {
           <div className="vids">
             {VIDEOS.map((v, i) => (
               <figure key={v.src} className={i === 0 ? "vbig" : ""}>
-                <video controls preload="none" playsInline poster={v.poster}>
+                <video controls preload="none" playsInline poster={v.poster} onEnded={(e) => e.currentTarget.load()}>
                   <source src={v.src} type="video/mp4" />
                 </video>
                 <figcaption><b>{v.t}</b><span>{v.d}</span></figcaption>
