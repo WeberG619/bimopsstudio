@@ -158,7 +158,7 @@ export default function About() {
                     Weber Gouin
                   </h3>
                   <p className="text-blue-500 font-medium mb-1">
-                    Founder & Principal
+                    Founder and President
                   </p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     ADN Member #USUS0234
@@ -258,7 +258,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Collaborators Section */}
+      {/* Team Section */}
       <section className="py-20 border-t border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
@@ -269,11 +269,10 @@ export default function About() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-                Our <span className="text-blue-500">Collaborators</span>
+                Our <span className="text-blue-500">Team</span>
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
-                Independent professionals who bring senior depth to BIM Ops
-                Studio projects.
+                The people who bring senior depth to BIM Ops Studio projects.
               </p>
 
               <div className="bg-gradient-to-br from-blue-500/5 to-indigo-600/5 rounded-2xl p-8 md:p-10">
@@ -282,7 +281,7 @@ export default function About() {
                     Krishna E. Royer
                   </h3>
                   <p className="text-blue-500 font-medium mb-1">
-                    BIM Project Manager
+                    Director, Operations
                   </p>
                   <p className="text-sm italic text-gray-500 dark:text-gray-400">
                     Principal, KRM Designs
@@ -329,6 +328,47 @@ export default function About() {
                     "Stadiums",
                     "High-Rise Mixed-Use",
                     "Design + Build",
+                  ].map((skill) => (
+                    <Badge key={skill} variant="outline" className="text-sm">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 bg-gradient-to-br from-blue-500/5 to-indigo-600/5 rounded-2xl p-8 md:p-10">
+                <div>
+                  <h3 className="font-heading text-2xl font-bold text-gray-900 dark:text-white">
+                    Felix Lubin
+                  </h3>
+                  <p className="text-blue-500 font-medium mb-1">
+                    Director, Business Development
+                  </p>
+                  <a
+                    href="mailto:felix@bimopsstudio.com"
+                    className="mt-2 inline-block text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors"
+                  >
+                    felix@bimopsstudio.com
+                  </a>
+                </div>
+
+                <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 mb-4">
+                  Felix is a project manager with experience across all phases
+                  of design and construction. He enjoys bringing order to
+                  complex projects, helping teams work together, and finding
+                  practical solutions to everyday challenges.
+                </p>
+                <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                  His approach is simple: stay organized, pay attention to the
+                  details, and communicate clearly to build lasting
+                  relationships and deliver quality work for our partners.
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Project Management",
+                    "Design + Construction",
+                    "Business Development",
                   ].map((skill) => (
                     <Badge key={skill} variant="outline" className="text-sm">
                       {skill}
