@@ -6,17 +6,17 @@ export function Footer() {
     {
       title: "Company",
       links: [
-        { href: "/services", label: "Services" },
-        { href: "/ai-services", label: "How It Works" },
-        { href: "/about", label: "About" },
-        { href: "/contact", label: "Contact" },
+        { href: "/services/", label: "Services" },
+        { href: "/ai-services/", label: "How It Works" },
+        { href: "/about/", label: "About" },
+        { href: "/contact/", label: "Contact" },
       ],
     },
     {
       title: "Legal",
       links: [
-        { href: "/privacy", label: "Privacy Policy" },
-        { href: "/terms", label: "Terms of Service" },
+        { href: "/privacy/", label: "Privacy Policy" },
+        { href: "/terms/", label: "Terms of Service" },
       ],
     },
   ];

@@ -19,10 +19,10 @@ export function Header() {
 
   const navItems = [
     { href: "/#work", label: "Work" },
-    { href: "/services", label: "Services" },
-    { href: "/ai-services", label: "How It Works" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/services/", label: "Services" },
+    { href: "/ai-services/", label: "How It Works" },
+    { href: "/about/", label: "About" },
+    { href: "/contact/", label: "Contact" },
   ];
 
   return (

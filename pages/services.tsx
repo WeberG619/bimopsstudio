@@ -32,6 +32,7 @@ import Image from "next/image";
 const services = [
   {
     name: "DWG → Revit Conversion",
+    page: "/dwg-to-revit/",
     description: "Send us your CAD backgrounds and we build the Revit model. Walls, doors, windows, levels and grids, drawn to your standards — not traced approximations.",
     icon: Layers,
     gradient: "from-blue-500 to-cyan-400",
@@ -55,6 +56,7 @@ const services = [
   },
   {
     name: "PDF → Revit Conversion",
+    page: "/pdf-to-revit/",
     description: "Only have PDFs or scans? We scale the sheets, read the geometry and build the model from them — including older drawings where no CAD file exists.",
     icon: FileText,
     gradient: "from-purple-500 to-pink-400",
@@ -384,7 +386,7 @@ export default function ServicesConstructionDocs() {
                       </ul>
                     </div>
                     
-                    <Link href="/contact">
+                    <Link href={service.page ?? "/contact/"}>
                       <Button className="w-full" variant={service.popular ? "default" : "outline"}>
                         Learn More
                         <ArrowRight className="ml-2" size={16} />
