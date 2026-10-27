@@ -23,7 +23,7 @@ export function Footer() {
 
   const socialLinks = [
     { href: "https://github.com/WeberG619", icon: <Github size={20} />, label: "GitHub" },
-    { href: "https://www.linkedin.com/in/weber-gouin-94a0b537b/", icon: <Linkedin size={20} />, label: "LinkedIn" },
+    { href: "https://www.linkedin.com/company/bim-ops-studio/", icon: <Linkedin size={20} />, label: "LinkedIn" },
     { href: "mailto:info@bimopsstudio.com", icon: <Mail size={20} />, label: "Email" },
   ];
 

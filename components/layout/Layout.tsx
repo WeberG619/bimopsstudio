@@ -61,7 +61,7 @@ export function Layout({ children, title, description, ogImage }: LayoutProps) {
       "3D site massing",
       "Architectural visualization",
     ],
-    sameAs: ["https://github.com/WeberG619"],
+    sameAs: ["https://www.linkedin.com/company/bim-ops-studio/", "https://github.com/WeberG619"],
   };
 
   return (
