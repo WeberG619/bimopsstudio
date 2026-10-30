@@ -140,24 +140,34 @@ export default function Home() {
         <section className="wrap">
           <div className="shead"><h2>Site and context</h2><Link className="mono" href="/3d-mapping/">Site and 3D mapping →</Link></div>
           <div className="sitepair">
-            <figure><img src="/images/home/site-photo.jpg" loading="lazy" alt="Aerial photo of a block in Brickell, Miami (USDA NAIP, public domain)" />
-              <figcaption><span className="mono">01</span>The aerial photo</figcaption></figure>
-            <figure><img src="/images/home/site-revit.jpg" loading="lazy" alt="The same Brickell block built in Revit: 63 buildings to their recorded heights, the streets, the Metromover guideway and the park" />
-              <figcaption><span className="mono">02</span>The same block, built in Revit</figcaption></figure>
+            <figure><img src="/images/home/site-brickell-aerial.jpg" loading="lazy" alt="Aerial photo of part of Brickell, Miami, on Biscayne Bay (USDA NAIP, public domain)" />
+              <figcaption><span className="mono">01</span>Real image</figcaption></figure>
+            <figure><img src="/images/home/site-brickell-model.jpg" loading="lazy" alt="The same area built in Revit from public information, seen from above: the buildings, trees, streets and the bay edge" />
+              <figcaption><span className="mono">02</span>Revit rendering</figcaption></figure>
+          </div>
+          <div className="siterow">
+            <figure><img src="/images/home/site-brickell-bay.jpg" loading="lazy" alt="The Revit model of Brickell from the air: towers, streets, plazas and the tree canopy" />
+              <figcaption><span className="mono">03</span>Revit rendering: from the air</figcaption></figure>
+            <figure><img src="/images/home/site-brickell-avenue.jpg" loading="lazy" alt="The Revit model seen just above the tree canopy, looking up Brickell Avenue toward the towers" />
+              <figcaption><span className="mono">04</span>Revit rendering: above the avenue</figcaption></figure>
+            <figure><img src="/images/home/site-brickell-towers.jpg" loading="lazy" alt="Towers in the Revit model, close enough to read the floors and windows" />
+              <figcaption><span className="mono">05</span>Revit rendering: floors and windows</figcaption></figure>
           </div>
           <div className="feature sitetx">
             <div>
-              <h3>From an aerial photo to the whole site in Revit</h3>
-              <p>We take the aerial and the public record for the address and model the site at real size around your
-                building: every neighbouring building to its recorded height, the streets, the transit line, the parks.
-                This block in Brickell, Miami is 63 buildings, built from public data.</p>
+              <h3>No drawings. Only public information.</h3>
+              <p>We had no drawings for this part of Brickell, Miami, only what anyone can look up: the aerial photo,
+                the county record and the lidar survey. From that we built the actual buildings in Revit, not a massing:
+                walls, floors and windows on real levels at each building&apos;s measured height, with balconies on the
+                key towers. 310 buildings and 4,196 trees across about 280 acres, with the streets, sidewalks, lawns
+                and the bay edge.</p>
             </div>
             <div>
               <ul>
-                <li><span className="mono">01</span>Neighbouring buildings to their real height</li>
-                <li><span className="mono">02</span>Streets, crossings, transit and parks</li>
-                <li><span className="mono">03</span>County parcel lines and lidar terrain</li>
-                <li><span className="mono">04</span>Placed on the project address, checked against the record</li>
+                <li><span className="mono">01</span>No drawings: the public aerial, county record and lidar</li>
+                <li><span className="mono">02</span>Walls, floors, windows and balconies on real levels</li>
+                <li><span className="mono">03</span>310 buildings and 4,196 trees, about 280 acres</li>
+                <li><span className="mono">04</span>Streets, sidewalks, lawns and the bay edge</li>
               </ul>
               <div className="acts">
                 <Link className="btn" href="/contact/">Send us an address</Link>
